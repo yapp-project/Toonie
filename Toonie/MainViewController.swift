@@ -28,7 +28,6 @@ class MainViewController: UIViewController {
   func hideContainerView(viewTag: Int) {
     for index in 100..<104 {
       self.view.viewWithTag(index)?.isHidden = (viewTag != index ? true : false)
-      
     }
   }
   
