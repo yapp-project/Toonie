@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class MainViewController: UIViewController {
   // 100 Feed, 101 Look, 102 MyPage, 103 Setting
   @IBOutlet weak var feedContainerView: UIView!
