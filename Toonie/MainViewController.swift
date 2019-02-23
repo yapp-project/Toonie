@@ -9,22 +9,26 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+  // 100 Feed, 101 Look, 102 MyPage, 103 Setting
+  @IBOutlet weak var feedContainerView: UIView!
+  @IBOutlet weak var lookContainerView: UIView!
+  @IBOutlet weak var myPageContainerView: UIView!
+  @IBOutlet weak var settingContainerView: UIView!
+ 
+  @IBAction func tabBarButtonDidTap(_ sender: UIButton) {
+    self.hideContainerView(viewTag: sender.tag - 100)
+  }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+        self.view.viewWithTag(100)?.isHidden = false
+  }
+  
+  /// 컨테이너뷰 태그값에 따라서 숨김
+  func hideContainerView(viewTag: Int) {
+    for index in 100..<104 {
+      self.view.viewWithTag(index)?.isHidden = (viewTag != index ? true : false)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+  }
+  
 }

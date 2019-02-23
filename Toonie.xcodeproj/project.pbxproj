@@ -8,11 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		00CFF7032221BD9B004F1FE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CFF7022221BD9B004F1FE4 /* AppDelegate.swift */; };
-		00CFF7052221BD9B004F1FE4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CFF7042221BD9B004F1FE4 /* ViewController.swift */; };
 		00CFF7082221BD9B004F1FE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00CFF7062221BD9B004F1FE4 /* Main.storyboard */; };
 		00CFF70A2221BD9D004F1FE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00CFF7092221BD9D004F1FE4 /* Assets.xcassets */; };
 		00CFF70D2221BD9D004F1FE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00CFF70B2221BD9D004F1FE4 /* LaunchScreen.storyboard */; };
 		00CFF7182221BD9D004F1FE4 /* ToonieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CFF7172221BD9D004F1FE4 /* ToonieTests.swift */; };
+		00CFF7282221C4A8004F1FE4 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00CFF7272221C4A8004F1FE4 /* MyPage.storyboard */; };
+		00CFF72A2221C4B8004F1FE4 /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00CFF7292221C4B8004F1FE4 /* Feed.storyboard */; };
+		00CFF72C2221C5AB004F1FE4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CFF72B2221C5AB004F1FE4 /* MainViewController.swift */; };
+		00CFF72E2221D0E2004F1FE4 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00CFF72D2221D0E2004F1FE4 /* Setting.storyboard */; };
+		00CFF7302221D0F0004F1FE4 /* Look.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00CFF72F2221D0F0004F1FE4 /* Look.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +32,6 @@
 /* Begin PBXFileReference section */
 		00CFF6FF2221BD9B004F1FE4 /* Toonie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Toonie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00CFF7022221BD9B004F1FE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		00CFF7042221BD9B004F1FE4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		00CFF7072221BD9B004F1FE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		00CFF7092221BD9D004F1FE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00CFF70C2221BD9D004F1FE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +39,11 @@
 		00CFF7132221BD9D004F1FE4 /* ToonieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToonieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00CFF7172221BD9D004F1FE4 /* ToonieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonieTests.swift; sourceTree = "<group>"; };
 		00CFF7192221BD9D004F1FE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00CFF7272221C4A8004F1FE4 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
+		00CFF7292221C4B8004F1FE4 /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
+		00CFF72B2221C5AB004F1FE4 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		00CFF72D2221D0E2004F1FE4 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		00CFF72F2221D0F0004F1FE4 /* Look.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Look.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,12 +85,14 @@
 		00CFF7012221BD9B004F1FE4 /* Toonie */ = {
 			isa = PBXGroup;
 			children = (
-				00CFF7022221BD9B004F1FE4 /* AppDelegate.swift */,
-				00CFF7042221BD9B004F1FE4 /* ViewController.swift */,
+				00CFF7262221BF70004F1FE4 /* MyPage */,
+				00CFF7252221BF5D004F1FE4 /* Setting */,
+				00CFF7242221BF32004F1FE4 /* Feed */,
+				00CFF7232221BF00004F1FE4 /* Look */,
+				00CFF7222221BDC4004F1FE4 /* Supporting Files */,
 				00CFF7062221BD9B004F1FE4 /* Main.storyboard */,
-				00CFF7092221BD9D004F1FE4 /* Assets.xcassets */,
-				00CFF70B2221BD9D004F1FE4 /* LaunchScreen.storyboard */,
 				00CFF70E2221BD9D004F1FE4 /* Info.plist */,
+				00CFF72B2221C5AB004F1FE4 /* MainViewController.swift */,
 			);
 			path = Toonie;
 			sourceTree = "<group>";
@@ -94,6 +104,48 @@
 				00CFF7192221BD9D004F1FE4 /* Info.plist */,
 			);
 			path = ToonieTests;
+			sourceTree = "<group>";
+		};
+		00CFF7222221BDC4004F1FE4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				00CFF7092221BD9D004F1FE4 /* Assets.xcassets */,
+				00CFF70B2221BD9D004F1FE4 /* LaunchScreen.storyboard */,
+				00CFF7022221BD9B004F1FE4 /* AppDelegate.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		00CFF7232221BF00004F1FE4 /* Look */ = {
+			isa = PBXGroup;
+			children = (
+				00CFF72F2221D0F0004F1FE4 /* Look.storyboard */,
+			);
+			path = Look;
+			sourceTree = "<group>";
+		};
+		00CFF7242221BF32004F1FE4 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				00CFF7292221C4B8004F1FE4 /* Feed.storyboard */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		00CFF7252221BF5D004F1FE4 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				00CFF72D2221D0E2004F1FE4 /* Setting.storyboard */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		00CFF7262221BF70004F1FE4 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				00CFF7272221C4A8004F1FE4 /* MyPage.storyboard */,
+			);
+			path = MyPage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,9 +229,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00CFF72A2221C4B8004F1FE4 /* Feed.storyboard in Resources */,
 				00CFF70D2221BD9D004F1FE4 /* LaunchScreen.storyboard in Resources */,
 				00CFF70A2221BD9D004F1FE4 /* Assets.xcassets in Resources */,
 				00CFF7082221BD9B004F1FE4 /* Main.storyboard in Resources */,
+				00CFF7282221C4A8004F1FE4 /* MyPage.storyboard in Resources */,
+				00CFF7302221D0F0004F1FE4 /* Look.storyboard in Resources */,
+				00CFF72E2221D0E2004F1FE4 /* Setting.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,8 +253,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00CFF7052221BD9B004F1FE4 /* ViewController.swift in Sources */,
 				00CFF7032221BD9B004F1FE4 /* AppDelegate.swift in Sources */,
+				00CFF72C2221C5AB004F1FE4 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,7 +423,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.toonie.Toonie;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Toonie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -385,7 +441,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.toonie.Toonie;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Toonie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
