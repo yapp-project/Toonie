@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class MainViewController: UIViewController {
   // 100 Feed, 101 Look, 102 MyPage, 103 Setting
   @IBOutlet weak var feedContainerView: UIView!
@@ -24,12 +23,11 @@ class MainViewController: UIViewController {
     super.viewDidLoad()
         self.view.viewWithTag(100)?.isHidden = false
   }
-  
+    
   /// 컨테이너뷰 태그값에 따라서 숨김
   func hideContainerView(viewTag: Int) {
     for index in 100..<104 {
       self.view.viewWithTag(index)?.isHidden = (viewTag != index ? true : false)
     }
   }
-  
 }
