@@ -6,7 +6,7 @@
 //  Copyright © 2019 이재은. All rights reserved.
 //
 
-import UIKit
+import UIKit 
 
 class MainViewController: UIViewController {
   // 100 Feed, 101 Look, 102 MyPage, 103 Setting
