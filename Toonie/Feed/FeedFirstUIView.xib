@@ -46,7 +46,7 @@
                     <rect key="frame" x="114" y="333" width="147.5" height="21"/>
                     <subviews>
                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iUt-EE-ZdZ">
-                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="21"/>
+                            <rect key="frame" x="0.0" y="0.0" width="11" height="21"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="혼자있고싶다 장르의" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZI-mG-lUM">
@@ -72,7 +72,7 @@
                         <constraint firstAttribute="bottom" secondItem="iUt-EE-ZdZ" secondAttribute="bottom" id="7WK-bz-WWm"/>
                         <constraint firstItem="Sa5-dT-ttE" firstAttribute="leading" secondItem="bUE-6X-V3H" secondAttribute="leading" id="AI3-C4-XLZ"/>
                         <constraint firstItem="Sa5-dT-ttE" firstAttribute="top" secondItem="bUE-6X-V3H" secondAttribute="top" id="D9r-UG-Drk"/>
-                        <constraint firstAttribute="leading" secondItem="iUt-EE-ZdZ" secondAttribute="trailing" id="M0b-k2-5gJ"/>
+                        <constraint firstAttribute="leading" secondItem="iUt-EE-ZdZ" secondAttribute="trailing" constant="-11" id="M0b-k2-5gJ"/>
                         <constraint firstItem="rZI-mG-lUM" firstAttribute="top" secondItem="bUE-6X-V3H" secondAttribute="top" id="egA-1f-984"/>
                         <constraint firstAttribute="trailing" secondItem="rZI-mG-lUM" secondAttribute="trailing" id="fGe-NM-jOe"/>
                         <constraint firstAttribute="bottom" secondItem="Sa5-dT-ttE" secondAttribute="bottom" id="gBI-h3-f90"/>

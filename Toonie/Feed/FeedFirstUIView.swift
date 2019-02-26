@@ -18,6 +18,14 @@ class FeedFirstUIView: UIView {
     @IBOutlet weak var shapLb: UILabel!
     
     override func awakeFromNib() {
+        
+        
+
+        setGradient()
+        startAnimation()
+    }
+    
+    func setGradient() {
         let gradientIv = CAGradientLayer()
         
         gradientIv.startPoint = CGPoint(x: 0, y: 0.5)
@@ -33,12 +41,10 @@ class FeedFirstUIView: UIView {
         
         gradientIv.frame = CGRect.init(origin: CGPoint.zero, size: gradientView.bounds.size)
         gradientBackView.layer.addSublayer(gradientIv)
-        
-        startAnimation()
     }
     
     func startAnimation(){
-        UIView.animate(withDuration: 0.8, delay: 0.3, options: [], animations: {
+        UIView.animate(withDuration: 0.5, delay: 0.3, options: [], animations: {
              self.gradientBackViewRight.constant = self.gradientViewWidth.constant * (-1)
             self.gradientView.layoutIfNeeded()
         }) { (_) in
