@@ -2,13 +2,13 @@
 //  MainViewController.swift
 //  Toonie
 //
-//  Created by 이재은 on 24/02/2019.
-//  Copyright © 2019 이재은. All rights reserved.
+//  Created by Toonie on 24/02/2019.
+//  Copyright © 2019 Toonie. All rights reserved.
 //
 
 import UIKit 
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
   // 100 Feed, 101 Look, 102 MyPage, 103 Setting
   @IBOutlet weak var feedContainerView: UIView!
   @IBOutlet weak var lookContainerView: UIView!

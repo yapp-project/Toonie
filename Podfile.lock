@@ -1,16 +1,24 @@
 PODS:
-  - SwiftyGif (4.2.0)
+  - Kingfisher (4.10.1)
+  - KTCenterFlowLayout (1.3.1)
+  - lottie-ios (2.5.2)
 
 DEPENDENCIES:
-  - SwiftyGif
+  - Kingfisher
+  - KTCenterFlowLayout
+  - lottie-ios
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - SwiftyGif
+    - Kingfisher
+    - KTCenterFlowLayout
+    - lottie-ios
 
 SPEC CHECKSUMS:
-  SwiftyGif: a149bf84df23370592f3f075561ae02c8632a314
+  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
+  KTCenterFlowLayout: 6e02b50ab2bd865025ae82fe266ed13b6d9eaf97
+  lottie-ios: 3fef45d3fabe63e3c7c2eb603dd64ddfffc73062
 
-PODFILE CHECKSUM: 065737ac14b652532deed565ae53450201567e54
+PODFILE CHECKSUM: 8cea931b6b33ec0eae9daccf19120d46e8a581da
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.1

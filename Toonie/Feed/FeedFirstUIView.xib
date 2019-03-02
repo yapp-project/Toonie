@@ -97,7 +97,7 @@
                 <outlet property="gradientBackViewRight" destination="M0b-k2-5gJ" id="bbP-US-T9r"/>
                 <outlet property="gradientView" destination="bUE-6X-V3H" id="0vl-z5-tqy"/>
                 <outlet property="gradientViewWidth" destination="3B6-aO-xkL" id="hNM-9n-pxy"/>
-                <outlet property="shapLb" destination="Sa5-dT-ttE" id="ojr-uz-3D3"/>
+                <outlet property="shapLabel" destination="Sa5-dT-ttE" id="I2O-5S-OfQ"/>
             </connections>
             <point key="canvasLocation" x="132" y="154.27286356821591"/>
         </view>

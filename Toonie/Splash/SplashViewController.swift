@@ -3,22 +3,19 @@
 //  Toonie
 //
 //  Created by ebpark on 26/02/2019.
-//  Copyright © 2019 이재은. All rights reserved.
+//  Copyright © 2019 Toonie. All rights reserved.
 //
 
 import UIKit
-import SwiftyGif
 
 let KEYWORD_ANIMATION_TAG = 100
 
-
-class SplashViewController: UIViewController {
+final class SplashViewController: UIViewController {
  
     @IBOutlet weak var logoImage: UIImageView!
-    @IBOutlet weak var keywordMoveBtn : UIButton!
+    @IBOutlet weak var keywordMoveButton : UIButton!
     
     var keywordAniGifName: String = "giphy.gif"
-    let gifManager = SwiftyGifManager(memoryLimit:60)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,9 +41,6 @@ class SplashViewController: UIViewController {
     
     ///키워드 화면 진입해야하는 유저일시 실행되는 애니메이션
     func keywordSelectAnimation() {
-        let gifImage = UIImage(gifName: keywordAniGifName)
-        logoImage.delegate = self
-        logoImage.setGifImage(gifImage, manager: gifManager, loopCount: 1)
     }
     
     ///키워드 화면 진입 버튼 노출
@@ -61,19 +55,5 @@ class SplashViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "KeywordSelectViewController")
         UIApplication.shared.keyWindow?.rootViewController = vc
-    }
-}
-
-//tabBarButtonDidTap
-
-extension SplashViewController : SwiftyGifDelegate {
-    func gifDidStart(sender: UIImageView) {
-    }
-    
-    func gifDidLoop(sender: UIImageView) {
-    }
-    
-    func gifDidStop(sender: UIImageView) {
-        keywordMoveBtnShow()
     }
 }

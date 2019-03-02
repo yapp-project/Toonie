@@ -205,7 +205,7 @@
                         <viewLayoutGuide key="safeArea" id="lh4-tU-q3B"/>
                     </view>
                     <connections>
-                        <outlet property="keywordMoveBtn" destination="eU8-gJ-I1I" id="bOd-rT-Rek"/>
+                        <outlet property="keywordMoveButton" destination="eU8-gJ-I1I" id="ncQ-gK-2UX"/>
                         <outlet property="logoImage" destination="dUl-km-JE2" id="Kng-Ba-ymy"/>
                     </connections>
                 </viewController>
@@ -221,17 +221,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="키워드버튼임" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tmJ-RH-WLw">
-                                <rect key="frame" x="172" y="420" width="89" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="키워드화묜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tmJ-RH-WLw">
+                                <rect key="frame" x="170" y="64" width="74" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fgA-TT-UM6">
+                                <rect key="frame" x="0.0" y="95" width="414" height="717"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Srk-Pd-wVw" customClass="KTCenterFlowLayout">
+                                    <size key="itemSize" width="100" height="30"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="KeywordCell" id="GnN-Sw-ONT" customClass="KeywordCell" customModule="Toonie" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wSI-Fr-bnO">
+                                                    <rect key="frame" x="10" y="9" width="80" height="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="wSI-Fr-bnO" firstAttribute="leading" secondItem="GnN-Sw-ONT" secondAttribute="leading" constant="10" id="5eA-pC-EJa"/>
+                                            <constraint firstAttribute="trailing" secondItem="wSI-Fr-bnO" secondAttribute="trailing" constant="10" id="Sd6-v2-2bW"/>
+                                            <constraint firstItem="wSI-Fr-bnO" firstAttribute="centerY" secondItem="GnN-Sw-ONT" secondAttribute="centerY" id="nCz-I8-46Y"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="wSI-Fr-bnO" id="CsC-ka-9LA"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="D45-0z-Faj" id="nkP-sY-ggN"/>
+                                    <outlet property="delegate" destination="D45-0z-Faj" id="b5s-Ac-8gE"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tmJ-RH-WLw" firstAttribute="top" secondItem="hSO-0Z-hx6" secondAttribute="top" constant="20" id="14I-PN-12L"/>
+                            <constraint firstItem="fgA-TT-UM6" firstAttribute="leading" secondItem="hSO-0Z-hx6" secondAttribute="leading" id="4hz-By-ssx"/>
+                            <constraint firstItem="fgA-TT-UM6" firstAttribute="top" secondItem="tmJ-RH-WLw" secondAttribute="bottom" constant="10" id="5YM-Ig-Pbf"/>
+                            <constraint firstItem="tmJ-RH-WLw" firstAttribute="centerX" secondItem="hSO-0Z-hx6" secondAttribute="centerX" id="AEa-PG-BWW"/>
+                            <constraint firstItem="hSO-0Z-hx6" firstAttribute="bottom" secondItem="fgA-TT-UM6" secondAttribute="bottom" constant="50" id="TJE-Pp-EWR"/>
+                            <constraint firstItem="hSO-0Z-hx6" firstAttribute="trailing" secondItem="fgA-TT-UM6" secondAttribute="trailing" id="ao1-f4-vCz"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="hSO-0Z-hx6"/>
                     </view>
+                    <connections>
+                        <outlet property="keywordCollecionView" destination="fgA-TT-UM6" id="ntS-ph-R27"/>
+                        <outlet property="keywordFlowlayout" destination="Srk-Pd-wVw" id="mKh-yI-kCk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tgq-AO-9qb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

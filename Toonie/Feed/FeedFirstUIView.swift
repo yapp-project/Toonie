@@ -3,28 +3,24 @@
 //  Toonie
 //
 //  Created by ebpark on 25/02/2019.
-//  Copyright © 2019 이재은. All rights reserved.
+//  Copyright © 2019 Toonie. All rights reserved.
 //
 
 import UIKit
 
-class FeedFirstUIView: UIView {
- 
-    
+final class FeedFirstUIView: UIView {
     @IBOutlet weak var gradientView: UIView!
     @IBOutlet weak var gradientViewWidth: NSLayoutConstraint!
     @IBOutlet weak var gradientBackView: UIView!
     @IBOutlet weak var gradientBackViewRight: NSLayoutConstraint!
-    @IBOutlet weak var shapLb: UILabel!
+    @IBOutlet weak var shapLabel: UILabel!
     
     override func awakeFromNib() {
-        
-        
-
         setGradient()
         startAnimation()
     }
     
+    ///그라데이션 배경 설정
     func setGradient() {
         let gradientIv = CAGradientLayer()
         
@@ -38,17 +34,17 @@ class FeedFirstUIView: UIView {
             UIColor(red:255/255, green:220/255, blue:128/255, alpha:1).cgColor
         ]
         
-        
         gradientIv.frame = CGRect.init(origin: CGPoint.zero, size: gradientView.bounds.size)
         gradientBackView.layer.addSublayer(gradientIv)
     }
     
+    ///애니메이션 실행
     func startAnimation(){
         UIView.animate(withDuration: 0.5, delay: 0.3, options: [], animations: {
              self.gradientBackViewRight.constant = self.gradientViewWidth.constant * (-1)
             self.gradientView.layoutIfNeeded()
         }) { (_) in
-            self.shapLb.textColor = UIColor.white
+            self.shapLabel.textColor = UIColor.white
             print("self.saveAlertViewTopConstraint.constant:")
         }
         

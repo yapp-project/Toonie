@@ -6,7 +6,9 @@ target 'Toonie' do
   use_frameworks!
 
   # Pods for Toonie
-pod 'SwiftyGif'
+	pod 'KTCenterFlowLayout'
+  pod 'Kingfisher'
+  pod 'lottie-ios'
 
   target 'ToonieTests' do
     inherit! :search_paths

@@ -25,6 +25,7 @@
 		8D694D166890E314DBAD3E28 /* Pods_Toonie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E69D3B1F80ED39F92B90957 /* Pods_Toonie.framework */; };
 		B20C88DA2221F8DE0072EE92 /* FeedFirstUIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B20C88D92221F8DE0072EE92 /* FeedFirstUIView.xib */; };
 		B20C88DC2221FB310072EE92 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20C88DB2221FB310072EE92 /* FeedViewController.swift */; };
+		B2BFF2672227B3410059EBCE /* KeywordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BFF2662227B3410059EBCE /* KeywordCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		95F691B21BA7265F25F9A1A2 /* Pods-Toonie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toonie.release.xcconfig"; path = "Pods/Target Support Files/Pods-Toonie/Pods-Toonie.release.xcconfig"; sourceTree = "<group>"; };
 		B20C88D92221F8DE0072EE92 /* FeedFirstUIView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedFirstUIView.xib; sourceTree = "<group>"; };
 		B20C88DB2221FB310072EE92 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		B2BFF2662227B3410059EBCE /* KeywordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 			children = (
 				1DF9D60D2224B55E0092288E /* SplashViewController.swift */,
 				1DF9D6102224B5B00092288E /* KeywordSelectViewController.swift */,
+				B2BFF2662227B3410059EBCE /* KeywordCell.swift */,
 			);
 			path = Splash;
 			sourceTree = "<group>";
@@ -255,7 +258,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1010;
-				ORGANIZATIONNAME = "이재은";
+				ORGANIZATIONNAME = d;
 				TargetAttributes = {
 					00CFF6FE2221BD9B004F1FE4 = {
 						CreatedOnToolsVersion = 10.1;
@@ -320,18 +323,22 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Toonie/Pods-Toonie-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SwiftyGif/SwiftyGif.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Toonie/Pods-Toonie-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/KTCenterFlowLayout/KTCenterFlowLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyGif.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KTCenterFlowLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Toonie/Pods-Toonie-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Toonie/Pods-Toonie-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8B5819532522E9954AFDC2A0 /* [CP] Check Pods Manifest.lock */ = {
@@ -386,6 +393,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DF9D6112224B5B00092288E /* KeywordSelectViewController.swift in Sources */,
+				B2BFF2672227B3410059EBCE /* KeywordCell.swift in Sources */,
 				00CFF7032221BD9B004F1FE4 /* AppDelegate.swift in Sources */,
 				1DF9D60C2223E38D0092288E /* FeedFirstUIView.swift in Sources */,
 				B20C88DC2221FB310072EE92 /* FeedViewController.swift in Sources */,
@@ -556,7 +564,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9Q6DDFULNZ;
 				INFOPLIST_FILE = Toonie/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -576,7 +584,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9Q6DDFULNZ;
 				INFOPLIST_FILE = Toonie/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
