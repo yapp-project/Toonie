@@ -11,46 +11,43 @@ import UIKit
 let KEYWORD_ANIMATION_TAG = 100
 
 final class SplashViewController: UIViewController {
- 
+
     @IBOutlet weak var logoImage: UIImageView!
-    @IBOutlet weak var keywordMoveButton : UIButton!
-    
+    @IBOutlet weak var keywordMoveButton: UIButton!
+
     var keywordAniGifName: String = "giphy.gif"
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         //일반 유저 진입용 로고 애니메이션과
         //키워드 선택 유저 진입용 로고 애니메이션 구분 필요할듯.
-        
+
         //키워드를 선택한 유저인가?
-        if UserDefaults.standard.bool(forKey:"KEYWORD_SELECT") {
+        if UserDefaults.standard.bool(forKey: "KEYWORD_SELECT") {
             logoAnimation()
-        }
-        else{
+        } else {
             keywordSelectAnimation()
         }
-        
+
     }
-    
-    
-    
+
     ///일반 유저 진입시 실행되는 애니메이션
     func logoAnimation() {
     }
-    
+
     ///키워드 화면 진입해야하는 유저일시 실행되는 애니메이션
     func keywordSelectAnimation() {
     }
-    
+
     ///키워드 화면 진입 버튼 노출
     func keywordMoveBtnShow() {
-        keywordMoveBtn.isHidden = false
-        UIView.animate(withDuration: 0.5, delay:0, options: [], animations: {
-            self.keywordMoveBtn.alpha = 1.0
+        keywordMoveButton.isHidden = false
+        UIView.animate(withDuration: 0.5, delay: 0, options: [], animations: {
+            self.keywordMoveButton.alpha = 1.0
         })
     }
-    
+
     @IBAction func keywordMoveButtonDidTap(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "KeywordSelectViewController")

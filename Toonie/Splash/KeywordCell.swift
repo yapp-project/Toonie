@@ -9,6 +9,6 @@
 import UIKit
 
 final class KeywordCell: UICollectionViewCell {
-    
+
     @IBOutlet weak var titleLabel: UILabel!
 }

@@ -12,8 +12,7 @@ import KTCenterFlowLayout
 final class KeywordSelectViewController: UIViewController {
     @IBOutlet weak var keywordCollecionView: UICollectionView!
     @IBOutlet weak var keywordFlowlayout: KTCenterFlowLayout!
-    
-    
+
     let dummy =  ["A",
                   "Ala",
                   "Ar",
@@ -65,11 +64,11 @@ final class KeywordSelectViewController: UIViewController {
                   "West Virginia",
                   "Wisconsin",
                   "Wyoming"
-    ];
-    
+    ]
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         keywordFlowlayout.minimumInteritemSpacing = 3
         keywordFlowlayout.minimumLineSpacing = 3
         keywordFlowlayout.sectionInset = UIEdgeInsets.init(top: 5, left: 5, bottom: 5, right: 5)
@@ -77,38 +76,38 @@ final class KeywordSelectViewController: UIViewController {
     }
 }
 
-extension KeywordSelectViewController : UICollectionViewDelegate, UICollectionViewDataSource{
+extension KeywordSelectViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dummy.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "KeywordCell", for: indexPath) as! KeywordCell
-        
+
         cell.titleLabel.text = dummy[indexPath.row]
-        
+
         return cell
     }
-     
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
+
         let keyword = dummy[indexPath.row]
         let width = Int(keyword.widthWithConstrainedHeight(height: 10, font: UIFont.systemFont(ofSize: 10)))
-        
-        return CGSize(width: width+3, height:30)
+
+        return CGSize(width: width+3, height: 30)
     }
 }
 
-extension KeywordSelectViewController :  UICollectionViewDelegateFlowLayout{
+extension KeywordSelectViewController: UICollectionViewDelegateFlowLayout {
     private func collectionView(collectionView: UICollectionView,
                                 layout collectionViewLayout: UICollectionViewLayout,
-                                sizeForItemAtIndexPath indexPath:  IndexPath) -> CGSize {
-        
+                                sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
+
         let keyword = dummy[indexPath.row]
         let width = Int(keyword.widthWithConstrainedHeight(height: 10, font: UIFont.systemFont(ofSize: 10)))
-        
+
         print("확인해보자 \(width)")
-        return CGSize(width: width+10, height:30)
+        return CGSize(width: width+10, height: 30)
     }
 }
 
@@ -128,8 +127,6 @@ extension KeywordSelectViewController :  UICollectionViewDelegateFlowLayout{
 //}
 //
 
-
-
 extension String {
     func widthWithConstrainedHeight(height: CGFloat, font: UIFont) -> CGFloat {
         let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
@@ -137,4 +134,3 @@ extension String {
         return boundingBox.width
     }
 }
-

@@ -1,0 +1,14 @@
+disabled_rules:
+- leading_whitespace
+- trailing_whitespace
+
+excluded:
+- Toonie/Supporting Files/AppDelegate.swift
+- Pods
+
+line_length:
+warning: 99
+error: 120
+
+identifier_name:
+excluded:

@@ -6,7 +6,7 @@
 //  Copyright © 2019 Toonie. All rights reserved.
 //
 
-import UIKit 
+import UIKit
 
 final class MainViewController: UIViewController {
   // 100 Feed, 101 Look, 102 MyPage, 103 Setting
@@ -14,16 +14,16 @@ final class MainViewController: UIViewController {
   @IBOutlet weak var lookContainerView: UIView!
   @IBOutlet weak var myPageContainerView: UIView!
   @IBOutlet weak var settingContainerView: UIView!
- 
+
   @IBAction func tabBarButtonDidTap(_ sender: UIButton) {
     self.hideContainerView(viewTag: sender.tag - 100)
   }
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
         self.view.viewWithTag(100)?.isHidden = false
   }
-    
+
   /// 컨테이너뷰 태그값에 따라서 숨김
   func hideContainerView(viewTag: Int) {
     for index in 100..<104 {

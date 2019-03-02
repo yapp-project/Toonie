@@ -9,6 +9,7 @@ target 'Toonie' do
 	pod 'KTCenterFlowLayout'
   pod 'Kingfisher'
   pod 'lottie-ios'
+  pod 'SwiftLint'
 
   target 'ToonieTests' do
     inherit! :search_paths
