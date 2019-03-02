@@ -81,15 +81,24 @@ extension KeywordSelectViewController: UICollectionViewDelegate, UICollectionVie
         return dummy.count
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "KeywordCell", for: indexPath) as! KeywordCell
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "KeywordCell",
+//                                                      for: indexPath) as? KeywordCell
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "KeywordCell",
+                                                            for: indexPath) as? KeywordCell else {
+            return UICollectionViewCell()
+        }
 
         cell.titleLabel.text = dummy[indexPath.row]
 
         return cell
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         let keyword = dummy[indexPath.row]
         let width = Int(keyword.widthWithConstrainedHeight(height: 10, font: UIFont.systemFont(ofSize: 10)))
@@ -128,9 +137,14 @@ extension KeywordSelectViewController: UICollectionViewDelegateFlowLayout {
 //
 
 extension String {
-    func widthWithConstrainedHeight(height: CGFloat, font: UIFont) -> CGFloat {
-        let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
-        let boundingBox = self.boundingRect(with: constraintRect, options: [.usesLineFragmentOrigin, .usesFontLeading], attributes: [NSAttributedString.Key.font: font], context: nil)
+    func widthWithConstrainedHeight(height: CGFloat,
+                                    font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: .greatestFiniteMagnitude,
+                                    height: height)
+        let boundingBox = self.boundingRect(with: constraintRect,
+                                            options: [.usesLineFragmentOrigin,
+                                                      .usesFontLeading],
+                                            attributes: [NSAttributedString.Key.font: font], context: nil)
         return boundingBox.width
     }
 }

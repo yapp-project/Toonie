@@ -25,7 +25,7 @@
 		8D694D166890E314DBAD3E28 /* Pods_Toonie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E69D3B1F80ED39F92B90957 /* Pods_Toonie.framework */; };
 		B20C88DA2221F8DE0072EE92 /* FeedFirstUIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B20C88D92221F8DE0072EE92 /* FeedFirstUIView.xib */; };
 		B20C88DC2221FB310072EE92 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20C88DB2221FB310072EE92 /* FeedViewController.swift */; };
-		B262AB0C222A885F002155C2 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = B262AB0B222A885F002155C2 /* .swiftlint.yml */; };
+		B2679105222A8D42002031F2 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = B2679104222A8D42002031F2 /* .swiftlint.yml */; };
 		B2BFF2672227B3410059EBCE /* KeywordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BFF2662227B3410059EBCE /* KeywordCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,7 +66,7 @@
 		95F691B21BA7265F25F9A1A2 /* Pods-Toonie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toonie.release.xcconfig"; path = "Pods/Target Support Files/Pods-Toonie/Pods-Toonie.release.xcconfig"; sourceTree = "<group>"; };
 		B20C88D92221F8DE0072EE92 /* FeedFirstUIView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedFirstUIView.xib; sourceTree = "<group>"; };
 		B20C88DB2221FB310072EE92 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
-		B262AB0B222A885F002155C2 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		B2679104222A8D42002031F2 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		B2BFF2662227B3410059EBCE /* KeywordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,6 +93,7 @@
 		00CFF6F62221BD9B004F1FE4 = {
 			isa = PBXGroup;
 			children = (
+				B2679104222A8D42002031F2 /* .swiftlint.yml */,
 				00CFF7012221BD9B004F1FE4 /* Toonie */,
 				00CFF7162221BD9D004F1FE4 /* ToonieTests */,
 				00CFF7002221BD9B004F1FE4 /* Products */,
@@ -142,7 +143,6 @@
 				00CFF7092221BD9D004F1FE4 /* Assets.xcassets */,
 				00CFF70B2221BD9D004F1FE4 /* LaunchScreen.storyboard */,
 				00CFF7022221BD9B004F1FE4 /* AppDelegate.swift */,
-				B262AB0B222A885F002155C2 /* .swiftlint.yml */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -297,7 +297,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B262AB0C222A885F002155C2 /* .swiftlint.yml in Resources */,
+				B2679105222A8D42002031F2 /* .swiftlint.yml in Resources */,
 				1DF9D6172224B7990092288E /* giphy.gif in Resources */,
 				00CFF72A2221C4B8004F1FE4 /* Feed.storyboard in Resources */,
 				B20C88DA2221F8DE0072EE92 /* FeedFirstUIView.xib in Resources */,
@@ -383,7 +383,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint autocorrect\n";
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
 		};
 		FFCD255BD6AD1F351E4FBE86 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

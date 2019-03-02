@@ -8,7 +8,7 @@
 
 import UIKit
 
-let KEYWORD_ANIMATION_TAG = 100
+let tag = 100
 
 final class SplashViewController: UIViewController {
 
@@ -24,11 +24,12 @@ final class SplashViewController: UIViewController {
         //키워드 선택 유저 진입용 로고 애니메이션 구분 필요할듯.
 
         //키워드를 선택한 유저인가?
-        if UserDefaults.standard.bool(forKey: "KEYWORD_SELECT") {
-            logoAnimation()
-        } else {
-            keywordSelectAnimation()
-        }
+//        if UserDefaults.standard.bool(forKey: "KEYWORD_SELECT") {
+//            logoAnimation()
+//        } else {
+//            keywordSelectAnimation()
+//        }
+        keywordMoveBtnShow()
 
     }
 
@@ -50,7 +51,7 @@ final class SplashViewController: UIViewController {
 
     @IBAction func keywordMoveButtonDidTap(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "KeywordSelectViewController")
-        UIApplication.shared.keyWindow?.rootViewController = vc
+        let viewController = storyboard.instantiateViewController(withIdentifier: "KeywordSelectViewController")
+        UIApplication.shared.keyWindow?.rootViewController = viewController
     }
 }

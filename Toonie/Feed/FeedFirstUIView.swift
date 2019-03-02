@@ -40,12 +40,14 @@ final class FeedFirstUIView: UIView {
 
     ///애니메이션 실행
     func startAnimation() {
-        UIView.animate(withDuration: 0.5, delay: 0.3, options: [], animations: {
+        UIView.animate(withDuration: 0.5,
+                       delay: 0.3,
+                       options: [],
+                       animations: {
              self.gradientBackViewRight.constant = self.gradientViewWidth.constant * (-1)
             self.gradientView.layoutIfNeeded()
         }) { (_) in
             self.shapLabel.textColor = UIColor.white
-            print("self.saveAlertViewTopConstraint.constant:")
         }
 
     }
