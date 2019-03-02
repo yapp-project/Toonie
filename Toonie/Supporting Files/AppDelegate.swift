@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  Toonie
 //
-//  Created by 이재은 on 24/02/2019.
-//  Copyright © 2019 이재은. All rights reserved.
+//  Created by Toonie on 24/02/2019.
+//  Copyright © 2019 Toonie. All rights reserved.
 //
 
 import UIKit
@@ -12,7 +12,6 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
-
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
@@ -41,6 +40,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
   }
 
-
 }
-
