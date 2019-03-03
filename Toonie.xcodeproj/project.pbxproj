@@ -170,8 +170,8 @@
 			isa = PBXGroup;
 			children = (
 				20EDEEDFB2A92FFAA9328EB4B2086305 /* KeywordCell.swift */,
-				7369E794AEA4E0B7187CBD9AE26AFB2E /* KeywordSelectViewController.swift */,
 				D181587B82E1BF344A7F8A87649CE2A5 /* SplashViewController.swift */,
+				7369E794AEA4E0B7187CBD9AE26AFB2E /* KeywordSelectViewController.swift */,
 			);
 			path = Splash;
 			sourceTree = "<group>";
