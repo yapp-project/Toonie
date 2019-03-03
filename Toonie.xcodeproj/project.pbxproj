@@ -129,8 +129,8 @@
 				9E6F725ABBD0B87936DB74FB0EFBAEEE /* Splash */,
 				E9E1A4A921F35FE4AF2DC69238B3FBED /* Supporting Files */,
 				EA8D35008BD513F538F5DE5377E835EF /* Info.plist */,
-				24933E175890AB6E3840CCDEEEA93A35 /* Main.storyboard */,
 				764C9363F03498290ED7CCFC3B1919BA /* MainViewController.swift */,
+				24933E175890AB6E3840CCDEEEA93A35 /* Main.storyboard */,
 			);
 			path = Toonie;
 			sourceTree = "<group>";
