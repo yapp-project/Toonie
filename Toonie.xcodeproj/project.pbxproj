@@ -71,14 +71,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		CE5F455DCBC4B8425D238EF8FF886C7F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9E1130891C97D8F4786070CA5F865527 /* Pods_Toonie.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		6D90D75656461EB0B098A4F8F5E7B4D8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -87,9 +79,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CE5F455DCBC4B8425D238EF8FF886C7F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E1130891C97D8F4786070CA5F865527 /* Pods_Toonie.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E5EEACC73F0B2067BEA386D942B1580 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				AFB2C8AFCFEB675529B5A26620D498F7 /* MyPage.storyboard */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
 		262BC765159E6BB88A72DE819C145C06 = {
 			isa = PBXGroup;
 			children = (
@@ -102,13 +110,13 @@
 			);
 			sourceTree = "<group>";
 		};
-		86B4A08A75551E8A7BBF979B5EAB3D51 /* Products */ = {
+		2A7D018F4F821AC997F707D66FF1AAE8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E5B5664A67B748CC79409D5ABB761F80 /* Toonie.app */,
-				D32B5ACD1A82F7A257245C24D4210ADC /* ToonieTests.xctest */,
+				117585FB9F8E77DCB04082EAF82AE342 /* Pods_Toonie.framework */,
+				82AF128897992796FF6ED25B199B0530 /* Pods_ToonieTests.framework */,
 			);
-			name = Products;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		50DD12AB546601FDF26E6690643AA25F /* Toonie */ = {
@@ -125,6 +133,55 @@
 				764C9363F03498290ED7CCFC3B1919BA /* MainViewController.swift */,
 			);
 			path = Toonie;
+			sourceTree = "<group>";
+		};
+		51483B2FA5A46C3D0289677EDBBA0457 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				46461D78EB2754C9A17D4352D5F97AC7 /* Pods-Toonie.debug.xcconfig */,
+				300FB960FFEE2976C603D16E5DC4B10B /* Pods-Toonie.release.xcconfig */,
+				F9FED2BB74D689EF6B88421CC1B8579D /* Pods-ToonieTests.debug.xcconfig */,
+				630481886041EA402305CF71D731B02B /* Pods-ToonieTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		86B4A08A75551E8A7BBF979B5EAB3D51 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E5B5664A67B748CC79409D5ABB761F80 /* Toonie.app */,
+				D32B5ACD1A82F7A257245C24D4210ADC /* ToonieTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9A660BF0B161BD3FED30F6BE9A419D40 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				D8B5D96B1CEFD3803CE8F8BA6C4DD741 /* Feed.storyboard */,
+				5F10474D141A72A1B6A13688305988CE /* FeedFirstUIView.swift */,
+				95272393C935BC5B688126817D77741C /* FeedFirstUIView.xib */,
+				4CEB5CDA6A02D391B41506F9680F572F /* FeedViewController.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		9E6F725ABBD0B87936DB74FB0EFBAEEE /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				20EDEEDFB2A92FFAA9328EB4B2086305 /* KeywordCell.swift */,
+				7369E794AEA4E0B7187CBD9AE26AFB2E /* KeywordSelectViewController.swift */,
+				D181587B82E1BF344A7F8A87649CE2A5 /* SplashViewController.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		A42B09D03F50BAE4E7265D38A45A6172 /* Look */ = {
+			isa = PBXGroup;
+			children = (
+				917CB174956FF8ACDAD03E1840E2F0EF /* Look.storyboard */,
+			);
+			path = Look;
 			sourceTree = "<group>";
 		};
 		D7EB0356146547BFA7F3C37A1D559F26 /* ToonieTests */ = {
@@ -147,69 +204,12 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		A42B09D03F50BAE4E7265D38A45A6172 /* Look */ = {
-			isa = PBXGroup;
-			children = (
-				917CB174956FF8ACDAD03E1840E2F0EF /* Look.storyboard */,
-			);
-			path = Look;
-			sourceTree = "<group>";
-		};
-		9A660BF0B161BD3FED30F6BE9A419D40 /* Feed */ = {
-			isa = PBXGroup;
-			children = (
-				D8B5D96B1CEFD3803CE8F8BA6C4DD741 /* Feed.storyboard */,
-				5F10474D141A72A1B6A13688305988CE /* FeedFirstUIView.swift */,
-				95272393C935BC5B688126817D77741C /* FeedFirstUIView.xib */,
-				4CEB5CDA6A02D391B41506F9680F572F /* FeedViewController.swift */,
-			);
-			path = Feed;
-			sourceTree = "<group>";
-		};
 		FC7AD406E9A61B68CFE6809DE40ED38F /* Setting */ = {
 			isa = PBXGroup;
 			children = (
 				9E36EE31DFE3F652BC7C1FA5A3693FA9 /* Setting.storyboard */,
 			);
 			path = Setting;
-			sourceTree = "<group>";
-		};
-		1E5EEACC73F0B2067BEA386D942B1580 /* MyPage */ = {
-			isa = PBXGroup;
-			children = (
-				AFB2C8AFCFEB675529B5A26620D498F7 /* MyPage.storyboard */,
-			);
-			path = MyPage;
-			sourceTree = "<group>";
-		};
-		2A7D018F4F821AC997F707D66FF1AAE8 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				117585FB9F8E77DCB04082EAF82AE342 /* Pods_Toonie.framework */,
-				82AF128897992796FF6ED25B199B0530 /* Pods_ToonieTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		9E6F725ABBD0B87936DB74FB0EFBAEEE /* Splash */ = {
-			isa = PBXGroup;
-			children = (
-				20EDEEDFB2A92FFAA9328EB4B2086305 /* KeywordCell.swift */,
-				7369E794AEA4E0B7187CBD9AE26AFB2E /* KeywordSelectViewController.swift */,
-				D181587B82E1BF344A7F8A87649CE2A5 /* SplashViewController.swift */,
-			);
-			path = Splash;
-			sourceTree = "<group>";
-		};
-		51483B2FA5A46C3D0289677EDBBA0457 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				46461D78EB2754C9A17D4352D5F97AC7 /* Pods-Toonie.debug.xcconfig */,
-				300FB960FFEE2976C603D16E5DC4B10B /* Pods-Toonie.release.xcconfig */,
-				F9FED2BB74D689EF6B88421CC1B8579D /* Pods-ToonieTests.debug.xcconfig */,
-				630481886041EA402305CF71D731B02B /* Pods-ToonieTests.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,7 +225,6 @@
 				F6B7743005D9067ED5559530A50CE69C /* [CP] Embed Pods Frameworks */,
 				177D19B0706A07426A4F6DC7872AF528 /* Resources */,
 				130436991E1155E6C5F84FFA8B34B848 /* ShellScript */,
-				5311CEDFBB3D104BB093A580DB4F5D34 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -321,32 +320,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		F6B7743005D9067ED5559530A50CE69C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Toonie/Pods-Toonie-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/KTCenterFlowLayout/KTCenterFlowLayout.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KTCenterFlowLayout.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Toonie/Pods-Toonie-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		0A03A8E701D8806A7558B618CCC2B0D5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -368,23 +341,6 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
-		};
-		5311CEDFBB3D104BB093A580DB4F5D34 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "$xunique \"${PROJECT_FILE_PATH}/Toonie.xcodeproj\"\n";
 		};
 		130436991E1155E6C5F84FFA8B34B848 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -423,6 +379,32 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6B7743005D9067ED5559530A50CE69C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Toonie/Pods-Toonie-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/KTCenterFlowLayout/KTCenterFlowLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KTCenterFlowLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Toonie/Pods-Toonie-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -480,6 +462,145 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0F9CC5923CD86EC0AECE581401432844 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 630481886041EA402305CF71D731B02B /* Pods-ToonieTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R78643UTJ5;
+				INFOPLIST_FILE = ToonieTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.toonie.ToonieTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Toonie.app/Toonie";
+			};
+			name = Release;
+		};
+		749A984054BDCD116106516BF98FEE0B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46461D78EB2754C9A17D4352D5F97AC7 /* Pods-Toonie.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R78643UTJ5;
+				INFOPLIST_FILE = Toonie/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Toonie;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		771EE3F1C570BD69A7E466EA5F3CDF0A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 300FB960FFEE2976C603D16E5DC4B10B /* Pods-Toonie.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R78643UTJ5;
+				INFOPLIST_FILE = Toonie/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Toonie;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		93D347D805C23CED78D22521FF0F2A3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9FED2BB74D689EF6B88421CC1B8579D /* Pods-ToonieTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R78643UTJ5;
+				INFOPLIST_FILE = ToonieTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.toonie.ToonieTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Toonie.app/Toonie";
+			};
+			name = Debug;
+		};
+		A3923264EC329E6705B2FE3EB8811BB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		CB409F3C6FFC150B890DF0A12D6BA2D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -541,157 +662,9 @@
 			};
 			name = Debug;
 		};
-		A3923264EC329E6705B2FE3EB8811BB2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		749A984054BDCD116106516BF98FEE0B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 46461D78EB2754C9A17D4352D5F97AC7 /* Pods-Toonie.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9Q6DDFULNZ;
-				INFOPLIST_FILE = Toonie/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Toonie;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		771EE3F1C570BD69A7E466EA5F3CDF0A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 300FB960FFEE2976C603D16E5DC4B10B /* Pods-Toonie.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9Q6DDFULNZ;
-				INFOPLIST_FILE = Toonie/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Toonie;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		93D347D805C23CED78D22521FF0F2A3B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F9FED2BB74D689EF6B88421CC1B8579D /* Pods-ToonieTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = R78643UTJ5;
-				INFOPLIST_FILE = ToonieTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.toonie.ToonieTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Toonie.app/Toonie";
-			};
-			name = Debug;
-		};
-		0F9CC5923CD86EC0AECE581401432844 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 630481886041EA402305CF71D731B02B /* Pods-ToonieTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = R78643UTJ5;
-				INFOPLIST_FILE = ToonieTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.toonie.ToonieTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Toonie.app/Toonie";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CED07C3AC716963ABF5184C51C10497D /* Build configuration list for PBXProject "Toonie" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CB409F3C6FFC150B890DF0A12D6BA2D6 /* Debug */,
-				A3923264EC329E6705B2FE3EB8811BB2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		1005CD2EABD7B937DC316161518995F5 /* Build configuration list for PBXNativeTarget "Toonie" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -706,6 +679,15 @@
 			buildConfigurations = (
 				93D347D805C23CED78D22521FF0F2A3B /* Debug */,
 				0F9CC5923CD86EC0AECE581401432844 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CED07C3AC716963ABF5184C51C10497D /* Build configuration list for PBXProject "Toonie" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB409F3C6FFC150B890DF0A12D6BA2D6 /* Debug */,
+				A3923264EC329E6705B2FE3EB8811BB2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
