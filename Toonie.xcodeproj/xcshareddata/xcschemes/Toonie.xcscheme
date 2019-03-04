@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "00CFF6FE2221BD9B004F1FE4"
+               BlueprintIdentifier = "95BDF1BEF5288564E511594C77D7AF38"
                BuildableName = "Toonie.app"
                BlueprintName = "Toonie"
                ReferencedContainer = "container:Toonie.xcodeproj">
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "00CFF7122221BD9D004F1FE4"
+               BlueprintIdentifier = "A1C72FBDC68A91A4C52524BBDF2FBCF6"
                BuildableName = "ToonieTests.xctest"
                BlueprintName = "ToonieTests"
                ReferencedContainer = "container:Toonie.xcodeproj">
@@ -42,7 +42,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "00CFF6FE2221BD9B004F1FE4"
+            BlueprintIdentifier = "95BDF1BEF5288564E511594C77D7AF38"
             BuildableName = "Toonie.app"
             BlueprintName = "Toonie"
             ReferencedContainer = "container:Toonie.xcodeproj">
@@ -65,7 +65,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "00CFF6FE2221BD9B004F1FE4"
+            BlueprintIdentifier = "95BDF1BEF5288564E511594C77D7AF38"
             BuildableName = "Toonie.app"
             BlueprintName = "Toonie"
             ReferencedContainer = "container:Toonie.xcodeproj">
@@ -84,7 +84,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "00CFF6FE2221BD9B004F1FE4"
+            BlueprintIdentifier = "95BDF1BEF5288564E511594C77D7AF38"
             BuildableName = "Toonie.app"
             BlueprintName = "Toonie"
             ReferencedContainer = "container:Toonie.xcodeproj">
