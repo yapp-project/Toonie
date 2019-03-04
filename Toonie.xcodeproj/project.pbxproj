@@ -13,6 +13,7 @@
 		30FF5599710A31E1F75B51D08278EDA4 /* FeedFirstUIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95272393C935BC5B688126817D77741C /* FeedFirstUIView.xib */; };
 		3329D16EACF533982CBE706AE5A72FB7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 9C85D8F090D4E9C332080D997CFF19EE /* .swiftlint.yml */; };
 		3603ED7C6D7679C3634C60C341C440F4 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB2C8AFCFEB675529B5A26620D498F7 /* MyPage.storyboard */; };
+		41EB1C85CC1A720BF0B6405FF32C0F8A /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B903C915E2D60983CD6FE59BAB844ED /* MypageViewController.swift */; };
 		4C699DADAA5D77D2B131D12B6B8886AB /* FeedFirstUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F10474D141A72A1B6A13688305988CE /* FeedFirstUIView.swift */; };
 		65A9D1EE7AE4C38B2B5EB9ADD14BAAA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24933E175890AB6E3840CCDEEEA93A35 /* Main.storyboard */; };
 		79425F98E4BBACCC219FB0C2FED44E53 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEB5CDA6A02D391B41506F9680F572F /* FeedViewController.swift */; };
@@ -52,6 +53,7 @@
 		764C9363F03498290ED7CCFC3B1919BA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		80C2C41933AFF35CEA1787DF94DFAF18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		82AF128897992796FF6ED25B199B0530 /* Pods_ToonieTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToonieTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B903C915E2D60983CD6FE59BAB844ED /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
 		8D67243EE4C5277CA9E639E1FD1E0E03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		917CB174956FF8ACDAD03E1840E2F0EF /* Look.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Look.storyboard; sourceTree = "<group>"; };
 		95272393C935BC5B688126817D77741C /* FeedFirstUIView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedFirstUIView.xib; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				AFB2C8AFCFEB675529B5A26620D498F7 /* MyPage.storyboard */,
+				8B903C915E2D60983CD6FE59BAB844ED /* MypageViewController.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -262,7 +265,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1010;
-				ORGANIZATIONNAME = d;
+				ORGANIZATIONNAME = Yapp;
 				TargetAttributes = {
 					95BDF1BEF5288564E511594C77D7AF38 = {
 						CreatedOnToolsVersion = 10.1;
@@ -420,6 +423,7 @@
 				B8CD77E704B84AC69F36C250FB3FA1EC /* KeywordCell.swift in Sources */,
 				841F43351B84CE479CB40DF8E83FA09B /* KeywordSelectViewController.swift in Sources */,
 				EAB2A133937A396F4086302AAA01BFD1 /* MainViewController.swift in Sources */,
+				41EB1C85CC1A720BF0B6405FF32C0F8A /* MypageViewController.swift in Sources */,
 				EA3F62E1C0F071466575AAE9D9B1A47D /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
