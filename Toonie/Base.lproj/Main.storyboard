@@ -47,28 +47,28 @@
                                 <subviews>
                                     <button opaque="NO" tag="200" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nl7-nw-XL2" userLabel="FeedBtn">
                                         <rect key="frame" x="0.0" y="0.0" width="103.5" height="55"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="홈"/>
                                         <connections>
                                             <action selector="tabBarButtonDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yqh-Sl-l7B"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="201" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFf-MF-x0A" userLabel="LookBtn">
                                         <rect key="frame" x="107" y="0.0" width="103.5" height="55"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="둘러보기"/>
                                         <connections>
                                             <action selector="tabBarButtonDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="s1b-0I-Gyi"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="203" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BBy-th-Kiv" userLabel="SettingBtn">
                                         <rect key="frame" x="314" y="0.0" width="100" height="55"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="설정"/>
                                         <connections>
                                             <action selector="tabBarButtonDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1bL-oQ-iWY"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="202" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qne-84-rDg" userLabel="MyPageBtn">
                                         <rect key="frame" x="210.5" y="0.0" width="103.5" height="55"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="내 서재"/>
                                         <connections>
                                             <action selector="tabBarButtonDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xJl-LE-jSr"/>
                                         </connections>
