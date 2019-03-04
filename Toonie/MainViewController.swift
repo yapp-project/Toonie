@@ -3,7 +3,7 @@
 //  Toonie
 //
 //  Created by Toonie on 24/02/2019.
-//  Copyright © 2019 Toonie. All rights reserved.
+//  Copyright © 2019 Yapp. All rights reserved.
 //
 
 import UIKit
