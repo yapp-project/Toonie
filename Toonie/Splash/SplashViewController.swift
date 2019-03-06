@@ -26,15 +26,20 @@ final class SplashViewController: UIViewController {
         logoAnimationView?.play { (finished) in
             if finished {
                 //키워드 선택해야하는 유저라면
-                self.keywordMoveBtnShow()
-                
+//                self.keywordMoveBtnShow()
                 //아니라면 일반화면으로 이동
-                //
+                self.mainMove()
             }
         }
-        
     }
- 
+  
+    ///애니메이션 후 메인화면으로 이동
+    func mainMove() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "RootViewController")
+        UIApplication.shared.keyWindow?.rootViewController = viewController
+    }
+    
     ///logoAnimationView 세팅
     func logoAnimationViewSet() {
         logoAnimationView = LOTAnimationView(name: "logo")
