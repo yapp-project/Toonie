@@ -118,15 +118,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		27B8AA7F074F516D27CE1E5F0928633C /* LookViewController */ = {
-			isa = PBXGroup;
-			children = (
-				4744A64E19261259A0F1C0E591CA994C /* LookCell.swift */,
-				1F86D8B1CA39FC8055C8747A6AFC2D06 /* LookViewController.swift */,
-			);
-			path = LookViewController;
-			sourceTree = "<group>";
-		};
 		1E5EEACC73F0B2067BEA386D942B1580 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +154,15 @@
 				D7EB0356146547BFA7F3C37A1D559F26 /* ToonieTests */,
 				9C85D8F090D4E9C332080D997CFF19EE /* .swiftlint.yml */,
 			);
+			sourceTree = "<group>";
+		};
+		27B8AA7F074F516D27CE1E5F0928633C /* LookViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4744A64E19261259A0F1C0E591CA994C /* LookCell.swift */,
+				1F86D8B1CA39FC8055C8747A6AFC2D06 /* LookViewController.swift */,
+			);
+			path = LookViewController;
 			sourceTree = "<group>";
 		};
 		2A7D018F4F821AC997F707D66FF1AAE8 /* Frameworks */ = {

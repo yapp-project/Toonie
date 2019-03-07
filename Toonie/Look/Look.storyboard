@@ -69,7 +69,7 @@
                                                     <constraint firstItem="SdK-W1-d0p" firstAttribute="top" secondItem="vow-PV-8ab" secondAttribute="top" id="tiR-1M-km1"/>
                                                 </constraints>
                                                 <connections>
-                                                    <outlet property="imageView" destination="SdK-W1-d0p" id="QoZ-bV-kLn"/>
+                                                    <outlet property="backgroundImageView" destination="SdK-W1-d0p" id="haV-la-hMo"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
@@ -102,8 +102,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="qzH-4S-GFZ"/>
                     <connections>
-                        <outlet property="collectionView" destination="7Kj-yc-Zfy" id="Ntf-TF-4xP"/>
-                        <outlet property="collectionViewFlowLayout" destination="FmF-ch-KZy" id="g0d-Nc-f9Q"/>
+                        <outlet property="mainCategoryCollectionView" destination="7Kj-yc-Zfy" id="1aL-bW-8Ra"/>
+                        <outlet property="mainCategoryCollectionViewFlowLayout" destination="FmF-ch-KZy" id="X08-Ip-M8C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cqb-bJ-4vZ" userLabel="First Responder" sceneMemberID="firstResponder"/>

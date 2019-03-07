@@ -8,7 +8,8 @@
 
 import UIKit
 
-class LookDetailViewController: UIViewController {
+///둘러보기 상세 - LookViewController의 CollectionView의 didSelected시 이동되는 화면
+final class LookDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,7 +8,8 @@
 
 import UIKit
 
-class LookCell: UICollectionViewCell {
+///둘러보기 메인 - LookViewController.mainCategoryCollectionView의 Cell
+final class LookCell: UICollectionViewCell {
     
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var backgroundImageView: UIImageView!
 }
