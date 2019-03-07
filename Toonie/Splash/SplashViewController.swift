@@ -13,7 +13,7 @@ let tag = 100
 
 final class SplashViewController: UIViewController {
 
-    @IBOutlet var logoFrameView: UIView!
+    @IBOutlet weak var logoFrameView: UIView!
     private var logoAnimationView: LOTAnimationView?
     
     @IBOutlet weak var keywordMoveButton: UIButton!
@@ -42,8 +42,7 @@ final class SplashViewController: UIViewController {
     
     ///logoAnimationView 세팅
     func logoAnimationViewSet() {
-        logoAnimationView = LOTAnimationView(name: "logo")
-        logoAnimationView!.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        logoAnimationView = LOTAnimationView(name: "logo") 
         logoAnimationView!.contentMode = .scaleAspectFill
         logoAnimationView!.frame = CGRect.init(x: 0,
                                                y: 0,
