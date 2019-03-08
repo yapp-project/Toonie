@@ -17,12 +17,29 @@ final class FeedViewController: UIViewController {
   
   // MARK: - Properties
   
-  private let reuseIdentifiers = ["TagCell", "ForYouCell", "RecentCell", "FavoriteCell"]
+  private let tableViewCellReuseIdentifiers = ["tagTableCell",
+                                               "forYouTableCell",
+                                               "recentTableCell",
+                                               "favoriteTableCell"]
+  private let collectionViewCellReuseIdentifiers = ["forYouCell",
+                                                    "recentCell",
+                                                    "favoriteCell"]
   
   // MARK: - Life Cycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    feedTableView.reloadData()
+//    feedTableView.reloadSections(sectionToReload, with: .none)
+  }
+  
+  // MARK: - Function
+  
+  func setCollectionViewDataSourceDelegate(dataSourceDelegate: UICollectionViewDataSource & UICollectionViewDelegate, forRow row: Int) {
+//    collectionView.delegate = dataSourceDelegate
+//    collectionView.dataSource = dataSourceDelegate
+//    collectionView.tag = row
+//    collectionView.reloadData()
   }
 }
 
@@ -35,42 +52,81 @@ extension FeedViewController: UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    print(section)
     return 1
   }
   
   func tableView(_ tableView: UITableView,
                  cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    print(indexPath)
     guard let cell = tableView
-      .dequeueReusableCell(withIdentifier: reuseIdentifiers[indexPath.section],
-                           for: indexPath) as? FeedTableViewCell
+      .dequeueReusableCell(withIdentifier: tableViewCellReuseIdentifiers[indexPath.section],
+                           for: indexPath) as? TagTableViewCell
       else { return UITableViewCell() }
-    
+    cell.setLabel()
+    print(cell)
     return cell
     
   }
 }
 
 extension FeedViewController: UITableViewDelegate {
-  
+  func tableView(_ tableView: UITableView,
+                 heightForRowAt indexPath: IndexPath) -> CGFloat {
+//    if indexPath.section == 0 {
+      return UIScreen.main.bounds.height / 2
+//    }
+//    return UITableView.automaticDimension
+  }
 }
 
 extension FeedViewController: UICollectionViewDataSource {
-  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//  func numberOfSections(in collectionView: UICollectionView) -> Int {
+//    return 3
+//  }
+  
+  func collectionView(_ collectionView: UICollectionView,
+                      numberOfItemsInSection section: Int) -> Int {
+    print(section)
     return 1
   }
   
   func collectionView(_ collectionView: UICollectionView,
                       cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    guard let cell = collectionView
-      .dequeueReusableCell(withReuseIdentifier: reuseIdentifiers[indexPath.section],
-                           for: indexPath) as? ForYouCollectionViewCell
-      else {
-        return UICollectionViewCell() }
-    
-    cell.setForYouCollectionViewCellProperties()
-    return cell
-  }
+    print(indexPath)
+    switch indexPath.section {
+    case 0:
+      guard let cell = collectionView
+        .dequeueReusableCell(withReuseIdentifier: collectionViewCellReuseIdentifiers[indexPath.section],
+                             for: indexPath) as? ForYouCollectionViewCell
+        else { return UICollectionViewCell() }
+          cell.setForYouCollectionViewCellProperties()
+      return cell
+    case 1:
+      guard let cell = collectionView
+        .dequeueReusableCell(withReuseIdentifier: collectionViewCellReuseIdentifiers[indexPath.section],
+                             for: indexPath) as? RecentCollectionViewCell
+        else { return UICollectionViewCell() }
+//      cell.setForYouCollectionViewCellProperties()
+      return cell
+    case 2:
+      guard let cell = collectionView
+        .dequeueReusableCell(withReuseIdentifier: collectionViewCellReuseIdentifiers[indexPath.section],
+                             for: indexPath) as? FavoriteCollectionViewCell
+        else { return UICollectionViewCell() }
+//      cell.setForYouCollectionViewCellProperties()
+      return cell
+      
+    default:
+      return UICollectionViewCell()
+    }
 
+//    guard let favoritecell = collectionView
+//      .dequeueReusableCell(withReuseIdentifier: "favoriteCell",
+//                           for: indexPath) as? FavoriteCollectionViewCell
+    //      else { return UICollectionViewCell() }
+//    return cell
+  }
 }
 
 extension FeedViewController: UICollectionViewDelegate {

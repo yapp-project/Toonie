@@ -11,7 +11,12 @@ import UIKit
 // '지금 나는' 태그 첫번째 테이블뷰셀
 final class TagTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
+  @IBOutlet weak var nowLabel: UILabel!
+  
+  func setLabel() {
+    nowLabel.text = "지금 나는나는"
+  }
+  override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
