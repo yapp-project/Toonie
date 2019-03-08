@@ -176,12 +176,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dUl-km-JE2">
-                                <rect key="frame" x="103.5" y="389" width="207" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="dUl-km-JE2" secondAttribute="height" multiplier="207:128" id="gYB-hM-1FC"/>
-                                </constraints>
-                            </imageView>
                             <button hidden="YES" opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eU8-gJ-I1I">
                                 <rect key="frame" x="10" y="782" width="394" height="50"/>
                                 <constraints>
@@ -192,21 +186,28 @@
                                     <action selector="keywordMoveButtonDidTap:" destination="l86-BQ-EuT" eventType="touchUpInside" id="Fzc-uW-h1w"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HFf-FI-f2G" customClass="LOTAnimationView">
+                                <rect key="frame" x="102.5" y="329.5" width="209" height="156"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="209" id="76k-d7-2fZ"/>
+                                    <constraint firstAttribute="height" constant="156" id="jIZ-UX-fZ8"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.89803921568627454" green="0.44313725490196076" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="lh4-tU-q3B" firstAttribute="trailing" secondItem="eU8-gJ-I1I" secondAttribute="trailing" constant="10" id="3NU-Nk-7vF"/>
                             <constraint firstItem="lh4-tU-q3B" firstAttribute="bottom" secondItem="eU8-gJ-I1I" secondAttribute="bottom" constant="30" id="49v-MH-oIc"/>
-                            <constraint firstItem="dUl-km-JE2" firstAttribute="centerY" secondItem="lh4-tU-q3B" secondAttribute="centerY" id="JWS-I1-5IJ"/>
+                            <constraint firstItem="HFf-FI-f2G" firstAttribute="centerY" secondItem="lh4-tU-q3B" secondAttribute="centerY" multiplier="0.9" id="8nA-dT-ePV"/>
                             <constraint firstItem="eU8-gJ-I1I" firstAttribute="leading" secondItem="lh4-tU-q3B" secondAttribute="leading" constant="10" id="Pip-xf-LLM"/>
-                            <constraint firstItem="dUl-km-JE2" firstAttribute="width" secondItem="HOq-I7-yhG" secondAttribute="width" multiplier="0.5" id="UxE-x3-co6"/>
-                            <constraint firstItem="dUl-km-JE2" firstAttribute="centerX" secondItem="lh4-tU-q3B" secondAttribute="centerX" id="tnl-75-bzj"/>
+                            <constraint firstItem="HFf-FI-f2G" firstAttribute="centerX" secondItem="lh4-tU-q3B" secondAttribute="centerX" id="URb-ln-N0E"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lh4-tU-q3B"/>
                     </view>
                     <connections>
                         <outlet property="keywordMoveButton" destination="eU8-gJ-I1I" id="ncQ-gK-2UX"/>
-                        <outlet property="logoImage" destination="dUl-km-JE2" id="Kng-Ba-ymy"/>
+                        <outlet property="logoFrameView" destination="HFf-FI-f2G" id="f8x-vi-CKn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i5Y-SM-XjT" userLabel="First Responder" sceneMemberID="firstResponder"/>
