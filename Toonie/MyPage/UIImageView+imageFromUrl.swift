@@ -15,10 +15,9 @@ extension UIImageView {
         self.layer.masksToBounds = true
         self.layer.cornerRadius = self.frame.width / 2
     }
-}
-extension UIImageView {
+    
     //Kingfisher를 이용해 url로부터 이미지를 가져옴
-    public func imageFromUrl(_ urlString: String?,
+    func imageFromUrl(_ urlString: String?,
                              defaultImgPath : String) {
         let defaultImg = UIImage(named: defaultImgPath)
         if let url = urlString {
