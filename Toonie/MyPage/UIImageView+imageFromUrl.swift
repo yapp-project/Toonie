@@ -11,7 +11,7 @@ import Kingfisher
 
 extension UIImageView {
     //이미지뷰 동그랗게 설정
-    func circleImageView() {
+    func setCircle() {
         self.layer.masksToBounds = true
         self.layer.cornerRadius = self.frame.width / 2
     }
