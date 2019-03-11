@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="l86-BQ-EuT">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,59 +15,59 @@
             <objects>
                 <viewController storyboardIdentifier="MainViewController" id="BYZ-38-t0r" customClass="MainViewController" customModule="Toonie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VPX-yU-680" userLabel="Feed">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="807"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="513"/>
                                 <connections>
                                     <segue destination="4Sn-vr-sqf" kind="embed" id="RAI-bM-9H2"/>
                                 </connections>
                             </containerView>
                             <containerView hidden="YES" opaque="NO" tag="101" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFH-zw-qKE" userLabel="Look">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="807"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="513"/>
                                 <connections>
                                     <segue destination="wvD-NP-dlr" kind="embed" id="WbB-sh-Zxz"/>
                                 </connections>
                             </containerView>
                             <containerView hidden="YES" opaque="NO" tag="102" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DXN-qf-VAA" userLabel="MyPage">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="807"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="513"/>
                                 <connections>
                                     <segue destination="TCj-SB-KC3" kind="embed" id="Brm-xG-l3N"/>
                                 </connections>
                             </containerView>
                             <containerView hidden="YES" opaque="NO" tag="103" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9uN-5o-lPj" userLabel="Setting">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="807"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="513"/>
                                 <connections>
                                     <segue destination="rdd-af-STX" kind="embed" id="xVF-jf-Em4"/>
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ylA-pd-KbW" userLabel="TabBarView">
-                                <rect key="frame" x="0.0" y="807" width="414" height="55"/>
+                                <rect key="frame" x="0.0" y="513" width="320" height="55"/>
                                 <subviews>
                                     <button opaque="NO" tag="200" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nl7-nw-XL2" userLabel="FeedBtn">
-                                        <rect key="frame" x="0.0" y="0.0" width="103.5" height="55"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="55"/>
                                         <state key="normal" title="홈"/>
                                         <connections>
                                             <action selector="tabBarButtonDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yqh-Sl-l7B"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="201" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFf-MF-x0A" userLabel="LookBtn">
-                                        <rect key="frame" x="107" y="0.0" width="103.5" height="55"/>
+                                        <rect key="frame" x="83.5" y="0.0" width="80" height="55"/>
                                         <state key="normal" title="둘러보기"/>
                                         <connections>
                                             <action selector="tabBarButtonDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="s1b-0I-Gyi"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="203" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BBy-th-Kiv" userLabel="SettingBtn">
-                                        <rect key="frame" x="314" y="0.0" width="100" height="55"/>
+                                        <rect key="frame" x="243.5" y="0.0" width="76.5" height="55"/>
                                         <state key="normal" title="설정"/>
                                         <connections>
                                             <action selector="tabBarButtonDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1bL-oQ-iWY"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="202" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qne-84-rDg" userLabel="MyPageBtn">
-                                        <rect key="frame" x="210.5" y="0.0" width="103.5" height="55"/>
+                                        <rect key="frame" x="163.5" y="0.0" width="80" height="55"/>
                                         <state key="normal" title="내 서재"/>
                                         <connections>
                                             <action selector="tabBarButtonDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xJl-LE-jSr"/>
@@ -173,11 +173,14 @@
             <objects>
                 <viewController storyboardIdentifier="SplashViewController" id="l86-BQ-EuT" customClass="SplashViewController" customModule="Toonie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HOq-I7-yhG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="ChO-q4-89b">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
                             <button hidden="YES" opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eU8-gJ-I1I">
-                                <rect key="frame" x="10" y="782" width="394" height="50"/>
+                                <rect key="frame" x="10" y="488" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="7qG-2g-U1K"/>
                                 </constraints>
@@ -186,22 +189,26 @@
                                     <action selector="keywordMoveButtonDidTap:" destination="l86-BQ-EuT" eventType="touchUpInside" id="Fzc-uW-h1w"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HFf-FI-f2G" customClass="LOTAnimationView">
-                                <rect key="frame" x="102.5" y="329.5" width="209" height="156"/>
+                            <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="HFf-FI-f2G" customClass="LOTAnimationView">
+                                <rect key="frame" x="0.0" y="110.5" width="320" height="308.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="209" id="76k-d7-2fZ"/>
-                                    <constraint firstAttribute="height" constant="156" id="jIZ-UX-fZ8"/>
+                                    <constraint firstAttribute="width" secondItem="HFf-FI-f2G" secondAttribute="height" multiplier="180:173.6" id="8rg-nW-paO"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.89803921568627454" green="0.44313725490196076" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="lh4-tU-q3B" firstAttribute="trailing" secondItem="eU8-gJ-I1I" secondAttribute="trailing" constant="10" id="3NU-Nk-7vF"/>
                             <constraint firstItem="lh4-tU-q3B" firstAttribute="bottom" secondItem="eU8-gJ-I1I" secondAttribute="bottom" constant="30" id="49v-MH-oIc"/>
                             <constraint firstItem="HFf-FI-f2G" firstAttribute="centerY" secondItem="lh4-tU-q3B" secondAttribute="centerY" multiplier="0.9" id="8nA-dT-ePV"/>
+                            <constraint firstItem="HFf-FI-f2G" firstAttribute="width" secondItem="lh4-tU-q3B" secondAttribute="width" id="8pG-0a-xCe"/>
+                            <constraint firstItem="ChO-q4-89b" firstAttribute="top" secondItem="HOq-I7-yhG" secondAttribute="top" id="MZ3-Qa-VYV"/>
                             <constraint firstItem="eU8-gJ-I1I" firstAttribute="leading" secondItem="lh4-tU-q3B" secondAttribute="leading" constant="10" id="Pip-xf-LLM"/>
                             <constraint firstItem="HFf-FI-f2G" firstAttribute="centerX" secondItem="lh4-tU-q3B" secondAttribute="centerX" id="URb-ln-N0E"/>
+                            <constraint firstItem="ChO-q4-89b" firstAttribute="leading" secondItem="HOq-I7-yhG" secondAttribute="leading" id="cwd-24-5f1"/>
+                            <constraint firstAttribute="trailing" secondItem="ChO-q4-89b" secondAttribute="trailing" id="d90-V6-Hxj"/>
+                            <constraint firstAttribute="bottom" secondItem="ChO-q4-89b" secondAttribute="bottom" id="e76-yy-Ygx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lh4-tU-q3B"/>
                     </view>
@@ -219,17 +226,17 @@
             <objects>
                 <viewController storyboardIdentifier="KeywordSelectViewController" id="D45-0z-Faj" customClass="KeywordSelectViewController" customModule="Toonie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9nS-8h-qoy">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="키워드화묜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tmJ-RH-WLw">
-                                <rect key="frame" x="170" y="64" width="74" height="21"/>
+                                <rect key="frame" x="123" y="40" width="74" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fgA-TT-UM6">
-                                <rect key="frame" x="0.0" y="95" width="414" height="717"/>
+                                <rect key="frame" x="0.0" y="71" width="320" height="447"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Srk-Pd-wVw" customClass="KTCenterFlowLayout">
                                     <size key="itemSize" width="100" height="30"/>
@@ -310,4 +317,7 @@
             <point key="canvasLocation" x="241" y="351"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="background" width="1125" height="2436.1201171875"/>
+    </resources>
 </document>
