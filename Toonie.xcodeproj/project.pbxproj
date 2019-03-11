@@ -41,7 +41,6 @@
 		655E7C6DA37B63F408CDC8318128AD43 /* logo_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 8631F846AECAC3D28B3C2B42703929E8 /* logo_6.png */; };
 		96A867D901E71622E9E989B52C5E0F65 /* logo_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EC8E23335E325CABFFECB779B5D9F44 /* logo_7.png */; };
 		613B0B6FD28864159F2BFAEC91BDFE5A /* logo_8.png in Resources */ = {isa = PBXBuildFile; fileRef = F0D48B3952E3F15B80DD34CB855A9801 /* logo_8.png */; };
-
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,7 +96,6 @@
 		8631F846AECAC3D28B3C2B42703929E8 /* logo_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_6.png; sourceTree = "<group>"; };
 		9EC8E23335E325CABFFECB779B5D9F44 /* logo_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_7.png; sourceTree = "<group>"; };
 		F0D48B3952E3F15B80DD34CB855A9801 /* logo_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_8.png; sourceTree = "<group>"; };
-
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
