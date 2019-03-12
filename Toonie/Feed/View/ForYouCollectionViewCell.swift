@@ -26,15 +26,18 @@ final class ForYouCollectionViewCell: UICollectionViewCell {
     bookMarkButton.isSelected  = false
   }
   
+  // MARK: - Functions
+  
   /// 컬렉션뷰셀 데이터 설정
   func setForYouCollectionViewCellProperties() {
-    forYouToonImageView.image = UIImage(named: "sampleImage")
+    forYouToonImageView.image = UIImage(named: "sampleImg")
     forYouToonTitleLabel.text = "고양이빵집_캣빵"
     forYouToonTagLabel.text = "#고양이 #인스타그램"
     
   }
   
+  /// 이미지 모서리 둥글게 처리
   func setForYouToonImageView() {
-     forYouToonImageView.layer.setBorder(color: .clear, width: 0.0, radius: 5.0)
+    forYouToonImageView.layer.setBorder(color: .clear, width: 0.0, radius: 5.0)
   }
 }
