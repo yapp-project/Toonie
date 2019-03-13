@@ -4,8 +4,8 @@ xcode_workspace: Toonie.xcworkspace
 xcode_scheme: Toonie
 xcode_destination: platform=iOS Simulator,OS=12.1,name=iPhone X
 notifications:
-  slack: yappyappios:rqxifZg6UGwXgcp0BaO8GgTa
-podfile: ./Podfile
+  slack: yappyappios:rqxifZg6UGwXgcp0BaO8GgTa 
 before_install:
-   - rvm use system
-   - sudo gem install cocoapods -v '1.6.1'  
+- gem install cocoapods-acknowledgements
+- gem install cocoapods
+- pod update
