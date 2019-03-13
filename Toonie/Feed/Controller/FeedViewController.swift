@@ -21,18 +21,6 @@ final class FeedViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    setup()
-  }
-  
-  // MARK: - Function
-  
-  func setup() {
-    forYouCollectionView.dataSource = self
-    forYouCollectionView.delegate = self
-    recentCollectionView.dataSource = self
-    recentCollectionView.delegate = self
-    favoriteCollectionView.dataSource = self
-    favoriteCollectionView.delegate = self
   }
   
 }
