@@ -32,7 +32,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지금 나는" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agN-jr-p81">
                                                         <rect key="frame" x="0.0" y="0.0" width="240" height="38.666666666666664"/>
                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="32"/>
-                                                        <color key="textColor" name="text"/>
+                                                        <color key="textColor" name="defaultText"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JU7-j3-hW2">
@@ -45,7 +45,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인스타툰을 읽고 싶어요." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CiB-go-cdj">
                                                         <rect key="frame" x="0.0" y="39.666666666666671" width="240" height="29"/>
                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="24"/>
-                                                        <color key="textColor" name="text"/>
+                                                        <color key="textColor" name="defaultText"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -89,13 +89,13 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="고양이 빵집_캣 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tfj-7H-e1p">
                                                             <rect key="frame" x="0.0" y="350" width="279" height="21.666666666666686"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="18"/>
-                                                            <color key="textColor" name="text"/>
+                                                            <color key="textColor" name="defaultText"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#작가 #일러스트" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obS-vm-S3u">
                                                             <rect key="frame" x="0.0" y="377.66666666666669" width="279" height="17"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="14"/>
-                                                            <color key="textColor" name="sub"/>
+                                                            <color key="textColor" name="tag"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p0r-bv-EJr">
@@ -105,7 +105,8 @@
                                                                 <constraint firstAttribute="width" secondItem="p0r-bv-EJr" secondAttribute="height" multiplier="1:1" id="LxS-j3-2iH"/>
                                                                 <constraint firstAttribute="height" constant="44" id="trH-K8-xgJ"/>
                                                             </constraints>
-                                                            <state key="normal" image="bookmark"/>
+                                                            <state key="normal" image="Bookmark"/>
+                                                            <state key="selected" image="BookmarkOn"/>
                                                         </button>
                                                     </subviews>
                                                 </view>
@@ -186,13 +187,13 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="고양이 빵집_캣 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XpR-Yn-Lou">
                                                             <rect key="frame" x="0.0" y="376" width="279" height="21.666666666666686"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="18"/>
-                                                            <color key="textColor" name="text"/>
+                                                            <color key="textColor" name="defaultText"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#작가 #일러스트" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xx8-z6-Ui0">
                                                             <rect key="frame" x="0.0" y="403.66666666666669" width="279" height="17"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="14"/>
-                                                            <color key="textColor" name="sub"/>
+                                                            <color key="textColor" name="tag"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HlH-2r-sYc">
@@ -202,7 +203,8 @@
                                                                 <constraint firstAttribute="width" constant="44" id="yLr-vD-pGB"/>
                                                                 <constraint firstAttribute="width" secondItem="HlH-2r-sYc" secondAttribute="height" multiplier="1:1" id="yMV-Vg-izP"/>
                                                             </constraints>
-                                                            <state key="normal" image="bookmark"/>
+                                                            <state key="normal" image="Bookmark"/>
+                                                            <state key="selected" image="BookmarkOn"/>
                                                         </button>
                                                     </subviews>
                                                 </view>
@@ -270,7 +272,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="작가이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRU-A2-qiH">
                                                             <rect key="frame" x="1" y="173.66666666666666" width="110" height="21"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="18"/>
-                                                            <color key="textColor" name="text"/>
+                                                            <color key="textColor" name="defaultText"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YcC-nJ-kxU">
@@ -281,9 +283,10 @@
                                                                 <constraint firstAttribute="height" constant="44" id="xmd-Yb-f2C"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="18"/>
-                                                            <state key="normal" image="bookmark">
+                                                            <state key="normal" image="Bookmark">
                                                                 <color key="titleColor" name="text"/>
                                                             </state>
+                                                            <state key="selected" image="BookmarkOn"/>
                                                         </button>
                                                     </subviews>
                                                 </view>
@@ -370,15 +373,19 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bookmark" width="15" height="18"/>
+        <image name="Bookmark" width="15" height="18"/>
+        <image name="BookmarkOn" width="15" height="18"/>
         <image name="sample2" width="162" height="163"/>
         <image name="sample3" width="335" height="361"/>
         <image name="sampleImg" width="335" height="335"/>
-        <namedColor name="main">
-            <color red="0.96100002527236938" green="0.37599998712539673" blue="0.25099998712539673" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="defaultText">
+            <color red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="sub">
-            <color red="0.96100002527236938" green="0.65100002288818359" blue="0.13699999451637268" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="main">
+            <color red="1" green="0.46666666666666667" blue="0.0078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="tag">
+            <color red="0.99607843137254903" green="0.20000000000000001" blue="0.0039215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="text">
             <color red="0.13300000131130219" green="0.13300000131130219" blue="0.13300000131130219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
