@@ -130,6 +130,10 @@
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
+                                        <connections>
+                                            <outlet property="dataSource" destination="3Ih-K7-HF0" id="58m-hU-Ggf"/>
+                                            <outlet property="delegate" destination="3Ih-K7-HF0" id="xoA-GB-jB7"/>
+                                        </connections>
                                     </collectionView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="당신을 위한 공감툰" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CXQ-2Y-Cf5">
                                         <rect key="frame" x="20" y="410" width="164" height="26.666666666666686"/>
@@ -223,6 +227,10 @@
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
+                                        <connections>
+                                            <outlet property="dataSource" destination="3Ih-K7-HF0" id="AO2-6v-McT"/>
+                                            <outlet property="delegate" destination="3Ih-K7-HF0" id="D0E-Y3-Dmc"/>
+                                        </connections>
                                     </collectionView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fBw-p3-KTh" userLabel="line">
                                         <rect key="frame" x="20" y="1248.3333333333333" width="335" height="1"/>
@@ -297,6 +305,10 @@
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
+                                        <connections>
+                                            <outlet property="dataSource" destination="3Ih-K7-HF0" id="rQv-Mq-oLD"/>
+                                            <outlet property="delegate" destination="3Ih-K7-HF0" id="dpu-gK-fwJ"/>
+                                        </connections>
                                     </collectionView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
