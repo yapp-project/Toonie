@@ -6,8 +6,7 @@
   "data" : [
     {
       "idiom" : "universal",
-      "filename" : "logo.json",
-      "universal-type-identifier" : "public.json"
+      "filename" : "logo.json"
     }
   ]
 }
