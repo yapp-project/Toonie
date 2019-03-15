@@ -7,22 +7,48 @@
 //
 
 import UIKit
+import Lottie
 
 // 홈 화면
 final class FeedViewController: UIViewController {
   
   // MARK: - IBOutlet
   
+  @IBOutlet weak var tagView: UIView!
   @IBOutlet weak var forYouCollectionView: UICollectionView!
   @IBOutlet weak var recentCollectionView: UICollectionView!
   @IBOutlet weak var favoriteCollectionView: UICollectionView!
+  
+  // MARK: - Property
+  
+  private var tagAnimationView: LOTAnimationView?
   
   // MARK: - Life Cycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    setTagAnimationView()
+  }
+  
+  // MARK: - Function
+  
+  ///tagAnimationView 세팅
+  func setTagAnimationView() {
+    tagAnimationView = LOTAnimationView(name: "tag")
+    if let tagAnimationView = tagAnimationView {
+      tagAnimationView.contentMode = .scaleAspectFill
+      tagAnimationView.frame = CGRect.init(x: 0,
+                                           y: 0,
+                                           width: tagView.bounds.width,
+                                           height: tagView.bounds.height)
+      tagView.addSubview(tagAnimationView)
+      tagAnimationView.play()
+    }
+  }
 }
 
 // MARK: - UICollectionViewDataSource
@@ -32,11 +58,11 @@ extension FeedViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView,
                       numberOfItemsInSection section: Int) -> Int {
     if collectionView == forYouCollectionView {
-      return 1
+      return 3
     } else if collectionView == recentCollectionView {
-      return 1
+      return 3
     } else if collectionView == favoriteCollectionView {
-      return 1
+      return 3
     } else {
       return 0
     }

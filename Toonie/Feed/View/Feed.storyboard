@@ -22,45 +22,30 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPh-DH-6DV">
                                 <rect key="frame" x="0.0" y="44" width="375" height="1722"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T2d-od-k17" userLabel="TagView">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T2d-od-k17" userLabel="First View">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="382"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="X4s-Zn-h4j">
-                                                <rect key="frame" x="67" y="147" width="240" height="68.666666666666671"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지금 나는" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agN-jr-p81">
-                                                        <rect key="frame" x="0.0" y="0.0" width="240" height="38.666666666666664"/>
-                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="32"/>
-                                                        <color key="textColor" name="defaultText"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JU7-j3-hW2">
-                                                        <rect key="frame" x="0.0" y="38.666666666666671" width="240" height="1"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="1" id="TbA-Sz-Tew"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인스타툰을 읽고 싶어요." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CiB-go-cdj">
-                                                        <rect key="frame" x="0.0" y="39.666666666666671" width="240" height="29"/>
-                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="24"/>
-                                                        <color key="textColor" name="defaultText"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FQf-H6-zB2" userLabel="Tag View">
+                                                <rect key="frame" x="47" y="116" width="281" height="150"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="FQf-H6-zB2" secondAttribute="height" multiplier="15:8" id="GaY-at-N8e"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="FQf-H6-zB2" firstAttribute="centerY" secondItem="T2d-od-k17" secondAttribute="centerY" id="jnY-Sa-xIf"/>
                                             <constraint firstAttribute="height" constant="382" id="osA-XO-rcD"/>
+                                            <constraint firstItem="FQf-H6-zB2" firstAttribute="width" secondItem="T2d-od-k17" secondAttribute="width" multiplier="0.75" id="ou1-iS-oI7"/>
+                                            <constraint firstItem="FQf-H6-zB2" firstAttribute="centerX" secondItem="T2d-od-k17" secondAttribute="centerX" id="v3m-wl-Uy2"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bYa-v6-grX" userLabel="line">
-                                        <rect key="frame" x="20" y="382" width="335" height="1"/>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <rect key="frame" x="20" y="382" width="335" height="0.66666666666668561"/>
+                                        <color key="backgroundColor" name="line"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="1" id="Owk-eI-b3b"/>
+                                            <constraint firstAttribute="height" constant="0.5" id="Owk-eI-b3b"/>
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8qJ-5s-6n6">
@@ -69,31 +54,34 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="436" id="kYZ-97-MUk"/>
                                         </constraints>
-                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uKU-M6-yl7">
-                                            <size key="itemSize" width="335" height="405"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="uKU-M6-yl7">
+                                            <size key="itemSize" width="335" height="435"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="forYouCell" id="NW9-8U-KLF" customClass="ForYouCollectionViewCell" customModule="Toonie" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="0.0" width="335" height="405"/>
+                                                <rect key="frame" x="20" y="0.66666666666666663" width="335" height="435"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="335" height="405"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="335" height="435"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sampleImg" translatesAutoresizingMaskIntoConstraints="NO" id="XQJ-lE-EeX">
                                                             <rect key="frame" x="0.0" y="0.0" width="335" height="335"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="XQJ-lE-EeX" secondAttribute="height" multiplier="1:1" id="Ivg-US-9sV"/>
+                                                            </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="고양이 빵집_캣 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tfj-7H-e1p">
-                                                            <rect key="frame" x="0.0" y="350" width="279" height="21.666666666666686"/>
+                                                            <rect key="frame" x="0.0" y="350" width="279" height="22"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="18"/>
                                                             <color key="textColor" name="defaultText"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#작가 #일러스트" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obS-vm-S3u">
-                                                            <rect key="frame" x="0.0" y="377.66666666666669" width="279" height="17"/>
+                                                            <rect key="frame" x="0.0" y="378" width="279" height="17"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="14"/>
                                                             <color key="textColor" name="tag"/>
                                                             <nil key="highlightedColor"/>
@@ -137,67 +125,70 @@
                                         </connections>
                                     </collectionView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="당신을 위한 공감툰" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CXQ-2Y-Cf5">
-                                        <rect key="frame" x="20" y="410" width="164" height="26.666666666666686"/>
+                                        <rect key="frame" x="20" y="409.66666666666669" width="164" height="27"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="22"/>
                                         <color key="textColor" name="main"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="즐겨찾는 작품" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="209-ra-aX5">
-                                        <rect key="frame" x="20" y="1275.3333333333333" width="120" height="26.666666666666742"/>
+                                        <rect key="frame" x="20" y="1209.6666666666667" width="120" height="27"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="22"/>
                                         <color key="textColor" name="main"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최근 본 작품과 연관된" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6RQ-Z7-6L6">
-                                        <rect key="frame" x="20" y="910.66666666666663" width="188.66666666666666" height="26.666666666666629"/>
+                                        <rect key="frame" x="20" y="910.66666666666663" width="189" height="27"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="22"/>
                                         <color key="textColor" name="main"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hga-Jd-Bfl" userLabel="line">
-                                        <rect key="frame" x="20" y="883.66666666666663" width="335" height="1"/>
-                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <rect key="frame" x="20" y="883.66666666666663" width="335" height="0.33333333333337123"/>
+                                        <color key="backgroundColor" name="line"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="1" id="27n-Uo-ICx"/>
+                                            <constraint firstAttribute="height" constant="0.5" id="27n-Uo-ICx"/>
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6qL-zY-Ehc">
-                                        <rect key="frame" x="0.0" y="1313" width="375" height="436"/>
+                                        <rect key="frame" x="0.0" y="1247.6666666666667" width="375" height="436"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="436" id="o3z-jx-Y16"/>
                                         </constraints>
-                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kf5-lQ-fyq">
-                                            <size key="itemSize" width="335" height="442"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="kf5-lQ-fyq">
+                                            <size key="itemSize" width="335" height="436"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="favoriteCell" id="vNF-2r-3tC" customClass="FavoriteCollectionViewCell" customModule="Toonie" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="0.0" width="335" height="442"/>
+                                                <rect key="frame" x="20" y="0.0" width="335" height="436"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="335" height="442"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="335" height="436"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample3" translatesAutoresizingMaskIntoConstraints="NO" id="pc6-Dh-vLy">
-                                                            <rect key="frame" x="0.0" y="0.0" width="335" height="361"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="335" height="335"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="pc6-Dh-vLy" secondAttribute="height" multiplier="1:1" id="LCB-Lm-SJS"/>
+                                                            </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="고양이 빵집_캣 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XpR-Yn-Lou">
-                                                            <rect key="frame" x="0.0" y="376" width="279" height="21.666666666666686"/>
+                                                            <rect key="frame" x="0.0" y="350" width="279" height="22"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="18"/>
                                                             <color key="textColor" name="defaultText"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#작가 #일러스트" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xx8-z6-Ui0">
-                                                            <rect key="frame" x="0.0" y="403.66666666666669" width="279" height="17"/>
+                                                            <rect key="frame" x="0.0" y="378" width="279" height="17"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="14"/>
                                                             <color key="textColor" name="tag"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HlH-2r-sYc">
-                                                            <rect key="frame" x="299" y="361" width="44" height="44"/>
+                                                            <rect key="frame" x="299" y="335" width="44" height="44"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="44" id="t3o-sx-Tv7"/>
                                                                 <constraint firstAttribute="width" constant="44" id="yLr-vD-pGB"/>
@@ -235,30 +226,30 @@
                                         </connections>
                                     </collectionView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fBw-p3-KTh" userLabel="line">
-                                        <rect key="frame" x="20" y="1248.3333333333333" width="335" height="1"/>
-                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <rect key="frame" x="20" y="1182.6666666666667" width="335" height="0.33333333333325754"/>
+                                        <color key="backgroundColor" name="line"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="1" id="zrd-eD-n76"/>
+                                            <constraint firstAttribute="height" constant="0.5" id="zrd-eD-n76"/>
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BdI-lt-aRe" userLabel="Recent Collection View">
-                                        <rect key="frame" x="0.0" y="948.33333333333348" width="375" height="300"/>
+                                        <rect key="frame" x="0.0" y="948.66666666666652" width="375" height="234"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="300" id="lV9-zP-H6C"/>
+                                            <constraint firstAttribute="height" constant="234" id="lV9-zP-H6C"/>
                                         </constraints>
-                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="10" id="h5E-Zg-a9h">
-                                            <size key="itemSize" width="162" height="205"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="h5E-Zg-a9h">
+                                            <size key="itemSize" width="162" height="233"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="recentCell" id="uxp-hL-n1H" customClass="RecentCollectionViewCell" customModule="Toonie" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="162" height="205"/>
+                                                <rect key="frame" x="20" y="0.66666666666666663" width="162" height="233"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="162" height="205"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="162" height="233"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample2" translatesAutoresizingMaskIntoConstraints="NO" id="A8o-Og-VtP">
@@ -283,9 +274,7 @@
                                                                 <constraint firstAttribute="height" constant="44" id="xmd-Yb-f2C"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="18"/>
-                                                            <state key="normal" image="Bookmark">
-                                                                <color key="titleColor" name="text"/>
-                                                            </state>
+                                                            <state key="normal" image="Bookmark"/>
                                                             <state key="selected" image="BookmarkOn"/>
                                                         </button>
                                                     </subviews>
@@ -365,6 +354,7 @@
                         <outlet property="favoriteCollectionView" destination="6qL-zY-Ehc" id="7ak-4c-o66"/>
                         <outlet property="forYouCollectionView" destination="8qJ-5s-6n6" id="lNn-n1-xAN"/>
                         <outlet property="recentCollectionView" destination="BdI-lt-aRe" id="Qj5-MW-hUC"/>
+                        <outlet property="tagView" destination="FQf-H6-zB2" id="vYp-Be-aY9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mMI-21-kQr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -381,14 +371,14 @@
         <namedColor name="defaultText">
             <color red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="line">
+            <color red="0.76470588235294112" green="0.76470588235294112" blue="0.76470588235294112" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="main">
             <color red="1" green="0.46666666666666667" blue="0.0078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="tag">
             <color red="0.99607843137254903" green="0.20000000000000001" blue="0.0039215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="text">
-            <color red="0.13300000131130219" green="0.13300000131130219" blue="0.13300000131130219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
