@@ -11,68 +11,59 @@ import KTCenterFlowLayout
 
 final class KeywordSelectViewController: UIViewController {
     @IBOutlet weak var keywordCollecionView: UICollectionView!
-    @IBOutlet weak var keywordFlowlayout: KTCenterFlowLayout!
-
-    let dummy =  ["A",
-                  "Ala",
-                  "Ar",
-                  "Ark",
-                  "California",
-                  "Colorado",
-                  "Connecticut",
-                  "Delaware",
-                  "District Of Columbia",
-                  "Florida",
-                  "Georgia",
-                  "Hawaii",
-                  "Idaho",
-                  "Illinois",
-                  "Indiana",
-                  "Iowa",
-                  "Kansas",
-                  "Kentucky",
-                  "Louisiana",
-                  "Maine",
-                  "Maryland",
-                  "Massachusetts",
-                  "Michigan",
-                  "Minnesota",
-                  "Mississippi",
-                  "Missouri",
-                  "Montana",
-                  "Nebraska",
-                  "Nevada",
-                  "New Hampshire",
-                  "New Jersey",
-                  "New Mexico",
-                  "New York",
-                  "North Carolina",
-                  "North Dakota",
-                  "Ohio",
-                  "Oklahoma",
-                  "Oregon",
-                  "Pennsylvania",
-                  "Rhode Island",
-                  "South Carolina",
-                  "South Dakota",
-                  "Tennessee",
-                  "Texas",
-                  "Utah",
-                  "Vermont",
-                  "Virginia",
-                  "Washington",
-                  "West Virginia",
-                  "Wisconsin",
-                  "Wyoming"
-    ]
-
+    @IBOutlet weak var keywordFlowLayout: KTCenterFlowLayout!
+    @IBOutlet weak var keywordCountLabel: UILabel!
+    @IBOutlet weak var mainMoveButton: UIButton!
+    
+    var keywordSelectArray = [String]()
+    
+    //임시데이터
+    let dummy =  ["#학교생활",
+                  "#직업",
+                  "#자기계발",
+                  "#해외",
+                  "#심리•감정",
+                  "#여행",
+                  "#자취생활",
+                  "#음식",
+                  "#반려동물",
+                  "#가족",
+                  "#사랑•연애",
+                  "#페미니즘"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        keywordFlowlayout.minimumInteritemSpacing = 3
-        keywordFlowlayout.minimumLineSpacing = 3
-        keywordFlowlayout.sectionInset = UIEdgeInsets.init(top: 5, left: 5, bottom: 5, right: 5)
-        keywordFlowlayout.estimatedItemSize = CGSize.init(width: 500, height: 30)
+        setKeywordFlowLayout()
+    }
+    
+    ///시작하기 버튼-메인으로 이동
+    @IBAction func startButtonDidTap(_ sender: UIButton) {
+//        print("선택한 키워드 \(keywordSelectArray)") 
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "RootViewController")
+        UIApplication.shared.keyWindow?.rootViewController = viewController
+    }
+    
+    ///keywordFlowLayout 프로퍼티 설정
+    func setKeywordFlowLayout() {
+        keywordFlowLayout.minimumInteritemSpacing = 10
+        keywordFlowLayout.minimumLineSpacing = 20 * CommonUtility.getDeviceRatioHieght()     //라인 사이의 최소간격
+        keywordFlowLayout.sectionInset = UIEdgeInsets.init(top: 0, left: 5, bottom: 0, right: 5)
+        keywordFlowLayout.estimatedItemSize = CGSize.init(width: 95, height: 50)
+    }
+    
+    ///키워드 선택할때마다 카운트레이블, 버튼 리로드
+    func reloadKeywordView() {
+        keywordCountLabel.text = "\(keywordSelectArray.count)개"
+        
+        if 3 <= keywordSelectArray.count {
+            //버튼상태 바꿈
+            mainMoveButton.isEnabled = true
+            mainMoveButton.backgroundColor = UIColor.clear // 그라디언트 소스코드로 적용해야함.
+        } else {
+            mainMoveButton.isEnabled = false
+            mainMoveButton.backgroundColor = UIColor.init(named: "disabledButton")
+        }
     }
 }
 
@@ -83,68 +74,56 @@ extension KeywordSelectViewController: UICollectionViewDelegate, UICollectionVie
 
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "KeywordCell",
-//                                                      for: indexPath) as? KeywordCell
-        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "KeywordCell",
                                                             for: indexPath) as? KeywordCell else {
             return UICollectionViewCell()
         }
 
         cell.titleLabel.text = dummy[indexPath.row]
-
+        cell.cellStatus = false
+        
         return cell
     }
-
+     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         let keyword = dummy[indexPath.row]
-        let width = Int(keyword.widthWithConstrainedHeight(height: 10, font: UIFont.systemFont(ofSize: 10)))
+        let width = Int(keyword.widthWithConstrainedHeight(height: 49, font: UIFont.systemFont(ofSize: 20)))
 
-        return CGSize(width: width+3, height: 30)
+        return CGSize(width: width + 20, height: 50)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? KeywordCell {
+            cell.cellStatus = !cell.cellStatus
+            
+            //선택한 키워드 추가 및 삭제
+            if cell.cellStatus == true {
+                keywordSelectArray.append(dummy[indexPath.row])
+            } else {
+                let findIndex = keywordSelectArray.firstIndex(of: cell.titleLabel.text ?? "")
+                
+                if let index = findIndex {
+                    keywordSelectArray.remove(at: index)
+                }
+            }
+            
+            //카운트레이블, 버튼 리로드
+            reloadKeywordView()
+        }
+    }
+    
 }
 
 extension KeywordSelectViewController: UICollectionViewDelegateFlowLayout {
     private func collectionView(collectionView: UICollectionView,
                                 layout collectionViewLayout: UICollectionViewLayout,
                                 sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
-
         let keyword = dummy[indexPath.row]
-        let width = Int(keyword.widthWithConstrainedHeight(height: 10, font: UIFont.systemFont(ofSize: 10)))
-
-        print("확인해보자 \(width)")
-        return CGSize(width: width+10, height: 30)
-    }
-}
-
-//
-//extension KeywordSelectViewController : UICollectionViewDelegateFlowLayout{
-//    private func collectionView(collectionView: UICollectionView,
-//                        layout collectionViewLayout: UICollectionViewLayout,
-//                        sizeForItemAtIndexPath indexPath:  IndexPath) -> CGSize {
-//
-//        let keyword = dummy[indexPath.row]
-//        let width = Int(keyword.widthWithConstrainedHeight(height: 10, font: UIFont.systemFont(ofSize: 10)))
-//
-//        print("확인해보자 \(width)")
-//        return CGSize(width: width+3, height:30)
-//    }
-//
-//}
-//
-
-extension String {
-    func widthWithConstrainedHeight(height: CGFloat,
-                                    font: UIFont) -> CGFloat {
-        let constraintRect = CGSize(width: .greatestFiniteMagnitude,
-                                    height: height)
-        let boundingBox = self.boundingRect(with: constraintRect,
-                                            options: [.usesLineFragmentOrigin,
-                                                      .usesFontLeading],
-                                            attributes: [NSAttributedString.Key.font: font], context: nil)
-        return boundingBox.width
+        let width = Int(keyword.widthWithConstrainedHeight(height: 49, font: UIFont.systemFont(ofSize: 20)))
+        
+        return CGSize(width: width + 20, height: 50)
     }
 }

@@ -16,32 +16,37 @@ final class SplashViewController: UIViewController {
     @IBOutlet weak var logoFrameView: UIView!
     private var logoAnimationView: LOTAnimationView?
     
-    @IBOutlet weak var keywordMoveButton: UIButton!
- 
     override func viewDidLoad() {
         super.viewDidLoad()
  
-        logoAnimationViewSet()
+        setLogoAnimationView()
         
         logoAnimationView?.play { (finished) in
             if finished {
                 //키워드 선택해야하는 유저라면
-//                self.keywordMoveBtnShow()
+                self.moveKeywordView()
                 //아니라면 일반화면으로 이동
-                self.mainMove()
+//                self.moveMainView()
             }
         }
     }
   
     ///애니메이션 후 메인화면으로 이동
-    func mainMove() {
+    func moveMainView() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "RootViewController")
         UIApplication.shared.keyWindow?.rootViewController = viewController
     }
     
+    ///키워드 화면 진입
+    func moveKeywordView() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "KeywordSelectViewController")
+        UIApplication.shared.keyWindow?.rootViewController = viewController
+    }
+    
     ///logoAnimationView 세팅
-    func logoAnimationViewSet() {
+    func setLogoAnimationView() {
         logoAnimationView = LOTAnimationView(name: "logo") 
         logoAnimationView!.contentMode = .scaleAspectFill
         logoAnimationView!.frame = CGRect.init(x: 0,
@@ -51,18 +56,5 @@ final class SplashViewController: UIViewController {
         
         logoFrameView.addSubview(logoAnimationView!)
     }
-  
-    ///키워드 화면 진입 버튼 노출
-    func keywordMoveBtnShow() {
-        keywordMoveButton.isHidden = false
-        UIView.animate(withDuration: 0.5, delay: 0, options: [], animations: {
-            self.keywordMoveButton.alpha = 1.0
-        })
-    }
- 
-    @IBAction func keywordMoveButtonDidTap(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "KeywordSelectViewController")
-        UIApplication.shared.keyWindow?.rootViewController = viewController
-    }
+   
 }
