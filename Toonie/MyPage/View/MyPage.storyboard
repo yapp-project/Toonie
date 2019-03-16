@@ -33,6 +33,9 @@
                                         <state key="normal" title="  최근 본 작품" image="RecentOn">
                                             <color key="titleColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="recentButtonAction:" destination="1yF-Dz-Gsz" eventType="touchUpInside" id="wYN-Sj-hRV"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nx7-QQ-Fdd">
                                         <rect key="frame" x="0.0" y="40" width="106" height="27"/>
@@ -40,6 +43,9 @@
                                         <state key="normal" title="  내 컬렉션" image="Collection">
                                             <color key="titleColor" red="0.56862745098039214" green="0.56862745098039214" blue="0.56862745098039214" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="myCollectionButtonAction:" destination="1yF-Dz-Gsz" eventType="touchUpInside" id="6bJ-TF-dWv"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bdW-2E-m8Q">
                                         <rect key="frame" x="0.0" y="80" width="106" height="27"/>
@@ -47,11 +53,14 @@
                                         <state key="normal" title="  찜한 작품" image="Bookmark">
                                             <color key="titleColor" red="0.56862745098039214" green="0.56862745098039214" blue="0.56862745098039214" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="bookMarkButtonAction:" destination="1yF-Dz-Gsz" eventType="touchUpInside" id="wD2-V6-vhI"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="p84-Pm-NVk">
-                                <rect key="frame" x="196.66666666666663" y="114" width="170.33333333333337" height="698"/>
+                                <rect key="frame" x="196.66666666666663" y="134" width="170.33333333333337" height="644"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fbM-aL-u32">
                                     <size key="itemSize" width="147" height="175"/>
@@ -60,26 +69,50 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="fN9-98-faL">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MypageCollectionViewCell" id="TBF-px-Tpw" customClass="MypageCollectionViewCell" customModule="Toonie" customModuleProvider="target">
                                         <rect key="frame" x="11.666666666666666" y="0.0" width="147" height="175"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="147" height="175"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="myRecentlyLoadingImg" translatesAutoresizingMaskIntoConstraints="NO" id="a8x-cx-db7">
-                                                    <rect key="frame" x="11" y="10" width="122" height="122"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="myCollectionPlus" translatesAutoresizingMaskIntoConstraints="NO" id="SGW-gP-Tgj">
+                                                    <rect key="frame" x="12.666666666666664" y="10" width="121.66666666666669" height="128.66666666666666"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="SGW-gP-Tgj" secondAttribute="height" multiplier="122:129" id="sNF-nE-mNL"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="웹툰 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="92M-eM-FZY">
-                                                    <rect key="frame" x="10.999999999999991" y="140" width="122" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IZV-YS-rBS">
+                                                    <rect key="frame" x="12.666666666666664" y="17.000000000000007" width="121.66666666666669" height="121.66666666666669"/>
+                                                    <color key="backgroundColor" red="0.34901960780000002" green="0.24313725489999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="IZV-YS-rBS" secondAttribute="height" multiplier="1:1" id="nma-px-xOr"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ukk-p9-G3r">
+                                                    <rect key="frame" x="12.666666666666664" y="146.66666666666666" width="121.66666666666669" height="20"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="Ukk-p9-G3r" firstAttribute="centerX" secondItem="SGW-gP-Tgj" secondAttribute="centerX" id="05X-Ch-m83"/>
+                                            <constraint firstItem="IZV-YS-rBS" firstAttribute="trailing" secondItem="SGW-gP-Tgj" secondAttribute="trailing" id="1gH-S3-bgb"/>
+                                            <constraint firstItem="IZV-YS-rBS" firstAttribute="bottom" secondItem="SGW-gP-Tgj" secondAttribute="bottom" id="BGS-Mz-8PK"/>
+                                            <constraint firstItem="SGW-gP-Tgj" firstAttribute="centerX" secondItem="TBF-px-Tpw" secondAttribute="centerX" id="GtX-ri-7gK"/>
+                                            <constraint firstItem="IZV-YS-rBS" firstAttribute="leading" secondItem="SGW-gP-Tgj" secondAttribute="leading" id="Ip9-zs-Jgo"/>
+                                            <constraint firstItem="Ukk-p9-G3r" firstAttribute="width" secondItem="SGW-gP-Tgj" secondAttribute="width" id="caa-MS-DZx"/>
+                                            <constraint firstItem="SGW-gP-Tgj" firstAttribute="leading" secondItem="TBF-px-Tpw" secondAttribute="leading" constant="12.666666666666671" id="eb1-ab-XZd"/>
+                                            <constraint firstItem="Ukk-p9-G3r" firstAttribute="top" secondItem="SGW-gP-Tgj" secondAttribute="bottom" constant="8" id="wqG-Gn-3zF"/>
+                                            <constraint firstItem="SGW-gP-Tgj" firstAttribute="top" secondItem="TBF-px-Tpw" secondAttribute="top" constant="10" id="zY3-BD-L5U"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="mypageCollectionImageView" destination="SGW-gP-Tgj" id="qQv-jw-gpf"/>
+                                            <outlet property="mypageToonImageView" destination="IZV-YS-rBS" id="DG2-Y1-33D"/>
+                                            <outlet property="mypageToonLabel" destination="Ukk-p9-G3r" id="iXf-gv-XPK"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -87,8 +120,11 @@
                                 <rect key="frame" x="24" y="679" width="108" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="#  내 취향 태그">
-                                    <color key="titleColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.56862745100000001" green="0.56862745100000001" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="tagButtonAction:" destination="1yF-Dz-Gsz" eventType="touchUpInside" id="OYU-0l-MEx"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내서재" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5I-1c-jRM">
                                 <rect key="frame" x="151.33333333333334" y="48" width="72.666666666666657" height="33.666666666666657"/>
@@ -96,25 +132,41 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yLE-pB-iA2">
+                                <rect key="frame" x="221" y="94" width="120" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="tagEditBtn"/>
+                                <connections>
+                                    <action selector="tagSettingButtonAction:" destination="1yF-Dz-Gsz" eventType="touchUpInside" id="Ka5-H9-GHl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Thd-2p-Ayb" firstAttribute="trailing" secondItem="p84-Pm-NVk" secondAttribute="trailing" constant="8" id="2Ro-tr-vx5"/>
                             <constraint firstItem="9wK-ha-HCK" firstAttribute="leading" secondItem="U3c-Z8-Osr" secondAttribute="leading" id="2lr-GC-pic"/>
-                            <constraint firstItem="p84-Pm-NVk" firstAttribute="top" secondItem="4Tu-ZQ-8X1" secondAttribute="top" constant="20" id="5t6-fN-orp"/>
+                            <constraint firstItem="p84-Pm-NVk" firstAttribute="top" secondItem="4Tu-ZQ-8X1" secondAttribute="top" constant="40" id="5t6-fN-orp"/>
                             <constraint firstItem="y5I-1c-jRM" firstAttribute="centerX" secondItem="Thd-2p-Ayb" secondAttribute="centerX" id="6XJ-8H-EuP"/>
                             <constraint firstItem="p84-Pm-NVk" firstAttribute="leading" secondItem="4Tu-ZQ-8X1" secondAttribute="trailing" constant="8" id="Ln3-wL-gRY"/>
                             <constraint firstItem="4Tu-ZQ-8X1" firstAttribute="top" secondItem="y5I-1c-jRM" secondAttribute="bottom" constant="12.333333333333343" id="NPf-Bx-sQD"/>
+                            <constraint firstItem="Thd-2p-Ayb" firstAttribute="bottom" secondItem="p84-Pm-NVk" secondAttribute="bottom" id="Nmi-3V-fLN"/>
                             <constraint firstItem="y5I-1c-jRM" firstAttribute="top" secondItem="Thd-2p-Ayb" secondAttribute="top" constant="4" id="Nsa-QD-lXD"/>
                             <constraint firstItem="4Tu-ZQ-8X1" firstAttribute="centerX" secondItem="y5I-1c-jRM" secondAttribute="centerX" id="c4Y-kV-6ll"/>
                             <constraint firstItem="U3c-Z8-Osr" firstAttribute="top" secondItem="Thd-2p-Ayb" secondAttribute="top" constant="471" id="gWq-pn-3kY"/>
                             <constraint firstItem="9wK-ha-HCK" firstAttribute="top" secondItem="U3c-Z8-Osr" secondAttribute="bottom" constant="57" id="lL8-6X-doT"/>
-                            <constraint firstItem="p84-Pm-NVk" firstAttribute="bottom" secondItem="Thd-2p-Ayb" secondAttribute="bottom" constant="34" id="uPr-Q6-b9I"/>
                             <constraint firstItem="U3c-Z8-Osr" firstAttribute="leading" secondItem="Thd-2p-Ayb" secondAttribute="leading" constant="24" id="yP6-Gg-r6m"/>
                             <constraint firstItem="4Tu-ZQ-8X1" firstAttribute="bottom" secondItem="Thd-2p-Ayb" secondAttribute="bottom" constant="34" id="yoJ-0H-Nzy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Thd-2p-Ayb"/>
                     </view>
+                    <connections>
+                        <outlet property="bookMarkButton" destination="bdW-2E-m8Q" id="taQ-OH-kgp"/>
+                        <outlet property="myCollectionButton" destination="nx7-QQ-Fdd" id="VZr-Qx-BMM"/>
+                        <outlet property="mypageCollectionView" destination="p84-Pm-NVk" id="vOo-FF-5gP"/>
+                        <outlet property="recentButton" destination="deH-47-bCr" id="S3G-Rn-Hp2"/>
+                        <outlet property="tagButton" destination="9wK-ha-HCK" id="tvt-jv-Zsr"/>
+                        <outlet property="tagSettingButton" destination="yLE-pB-iA2" id="txK-7D-kMd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a2S-kL-DZs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -125,7 +177,8 @@
         <image name="Bookmark" width="15" height="18"/>
         <image name="Collection" width="15" height="20"/>
         <image name="RecentOn" width="17" height="17"/>
-        <image name="myRecentlyLoadingImg" width="122" height="122"/>
+        <image name="myCollectionPlus" width="122" height="129"/>
         <image name="pathCenter" width="2" height="718"/>
+        <image name="tagEditBtn" width="120" height="30"/>
     </resources>
 </document>
