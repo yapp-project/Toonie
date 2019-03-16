@@ -3,7 +3,7 @@
 //  ToonieTests
 //
 //  Created by 이재은 on 24/02/2019.
-//  Copyright © 2019 이재은. All rights reserved.
+//  Copyright © 2019 Yapp. All rights reserved.
 //
 
 import XCTest
