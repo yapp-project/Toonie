@@ -132,9 +132,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yLE-pB-iA2">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yLE-pB-iA2">
                                 <rect key="frame" x="221" y="94" width="120" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="yLE-pB-iA2" secondAttribute="height" multiplier="4:1" id="7HF-13-5Of"/>
+                                </constraints>
                                 <state key="normal" image="tagEditBtn"/>
                                 <connections>
                                     <action selector="tagSettingButtonAction:" destination="1yF-Dz-Gsz" eventType="touchUpInside" id="Ka5-H9-GHl"/>
@@ -143,10 +145,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Thd-2p-Ayb" firstAttribute="trailing" secondItem="yLE-pB-iA2" secondAttribute="trailing" constant="34" id="1vB-ZB-kXU"/>
                             <constraint firstItem="Thd-2p-Ayb" firstAttribute="trailing" secondItem="p84-Pm-NVk" secondAttribute="trailing" constant="8" id="2Ro-tr-vx5"/>
                             <constraint firstItem="9wK-ha-HCK" firstAttribute="leading" secondItem="U3c-Z8-Osr" secondAttribute="leading" id="2lr-GC-pic"/>
                             <constraint firstItem="p84-Pm-NVk" firstAttribute="top" secondItem="4Tu-ZQ-8X1" secondAttribute="top" constant="40" id="5t6-fN-orp"/>
                             <constraint firstItem="y5I-1c-jRM" firstAttribute="centerX" secondItem="Thd-2p-Ayb" secondAttribute="centerX" id="6XJ-8H-EuP"/>
+                            <constraint firstItem="yLE-pB-iA2" firstAttribute="top" secondItem="y5I-1c-jRM" secondAttribute="bottom" constant="12.333333333333343" id="9FS-sI-eek"/>
                             <constraint firstItem="p84-Pm-NVk" firstAttribute="leading" secondItem="4Tu-ZQ-8X1" secondAttribute="trailing" constant="8" id="Ln3-wL-gRY"/>
                             <constraint firstItem="4Tu-ZQ-8X1" firstAttribute="top" secondItem="y5I-1c-jRM" secondAttribute="bottom" constant="12.333333333333343" id="NPf-Bx-sQD"/>
                             <constraint firstItem="Thd-2p-Ayb" firstAttribute="bottom" secondItem="p84-Pm-NVk" secondAttribute="bottom" id="Nmi-3V-fLN"/>
@@ -155,6 +159,7 @@
                             <constraint firstItem="U3c-Z8-Osr" firstAttribute="top" secondItem="Thd-2p-Ayb" secondAttribute="top" constant="471" id="gWq-pn-3kY"/>
                             <constraint firstItem="9wK-ha-HCK" firstAttribute="top" secondItem="U3c-Z8-Osr" secondAttribute="bottom" constant="57" id="lL8-6X-doT"/>
                             <constraint firstItem="U3c-Z8-Osr" firstAttribute="leading" secondItem="Thd-2p-Ayb" secondAttribute="leading" constant="24" id="yP6-Gg-r6m"/>
+                            <constraint firstItem="p84-Pm-NVk" firstAttribute="top" secondItem="yLE-pB-iA2" secondAttribute="bottom" constant="10" id="ygK-V8-zXU"/>
                             <constraint firstItem="4Tu-ZQ-8X1" firstAttribute="bottom" secondItem="Thd-2p-Ayb" secondAttribute="bottom" constant="34" id="yoJ-0H-Nzy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Thd-2p-Ayb"/>
