@@ -30,11 +30,5 @@ final class RecentCollectionViewCell: UICollectionViewCell {
   func setRecentCollectionViewCellProperties() {
     recentToonImageView.image = UIImage(named: "sample2")
     artistLabel.text = "임유끼"
-    
-  }
-  
-  /// 이미지 모서리 둥글게 처리
-  func setRecentToonImageView() {
-    recentToonImageView.layer.setBorder(color: .clear, width: 0.0, radius: 5.0)
   }
 }

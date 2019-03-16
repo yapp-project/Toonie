@@ -35,6 +35,8 @@
 		0957B41AD138D0A49135F214132A015A /* ToonieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BEF0670CA0E9737AC0D8BB4C759F3D /* ToonieTests.swift */; };
 		19D70C5FD733A11319F2B4D5C382CB99 /* UIImageView+imageFromUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307197284628654A8308DA52AEF4572F /* UIImageView+imageFromUrl.swift */; };
 		16B5F805D0B84D4BAE707BAAED697F08 /* giphy.gif in Resources */ = {isa = PBXBuildFile; fileRef = D8E1AD8B779448DA04C464E96AECF285 /* giphy.gif */; };
+		42C9F1D0BE9554E33B9D52C08E676107 /* tag.json in Resources */ = {isa = PBXBuildFile; fileRef = CB4CC3F62E900540AB7D0805DE646065 /* tag.json */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +86,8 @@
 		D32B5ACD1A82F7A257245C24D4210ADC /* ToonieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToonieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		307197284628654A8308DA52AEF4572F /* UIImageView+imageFromUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIImageView+imageFromUrl.swift"; path = "Toonie/MyPage/UIImageView+imageFromUrl.swift"; sourceTree = SOURCE_ROOT; };
 		D8E1AD8B779448DA04C464E96AECF285 /* giphy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = giphy.gif; path = "toonie/Supporting Files/giphy.gif"; sourceTree = SOURCE_ROOT; };
+		CB4CC3F62E900540AB7D0805DE646065 /* tag.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tag.json; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D79B36B02E3BE1C7354741667915DF34 /* tag.json */ = {
+			isa = PBXGroup;
+			children = (
+				CB4CC3F62E900540AB7D0805DE646065 /* tag.json */,
+			);
+			path = tag.json;
+			sourceTree = "<group>";
+		};
 		1E5EEACC73F0B2067BEA386D942B1580 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				D7BD45CDB0C7E1A8A0FE2DB9C0C25B75 /* FeedViewController.swift */,
+				D79B36B02E3BE1C7354741667915DF34 /* tag.json */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -361,6 +374,8 @@
 				4FFEF2D3318AC791E3F9C6ECC7710F1B /* Main.storyboard in Resources */,
 				3603ED7C6D7679C3634C60C341C440F4 /* MyPage.storyboard in Resources */,
 				16B5F805D0B84D4BAE707BAAED697F08 /* giphy.gif in Resources */,
+				42C9F1D0BE9554E33B9D52C08E676107 /* tag.json in Resources */,
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -33,11 +33,5 @@ final class FavoriteCollectionViewCell: UICollectionViewCell {
     favoriteToonImageView.image = UIImage(named: "sample3")
     favoriteToonTitleLabel.text = "감자"
     favoriteToonTagLabel.text = "#직장인 #신혼"
-    
-  }
-  
-  /// 이미지 모서리 둥글게 처리
-  func setFavoriteToonImageView() {
-    favoriteToonImageView.layer.setBorder(color: .clear, width: 0.0, radius: 5.0)
   }
 }
