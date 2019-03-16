@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MypageCollectionViewCell: UICollectionViewCell {
+final class MypageCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var mypageToonLabel: UILabel!
     @IBOutlet weak var mypageToonImageView: UIImageView!

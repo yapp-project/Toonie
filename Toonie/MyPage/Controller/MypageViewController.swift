@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MypageViewController: UIViewController {
+final class MypageViewController: UIViewController {
     
     // MARK: - IBOutlet
     

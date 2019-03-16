@@ -10,7 +10,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "xunique &quot;${PROJECT_FILE_PATH}/Toonie.xcodeproj&quot; &quot;${PODS_ROOT}/Toonie.xcworkspace&quot;&#10;">
+               scriptText = "xunique -p &quot;${PROJECT_FILE_PATH}/Toonie.xcodeproj&quot; &quot;${PODS_ROOT}/Toonie.xcworkspace&quot;&#10;">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
