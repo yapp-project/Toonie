@@ -37,7 +37,7 @@ final class FeedViewController: UIViewController {
   
   // MARK: - Function
   
-  ///tagAnimationView 세팅
+  /// tagAnimationView 세팅
   func setTagAnimationView() {
     tagAnimationView = LOTAnimationView(name: "tag")
     if let tagAnimationView = tagAnimationView {
