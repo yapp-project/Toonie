@@ -18,18 +18,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mypage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5I-1c-jRM">
-                                <rect key="frame" x="156.66666666666666" y="400.66666666666669" width="62" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pathCenter" translatesAutoresizingMaskIntoConstraints="NO" id="4Tu-ZQ-8X1">
+                                <rect key="frame" x="186" y="94" width="2" height="718"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="내서재" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5I-1c-jRM">
+                                <rect key="frame" x="151" y="46" width="73" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.37254901959999998" green="0.43529411759999997" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="y5I-1c-jRM" firstAttribute="centerX" secondItem="Thd-2p-Ayb" secondAttribute="centerX" id="RKM-3B-v8o"/>
-                            <constraint firstItem="y5I-1c-jRM" firstAttribute="centerY" secondItem="Thd-2p-Ayb" secondAttribute="centerY" id="aAk-NG-6wb"/>
-                        </constraints>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Thd-2p-Ayb"/>
                     </view>
                 </viewController>
@@ -38,4 +39,7 @@
             <point key="canvasLocation" x="240.80000000000001" y="-230.73463268365819"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pathCenter" width="2" height="718"/>
+    </resources>
 </document>
