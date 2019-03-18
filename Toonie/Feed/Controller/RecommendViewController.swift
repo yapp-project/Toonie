@@ -14,7 +14,7 @@ final class RecommendViewController: UIViewController {
   // MARK: - IBOutlets
   @IBOutlet weak var tagCollectionView: UICollectionView!
   @IBOutlet weak var recommendTableView: UITableView!
-  @IBOutlet weak var recommendCollectionView: UICollectionView!
+  @IBOutlet weak var recommendCollectionView: UICollectionView! // 연결 끊음
   
   // MARK: - Life Cycle
   override func viewDidLoad() {
