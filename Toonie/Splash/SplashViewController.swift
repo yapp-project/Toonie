@@ -14,14 +14,14 @@ let tag = 100
 final class SplashViewController: UIViewController {
 
     @IBOutlet weak var logoFrameView: UIView!
-    private var logoAnimationView: LOTAnimationView?
+  private var logoAnimationView = LOTAnimationView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
  
         setLogoAnimationView()
         
-        logoAnimationView?.play { (finished) in
+        logoAnimationView.play { (finished) in
             if finished {
                 //키워드 선택해야하는 유저라면
                 self.moveKeywordView()
@@ -48,13 +48,13 @@ final class SplashViewController: UIViewController {
     ///logoAnimationView 세팅
     func setLogoAnimationView() {
         logoAnimationView = LOTAnimationView(name: "logo") 
-        logoAnimationView!.contentMode = .scaleAspectFill
-        logoAnimationView!.frame = CGRect.init(x: 0,
+        logoAnimationView.contentMode = .scaleAspectFill
+        logoAnimationView.frame = CGRect.init(x: 0,
                                                y: 0,
                                                width: logoFrameView.bounds.width,
                                                height: logoFrameView.bounds.height)
         
-        logoFrameView.addSubview(logoAnimationView!)
+        logoFrameView.addSubview(logoAnimationView)
     }
    
 }
