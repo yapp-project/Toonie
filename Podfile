@@ -10,6 +10,7 @@ target 'Toonie' do
   pod 'Kingfisher'
   pod 'lottie-ios'
   pod 'SwiftLint'
+  pod 'SnapKit'
 
   target 'ToonieTests' do
     inherit! :search_paths

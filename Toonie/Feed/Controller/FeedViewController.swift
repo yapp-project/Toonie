@@ -8,6 +8,7 @@
 
 import UIKit
 import Lottie
+import SnapKit
 
 // 홈 화면
 final class FeedViewController: UIViewController {
@@ -36,16 +37,17 @@ final class FeedViewController: UIViewController {
   
   // MARK: - Function
   
-  ///tagAnimationView 세팅
+  /// tagAnimationView 세팅
   func setTagAnimationView() {
     tagAnimationView = LOTAnimationView(name: "tag")
     if let tagAnimationView = tagAnimationView {
       tagAnimationView.contentMode = .scaleAspectFill
-      tagAnimationView.frame = CGRect.init(x: 0,
-                                           y: 0,
-                                           width: tagView.bounds.width,
-                                           height: tagView.bounds.height)
       tagView.addSubview(tagAnimationView)
+      tagAnimationView.snp.makeConstraints { (make) -> Void in
+        make.width.equalTo(tagView.bounds.width)
+        make.height.equalTo(tagView.bounds.height)
+        make.center.equalTo(tagView)
+      }
       tagAnimationView.play()
     }
   }
