@@ -63,6 +63,7 @@ final class KeywordSelectViewController: UIViewController {
         } else {
             mainMoveButton.isEnabled = false
             mainMoveButton.backgroundColor = UIColor.init(named: "disabledButton")
+          // color disableButton 오류
         }
     }
 }
