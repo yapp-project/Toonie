@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3Ih-K7-HF0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PQr-Ap-73h">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -359,6 +359,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UZP-rc-9Jj"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Skc-yX-QGF"/>
                     <size key="freeformSize" width="375" height="1800"/>
                     <connections>
                         <outlet property="favoriteCollectionView" destination="6qL-zY-Ehc" id="7ak-4c-o66"/>
@@ -370,6 +371,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mMI-21-kQr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="789.60000000000002" y="-514.28571428571433"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gif-f2-K80">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="PQr-Ap-73h" sceneMemberID="viewController">
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Kfw-zb-95W">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="3Ih-K7-HF0" kind="relationship" relationship="rootViewController" id="IkN-Tr-PbP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Szb-NE-gVB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-25" y="-533"/>
         </scene>
         <!--Recommend View Controller-->
         <scene sceneID="gIX-6u-yYs">
@@ -388,6 +405,9 @@
                                             <constraint firstAttribute="width" constant="44" id="wzT-F1-fj6"/>
                                         </constraints>
                                         <state key="normal" image="back"/>
+                                        <connections>
+                                            <action selector="backButtonDidTap:" destination="HVp-oW-7f2" eventType="touchUpInside" id="nPh-J7-YvE"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지금 나는" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r3v-Zk-dzR">
                                         <rect key="frame" x="146.66666666666666" y="8.6666666666666661" width="82" height="26.666666666666671"/>

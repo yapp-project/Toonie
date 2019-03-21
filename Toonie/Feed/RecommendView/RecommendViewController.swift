@@ -106,6 +106,9 @@ final class RecommendViewController: UIViewController {
         recommendTableView.reloadData()
     }
     
+    @IBAction func backButtonDidTap(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 
 // MARK: - TableView : 전체를 이루는 뷰
