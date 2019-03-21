@@ -22,7 +22,7 @@ final class FeedViewController: UIViewController {
   
   // MARK: - Property
   
-  private var tagAnimationView: LOTAnimationView?
+  private var tagAnimationView: AnimationView?
   
   // MARK: - Life Cycle
   
@@ -39,9 +39,9 @@ final class FeedViewController: UIViewController {
   
   /// tagAnimationView 세팅
   func setTagAnimationView() {
-    tagAnimationView = LOTAnimationView(name: "tag")
+    tagAnimationView = AnimationView(name: "tag")
     if let tagAnimationView = tagAnimationView {
-      tagAnimationView.contentMode = .scaleAspectFill
+      tagAnimationView.contentMode = .scaleAspectFit
       tagView.addSubview(tagAnimationView)
       tagAnimationView.snp.makeConstraints { (make) -> Void in
         make.width.equalTo(tagView.bounds.width)

@@ -38,6 +38,7 @@
 		0957B41AD138D0A49135F214132A015A /* ToonieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BEF0670CA0E9737AC0D8BB4C759F3D /* ToonieTests.swift */; };
 		19D70C5FD733A11319F2B4D5C382CB99 /* UIImageView+imageFromUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307197284628654A8308DA52AEF4572F /* UIImageView+imageFromUrl.swift */; };
 		16B5F805D0B84D4BAE707BAAED697F08 /* giphy.gif in Resources */ = {isa = PBXBuildFile; fileRef = D8E1AD8B779448DA04C464E96AECF285 /* giphy.gif */; };
+		A60A2C890FEE30C49C66EAB7AE2BA45D /* logo.json in Resources */ = {isa = PBXBuildFile; fileRef = 2043341A73508475E2C3AF559DC5BA15 /* logo.json */; };
 		42C9F1D0BE9554E33B9D52C08E676107 /* tag.json in Resources */ = {isa = PBXBuildFile; fileRef = CB4CC3F62E900540AB7D0805DE646065 /* tag.json */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +92,7 @@
 		D32B5ACD1A82F7A257245C24D4210ADC /* ToonieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToonieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		307197284628654A8308DA52AEF4572F /* UIImageView+imageFromUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIImageView+imageFromUrl.swift"; path = "Toonie/MyPage/UIImageView+imageFromUrl.swift"; sourceTree = SOURCE_ROOT; };
 		D8E1AD8B779448DA04C464E96AECF285 /* giphy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = giphy.gif; path = "toonie/Supporting Files/giphy.gif"; sourceTree = SOURCE_ROOT; };
+		2043341A73508475E2C3AF559DC5BA15 /* logo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = logo.json; sourceTree = "<group>"; };
 		CB4CC3F62E900540AB7D0805DE646065 /* tag.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tag.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -214,6 +216,7 @@
 				20EDEEDFB2A92FFAA9328EB4B2086305 /* KeywordCell.swift */,
 				7369E794AEA4E0B7187CBD9AE26AFB2E /* KeywordSelectViewController.swift */,
 				D181587B82E1BF344A7F8A87649CE2A5 /* SplashViewController.swift */,
+				2043341A73508475E2C3AF559DC5BA15 /* logo.json */,
 			);
 			path = Splash;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				4FFEF2D3318AC791E3F9C6ECC7710F1B /* Main.storyboard in Resources */,
 				3603ED7C6D7679C3634C60C341C440F4 /* MyPage.storyboard in Resources */,
 				16B5F805D0B84D4BAE707BAAED697F08 /* giphy.gif in Resources */,
+				A60A2C890FEE30C49C66EAB7AE2BA45D /* logo.json in Resources */,
 				42C9F1D0BE9554E33B9D52C08E676107 /* tag.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
