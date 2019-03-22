@@ -26,6 +26,7 @@
 		4FFEF2D3318AC791E3F9C6ECC7710F1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA5DF823B0E683B7C42B1DAFAC7C1D6E /* Main.storyboard */; };
 		A31F7D42C07575D642B19CEE561AAD2A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856BC1EDA73CD692E351511F4D51271A /* MainViewController.swift */; };
 		DD198E2FFCBF428D3BB0345A1CB1F292 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3410CCB8DC07905AB283969582125522 /* MyPage.storyboard */; };
+		3D7829A51FE8C5A1D54342BA93D42FE8 /* MyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520E0A35F56B2B546835C7C60E855EEE /* MyPage.swift */; };
 		087D071F4ACD5DD9DA5819762B27C20D /* MypageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8B3DA35B3E46B50EE7A39520EC52E8 /* MypageCollectionViewCell.swift */; };
 		09E62ABF5EFB2AD2310CD9D548C8018B /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5347DA29C97A840A7ACA03D8A5719C2 /* MypageViewController.swift */; };
 		9E1130891C97D8F4786070CA5F865527 /* Pods_Toonie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 117585FB9F8E77DCB04082EAF82AE342 /* Pods_Toonie.framework */; };
@@ -75,6 +76,7 @@
 		1F86D8B1CA39FC8055C8747A6AFC2D06 /* LookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookViewController.swift; sourceTree = "<group>"; };
 		856BC1EDA73CD692E351511F4D51271A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3410CCB8DC07905AB283969582125522 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
+		520E0A35F56B2B546835C7C60E855EEE /* MyPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPage.swift; sourceTree = "<group>"; };
 		6E8B3DA35B3E46B50EE7A39520EC52E8 /* MypageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageCollectionViewCell.swift; sourceTree = "<group>"; };
 		D5347DA29C97A840A7ACA03D8A5719C2 /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
 		46461D78EB2754C9A17D4352D5F97AC7 /* Pods-Toonie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toonie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Toonie/Pods-Toonie.debug.xcconfig"; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			children = (
 				7590BA9252DA09D8473EF57E59E92B30 /* Controllers */,
 				83207B8742C5908C6F0FFB837A6B7ABC /* Views */,
+				520E0A35F56B2B546835C7C60E855EEE /* MyPage.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -183,6 +186,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		7590BA9252DA09D8473EF57E59E92B30 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D5347DA29C97A840A7ACA03D8A5719C2 /* MypageViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		7836618FE7A43F2F101ED61B0304A6AB /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,14 +203,6 @@
 				307197284628654A8308DA52AEF4572F /* UIImageView+imageFromUrl.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		7590BA9252DA09D8473EF57E59E92B30 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				D5347DA29C97A840A7ACA03D8A5719C2 /* MypageViewController.swift */,
-			);
-			path = Controllers;
 			sourceTree = "<group>";
 		};
 		83207B8742C5908C6F0FFB837A6B7ABC /* Views */ = {
@@ -526,6 +529,7 @@
 				BF70273ECAB02DBDD66811688A2ABF57 /* LookDetailViewController.swift in Sources */,
 				2F487FFA72B9B1CA1B571558775F065E /* LookViewController.swift in Sources */,
 				A31F7D42C07575D642B19CEE561AAD2A /* MainViewController.swift in Sources */,
+				3D7829A51FE8C5A1D54342BA93D42FE8 /* MyPage.swift in Sources */,
 				087D071F4ACD5DD9DA5819762B27C20D /* MypageCollectionViewCell.swift in Sources */,
 				09E62ABF5EFB2AD2310CD9D548C8018B /* MypageViewController.swift in Sources */,
 				FB45278EDB2A30D96C6A86FE7615DB1C /* RecentCollectionViewCell.swift in Sources */,

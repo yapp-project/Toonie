@@ -19,12 +19,27 @@ final class MypageViewController: UIViewController {
     @IBOutlet weak var tagButton: UIButton!
     @IBOutlet weak var mypageCollectionView: UICollectionView!
     
+    @IBOutlet weak var checkLabel: UILabel!
+    // MARK: - DummyList
+    var mypageList: [MyPage] = []
+    var currentServer = 0
+    var recentServer = 0
+    var myCollectionServer = 1
+    var bookMarkServer = 2
+    var myTagServer = 3
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mypageCollectionView.dataSource = self
         mypageCollectionView.delegate = self
+        
+        setMypageData()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
     }
     
     // MARK: - IBAction
@@ -36,12 +51,17 @@ final class MypageViewController: UIViewController {
     }
     
     @IBAction func bookMarkButtonAction(_ sender: UIButton) {
+        
     }
     
     @IBAction func tagButtonAction(_ sender: UIButton) {
+        tagSettingButton.isHidden = false
     }
     
     @IBAction func tagSettingButtonAction(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "KeywordSelectViewController")
+        self.navigationController?.pushViewController(viewController, animated: true)        
     }
 }
 
@@ -51,7 +71,7 @@ extension MypageViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return mypageList.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -63,6 +83,10 @@ extension MypageViewController: UICollectionViewDataSource {
             else { return UICollectionViewCell() }
         cell.setMypageCollectionViewCellProperties()
         
+        let mypage = mypageList[indexPath.row]
+        cell.mypageToonImageView.image = UIImage(named: mypage.image)
+        cell.mypageToonLabel.text = mypage.title
+        
         return cell
         
     }
@@ -71,4 +95,17 @@ extension MypageViewController: UICollectionViewDataSource {
 
 extension MypageViewController: UICollectionViewDelegate {
     
+}
+
+// 더미 모델에 더미 데이터 집어넣기
+extension MypageViewController {
+    func setMypageData() {
+        let myPage1 = MyPage(image: "myRecentlyLoadingImg", title: "최근1번", status: "recent")
+        let myPage2 = MyPage(image: "myRecentlyLoadingImg", title: "최근2번", status: "recent")
+        let myPage3 = MyPage(image: "myRecentlyLoadingImg", title: "최근3번", status: "recent")
+        let myPage4 = MyPage(image: "", title: "최근4번", status: "recent")
+        let myPage5 = MyPage(image: "", title: "최근5번", status: "recent")
+
+        mypageList = [myPage1, myPage2, myPage3, myPage4, myPage5]
+    }
 }
