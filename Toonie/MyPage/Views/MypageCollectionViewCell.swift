@@ -18,6 +18,7 @@ final class MypageCollectionViewCell: UICollectionViewCell {
     func setMypageCollectionViewCellProperties() {
         mypageToonLabel.text = "히사시부링링"
         mypageToonImageView.image = UIImage(named: "myRecentlyLoadingImg")
+        mypageToonImageView.setCornerRadius()
         mypageCollectionImageView.image = UIImage(named: "myCollectionPlus")
     }
 }
