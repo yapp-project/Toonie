@@ -17,6 +17,8 @@ final class RecommendViewController: UIViewController {
     
     @IBOutlet weak var tagFrameView: UIView!
     @IBOutlet weak var tagScrollView: UIScrollView!
+    
+    ///이 수치에 따라 태그 줄수를 컨트롤 가능.
     @IBOutlet weak var tagScrollContentViewWidth: NSLayoutConstraint!
     
     @IBOutlet weak var tagCollectionView: UICollectionView!
@@ -28,11 +30,16 @@ final class RecommendViewController: UIViewController {
     //tagCollectionView 5줄 고정 위한 상수, 변수
     private let tagScrollContentViewWidthInitValue: CGFloat = 853
     private let maxTagItemWidth = 168
-    private let maxTagAllItemWidth = 4256 //item들을 일렬로 쭉 나열했을때의 max길이(간격포함)
+    
+    ///item들을 일렬로 쭉 나열했을때의 max길이(간격포함)
+    private let maxTagAllItemWidth = 4256
+    
     private let maxTagCount = 31
     private let maxLine = 5
     
+    /// tagAllWidth - 현재 뿌려질 태그 아이템들을 일렬로 늘어왔을때의 총 길이 (간격포함)
     private var tagAllWidth: Int = 0
+    
     private var tagSelectArray = [String]()
     
     //임시데이터
@@ -80,7 +87,7 @@ final class RecommendViewController: UIViewController {
         let nibName = UINib(nibName: "RecommendTableViewCell", bundle: nil)
         recommendTableView.register(nibName, forCellReuseIdentifier: "RecommendTableViewCell")
     }
-
+    
     ///tagFlowLayout 프로퍼티 설정
     func setTagFlowLayout() {
         tagCollectionViewFlowLayout.minimumInteritemSpacing = 10
@@ -102,7 +109,7 @@ final class RecommendViewController: UIViewController {
     
     ///태그 선택할때
     func reloadTagTableView() {
-//        print("tagSelectArray \(tagSelectArray)")
+        //        print("tagSelectArray \(tagSelectArray)")
         recommendTableView.reloadData()
     }
     
@@ -131,10 +138,10 @@ extension RecommendViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "RecommendTableViewCell",
-                                                       for: indexPath) as? RecommendTableViewCell else {
-                                                        return UITableViewCell()
-        }
+        guard let cell = tableView
+            .dequeueReusableCell(withIdentifier: "RecommendTableViewCell",
+                                 for: indexPath) as? RecommendTableViewCell
+            else { return UITableViewCell() }
         
         //역순 노출
         let reverseIndex = tagSelectArray.count - (indexPath.row + 1)
@@ -155,10 +162,10 @@ extension RecommendViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCollectionViewCell",
-                                                            for: indexPath) as? TagCollectionViewCell else {
-                                                                return UICollectionViewCell()
-        }
+        guard let cell = collectionView
+            .dequeueReusableCell(withReuseIdentifier: "TagCollectionViewCell",
+                                 for: indexPath) as? TagCollectionViewCell
+            else { return UICollectionViewCell() }
         cell.titleLabel.text = dummy[indexPath.row]
         cell.cellStatus = false
         
@@ -187,27 +194,10 @@ extension RecommendViewController: UICollectionViewDataSource {
         if dummy.count-1 != indexPath.row {
             tagAllWidth += 10
         } else {
-            /*
-             <문제>
-             글자수 기준 - #이리저리 치이는 프리랜서, 31개 최대
-             5줄고정, 6줄이 될 경우. 계산해서 constraint를 넓혀줘야한다.
-             갯수, 길이에 상관없이 5줄에 모두 나와야함.
-             
-             설명
-             tagScrollContentViewWidth.constant - 이 수치에 따라 태그 줄수를 컨트롤 가능.
-             maxTagAllItemWidth - 태그 아이템을 일렬로 늘어놨을때의 총 길이 (간격포함)
-             tagAllWidth - 현재 뿌려질 태그 아이템들을 일렬로 늘어왔을때의 총 길이 (간격포함)
-             
-             -
-             1. tagScrollContentViewWidth.constant 값이 초깃값 그대로라면 2번
-             2. tagAllWidth 값이 maxTagAllItemWidth를 초과하였다면 3번
-             3. (((tagAllWidth - maxTagAllItemWidth) / maxLine) / maxTagItemWidth) -> 한줄에 태그 몇개를 더 보여줘야 할지 계산한다.
-             +1을 하는 이유는 이미 이 분기를 들어왔다면 한줄당 하나가 추가되어야 하기 때문.
-             4. (maxTagItemWidth * addLineItemCount) -> tagScrollContentViewWidth.constant에 더해줄 길이를 계산한다.
-             5. 계산하여 기존 길이에 더해줌.
-             */
+            // 개수, 길이에 상관없이 5줄, 가운데 정렬을 위한 수치 계산.
             if tagScrollContentViewWidth.constant == tagScrollContentViewWidthInitValue { // 값이 초기값 그대로라면
                 if maxTagAllItemWidth < tagAllWidth {
+                    //한줄에 태그 몇개를 더 보여줘야 할지 계산 ,+1은 이 분기를 들어왔을때 하나는 이미 추가되어야 하기 때문
                     let addLineItemCount = (((tagAllWidth - maxTagAllItemWidth) / maxLine) / maxTagItemWidth) + 1
                     let addWidth = maxTagItemWidth * addLineItemCount
                     tagScrollContentViewWidth.constant += CGFloat(addWidth)
@@ -255,7 +245,7 @@ extension RecommendViewController: UICollectionViewDelegateFlowLayout {
         var width = Int(keyword.widthWithConstrainedHeight(height: 17,
                                                            font: font))
         width += 22
-
+        
         //최대길이제약 - 157
         if maxTagItemWidth < width {
             width = maxTagItemWidth
