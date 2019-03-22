@@ -133,7 +133,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YM2-fo-EPt">
-                                <rect key="frame" x="221" y="94" width="120" height="30"/>
+                                <rect key="frame" x="221.66666666666663" y="94" width="120" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="YM2-fo-EPt" secondAttribute="height" multiplier="4:1" id="qDj-jf-lc9"/>
                                 </constraints>
@@ -145,9 +145,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="YM2-fo-EPt" firstAttribute="centerX" secondItem="Rnj-eu-oGa" secondAttribute="centerX" id="6j2-0F-NA4"/>
                             <constraint firstItem="b3b-Jo-k7m" firstAttribute="trailing" secondItem="Rnj-eu-oGa" secondAttribute="trailing" constant="8" id="7bK-B7-3dA"/>
                             <constraint firstItem="Rnj-eu-oGa" firstAttribute="top" secondItem="pEu-hE-M7z" secondAttribute="top" constant="40" id="9k1-K2-nea"/>
-                            <constraint firstItem="b3b-Jo-k7m" firstAttribute="trailing" secondItem="YM2-fo-EPt" secondAttribute="trailing" constant="34" id="Hq0-r0-2gw"/>
                             <constraint firstItem="izi-e7-343" firstAttribute="top" secondItem="vrG-oz-tK9" secondAttribute="bottom" constant="57" id="Hzk-58-TOd"/>
                             <constraint firstItem="47g-Ls-rlZ" firstAttribute="centerX" secondItem="b3b-Jo-k7m" secondAttribute="centerX" id="J8G-iJ-mmV"/>
                             <constraint firstItem="YM2-fo-EPt" firstAttribute="top" secondItem="47g-Ls-rlZ" secondAttribute="bottom" constant="12.333333333333343" id="NMk-2C-BGi"/>
