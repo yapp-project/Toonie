@@ -11,7 +11,7 @@ import Lottie
 import SnapKit
 
 // 홈 화면
-final class FeedViewController: UIViewController {
+final class FeedViewController: GestureViewController {
   
   // MARK: - IBOutlet
   
@@ -32,6 +32,7 @@ final class FeedViewController: UIViewController {
   }
   
   override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
     setTagAnimationView()
   }
   
