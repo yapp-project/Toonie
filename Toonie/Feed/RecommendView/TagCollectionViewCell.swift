@@ -23,25 +23,20 @@ final class TagCollectionViewCell: UICollectionViewCell {
   func setBorderViewLayout(status: Bool) {
     if status == false { // 선택 안함
       CommonUtility.sharedInstance.setBorder(view: &backView,
-                                             color: UIColor.init(white: 0, alpha: 0.4).cgColor,
+                                             color: UIColor.init(white: 0.447, alpha: 0.4).cgColor,
                                              borderWidth: 1)
       titleLabel.textColor = UIColor.init(white: 0, alpha: 0.4)
-      backView.backgroundColor = UIColor.white
-      titleLabel.font = CommonUtility
-        .getAppleSDGothicNeo(option: CommonUtility.AppleSDOption.regular,
-                             size: titleLabel.font.pointSize)
+        
     } else { // 선택함
-      CommonUtility.sharedInstance
-        .setBorder(view: &backView,
-                   color: UIColor.init(white: 0, alpha: 0).cgColor,
-                   borderWidth: 1)
-      backView.backgroundColor = UIColor.init(named: "main")
-      titleLabel.textColor = UIColor.init(white: 1, alpha: 1)
-      titleLabel.font = CommonUtility
-        .getAppleSDGothicNeo(option: CommonUtility.AppleSDOption.bold,
-                             size: titleLabel.font.pointSize)
+        let borderColor = UIColor.init(named: "tag")?.cgColor
+        
+        CommonUtility.sharedInstance.setBorder(view: &backView,
+                                               color: borderColor ?? UIColor.init(white: 0, alpha: 0.4).cgColor,
+                                               borderWidth: 1)
+        titleLabel.textColor = UIColor.init(white: 0, alpha: 1)
+        
     }
     CommonUtility.sharedInstance.setCorner(view: &backView,
-                                           cornerRadius: 23.5)
-  }
+                                           cornerRadius: 5)
+    }
 }
