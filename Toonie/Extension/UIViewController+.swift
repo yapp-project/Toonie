@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 extension UIViewController {
     //커스텀 팝업 띄우기 애니메이션
     func showAnimate() {
@@ -25,11 +26,12 @@ extension UIViewController {
     func removeAnimate() {
         UIView.animate(withDuration: 0.25,
                        animations: {
-            self.view.transform = CGAffineTransform(scaleX: 1.3,
-                                                    y: 1.3)
-            self.view.alpha = 0.0},
+                        self.view.transform = CGAffineTransform(scaleX: 1.3,
+                                                                y: 1.3)
+                        self.view.alpha = 0.0},
                        completion: { (_) in
-            self.view.removeFromSuperview()
+                        self.view.removeFromSuperview()
         })
     }
+    
 }

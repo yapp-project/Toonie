@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class MainViewController: UIViewController {
+final class MainViewController: GestureViewController {
   // 100 Feed, 101 Look, 102 MyPage
   @IBOutlet weak var feedContainerView: UIView!
   @IBOutlet weak var lookContainerView: UIView!

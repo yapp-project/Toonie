@@ -9,7 +9,7 @@
 import UIKit
 
 // '지금 나는' 태그에 따른 인스타툰 추천 화면
-final class RecommendViewController: UIViewController {
+final class RecommendViewController: GestureViewController {
     
     // MARK: - IBOutlets
     
