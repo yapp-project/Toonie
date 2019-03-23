@@ -84,8 +84,10 @@ final class RecommendViewController: UIViewController {
     
     ///cell xib 이용
     func setTableViewXib() {
-        let nibName = UINib(nibName: "RecommendTableViewCell", bundle: nil)
-        recommendTableView.register(nibName, forCellReuseIdentifier: "RecommendTableViewCell")
+        let nibName = UINib(nibName: "RecommendTableViewCell",
+                            bundle: nil)
+        recommendTableView.register(nibName,
+                                    forCellReuseIdentifier: "RecommendTableViewCell")
     }
     
     ///tagFlowLayout 프로퍼티 설정
@@ -120,7 +122,8 @@ final class RecommendViewController: UIViewController {
 
 // MARK: - TableView : 전체를 이루는 뷰
 extension RecommendViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
         if tagSelectArray.count == 0 {
             tagFrameView.bounds = CGRect.init(x: 0,
                                               y: 0,
@@ -137,11 +140,14 @@ extension RecommendViewController: UITableViewDataSource {
         return tagSelectArray.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView
             .dequeueReusableCell(withIdentifier: "RecommendTableViewCell",
                                  for: indexPath) as? RecommendTableViewCell
-            else { return UITableViewCell() }
+            else {
+                return UITableViewCell()
+        }
         
         //역순 노출
         let reverseIndex = tagSelectArray.count - (indexPath.row + 1)
@@ -153,7 +159,8 @@ extension RecommendViewController: UITableViewDataSource {
 
 // MARK: - CollectionView : TagView - UICollectionViewDataSource
 extension RecommendViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
         if maxTagCount < dummy.count {
             return maxTagCount
         }
@@ -177,7 +184,7 @@ extension RecommendViewController: UICollectionViewDataSource {
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let keyword = dummy[indexPath.row]
-        let font = CommonUtility.getAppleSDGothicNeo(option: CommonUtility.AppleSDOption.regular,
+        let font = UIFont.getAppleSDGothicNeo(option: UIFont.AppleSDOption.regular,
                                                      size: 14)
         var width = Int(keyword.widthWithConstrainedHeight(height: 17,
                                                            font: font))
@@ -212,7 +219,8 @@ extension RecommendViewController: UICollectionViewDataSource {
 
 // MARK: - CollectionView : TagView - UICollectionViewDelegate
 extension RecommendViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? TagCollectionViewCell {
             cell.cellStatus = !cell.cellStatus
             
@@ -240,7 +248,7 @@ extension RecommendViewController: UICollectionViewDelegateFlowLayout {
                                 layout collectionViewLayout: UICollectionViewLayout,
                                 sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
         let keyword = dummy[indexPath.row]
-        let font = CommonUtility.getAppleSDGothicNeo(option: CommonUtility.AppleSDOption.regular,
+        let font = UIFont.getAppleSDGothicNeo(option: UIFont.AppleSDOption.regular,
                                                      size: 14)
         var width = Int(keyword.widthWithConstrainedHeight(height: 17,
                                                            font: font))
