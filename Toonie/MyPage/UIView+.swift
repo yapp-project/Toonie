@@ -11,18 +11,16 @@ import Kingfisher
 
 extension UIView {
     //이미지뷰 조금 둥글게 설정
-    func setCorner( view: inout UIView,
-                    cornerRadius: CGFloat) {
-        view.layer.masksToBounds = true
-        view.layer.cornerRadius = cornerRadius
+    func setCorner(cornerRadius: CGFloat) {
+        self.layer.masksToBounds = true
+        self.layer.cornerRadius = cornerRadius
     }
     
     ///border corner 설정하는 메서드
-    func setBorder(view: inout UIView,
-                   color: CGColor = UIColor.black.cgColor,
+    func setBorder(color: CGColor = UIColor.black.cgColor,
                    borderWidth: CGFloat = 1.0) {
-        view.layer.borderWidth = borderWidth
-        view.layer.borderColor = color
+        self.layer.borderWidth = borderWidth
+        self.layer.borderColor = color
     }
 }
 
