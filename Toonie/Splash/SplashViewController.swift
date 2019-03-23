@@ -47,7 +47,7 @@ final class SplashViewController: GestureViewController {
 
     ///logoAnimationView 세팅
     func setLogoAnimationView() {
-        logoAnimationView = AnimationView(name: "logo")
+        logoAnimationView = AnimationView(name: "logoAnimation")
       if let logoAnimationView = logoAnimationView {
         logoAnimationView.contentMode = .scaleAspectFit
         logoAnimationView.frame = CGRect.init(x: 0,
