@@ -27,7 +27,7 @@ extension UIView {
 extension UIImageView {
     //Kingfisher를 이용해 url로부터 이미지를 가져옴
     func imageFromUrl(_ urlString: String?,
-                      defaultImgPath : String) {
+                      defaultImgPath: String) {
         let defaultImg = UIImage(named: defaultImgPath)
         if let url = urlString {
             if url.isEmpty {
