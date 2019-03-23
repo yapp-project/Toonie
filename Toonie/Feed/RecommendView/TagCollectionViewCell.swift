@@ -22,21 +22,18 @@ final class TagCollectionViewCell: UICollectionViewCell {
   /// didTap 일어날 때마다 cellBackgroundView 레이아웃 바꿔주는 함수
   func setBorderViewLayout(status: Bool) {
     if status == false { // 선택 안함
-      CommonUtility.sharedInstance.setBorder(view: &backView,
-                                             color: UIColor.init(white: 0.447, alpha: 0.4).cgColor,
-                                             borderWidth: 1)
+      backView.setBorder(color: UIColor.init(white: 0.447, alpha: 0.4).cgColor,
+                         borderWidth: 1)
       titleLabel.textColor = UIColor.init(white: 0, alpha: 0.4)
         
     } else { // 선택함
         let borderColor = UIColor.init(named: "tag")?.cgColor
         
-        CommonUtility.sharedInstance.setBorder(view: &backView,
-                                               color: borderColor ?? UIColor.init(white: 0, alpha: 0.4).cgColor,
-                                               borderWidth: 1)
+        backView.setBorder(color: borderColor ?? UIColor.init(white: 0, alpha: 0.4).cgColor,
+                           borderWidth: 1)
         titleLabel.textColor = UIColor.init(white: 0, alpha: 1)
         
     }
-    CommonUtility.sharedInstance.setCorner(view: &backView,
-                                           cornerRadius: 5)
+    backView.setCorner(cornerRadius: 5)
     }
 }

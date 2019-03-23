@@ -74,7 +74,9 @@ extension MypageViewController: UICollectionViewDataSource {
         guard let cell = collectionView
             .dequeueReusableCell(withReuseIdentifier: "MypageCollectionViewCell",
                                  for: indexPath) as? MypageCollectionViewCell
-            else { return UICollectionViewCell() }
+            else {
+                return UICollectionViewCell()
+        }
         cell.setMypageCollectionViewCellProperties()
         
         if indexPath.row == 0 {

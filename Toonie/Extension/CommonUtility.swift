@@ -30,41 +30,4 @@ final class CommonUtility: NSObject {
         // XMax : 812 -> 디바이스 크기 Xs 기준으로 나오고 있음
         return (CGFloat)(UIScreen.main.bounds.height / deviceHeight)
     }
-    /***/
-    
-    ///border corner 설정하는 메서드
-    func setBorder(view: inout UIView, color: CGColor = UIColor.black.cgColor, borderWidth: CGFloat = 1.0) {
-        view.layer.borderWidth = borderWidth
-        view.layer.borderColor = color
-        
-    }
-    func setCorner( view: inout UIView, cornerRadius: CGFloat) {
-        view.layer.masksToBounds = true
-        view.layer.cornerRadius = cornerRadius
-    }
-    /***/
-    
-    ///AppleSDGothicNeo가져옴
-    enum AppleSDOption {
-        case thin, ultraLight, semiBold, medium, regular, bold, light
-    }
-    public static func getAppleSDGothicNeo(option: AppleSDOption, size: CGFloat) -> UIFont {
-        switch option {
-        case .thin:
-            return UIFont.init(name: "AppleSDGothicNeo-Thin", size: size) ?? UIFont.systemFont(ofSize: size)
-        case .ultraLight:
-            return UIFont.init(name: "AppleSDGothicNeo-UltraLight", size: size) ?? UIFont.systemFont(ofSize: size)
-        case .semiBold:
-            return UIFont.init(name: "AppleSDGothicNeo-SemiBold", size: size) ?? UIFont.systemFont(ofSize: size)
-        case .medium:
-            return UIFont.init(name: "AppleSDGothicNeo-Medium", size: size) ?? UIFont.systemFont(ofSize: size)
-        case .regular:
-            return UIFont.init(name: "AppleSDGothicNeo-Regular", size: size) ?? UIFont.systemFont(ofSize: size)
-        case .bold:
-            return UIFont.init(name: "AppleSDGothicNeo-Bold", size: size) ?? UIFont.systemFont(ofSize: size)
-        case .light:
-            return UIFont.init(name: "AppleSDGothicNeo-Light", size: size) ?? UIFont.systemFont(ofSize: size) 
-        }
-    }
-    /***/
 }

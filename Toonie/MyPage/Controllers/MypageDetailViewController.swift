@@ -43,7 +43,9 @@ extension MypageDetailViewController: UICollectionViewDataSource {
         guard let cell = collectionView
             .dequeueReusableCell(withReuseIdentifier: "MypageDetailCollectionViewCell",
                                  for: indexPath) as? MypageDetailCollectionViewCell
-            else { return UICollectionViewCell() }
+            else {
+                return UICollectionViewCell()
+        }
         cell.setMypageDetailCollectionViewCellProperties()
         
         if indexPath.row == 0 {
