@@ -10,10 +10,9 @@ import Foundation
 import Kingfisher
 
 extension UIImageView {
-    //이미지뷰 동그랗게 설정
-    func setCircle() {
-        self.layer.masksToBounds = true
-        self.layer.cornerRadius = self.frame.width / 2
+    //이미지뷰 조금 둥글게 설정
+    func setCornerRadius() {
+        self.layer.setBorder(color: .clear, width: 0.0, radius: 5.0)
     }
     
     //Kingfisher를 이용해 url로부터 이미지를 가져옴
