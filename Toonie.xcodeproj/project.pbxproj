@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3329D16EACF533982CBE706AE5A72FB7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 9C85D8F090D4E9C332080D997CFF19EE /* .swiftlint.yml */; };
+		CD3B71BFA9A4A0A122FD68E070D94845 /* API+Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A6C0BF687FEF975FCB0157ADE62331 /* API+Base.swift */; };
+		284284A87EAD42C78BE6BE7867420D59 /* AddToonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CD535025B6DABF4C00C418598FECA /* AddToonCollectionViewCell.swift */; };
+		3BA315B3C9603AC6B93F959232D18D96 /* AddToonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9A591D7D5CB7C82D47E5C4194E108F /* AddToonViewController.swift */; };
 		2356B514E09193A5CBF1127EB3E77AB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0983BCBA1C869D8FA91A7719C7D244E3 /* AppDelegate.swift */; };
 		BB57D379599E229DE86C9F3A93FCBB0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80C2C41933AFF35CEA1787DF94DFAF18 /* Assets.xcassets */; };
 		CE58BDE4B385906F80FB4510F44E5C7B /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A77C9F89A069C22EF59EBA5C5E17A8 /* CALayer+.swift */; };
@@ -32,6 +35,7 @@
 		2AEE70E242989259AC52F5761498DEEE /* MypageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9DAAFFAAAED602CB2AD1BE69ECCB8 /* MypageDetailViewController.swift */; };
 		51EC9B743BF45A529F3B67136DF0FF70 /* MypagePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FD1C2458DC9209D8977C9EF4E5C6F6 /* MypagePopUpViewController.swift */; };
 		09E62ABF5EFB2AD2310CD9D548C8018B /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5347DA29C97A840A7ACA03D8A5719C2 /* MypageViewController.swift */; };
+		EA322E84422010283737BCE5CCF91DCF /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30D0EEBB291640E1A610A270E72698 /* Network.swift */; };
 		9E1130891C97D8F4786070CA5F865527 /* Pods_Toonie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 117585FB9F8E77DCB04082EAF82AE342 /* Pods_Toonie.framework */; };
 		A328A80E54A3A417D3EA56767B1FDFDA /* Pods_ToonieTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82AF128897992796FF6ED25B199B0530 /* Pods_ToonieTests.framework */; };
 		FB45278EDB2A30D96C6A86FE7615DB1C /* RecentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE103DAB3F381AA2D9D28295093EC833 /* RecentCollectionViewCell.swift */; };
@@ -43,6 +47,7 @@
 		EA3F62E1C0F071466575AAE9D9B1A47D /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D181587B82E1BF344A7F8A87649CE2A5 /* SplashViewController.swift */; };
 		DAC921890617B9E247AE4070E1856EE9 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DC0E80B292187D81A2395BE3B5153F /* String+.swift */; };
 		4AE025D2C380F51BB508CE678B09CB78 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3671FD5527EB6A77347C274B14DB174B /* TagCollectionViewCell.swift */; };
+		2FAF393B9AC22D803FCA2D9B4EB2206B /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EBC58C2F940847C320C6A008EA812 /* Token.swift */; };
 		0957B41AD138D0A49135F214132A015A /* ToonieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BEF0670CA0E9737AC0D8BB4C759F3D /* ToonieTests.swift */; };
 		BD6A4E5D4CF8929196A01E3D1E55C9F4 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B4E73537A6A1DA88E2A6D9DCCCBB0 /* UIFont+.swift */; };
 		BBF3D671ABB1FA62C12A76D6A4CA52CE /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB68F163875F9F1F23D628BB5BB2372 /* UIView+.swift */; };
@@ -64,6 +69,9 @@
 
 /* Begin PBXFileReference section */
 		9C85D8F090D4E9C332080D997CFF19EE /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		91A6C0BF687FEF975FCB0157ADE62331 /* API+Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Base.swift"; sourceTree = "<group>"; };
+		9D1CD535025B6DABF4C00C418598FECA /* AddToonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToonCollectionViewCell.swift; sourceTree = "<group>"; };
+		FB9A591D7D5CB7C82D47E5C4194E108F /* AddToonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToonViewController.swift; sourceTree = "<group>"; };
 		0983BCBA1C869D8FA91A7719C7D244E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80C2C41933AFF35CEA1787DF94DFAF18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB66083F3ABEA7C967799226FCA1E83F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -90,6 +98,7 @@
 		38F9DAAFFAAAED602CB2AD1BE69ECCB8 /* MypageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageDetailViewController.swift; sourceTree = "<group>"; };
 		08FD1C2458DC9209D8977C9EF4E5C6F6 /* MypagePopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypagePopUpViewController.swift; sourceTree = "<group>"; };
 		D5347DA29C97A840A7ACA03D8A5719C2 /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
+		2F30D0EEBB291640E1A610A270E72698 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		46461D78EB2754C9A17D4352D5F97AC7 /* Pods-Toonie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toonie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Toonie/Pods-Toonie.debug.xcconfig"; sourceTree = "<group>"; };
 		300FB960FFEE2976C603D16E5DC4B10B /* Pods-Toonie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toonie.release.xcconfig"; path = "Pods/Target Support Files/Pods-Toonie/Pods-Toonie.release.xcconfig"; sourceTree = "<group>"; };
 		F9FED2BB74D689EF6B88421CC1B8579D /* Pods-ToonieTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToonieTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToonieTests/Pods-ToonieTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -105,6 +114,7 @@
 		D181587B82E1BF344A7F8A87649CE2A5 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SplashViewController.swift; path = Toonie/Splash/SplashViewController.swift; sourceTree = SOURCE_ROOT; };
 		C5DC0E80B292187D81A2395BE3B5153F /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		3671FD5527EB6A77347C274B14DB174B /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
+		ED1EBC58C2F940847C320C6A008EA812 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		E5B5664A67B748CC79409D5ABB761F80 /* Toonie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Toonie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8BEF0670CA0E9737AC0D8BB4C759F3D /* ToonieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonieTests.swift; sourceTree = "<group>"; };
 		D32B5ACD1A82F7A257245C24D4210ADC /* ToonieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToonieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,7 +193,9 @@
 				9A660BF0B161BD3FED30F6BE9A419D40 /* Feed */,
 				A42B09D03F50BAE4E7265D38A45A6172 /* Look */,
 				D8D2A1521954015D498AF0547AAA624C /* Main */,
+				09D847325C24321900807BBFB7BD0132 /* Model */,
 				1E5EEACC73F0B2067BEA386D942B1580 /* MyPage */,
+				EC299C6919C75B87B4DFEFC50617687E /* Network */,
 				9E6F725ABBD0B87936DB74FB0EFBAEEE /* Splash */,
 				E9E1A4A921F35FE4AF2DC69238B3FBED /* Supporting Files */,
 				EA8D35008BD513F538F5DE5377E835EF /* Info.plist */,
@@ -205,6 +217,7 @@
 		7590BA9252DA09D8473EF57E59E92B30 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FB9A591D7D5CB7C82D47E5C4194E108F /* AddToonViewController.swift */,
 				38F9DAAFFAAAED602CB2AD1BE69ECCB8 /* MypageDetailViewController.swift */,
 				08FD1C2458DC9209D8977C9EF4E5C6F6 /* MypagePopUpViewController.swift */,
 				D5347DA29C97A840A7ACA03D8A5719C2 /* MypageViewController.swift */,
@@ -225,9 +238,27 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		09D847325C24321900807BBFB7BD0132 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ED1EBC58C2F940847C320C6A008EA812 /* Token.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EC299C6919C75B87B4DFEFC50617687E /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				91A6C0BF687FEF975FCB0157ADE62331 /* API+Base.swift */,
+				2F30D0EEBB291640E1A610A270E72698 /* Network.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		83207B8742C5908C6F0FFB837A6B7ABC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9D1CD535025B6DABF4C00C418598FECA /* AddToonCollectionViewCell.swift */,
 				3410CCB8DC07905AB283969582125522 /* MyPage.storyboard */,
 				6E8B3DA35B3E46B50EE7A39520EC52E8 /* MypageCollectionViewCell.swift */,
 				A1B82C2D21CD592476C6DAF09221B684 /* MypageDetailCollectionViewCell.swift */,
@@ -551,6 +582,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD3B71BFA9A4A0A122FD68E070D94845 /* API+Base.swift in Sources */,
+				284284A87EAD42C78BE6BE7867420D59 /* AddToonCollectionViewCell.swift in Sources */,
+				3BA315B3C9603AC6B93F959232D18D96 /* AddToonViewController.swift in Sources */,
 				2356B514E09193A5CBF1127EB3E77AB0 /* AppDelegate.swift in Sources */,
 				CE58BDE4B385906F80FB4510F44E5C7B /* CALayer+.swift in Sources */,
 				C67E535B4EDD7106009E196F14FE7FC9 /* CommonUtility.swift in Sources */,
@@ -569,6 +603,7 @@
 				2AEE70E242989259AC52F5761498DEEE /* MypageDetailViewController.swift in Sources */,
 				51EC9B743BF45A529F3B67136DF0FF70 /* MypagePopUpViewController.swift in Sources */,
 				09E62ABF5EFB2AD2310CD9D548C8018B /* MypageViewController.swift in Sources */,
+				EA322E84422010283737BCE5CCF91DCF /* Network.swift in Sources */,
 				FB45278EDB2A30D96C6A86FE7615DB1C /* RecentCollectionViewCell.swift in Sources */,
 				B854DBCEF4394512A8FDCA7112E02449 /* RecommendCollectionViewCell.swift in Sources */,
 				77DFEEC3F834987C608C094E550766FB /* RecommendTableViewCell.swift in Sources */,
@@ -576,6 +611,7 @@
 				EA3F62E1C0F071466575AAE9D9B1A47D /* SplashViewController.swift in Sources */,
 				DAC921890617B9E247AE4070E1856EE9 /* String+.swift in Sources */,
 				4AE025D2C380F51BB508CE678B09CB78 /* TagCollectionViewCell.swift in Sources */,
+				2FAF393B9AC22D803FCA2D9B4EB2206B /* Token.swift in Sources */,
 				BD6A4E5D4CF8929196A01E3D1E55C9F4 /* UIFont+.swift in Sources */,
 				BBF3D671ABB1FA62C12A76D6A4CA52CE /* UIView+.swift in Sources */,
 				FF0CB358B72DD3162E223F5DEB7D2A94 /* UIViewController+.swift in Sources */,
