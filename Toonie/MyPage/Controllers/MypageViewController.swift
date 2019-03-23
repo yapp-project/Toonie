@@ -83,9 +83,15 @@ extension MypageViewController: UICollectionViewDataSource {
             else { return UICollectionViewCell() }
         cell.setMypageCollectionViewCellProperties()
         
-        let mypage = mypageList[indexPath.row]
-        cell.mypageToonImageView.image = UIImage(named: mypage.image)
-        cell.mypageToonLabel.text = mypage.title
+        if indexPath.row == 0 {
+            cell.mypageToonImageView.isHidden = true
+            cell.mypageCollectionImageView.isHidden = false
+            cell.mypageToonLabel.text = "새 컬렉션 만들기"
+        } else {
+            let mypage = mypageList[indexPath.row]
+            cell.mypageToonImageView.image = UIImage(named: mypage.image)
+            cell.mypageToonLabel.text = mypage.title
+        }
         
         return cell
         

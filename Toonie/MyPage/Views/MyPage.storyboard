@@ -175,13 +175,82 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wCv-t1-w0R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="105" y="-228"/>
+            <point key="canvasLocation" x="778" y="-165"/>
+        </scene>
+        <!--Mypage Pop Up View Controller-->
+        <scene sceneID="BFR-ks-asg">
+            <objects>
+                <viewController storyboardIdentifier="MypagePopUpViewController" id="z1t-FW-SZC" customClass="MypagePopUpViewController" customModule="Toonie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hff-q5-Ej4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WCZ-kt-Mbp">
+                                <rect key="frame" x="0.0" y="-34" width="375" height="812"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jJl-U4-bRp">
+                                <rect key="frame" x="20" y="278.66666666666669" width="335" height="187"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IZq-Os-AEN">
+                                        <rect key="frame" x="32" y="92.333333333333314" width="270" height="1"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="PRs-Cr-TCy"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="내 컬렉션 제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AaN-Fx-sV3">
+                                        <rect key="frame" x="22" y="17.000000000000057" width="98" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kjf-Lh-j9i">
+                                        <rect key="frame" x="289" y="149" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="확인"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FIj-eR-fB6">
+                                        <rect key="frame" x="227" y="149" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="취소"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbd-ro-ih2">
+                                        <rect key="frame" x="284" y="62" width="12" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="closeBtn"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="jJl-U4-bRp" secondAttribute="height" multiplier="335:187" id="050-9g-B54"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="WCZ-kt-Mbp" firstAttribute="leading" secondItem="18H-vB-9Kb" secondAttribute="leading" id="8Bz-fZ-jO3"/>
+                            <constraint firstItem="jJl-U4-bRp" firstAttribute="centerY" secondItem="WCZ-kt-Mbp" secondAttribute="centerY" id="I3L-WZ-9as"/>
+                            <constraint firstItem="18H-vB-9Kb" firstAttribute="trailing" secondItem="WCZ-kt-Mbp" secondAttribute="trailing" id="RyQ-vn-YPx"/>
+                            <constraint firstItem="jJl-U4-bRp" firstAttribute="width" secondItem="WCZ-kt-Mbp" secondAttribute="width" multiplier="335:375" id="ank-bL-MI1"/>
+                            <constraint firstItem="18H-vB-9Kb" firstAttribute="bottom" secondItem="WCZ-kt-Mbp" secondAttribute="bottom" id="eWH-d9-p0U"/>
+                            <constraint firstItem="WCZ-kt-Mbp" firstAttribute="height" secondItem="Hff-q5-Ej4" secondAttribute="height" id="fWy-oo-aPd"/>
+                            <constraint firstItem="jJl-U4-bRp" firstAttribute="centerX" secondItem="WCZ-kt-Mbp" secondAttribute="centerX" id="xdg-nx-eog"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="18H-vB-9Kb"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R9d-0R-TcA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1982" y="-166"/>
         </scene>
     </scenes>
     <resources>
         <image name="Bookmark" width="15" height="18"/>
         <image name="Collection" width="15" height="20"/>
         <image name="RecentOn" width="17" height="17"/>
+        <image name="closeBtn" width="12" height="13"/>
         <image name="myCollectionPlus" width="122" height="129"/>
         <image name="pathCenter" width="2" height="718"/>
         <image name="tagEditBtn" width="120" height="30"/>
