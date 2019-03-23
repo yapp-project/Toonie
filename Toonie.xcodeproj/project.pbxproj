@@ -84,8 +84,8 @@
 		C3C59DFBC67BAFC0446C4ACC3CD30166 /* ForYouCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouCollectionViewCell.swift; sourceTree = "<group>"; };
 		8D67243EE4C5277CA9E639E1FD1E0E03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA8D35008BD513F538F5DE5377E835EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		20EDEEDFB2A92FFAA9328EB4B2086305 /* KeywordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordCell.swift; sourceTree = "<group>"; };
-		7369E794AEA4E0B7187CBD9AE26AFB2E /* KeywordSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeywordSelectViewController.swift; path = toonie/Splash/KeywordSelectViewController.swift; sourceTree = SOURCE_ROOT; };
+		20EDEEDFB2A92FFAA9328EB4B2086305 /* KeywordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordCell.swift; sourceTree = "<group>"; };
+		7369E794AEA4E0B7187CBD9AE26AFB2E /* KeywordSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordSelectViewController.swift; sourceTree = "<group>"; };
 		917CB174956FF8ACDAD03E1840E2F0EF /* Look.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Look.storyboard; sourceTree = "<group>"; };
 		4744A64E19261259A0F1C0E591CA994C /* LookCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookCell.swift; sourceTree = "<group>"; };
 		84F8D5B7E8BE6D3DFDF575B20292F0BE /* LookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookDetailViewController.swift; sourceTree = "<group>"; };
@@ -110,7 +110,7 @@
 		B51EF193D9A44F9817A9B5B3AEBC43AE /* RecommendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendTableViewCell.swift; sourceTree = "<group>"; };
 		4E22D81A0236792AB18413B19EB049C0 /* RecommendTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendTableViewCell.xib; sourceTree = "<group>"; };
 		5D25B6972A3D1C2D3D33BE328E777FD1 /* RecommendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
-		D181587B82E1BF344A7F8A87649CE2A5 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SplashViewController.swift; path = Toonie/Splash/SplashViewController.swift; sourceTree = SOURCE_ROOT; };
+		D181587B82E1BF344A7F8A87649CE2A5 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		C5DC0E80B292187D81A2395BE3B5153F /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		3671FD5527EB6A77347C274B14DB174B /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
 		E5B5664A67B748CC79409D5ABB761F80 /* Toonie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Toonie.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -270,6 +270,16 @@
 			path = Feed;
 			sourceTree = "<group>";
 		};
+		A42B09D03F50BAE4E7265D38A45A6172 /* Look */ = {
+			isa = PBXGroup;
+			children = (
+				27B8AA7F074F516D27CE1E5F0928633C /* LookViewController */,
+				917CB174956FF8ACDAD03E1840E2F0EF /* Look.storyboard */,
+				84F8D5B7E8BE6D3DFDF575B20292F0BE /* LookDetailViewController.swift */,
+			);
+			path = Look;
+			sourceTree = "<group>";
+		};
 		9E6F725ABBD0B87936DB74FB0EFBAEEE /* Splash */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,16 +289,6 @@
 				2043341A73508475E2C3AF559DC5BA15 /* logo.json */,
 			);
 			path = Splash;
-			sourceTree = "<group>";
-		};
-		A42B09D03F50BAE4E7265D38A45A6172 /* Look */ = {
-			isa = PBXGroup;
-			children = (
-				27B8AA7F074F516D27CE1E5F0928633C /* LookViewController */,
-				917CB174956FF8ACDAD03E1840E2F0EF /* Look.storyboard */,
-				84F8D5B7E8BE6D3DFDF575B20292F0BE /* LookDetailViewController.swift */,
-			);
-			path = Look;
 			sourceTree = "<group>";
 		};
 		2043341A73508475E2C3AF559DC5BA15 /* logo.json */ = {
