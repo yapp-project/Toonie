@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MypagePopUpViewController: UIViewController {
+final class MypagePopUpViewController: UIViewController {
 
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var okButton: UIButton!

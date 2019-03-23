@@ -100,6 +100,10 @@ extension MypageViewController: UICollectionViewDataSource {
             popViewController.view.frame = self.view.frame
             self.view.addSubview(popViewController.view)
             popViewController.didMove(toParent: self)
+        } else {
+            let storyboard = UIStoryboard(name: "MyPage", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "MypageDetailViewController")
+            self.navigationController?.pushViewController(viewController, animated: true)
         }
     }
     

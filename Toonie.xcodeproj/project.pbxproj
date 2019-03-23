@@ -29,6 +29,8 @@
 		DD198E2FFCBF428D3BB0345A1CB1F292 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3410CCB8DC07905AB283969582125522 /* MyPage.storyboard */; };
 		3D7829A51FE8C5A1D54342BA93D42FE8 /* MyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520E0A35F56B2B546835C7C60E855EEE /* MyPage.swift */; };
 		087D071F4ACD5DD9DA5819762B27C20D /* MypageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8B3DA35B3E46B50EE7A39520EC52E8 /* MypageCollectionViewCell.swift */; };
+		4A484BBF5FE067D98BFB7093168E7C90 /* MypageDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B82C2D21CD592476C6DAF09221B684 /* MypageDetailCollectionViewCell.swift */; };
+		2AEE70E242989259AC52F5761498DEEE /* MypageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9DAAFFAAAED602CB2AD1BE69ECCB8 /* MypageDetailViewController.swift */; };
 		51EC9B743BF45A529F3B67136DF0FF70 /* MypagePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FD1C2458DC9209D8977C9EF4E5C6F6 /* MypagePopUpViewController.swift */; };
 		09E62ABF5EFB2AD2310CD9D548C8018B /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5347DA29C97A840A7ACA03D8A5719C2 /* MypageViewController.swift */; };
 		9E1130891C97D8F4786070CA5F865527 /* Pods_Toonie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 117585FB9F8E77DCB04082EAF82AE342 /* Pods_Toonie.framework */; };
@@ -81,6 +83,8 @@
 		3410CCB8DC07905AB283969582125522 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		520E0A35F56B2B546835C7C60E855EEE /* MyPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPage.swift; sourceTree = "<group>"; };
 		6E8B3DA35B3E46B50EE7A39520EC52E8 /* MypageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageCollectionViewCell.swift; sourceTree = "<group>"; };
+		A1B82C2D21CD592476C6DAF09221B684 /* MypageDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageDetailCollectionViewCell.swift; sourceTree = "<group>"; };
+		38F9DAAFFAAAED602CB2AD1BE69ECCB8 /* MypageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageDetailViewController.swift; sourceTree = "<group>"; };
 		08FD1C2458DC9209D8977C9EF4E5C6F6 /* MypagePopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypagePopUpViewController.swift; sourceTree = "<group>"; };
 		D5347DA29C97A840A7ACA03D8A5719C2 /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
 		46461D78EB2754C9A17D4352D5F97AC7 /* Pods-Toonie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toonie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Toonie/Pods-Toonie.debug.xcconfig"; sourceTree = "<group>"; };
@@ -193,6 +197,7 @@
 		7590BA9252DA09D8473EF57E59E92B30 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				38F9DAAFFAAAED602CB2AD1BE69ECCB8 /* MypageDetailViewController.swift */,
 				08FD1C2458DC9209D8977C9EF4E5C6F6 /* MypagePopUpViewController.swift */,
 				D5347DA29C97A840A7ACA03D8A5719C2 /* MypageViewController.swift */,
 			);
@@ -216,6 +221,7 @@
 			children = (
 				3410CCB8DC07905AB283969582125522 /* MyPage.storyboard */,
 				6E8B3DA35B3E46B50EE7A39520EC52E8 /* MypageCollectionViewCell.swift */,
+				A1B82C2D21CD592476C6DAF09221B684 /* MypageDetailCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -538,6 +544,8 @@
 				A31F7D42C07575D642B19CEE561AAD2A /* MainViewController.swift in Sources */,
 				3D7829A51FE8C5A1D54342BA93D42FE8 /* MyPage.swift in Sources */,
 				087D071F4ACD5DD9DA5819762B27C20D /* MypageCollectionViewCell.swift in Sources */,
+				4A484BBF5FE067D98BFB7093168E7C90 /* MypageDetailCollectionViewCell.swift in Sources */,
+				2AEE70E242989259AC52F5761498DEEE /* MypageDetailViewController.swift in Sources */,
 				51EC9B743BF45A529F3B67136DF0FF70 /* MypagePopUpViewController.swift in Sources */,
 				09E62ABF5EFB2AD2310CD9D548C8018B /* MypageViewController.swift in Sources */,
 				FB45278EDB2A30D96C6A86FE7615DB1C /* RecentCollectionViewCell.swift in Sources */,
