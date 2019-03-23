@@ -192,39 +192,73 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jJl-U4-bRp">
                                 <rect key="frame" x="20" y="278.66666666666669" width="335" height="187"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IZq-Os-AEN">
-                                        <rect key="frame" x="32" y="92.333333333333314" width="270" height="1"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IZq-Os-AEN">
+                                        <rect key="frame" x="32.666666666666657" y="107" width="270" height="1"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="PRs-Cr-TCy"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="내 컬렉션 제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AaN-Fx-sV3">
-                                        <rect key="frame" x="22" y="17.000000000000057" width="98" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내 컬렉션 제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AaN-Fx-sV3">
+                                        <rect key="frame" x="23.999999999999993" y="20" width="80.333333333333314" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kjf-Lh-j9i">
-                                        <rect key="frame" x="289" y="149" width="30" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="확인"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FIj-eR-fB6">
-                                        <rect key="frame" x="227" y="149" width="30" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="취소"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbd-ro-ih2">
-                                        <rect key="frame" x="284" y="62" width="12" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbd-ro-ih2">
+                                        <rect key="frame" x="276.33333333333331" y="82" width="20.333333333333314" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="kbd-ro-ih2" secondAttribute="height" multiplier="12:13" id="tSb-bb-KhX"/>
+                                        </constraints>
                                         <state key="normal" image="closeBtn"/>
+                                        <connections>
+                                            <action selector="allEraseButtonAction:" destination="z1t-FW-SZC" eventType="touchUpInside" id="RZF-zT-9q4"/>
+                                        </connections>
                                     </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="x0X-rU-fgH">
+                                        <rect key="frame" x="212.66666666666663" y="142" width="90" height="29"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FIj-eR-fB6">
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="29"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="FIj-eR-fB6" secondAttribute="height" multiplier="30:29" id="Bzi-Rx-iSU"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <state key="normal" title="취소">
+                                                    <color key="titleColor" red="0.35686274509803922" green="0.35686274509803922" blue="0.35686274509803922" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="cancelButtonAction:" destination="z1t-FW-SZC" eventType="touchUpInside" id="Iyh-k0-pfK"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kjf-Lh-j9i">
+                                                <rect key="frame" x="60.000000000000028" y="0.0" width="30" height="29"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="kjf-Lh-j9i" secondAttribute="height" multiplier="30:29" id="xH1-DG-vfa"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <state key="normal" title="확인">
+                                                    <color key="titleColor" red="0.99607843137254903" green="0.20000000000000001" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="okButtonAction:" destination="z1t-FW-SZC" eventType="touchUpInside" id="Mga-0e-8fH"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="jJl-U4-bRp" secondAttribute="height" multiplier="335:187" id="050-9g-B54"/>
+                                    <constraint firstItem="AaN-Fx-sV3" firstAttribute="leading" secondItem="jJl-U4-bRp" secondAttribute="leading" constant="24" id="Cek-zf-UPJ"/>
+                                    <constraint firstItem="kbd-ro-ih2" firstAttribute="trailing" secondItem="IZq-Os-AEN" secondAttribute="trailing" constant="-6" id="EOf-lS-Wao"/>
+                                    <constraint firstAttribute="bottom" secondItem="x0X-rU-fgH" secondAttribute="bottom" constant="16" id="Mob-TS-4o6"/>
+                                    <constraint firstItem="AaN-Fx-sV3" firstAttribute="top" secondItem="jJl-U4-bRp" secondAttribute="top" constant="20" id="Nsh-3t-suo"/>
+                                    <constraint firstItem="IZq-Os-AEN" firstAttribute="width" secondItem="jJl-U4-bRp" secondAttribute="width" multiplier="270:335" id="Unr-O8-mSb"/>
+                                    <constraint firstItem="IZq-Os-AEN" firstAttribute="top" secondItem="kbd-ro-ih2" secondAttribute="bottom" constant="3" id="YI7-fN-Cdh"/>
+                                    <constraint firstItem="IZq-Os-AEN" firstAttribute="centerX" secondItem="jJl-U4-bRp" secondAttribute="centerX" id="eeK-Rs-6kE"/>
+                                    <constraint firstItem="x0X-rU-fgH" firstAttribute="trailing" secondItem="IZq-Os-AEN" secondAttribute="trailing" id="iKg-AH-qc4"/>
+                                    <constraint firstItem="IZq-Os-AEN" firstAttribute="top" secondItem="AaN-Fx-sV3" secondAttribute="bottom" constant="70" id="oEJ-Ko-drj"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -240,10 +274,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="18H-vB-9Kb"/>
                     </view>
+                    <connections>
+                        <outlet property="allEraseButton" destination="kbd-ro-ih2" id="JG3-to-BPs"/>
+                        <outlet property="cancelButton" destination="FIj-eR-fB6" id="DwI-lS-Cye"/>
+                        <outlet property="okButton" destination="kjf-Lh-j9i" id="JHN-cz-2Em"/>
+                        <outlet property="popupView" destination="jJl-U4-bRp" id="uua-Fi-4hk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R9d-0R-TcA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1982" y="-166"/>
+            <point key="canvasLocation" x="1569" y="-166"/>
         </scene>
     </scenes>
     <resources>

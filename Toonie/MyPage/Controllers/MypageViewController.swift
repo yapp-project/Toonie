@@ -19,14 +19,8 @@ final class MypageViewController: UIViewController {
     @IBOutlet weak var tagButton: UIButton!
     @IBOutlet weak var mypageCollectionView: UICollectionView!
     
-    @IBOutlet weak var checkLabel: UILabel!
     // MARK: - DummyList
     var mypageList: [MyPage] = []
-    var currentServer = 0
-    var recentServer = 0
-    var myCollectionServer = 1
-    var bookMarkServer = 2
-    var myTagServer = 3
     
     // MARK: - Life Cycle
     
@@ -95,6 +89,18 @@ extension MypageViewController: UICollectionViewDataSource {
         
         return cell
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if indexPath.row == 0 {
+            let storyboard = UIStoryboard(name: "MyPage", bundle: nil)
+            let popViewController = storyboard.instantiateViewController(withIdentifier: "MypagePopUpViewController")
+            self.addChild(popViewController)
+            popViewController.view.frame = self.view.frame
+            self.view.addSubview(popViewController.view)
+            popViewController.didMove(toParent: self)
+        }
     }
     
 }

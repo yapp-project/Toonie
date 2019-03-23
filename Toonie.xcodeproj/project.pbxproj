@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3329D16EACF533982CBE706AE5A72FB7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 9C85D8F090D4E9C332080D997CFF19EE /* .swiftlint.yml */; };
+		C6F4D825232486578540CA37B8517C7C /* Animation+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B05FF62636D881866D1B7F9CB885CD0 /* Animation+.swift */; };
 		2356B514E09193A5CBF1127EB3E77AB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0983BCBA1C869D8FA91A7719C7D244E3 /* AppDelegate.swift */; };
 		BB57D379599E229DE86C9F3A93FCBB0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80C2C41933AFF35CEA1787DF94DFAF18 /* Assets.xcassets */; };
 		CE58BDE4B385906F80FB4510F44E5C7B /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A77C9F89A069C22EF59EBA5C5E17A8 /* CALayer+.swift */; };
@@ -57,6 +58,7 @@
 
 /* Begin PBXFileReference section */
 		9C85D8F090D4E9C332080D997CFF19EE /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		9B05FF62636D881866D1B7F9CB885CD0 /* Animation+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Animation+.swift"; sourceTree = "<group>"; };
 		0983BCBA1C869D8FA91A7719C7D244E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80C2C41933AFF35CEA1787DF94DFAF18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB66083F3ABEA7C967799226FCA1E83F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 		7836618FE7A43F2F101ED61B0304A6AB /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				9B05FF62636D881866D1B7F9CB885CD0 /* Animation+.swift */,
 				02A77C9F89A069C22EF59EBA5C5E17A8 /* CALayer+.swift */,
 				7E7D5A65CF29FC107285D9944852A536 /* CommonUtility.swift */,
 				C5DC0E80B292187D81A2395BE3B5153F /* String+.swift */,
@@ -520,6 +523,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6F4D825232486578540CA37B8517C7C /* Animation+.swift in Sources */,
 				2356B514E09193A5CBF1127EB3E77AB0 /* AppDelegate.swift in Sources */,
 				CE58BDE4B385906F80FB4510F44E5C7B /* CALayer+.swift in Sources */,
 				C67E535B4EDD7106009E196F14FE7FC9 /* CommonUtility.swift in Sources */,
