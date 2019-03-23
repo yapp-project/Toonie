@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class MypageDetailViewController: UIViewController {
+final class MypageDetailViewController: GestureViewController {
     
     // MARK: - IBOutlet
     

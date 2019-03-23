@@ -9,7 +9,7 @@
 import UIKit
 
 ///둘러보기 상세 - LookViewController의 CollectionView의 didSelected시 이동되는 화면
-final class LookDetailViewController: UIViewController {
+final class LookDetailViewController: GestureViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

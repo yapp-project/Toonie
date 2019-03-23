@@ -11,7 +11,7 @@ import Lottie
 
 let tag = 100
 
-final class SplashViewController: UIViewController {
+final class SplashViewController: GestureViewController {
 
     @IBOutlet weak var logoFrameView: UIView!
     private var logoAnimationView: AnimationView?

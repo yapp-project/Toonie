@@ -8,6 +8,19 @@
 
 import UIKit
 
+///모든 뷰 컨트롤러는 GestureViewController를 상속받음.
+class GestureViewController: UIViewController {
+    
+    ///viewwillAppear 호출시 꼭 super 넣어줄것
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //스와이프제스쳐로 뒤로가기 허용
+        navigationController?.interactivePopGestureRecognizer?.delegate = nil
+    }
+    
+}
+
 extension UIViewController {
     //커스텀 팝업 띄우기 애니메이션
     func showAnimate() {
@@ -25,11 +38,12 @@ extension UIViewController {
     func removeAnimate() {
         UIView.animate(withDuration: 0.25,
                        animations: {
-            self.view.transform = CGAffineTransform(scaleX: 1.3,
-                                                    y: 1.3)
-            self.view.alpha = 0.0},
+                        self.view.transform = CGAffineTransform(scaleX: 1.3,
+                                                                y: 1.3)
+                        self.view.alpha = 0.0},
                        completion: { (_) in
-            self.view.removeFromSuperview()
+                        self.view.removeFromSuperview()
         })
     }
+    
 }
