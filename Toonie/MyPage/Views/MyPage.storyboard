@@ -24,37 +24,52 @@
                                     <constraint firstAttribute="width" constant="2" id="Nnm-pq-1jf"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="vrG-oz-tK9">
-                                <rect key="frame" x="24" y="515" width="131" height="107"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="57" translatesAutoresizingMaskIntoConstraints="NO" id="AGO-d7-MFl">
+                                <rect key="frame" x="24" y="515" width="131" height="198"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pAh-su-ek4">
-                                        <rect key="frame" x="0.0" y="0.0" width="131" height="27"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                        <state key="normal" title="  최근 본 작품" image="RecentOn">
-                                            <color key="titleColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="recentButtonAction:" destination="fKL-UD-nXc" eventType="touchUpInside" id="knN-KL-dBH"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="baY-8L-Nhy">
-                                        <rect key="frame" x="0.0" y="40" width="106" height="27"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                        <state key="normal" title="  내 컬렉션" image="Collection">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="vrG-oz-tK9">
+                                        <rect key="frame" x="0.0" y="0.0" width="131" height="107"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pAh-su-ek4">
+                                                <rect key="frame" x="0.0" y="0.0" width="131" height="27"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                                <state key="normal" title="  최근 본 작품" image="RecentOn">
+                                                    <color key="titleColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="recentButtonAction:" destination="fKL-UD-nXc" eventType="touchUpInside" id="knN-KL-dBH"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="baY-8L-Nhy">
+                                                <rect key="frame" x="0.0" y="40" width="106" height="27"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                                <state key="normal" title="  내 컬렉션" image="Collection">
+                                                    <color key="titleColor" red="0.56862745100000001" green="0.56862745100000001" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="myCollectionButtonAction:" destination="fKL-UD-nXc" eventType="touchUpInside" id="SU4-rm-dpe"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5IZ-B7-DxF">
+                                                <rect key="frame" x="0.0" y="80" width="106" height="27"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                                <state key="normal" title="  찜한 작품" image="Bookmark">
+                                                    <color key="titleColor" red="0.56862745100000001" green="0.56862745100000001" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="bookMarkButtonAction:" destination="fKL-UD-nXc" eventType="touchUpInside" id="JSa-fe-Zzv"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="izi-e7-343">
+                                        <rect key="frame" x="0.0" y="164" width="108" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="#  내 취향 태그">
                                             <color key="titleColor" red="0.56862745100000001" green="0.56862745100000001" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="myCollectionButtonAction:" destination="fKL-UD-nXc" eventType="touchUpInside" id="SU4-rm-dpe"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5IZ-B7-DxF">
-                                        <rect key="frame" x="0.0" y="80" width="106" height="27"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                        <state key="normal" title="  찜한 작품" image="Bookmark">
-                                            <color key="titleColor" red="0.56862745100000001" green="0.56862745100000001" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="bookMarkButtonAction:" destination="fKL-UD-nXc" eventType="touchUpInside" id="JSa-fe-Zzv"/>
+                                            <action selector="tagButtonAction:" destination="fKL-UD-nXc" eventType="touchUpInside" id="Cfk-W4-DYL"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -116,16 +131,6 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="izi-e7-343">
-                                <rect key="frame" x="24" y="679" width="108" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="#  내 취향 태그">
-                                    <color key="titleColor" red="0.56862745100000001" green="0.56862745100000001" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="tagButtonAction:" destination="fKL-UD-nXc" eventType="touchUpInside" id="Cfk-W4-DYL"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내서재" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="47g-Ls-rlZ">
                                 <rect key="frame" x="151.33333333333334" y="48" width="72.666666666666657" height="33.666666666666657"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
@@ -145,19 +150,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="AGO-d7-MFl" firstAttribute="leading" secondItem="b3b-Jo-k7m" secondAttribute="leading" constant="24" id="4Wb-6j-Hfm"/>
                             <constraint firstItem="YM2-fo-EPt" firstAttribute="centerX" secondItem="Rnj-eu-oGa" secondAttribute="centerX" id="6j2-0F-NA4"/>
                             <constraint firstItem="b3b-Jo-k7m" firstAttribute="trailing" secondItem="Rnj-eu-oGa" secondAttribute="trailing" constant="8" id="7bK-B7-3dA"/>
                             <constraint firstItem="Rnj-eu-oGa" firstAttribute="top" secondItem="pEu-hE-M7z" secondAttribute="top" constant="40" id="9k1-K2-nea"/>
-                            <constraint firstItem="izi-e7-343" firstAttribute="top" secondItem="vrG-oz-tK9" secondAttribute="bottom" constant="57" id="Hzk-58-TOd"/>
+                            <constraint firstItem="b3b-Jo-k7m" firstAttribute="bottom" secondItem="AGO-d7-MFl" secondAttribute="bottom" constant="65" id="Biv-bV-jev"/>
                             <constraint firstItem="47g-Ls-rlZ" firstAttribute="centerX" secondItem="b3b-Jo-k7m" secondAttribute="centerX" id="J8G-iJ-mmV"/>
                             <constraint firstItem="YM2-fo-EPt" firstAttribute="top" secondItem="47g-Ls-rlZ" secondAttribute="bottom" constant="12.333333333333343" id="NMk-2C-BGi"/>
-                            <constraint firstItem="vrG-oz-tK9" firstAttribute="top" secondItem="b3b-Jo-k7m" secondAttribute="top" constant="471" id="NjL-TS-mJb"/>
-                            <constraint firstItem="izi-e7-343" firstAttribute="leading" secondItem="vrG-oz-tK9" secondAttribute="leading" id="UfO-o5-oBy"/>
                             <constraint firstItem="Rnj-eu-oGa" firstAttribute="top" secondItem="YM2-fo-EPt" secondAttribute="bottom" constant="10" id="WKw-p3-cb3"/>
                             <constraint firstItem="pEu-hE-M7z" firstAttribute="centerX" secondItem="47g-Ls-rlZ" secondAttribute="centerX" id="Z6H-a4-P9b"/>
                             <constraint firstItem="pEu-hE-M7z" firstAttribute="bottom" secondItem="b3b-Jo-k7m" secondAttribute="bottom" constant="34" id="Zd6-Qh-fyV"/>
                             <constraint firstItem="47g-Ls-rlZ" firstAttribute="top" secondItem="b3b-Jo-k7m" secondAttribute="top" constant="4" id="beN-4U-zz1"/>
-                            <constraint firstItem="vrG-oz-tK9" firstAttribute="leading" secondItem="b3b-Jo-k7m" secondAttribute="leading" constant="24" id="ckm-xK-QhG"/>
                             <constraint firstItem="b3b-Jo-k7m" firstAttribute="bottom" secondItem="Rnj-eu-oGa" secondAttribute="bottom" id="eRW-iH-rb9"/>
                             <constraint firstItem="pEu-hE-M7z" firstAttribute="top" secondItem="47g-Ls-rlZ" secondAttribute="bottom" constant="12.333333333333343" id="iTc-fA-Fmy"/>
                             <constraint firstItem="Rnj-eu-oGa" firstAttribute="leading" secondItem="pEu-hE-M7z" secondAttribute="trailing" constant="8" id="vK2-uL-TqC"/>
