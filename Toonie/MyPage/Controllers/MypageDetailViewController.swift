@@ -20,20 +20,20 @@ final class MypageDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        detailCollectionView.dataSource = self
-//        detailCollectionView.delegate = self
+        detailCollectionView.dataSource = self
+        detailCollectionView.delegate = self
     }
     
     // MARK: - IBAction
     
-    @IBAction func exitButtonAction(_ sender: Any) {
+    @IBAction func exitButtonDidTap(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
 }
 
 // MARK: - UICollectionViewDataSource
 
-extension MypagePopUpViewController: UICollectionViewDataSource {
+extension MypageDetailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
     }
@@ -59,6 +59,6 @@ extension MypagePopUpViewController: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegate
 
-extension MypagePopUpViewController: UICollectionViewDelegate {
+extension MypageDetailViewController: UICollectionViewDelegate {
     
 }

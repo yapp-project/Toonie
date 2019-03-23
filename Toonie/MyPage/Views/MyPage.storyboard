@@ -37,7 +37,7 @@
                                                     <color key="titleColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="recentButtonAction:" destination="fKL-UD-nXc" eventType="touchUpInside" id="knN-KL-dBH"/>
+                                                    <action selector="recentButtonDidTap:" destination="fKL-UD-nXc" eventType="touchUpInside" id="knN-KL-dBH"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="baY-8L-Nhy">
@@ -47,7 +47,7 @@
                                                     <color key="titleColor" red="0.56862745100000001" green="0.56862745100000001" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="myCollectionButtonAction:" destination="fKL-UD-nXc" eventType="touchUpInside" id="SU4-rm-dpe"/>
+                                                    <action selector="myCollectionButtonDidTap:" destination="fKL-UD-nXc" eventType="touchUpInside" id="SU4-rm-dpe"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5IZ-B7-DxF">
@@ -57,7 +57,7 @@
                                                     <color key="titleColor" red="0.56862745100000001" green="0.56862745100000001" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="bookMarkButtonAction:" destination="fKL-UD-nXc" eventType="touchUpInside" id="JSa-fe-Zzv"/>
+                                                    <action selector="bookMarkButtonDidTap:" destination="fKL-UD-nXc" eventType="touchUpInside" id="JSa-fe-Zzv"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -69,7 +69,7 @@
                                             <color key="titleColor" red="0.56862745100000001" green="0.56862745100000001" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="tagButtonAction:" destination="fKL-UD-nXc" eventType="touchUpInside" id="Cfk-W4-DYL"/>
+                                            <action selector="tagButtonDidTap:" destination="fKL-UD-nXc" eventType="touchUpInside" id="Cfk-W4-DYL"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -144,7 +144,7 @@
                                 </constraints>
                                 <state key="normal" image="tagEditBtn"/>
                                 <connections>
-                                    <action selector="tagSettingButtonAction:" destination="fKL-UD-nXc" eventType="touchUpInside" id="Uae-yX-IQJ"/>
+                                    <action selector="tagSettingButtonDidTap:" destination="fKL-UD-nXc" eventType="touchUpInside" id="Uae-yX-IQJ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -215,7 +215,7 @@
                                         </constraints>
                                         <state key="normal" image="closeBtn"/>
                                         <connections>
-                                            <action selector="allEraseButtonAction:" destination="z1t-FW-SZC" eventType="touchUpInside" id="RZF-zT-9q4"/>
+                                            <action selector="allEraseButtonDidTap:" destination="z1t-FW-SZC" eventType="touchUpInside" id="RZF-zT-9q4"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="x0X-rU-fgH">
@@ -231,7 +231,7 @@
                                                     <color key="titleColor" red="0.35686274509803922" green="0.35686274509803922" blue="0.35686274509803922" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="cancelButtonAction:" destination="z1t-FW-SZC" eventType="touchUpInside" id="Iyh-k0-pfK"/>
+                                                    <action selector="cancelButtonDidTap:" destination="z1t-FW-SZC" eventType="touchUpInside" id="Iyh-k0-pfK"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kjf-Lh-j9i">
@@ -244,7 +244,7 @@
                                                     <color key="titleColor" red="0.99607843137254903" green="0.20000000000000001" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="okButtonAction:" destination="z1t-FW-SZC" eventType="touchUpInside" id="Mga-0e-8fH"/>
+                                                    <action selector="okButtonDidTap:" destination="z1t-FW-SZC" eventType="touchUpInside" id="Mga-0e-8fH"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -302,7 +302,7 @@
             <objects>
                 <viewController storyboardIdentifier="MypageDetailViewController" id="Zsa-3P-HNR" customClass="MypageDetailViewController" customModule="Toonie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LcJ-ha-Y4p">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="컬렉션 제목" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIm-e8-IBC">
@@ -364,7 +364,7 @@
                                 </constraints>
                                 <state key="normal" image="closeBtn"/>
                                 <connections>
-                                    <action selector="exitButtonAction:" destination="Zsa-3P-HNR" eventType="touchUpInside" id="0C8-HF-Ulq"/>
+                                    <action selector="exitButtonDidTap:" destination="Zsa-3P-HNR" eventType="touchUpInside" id="0C8-HF-Ulq"/>
                                 </connections>
                             </button>
                         </subviews>

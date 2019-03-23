@@ -23,17 +23,19 @@ final class MypagePopUpViewController: UIViewController {
         popupView.layer.cornerRadius = 5
     }
     
-    @IBAction func okButtonAction(_ sender: Any) {
+    @IBAction func okButtonDidTap(_ sender: Any) {
         // 커스텀 팝업 끄기 애니메이션
         self.removeAnimate()
         self.view.removeFromSuperview()
     }
-    @IBAction func cancelButtonAction(_ sender: Any) {
+    
+    @IBAction func cancelButtonDidTap(_ sender: Any) {
         // 커스텀 팝업 끄기 애니메이션
         self.removeAnimate()
         self.view.removeFromSuperview()
     }
-    @IBAction func allEraseButtonAction(_ sender: Any) {
+    
+    @IBAction func allEraseButtonDidTap(_ sender: Any) {
     }
     
 }

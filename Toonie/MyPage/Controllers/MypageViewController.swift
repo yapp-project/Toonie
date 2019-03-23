@@ -38,21 +38,21 @@ final class MypageViewController: UIViewController {
     
     // MARK: - IBAction
     
-    @IBAction func recentButtonAction(_ sender: UIButton) {
+    @IBAction func recentButtonDidTap(_ sender: UIButton) {
     }
     
-    @IBAction func myCollectionButtonAction(_ sender: UIButton) {
+    @IBAction func myCollectionButtonDidTap(_ sender: UIButton) {
     }
     
-    @IBAction func bookMarkButtonAction(_ sender: UIButton) {
+    @IBAction func bookMarkButtonDidTap(_ sender: UIButton) {
         
     }
     
-    @IBAction func tagButtonAction(_ sender: UIButton) {
+    @IBAction func tagButtonDidTap(_ sender: UIButton) {
         tagSettingButton.isHidden = false
     }
     
-    @IBAction func tagSettingButtonAction(_ sender: UIButton) {
+    @IBAction func tagSettingButtonDidTap(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "KeywordSelectViewController")
         self.navigationController?.pushViewController(viewController, animated: true)        
@@ -108,6 +108,8 @@ extension MypageViewController: UICollectionViewDataSource {
     }
     
 }
+
+// MARK: - UICollectionViewDelegate
 
 extension MypageViewController: UICollectionViewDelegate {
     
