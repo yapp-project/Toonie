@@ -25,14 +25,14 @@ final class KeywordCell: UICollectionViewCell {
                                borderWidth: 1)
             titleLabel.textColor = UIColor.init(white: 0, alpha: 0.4)
             backView.backgroundColor = UIColor.white
-            titleLabel.font = UIFont.getAppleSDGothicNeo(option: UIFont.AppleSDOption.regular,
+            titleLabel.font = UIFont.getAppleSDGothicNeo(option: .regular,
                                                                    size: titleLabel.font.pointSize)
         } else {//선택함
             backView.setBorder(color: UIColor.init(white: 0, alpha: 0).cgColor,
                                                    borderWidth: 1)
             backView.backgroundColor = UIColor.init(named: "main")
             titleLabel.textColor = UIColor.init(white: 1, alpha: 1)
-            titleLabel.font = UIFont.getAppleSDGothicNeo(option: UIFont.AppleSDOption.bold,
+            titleLabel.font = UIFont.getAppleSDGothicNeo(option: .bold,
                                                          size: titleLabel.font.pointSize)
         }
         backView.setCorner(cornerRadius: 23.5)

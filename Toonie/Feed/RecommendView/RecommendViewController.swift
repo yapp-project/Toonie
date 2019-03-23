@@ -184,7 +184,7 @@ extension RecommendViewController: UICollectionViewDataSource {
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let keyword = dummy[indexPath.row]
-        let font = UIFont.getAppleSDGothicNeo(option: UIFont.AppleSDOption.regular,
+        let font = UIFont.getAppleSDGothicNeo(option: .regular,
                                                      size: 14)
         var width = Int(keyword.widthWithConstrainedHeight(height: 17,
                                                            font: font))
@@ -248,7 +248,7 @@ extension RecommendViewController: UICollectionViewDelegateFlowLayout {
                                 layout collectionViewLayout: UICollectionViewLayout,
                                 sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
         let keyword = dummy[indexPath.row]
-        let font = UIFont.getAppleSDGothicNeo(option: UIFont.AppleSDOption.regular,
+        let font = UIFont.getAppleSDGothicNeo(option: .regular,
                                                      size: 14)
         var width = Int(keyword.widthWithConstrainedHeight(height: 17,
                                                            font: font))
