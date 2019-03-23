@@ -51,6 +51,13 @@ final class FeedViewController: UIViewController {
       tagAnimationView.play()
     }
   }
+    ///피드>피드상세 이동
+  @IBAction func moveFeedDetailDidTap(_ sender: Any) {
+    let storyboard = UIStoryboard(name: "Feed", bundle: nil)
+    let viewController = storyboard.instantiateViewController(withIdentifier: "RecommendViewController")
+    self.navigationController?.pushViewController(viewController, animated: true)
+        
+   }
 }
 
 // MARK: - UICollectionViewDataSource

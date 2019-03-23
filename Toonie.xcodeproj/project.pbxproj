@@ -30,11 +30,14 @@
 		9E1130891C97D8F4786070CA5F865527 /* Pods_Toonie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 117585FB9F8E77DCB04082EAF82AE342 /* Pods_Toonie.framework */; };
 		A328A80E54A3A417D3EA56767B1FDFDA /* Pods_ToonieTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82AF128897992796FF6ED25B199B0530 /* Pods_ToonieTests.framework */; };
 		FB45278EDB2A30D96C6A86FE7615DB1C /* RecentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE103DAB3F381AA2D9D28295093EC833 /* RecentCollectionViewCell.swift */; };
-		14542FC31F71C1E7F43EEA706A47FA21 /* RecommendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DCA414AD3A495396D5F1D845710E84 /* RecommendTableViewCell.swift */; };
-		A2A05CB79241618E6FA4606BC374C95C /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D26D2BAD19F596131FE6B88F71D883 /* RecommendViewController.swift */; };
+		B854DBCEF4394512A8FDCA7112E02449 /* RecommendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2735F9AA478C996EA53B9BDD885BA872 /* RecommendCollectionViewCell.swift */; };
+		9DB4FBA4627CB67F03A18B9E44D17331 /* RecommendCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4800017F5B8EB3DC084B9A3BB6696FA6 /* RecommendCollectionViewCell.xib */; };
+		77DFEEC3F834987C608C094E550766FB /* RecommendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51EF193D9A44F9817A9B5B3AEBC43AE /* RecommendTableViewCell.swift */; };
+		20F97B5303210BE76821322E74DB2E06 /* RecommendTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E22D81A0236792AB18413B19EB049C0 /* RecommendTableViewCell.xib */; };
+		C9F039313240324B71BBAD4F82FCCB07 /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D25B6972A3D1C2D3D33BE328E777FD1 /* RecommendViewController.swift */; };
 		EA3F62E1C0F071466575AAE9D9B1A47D /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D181587B82E1BF344A7F8A87649CE2A5 /* SplashViewController.swift */; };
 		DAC921890617B9E247AE4070E1856EE9 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DC0E80B292187D81A2395BE3B5153F /* String+.swift */; };
-		3C90E67F2AE6BE0934E47BECA8088582 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AF37BB629995EED11BFCAC50CDC982 /* TagCollectionViewCell.swift */; };
+		4AE025D2C380F51BB508CE678B09CB78 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3671FD5527EB6A77347C274B14DB174B /* TagCollectionViewCell.swift */; };
 		0957B41AD138D0A49135F214132A015A /* ToonieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BEF0670CA0E9737AC0D8BB4C759F3D /* ToonieTests.swift */; };
 		19D70C5FD733A11319F2B4D5C382CB99 /* UIImageView+imageFromUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307197284628654A8308DA52AEF4572F /* UIImageView+imageFromUrl.swift */; };
 		16B5F805D0B84D4BAE707BAAED697F08 /* giphy.gif in Resources */ = {isa = PBXBuildFile; fileRef = D8E1AD8B779448DA04C464E96AECF285 /* giphy.gif */; };
@@ -82,11 +85,14 @@
 		117585FB9F8E77DCB04082EAF82AE342 /* Pods_Toonie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Toonie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82AF128897992796FF6ED25B199B0530 /* Pods_ToonieTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToonieTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE103DAB3F381AA2D9D28295093EC833 /* RecentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCollectionViewCell.swift; sourceTree = "<group>"; };
-		02DCA414AD3A495396D5F1D845710E84 /* RecommendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendTableViewCell.swift; sourceTree = "<group>"; };
-		83D26D2BAD19F596131FE6B88F71D883 /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
+		2735F9AA478C996EA53B9BDD885BA872 /* RecommendCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendCollectionViewCell.swift; sourceTree = "<group>"; };
+		4800017F5B8EB3DC084B9A3BB6696FA6 /* RecommendCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendCollectionViewCell.xib; sourceTree = "<group>"; };
+		B51EF193D9A44F9817A9B5B3AEBC43AE /* RecommendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendTableViewCell.swift; sourceTree = "<group>"; };
+		4E22D81A0236792AB18413B19EB049C0 /* RecommendTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendTableViewCell.xib; sourceTree = "<group>"; };
+		5D25B6972A3D1C2D3D33BE328E777FD1 /* RecommendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
 		D181587B82E1BF344A7F8A87649CE2A5 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SplashViewController.swift; path = Toonie/Splash/SplashViewController.swift; sourceTree = SOURCE_ROOT; };
 		C5DC0E80B292187D81A2395BE3B5153F /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
-		22AF37BB629995EED11BFCAC50CDC982 /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
+		3671FD5527EB6A77347C274B14DB174B /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
 		E5B5664A67B748CC79409D5ABB761F80 /* Toonie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Toonie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8BEF0670CA0E9737AC0D8BB4C759F3D /* ToonieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonieTests.swift; sourceTree = "<group>"; };
 		D32B5ACD1A82F7A257245C24D4210ADC /* ToonieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToonieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,6 +122,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C9651579D747459DA1BB034802C857B6 /* RecommendView */ = {
+			isa = PBXGroup;
+			children = (
+				2735F9AA478C996EA53B9BDD885BA872 /* RecommendCollectionViewCell.swift */,
+				4800017F5B8EB3DC084B9A3BB6696FA6 /* RecommendCollectionViewCell.xib */,
+				B51EF193D9A44F9817A9B5B3AEBC43AE /* RecommendTableViewCell.swift */,
+				4E22D81A0236792AB18413B19EB049C0 /* RecommendTableViewCell.xib */,
+				5D25B6972A3D1C2D3D33BE328E777FD1 /* RecommendViewController.swift */,
+				3671FD5527EB6A77347C274B14DB174B /* TagCollectionViewCell.swift */,
+			);
+			path = RecommendView;
+			sourceTree = "<group>";
+		};
 		1E5EEACC73F0B2067BEA386D942B1580 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				C1D0C39FE48765A946888D2E109E9C40 /* Controller */,
+				C9651579D747459DA1BB034802C857B6 /* RecommendView */,
 				CE755C93F8532B0D791746C8B676D28B /* View */,
 			);
 			path = Feed;
@@ -235,7 +255,6 @@
 			isa = PBXGroup;
 			children = (
 				D7BD45CDB0C7E1A8A0FE2DB9C0C25B75 /* FeedViewController.swift */,
-				83D26D2BAD19F596131FE6B88F71D883 /* RecommendViewController.swift */,
 				D79B36B02E3BE1C7354741667915DF34 /* tag.json */,
 			);
 			path = Controller;
@@ -248,8 +267,6 @@
 				482A114E8A6A879454C3CB47C1BA9443 /* Feed.storyboard */,
 				C3C59DFBC67BAFC0446C4ACC3CD30166 /* ForYouCollectionViewCell.swift */,
 				AE103DAB3F381AA2D9D28295093EC833 /* RecentCollectionViewCell.swift */,
-				02DCA414AD3A495396D5F1D845710E84 /* RecommendTableViewCell.swift */,
-				22AF37BB629995EED11BFCAC50CDC982 /* TagCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -383,6 +400,8 @@
 				A1EEA867D16DF76FCAA9521EE5DEA370 /* Look.storyboard in Resources */,
 				4FFEF2D3318AC791E3F9C6ECC7710F1B /* Main.storyboard in Resources */,
 				3603ED7C6D7679C3634C60C341C440F4 /* MyPage.storyboard in Resources */,
+				9DB4FBA4627CB67F03A18B9E44D17331 /* RecommendCollectionViewCell.xib in Resources */,
+				20F97B5303210BE76821322E74DB2E06 /* RecommendTableViewCell.xib in Resources */,
 				16B5F805D0B84D4BAE707BAAED697F08 /* giphy.gif in Resources */,
 				A60A2C890FEE30C49C66EAB7AE2BA45D /* logo.json in Resources */,
 				42C9F1D0BE9554E33B9D52C08E676107 /* tag.json in Resources */,
@@ -509,11 +528,12 @@
 				A31F7D42C07575D642B19CEE561AAD2A /* MainViewController.swift in Sources */,
 				41EB1C85CC1A720BF0B6405FF32C0F8A /* MypageViewController.swift in Sources */,
 				FB45278EDB2A30D96C6A86FE7615DB1C /* RecentCollectionViewCell.swift in Sources */,
-				14542FC31F71C1E7F43EEA706A47FA21 /* RecommendTableViewCell.swift in Sources */,
-				A2A05CB79241618E6FA4606BC374C95C /* RecommendViewController.swift in Sources */,
+				B854DBCEF4394512A8FDCA7112E02449 /* RecommendCollectionViewCell.swift in Sources */,
+				77DFEEC3F834987C608C094E550766FB /* RecommendTableViewCell.swift in Sources */,
+				C9F039313240324B71BBAD4F82FCCB07 /* RecommendViewController.swift in Sources */,
 				EA3F62E1C0F071466575AAE9D9B1A47D /* SplashViewController.swift in Sources */,
 				DAC921890617B9E247AE4070E1856EE9 /* String+.swift in Sources */,
-				3C90E67F2AE6BE0934E47BECA8088582 /* TagCollectionViewCell.swift in Sources */,
+				4AE025D2C380F51BB508CE678B09CB78 /* TagCollectionViewCell.swift in Sources */,
 				19D70C5FD733A11319F2B4D5C382CB99 /* UIImageView+imageFromUrl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -584,7 +604,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = R78643UTJ5;
+				DEVELOPMENT_TEAM = 9Q6DDFULNZ;
 				INFOPLIST_FILE = Toonie/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -604,7 +624,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = R78643UTJ5;
+				DEVELOPMENT_TEAM = 9Q6DDFULNZ;
 				INFOPLIST_FILE = Toonie/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
