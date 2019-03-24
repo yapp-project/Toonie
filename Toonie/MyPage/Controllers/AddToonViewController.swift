@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class AddToonViewController: UIViewController {
+final class AddToonViewController: GestureViewController {
     @IBOutlet weak var recentToonButton: UIButton!
     @IBOutlet weak var myToonButton: UIButton!
     @IBOutlet weak var addToonCollectionView: UICollectionView!
@@ -43,6 +43,10 @@ extension AddToonViewController: UICollectionViewDataSource {
             else {
                 return UICollectionViewCell()
         }
+        cell.setAddToonCollectionViewCellProperties()
+        
+        cell.toonImageView.image = UIImage(named: "addToonLoading")
+        cell.toonTitleLabel.text = "addToon입니다"
         
         return cell
     }

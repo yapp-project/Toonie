@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dUZ-aS-OLp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fKL-UD-nXc">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -301,7 +301,7 @@
         <!--Add Toon View Controller-->
         <scene sceneID="eke-hx-L6P">
             <objects>
-                <viewController storyboardIdentifier="A" id="dUZ-aS-OLp" customClass="AddToonViewController" customModule="Toonie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddToonViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dUZ-aS-OLp" customClass="AddToonViewController" customModule="Toonie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qhv-r6-2an">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -319,7 +319,7 @@
                                 </constraints>
                                 <state key="normal" image="closeBtn"/>
                                 <connections>
-                                    <action selector="exitButtonDidTap:" destination="Zsa-3P-HNR" eventType="touchUpInside" id="H8G-Ls-Xsm"/>
+                                    <action selector="exitButtonDidTap:" destination="dUZ-aS-OLp" eventType="touchUpInside" id="ExZ-Ha-ohy"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZWi-5N-G58">
@@ -329,6 +329,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="96" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <state key="normal" title="최근 본 작품" backgroundImage="searchbuttonOn"/>
+                                        <connections>
+                                            <action selector="recentToonButtonDidTap:" destination="dUZ-aS-OLp" eventType="touchUpInside" id="jrB-Fb-Ohd"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OaC-Zv-Jz9">
                                         <rect key="frame" x="104" y="0.0" width="96" height="30"/>
@@ -336,45 +339,62 @@
                                         <state key="normal" title="찜한 작품" backgroundImage="searchbutton">
                                             <color key="titleColor" name="unselectedText"/>
                                         </state>
+                                        <connections>
+                                            <action selector="myToonButtonDidTap:" destination="dUZ-aS-OLp" eventType="touchUpInside" id="t6x-E2-hE6"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0N0-ad-bzJ">
                                 <rect key="frame" x="0.0" y="195.33333333333331" width="375" height="616.66666666666674"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Gq5-it-yEG">
-                                    <size key="itemSize" width="181" height="214"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="5" id="Gq5-it-yEG">
+                                    <size key="itemSize" width="175" height="213"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="AddToonCollectionViewCell" id="Snm-gD-UiF" customClass="AddToonCollectionViewCell" customModule="Toonie" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="181" height="214"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="AddToonCollectionViewCell" reuseIdentifier="AddToonCollectionViewCell" id="Snm-gD-UiF" customClass="AddToonCollectionViewCell" customModule="Toonie" customModuleProvider="target">
+                                        <rect key="frame" x="5" y="0.0" width="175" height="213"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="181" height="214"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="175" height="213"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="evx-t8-LPP">
-                                                    <rect key="frame" x="6" y="7" width="164" height="164"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="evx-t8-LPP">
+                                                    <rect key="frame" x="5.6666666666666714" y="7" width="164" height="164"/>
+                                                    <color key="backgroundColor" name="line"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="evx-t8-LPP" secondAttribute="height" multiplier="1:1" id="lrc-HA-ma2"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3y-61-KnU">
-                                                    <rect key="frame" x="69" y="172" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3y-61-KnU">
+                                                    <rect key="frame" x="12.666666666666671" y="181" width="150" height="19.333333333333343"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="T3y-61-KnU" firstAttribute="width" secondItem="evx-t8-LPP" secondAttribute="width" multiplier="150:164" id="1TQ-7i-WHt"/>
+                                            <constraint firstItem="T3y-61-KnU" firstAttribute="top" secondItem="evx-t8-LPP" secondAttribute="bottom" constant="10" id="GQI-Hj-WGW"/>
+                                            <constraint firstItem="T3y-61-KnU" firstAttribute="centerX" secondItem="evx-t8-LPP" secondAttribute="centerX" id="Puh-H5-MB0"/>
+                                            <constraint firstItem="evx-t8-LPP" firstAttribute="width" secondItem="Snm-gD-UiF" secondAttribute="width" multiplier="164:175" id="tNY-Uu-Mmi"/>
+                                            <constraint firstItem="evx-t8-LPP" firstAttribute="top" secondItem="Snm-gD-UiF" secondAttribute="top" constant="7" id="vj8-Ts-BSc"/>
+                                            <constraint firstItem="evx-t8-LPP" firstAttribute="centerX" secondItem="Snm-gD-UiF" secondAttribute="centerX" id="zGb-Do-rvX"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="toonImageView" destination="evx-t8-LPP" id="za0-5a-etj"/>
                                             <outlet property="toonTitleLabel" destination="T3y-61-KnU" id="Sye-a2-5JC"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="dUZ-aS-OLp" id="r6n-ux-U1A"/>
+                                    <outlet property="delegate" destination="dUZ-aS-OLp" id="qXY-4d-jyR"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -393,6 +413,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vIk-vk-i5a"/>
                     </view>
+                    <size key="freeformSize" width="375" height="812"/>
+                    <connections>
+                        <outlet property="addToonCollectionView" destination="0N0-ad-bzJ" id="hZX-wA-Be2"/>
+                        <outlet property="myToonButton" destination="OaC-Zv-Jz9" id="j05-kd-kYC"/>
+                        <outlet property="recentToonButton" destination="tX2-1L-gRg" id="bUn-Tk-tFq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9LW-Vi-W4S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -504,6 +530,9 @@
         <image name="searchbutton" width="96" height="30"/>
         <image name="searchbuttonOn" width="96" height="30"/>
         <image name="tagEditBtn" width="120" height="30"/>
+        <namedColor name="line">
+            <color red="0.76470588235294112" green="0.76470588235294112" blue="0.76470588235294112" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="unselectedText">
             <color red="0.56862745098039214" green="0.56862745098039214" blue="0.56862745098039214" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class MypageViewController: UIViewController {
+final class MypageViewController: GestureViewController {
     
     // MARK: - IBOutlet
     
@@ -34,6 +34,7 @@ final class MypageViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     // MARK: - IBAction
