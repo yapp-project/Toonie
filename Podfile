@@ -11,6 +11,7 @@ target 'Toonie' do
   pod 'lottie-ios'
   pod 'SwiftLint'
   pod 'SnapKit'
+  pod 'Alamofire'
 
   target 'ToonieTests' do
     inherit! :search_paths
