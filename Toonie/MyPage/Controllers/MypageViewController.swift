@@ -12,15 +12,16 @@ final class MypageViewController: GestureViewController {
     
     // MARK: - IBOutlet
     
-    @IBOutlet weak var tagSettingButton: UIButton!
-    @IBOutlet weak var recentButton: UIButton!
-    @IBOutlet weak var myCollectionButton: UIButton!
-    @IBOutlet weak var bookMarkButton: UIButton!
-    @IBOutlet weak var tagButton: UIButton!
-    @IBOutlet weak var mypageCollectionView: UICollectionView!
+    @IBOutlet weak private var tagSettingButton: UIButton!
+    @IBOutlet weak private var recentButton: UIButton!
+    @IBOutlet weak private var myCollectionButton: UIButton!
+    @IBOutlet weak private var bookMarkButton: UIButton!
+    @IBOutlet weak private var tagButton: UIButton!
+    @IBOutlet weak private var mypageCollectionView: UICollectionView!
     
     // MARK: - DummyList
-    var mypageList: [MyPage] = []
+    
+    private var mypageList: [MyPage] = []
     
     // MARK: - Life Cycle
     

@@ -9,14 +9,21 @@
 import UIKit
 
 final class AddToonViewController: GestureViewController {
-    @IBOutlet weak var recentToonButton: UIButton!
-    @IBOutlet weak var myToonButton: UIButton!
-    @IBOutlet weak var addToonCollectionView: UICollectionView!
+    
+    // MARK: - IBOutlet
+    
+    @IBOutlet weak private var recentToonButton: UIButton!
+    @IBOutlet weak private var myToonButton: UIButton!
+    @IBOutlet weak private var addToonCollectionView: UICollectionView!
+    
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
+    
+    // MARK: - IBAction
     
     @IBAction func recentToonButtonDidTap(_ sender: Any) {
     }
@@ -28,6 +35,8 @@ final class AddToonViewController: GestureViewController {
         self.dismiss(animated: true, completion: nil)
     }
 }
+
+// MARK: - UICollectionViewDataSource
 
 extension AddToonViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -52,6 +61,8 @@ extension AddToonViewController: UICollectionViewDataSource {
     }
     
 }
+
+// MARK: - UICollectionViewDelegate
 
 extension AddToonViewController: UICollectionViewDelegate {
     

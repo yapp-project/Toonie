@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddToonCollectionViewCell: UICollectionViewCell {
+final class AddToonCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var toonImageView: UIImageView!
     @IBOutlet weak var toonTitleLabel: UILabel!
     
