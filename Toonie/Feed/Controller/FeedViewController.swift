@@ -15,10 +15,10 @@ final class FeedViewController: UIViewController {
   
   // MARK: - IBOutlet
   
-  @IBOutlet weak var tagView: UIView!
-  @IBOutlet weak var forYouCollectionView: UICollectionView!
-  @IBOutlet weak var recentCollectionView: UICollectionView!
-  @IBOutlet weak var favoriteCollectionView: UICollectionView!
+  @IBOutlet private weak var tagView: UIView!
+  @IBOutlet private weak var forYouCollectionView: UICollectionView!
+  @IBOutlet private weak var recentCollectionView: UICollectionView!
+  @IBOutlet private weak var favoriteCollectionView: UICollectionView!
   
   // MARK: - Property
   
@@ -51,12 +51,19 @@ final class FeedViewController: UIViewController {
       tagAnimationView.play()
     }
   }
+  
+  /// 인스타툰 상세정보 화면으로 이동
+  func moveDetailToon() {
+    let storyboard = UIStoryboard(name: "Detail", bundle: nil)
+    let viewController = storyboard.instantiateViewController(withIdentifier: "DetailToonView")
+    self.navigationController?.pushViewController(viewController, animated: true)
+  }
+
     ///피드>피드상세 이동
   @IBAction func moveFeedDetailDidTap(_ sender: Any) {
     let storyboard = UIStoryboard(name: "Feed", bundle: nil)
     let viewController = storyboard.instantiateViewController(withIdentifier: "RecommendViewController")
     self.navigationController?.pushViewController(viewController, animated: true)
-        
    }
 }
 
@@ -110,5 +117,7 @@ extension FeedViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 
 extension FeedViewController: UICollectionViewDelegate {
-  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    moveDetailToon()
+  }
 }
