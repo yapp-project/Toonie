@@ -9,7 +9,7 @@
 import UIKit
 import KTCenterFlowLayout
 
-final class KeywordSelectViewController: UIViewController {
+final class KeywordSelectViewController: GestureViewController {
     @IBOutlet weak var keywordCollecionView: UICollectionView!
     @IBOutlet weak var keywordFlowLayout: KTCenterFlowLayout!
     @IBOutlet weak var keywordCountLabel: UILabel!

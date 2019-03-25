@@ -11,7 +11,7 @@ import Lottie
 
 let tag = 100
 
-final class SplashViewController: UIViewController {
+final class SplashViewController: GestureViewController {
 
     @IBOutlet weak var logoFrameView: UIView!
     private var logoAnimationView: AnimationView?
@@ -47,7 +47,7 @@ final class SplashViewController: UIViewController {
 
     ///logoAnimationView 세팅
     func setLogoAnimationView() {
-        logoAnimationView = AnimationView(name: "logo")
+        logoAnimationView = AnimationView(name: "logoAnimation")
       if let logoAnimationView = logoAnimationView {
         logoAnimationView.contentMode = .scaleAspectFit
         logoAnimationView.frame = CGRect.init(x: 0,

@@ -9,7 +9,7 @@
 import UIKit
 
 ///둘러보기 메인 - 하단 탭 둘러보기로 진입
-final class LookViewController: UIViewController {
+final class LookViewController: GestureViewController {
     @IBOutlet weak var mainCategoryCollectionView: UICollectionView!
     @IBOutlet weak var mainCategoryCollectionViewFlowLayout: UICollectionViewFlowLayout!
     
