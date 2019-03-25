@@ -11,7 +11,6 @@
 		2356B514E09193A5CBF1127EB3E77AB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0983BCBA1C869D8FA91A7719C7D244E3 /* AppDelegate.swift */; };
 		BB57D379599E229DE86C9F3A93FCBB0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80C2C41933AFF35CEA1787DF94DFAF18 /* Assets.xcassets */; };
 		CE58BDE4B385906F80FB4510F44E5C7B /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A77C9F89A069C22EF59EBA5C5E17A8 /* CALayer+.swift */; };
-		AB9BF389A4D6A9A12F45BDE69A35B72E /* CommonUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391E18129E3FD4CA97AD73AFBEA5D5A5 /* CommonUtility.swift */; };
 		5D7C2A319945FF57226321B488D96614 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 013B051389A91973028316A3E576E272 /* Detail.storyboard */; };
 		EDD5CACF03D86779EFF1458EDB174512 /* DetailToonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFE3BD97226A3FDDA0F1D4C6F40EDC5 /* DetailToonViewController.swift */; };
 		558FAE24BC1D46AEE96A7839D2EECDF9 /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6181A5BE3CAF62901728B8DEC5745044 /* FavoriteCollectionViewCell.swift */; };
@@ -72,7 +71,6 @@
 		CB66083F3ABEA7C967799226FCA1E83F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D96ADF5E22F9048B9EE1FA43C04A076F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		02A77C9F89A069C22EF59EBA5C5E17A8 /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
-		391E18129E3FD4CA97AD73AFBEA5D5A5 /* CommonUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtility.swift; sourceTree = "<group>"; };
 		013B051389A91973028316A3E576E272 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
 		4EFE3BD97226A3FDDA0F1D4C6F40EDC5 /* DetailToonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailToonViewController.swift; sourceTree = "<group>"; };
 		6181A5BE3CAF62901728B8DEC5745044 /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -210,7 +208,6 @@
 		50DD12AB546601FDF26E6690643AA25F /* Toonie */ = {
 			isa = PBXGroup;
 			children = (
-				C7DFDA89338BAF088BD7F2A52AD01E07 /* Common */,
       				2007EB62D1BF067B2746E732A053B791 /* Detail */,
 				7836618FE7A43F2F101ED61B0304A6AB /* Extension */,
 				9A660BF0B161BD3FED30F6BE9A419D40 /* Feed */,
@@ -249,7 +246,6 @@
 			isa = PBXGroup;
 			children = (
 				02A77C9F89A069C22EF59EBA5C5E17A8 /* CALayer+.swift */,
-				7E7D5A65CF29FC107285D9944852A536 /* CommonUtility.swift */,
 				C5DC0E80B292187D81A2395BE3B5153F /* String+.swift */,
 				A6DA6955EDA11550288B07A43296B653 /* UIAlertController+.swift */,
 				852B4E73537A6A1DA88E2A6D9DCCCBB0 /* UIFont+.swift */,
@@ -588,7 +584,6 @@
 			files = (
 				2356B514E09193A5CBF1127EB3E77AB0 /* AppDelegate.swift in Sources */,
 				CE58BDE4B385906F80FB4510F44E5C7B /* CALayer+.swift in Sources */,
-				AB9BF389A4D6A9A12F45BDE69A35B72E /* CommonUtility.swift in Sources */,
 				EDD5CACF03D86779EFF1458EDB174512 /* DetailToonViewController.swift in Sources */,
 				558FAE24BC1D46AEE96A7839D2EECDF9 /* FavoriteCollectionViewCell.swift in Sources */,
 				C9355A5FA67D262F35C7B8B185D2CA62 /* FeedViewController.swift in Sources */,
