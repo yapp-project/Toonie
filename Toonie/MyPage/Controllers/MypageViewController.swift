@@ -12,12 +12,12 @@ final class MypageViewController: GestureViewController {
     
     // MARK: - IBOutlet
     
-    @IBOutlet weak private var tagSettingButton: UIButton!
-    @IBOutlet weak private var recentButton: UIButton!
-    @IBOutlet weak private var myCollectionButton: UIButton!
-    @IBOutlet weak private var bookMarkButton: UIButton!
-    @IBOutlet weak private var tagButton: UIButton!
-    @IBOutlet weak private var mypageCollectionView: UICollectionView!
+    @IBOutlet private weak var tagSettingButton: UIButton!
+    @IBOutlet private weak var recentButton: UIButton!
+    @IBOutlet private weak var myCollectionButton: UIButton!
+    @IBOutlet private weak var bookMarkButton: UIButton!
+    @IBOutlet private weak var tagButton: UIButton!
+    @IBOutlet private weak var mypageCollectionView: UICollectionView!
     
     // MARK: - DummyList
     

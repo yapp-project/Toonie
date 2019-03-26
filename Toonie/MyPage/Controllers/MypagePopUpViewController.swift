@@ -10,10 +10,10 @@ import UIKit
 
 final class MypagePopUpViewController: GestureViewController {
 
-    @IBOutlet weak private var popupView: UIView!
-    @IBOutlet weak private var okButton: UIButton!
-    @IBOutlet weak private var cancelButton: UIButton!
-    @IBOutlet weak private var allEraseButton: UIButton!
+    @IBOutlet private weak var popupView: UIView!
+    @IBOutlet private weak var okButton: UIButton!
+    @IBOutlet private weak var cancelButton: UIButton!
+    @IBOutlet private weak var allEraseButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()

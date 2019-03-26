@@ -12,9 +12,9 @@ final class AddToonViewController: GestureViewController {
     
     // MARK: - IBOutlet
     
-    @IBOutlet weak private var recentToonButton: UIButton!
-    @IBOutlet weak private var myToonButton: UIButton!
-    @IBOutlet weak private var addToonCollectionView: UICollectionView!
+    @IBOutlet private weak var recentToonButton: UIButton!
+    @IBOutlet private weak var myToonButton: UIButton!
+    @IBOutlet private weak var addToonCollectionView: UICollectionView!
     
     // MARK: - Life Cycle
     

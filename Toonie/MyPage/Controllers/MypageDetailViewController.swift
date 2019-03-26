@@ -12,8 +12,8 @@ final class MypageDetailViewController: GestureViewController {
     
     // MARK: - IBOutlet
     
-    @IBOutlet weak private var detailCollectionView: UICollectionView!
-    @IBOutlet weak private var detailTitleLabel: UILabel!
+    @IBOutlet private weak var detailCollectionView: UICollectionView!
+    @IBOutlet private weak var detailTitleLabel: UILabel!
     
     // MARK: - Life Cycle
     

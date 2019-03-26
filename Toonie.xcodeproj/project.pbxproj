@@ -164,6 +164,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09D847325C24321900807BBFB7BD0132 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ED1EBC58C2F940847C320C6A008EA812 /* Token.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		1E5EEACC73F0B2067BEA386D942B1580 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,6 +241,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		6D0496EB9B90DA93F3F2DA608E9FEFC1 /* logoAnimation.json */ = {
+			isa = PBXGroup;
+			children = (
+				383B68A47C2E2D073A82CF40AF75019D /* logoAnimation.json */,
+				B30F7F8BC0F68EC6C1F8E6A60BA9FADC /* logoAnimation_0.png */,
+				5C19FD6AF47DEEA5907B489F176EF4D7 /* logoAnimation_1.png */,
+				6F50A4F1E24E6F51CE6A972CB48E6887 /* logoAnimation_2.png */,
+				867038EB849449F75364CC44CCEAA5C3 /* logoAnimation_3.png */,
+				48907178040DAEF24AD911C4D3DCCC17 /* logoAnimation_4.png */,
+				E97E52D2F1D51780A9DF8DFDB642EA4B /* logoAnimation_5.png */,
+				CD3F448B196484D1CBCE17A7DF1646EF /* logoAnimation_6.png */,
+				C0C3160A8F2E10ED3113238FF01649F1 /* logoAnimation_7.png */,
+			);
+			path = logoAnimation.json;
+			sourceTree = "<group>";
+		};
 		7590BA9252DA09D8473EF57E59E92B30 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,23 +278,6 @@
 				858BE106FDE6184D77010506B5097F1A /* UIViewController+.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		09D847325C24321900807BBFB7BD0132 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				ED1EBC58C2F940847C320C6A008EA812 /* Token.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		EC299C6919C75B87B4DFEFC50617687E /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				91A6C0BF687FEF975FCB0157ADE62331 /* API+Base.swift */,
-				2F30D0EEBB291640E1A610A270E72698 /* Network.swift */,
-			);
-			path = Network;
 			sourceTree = "<group>";
 		};
 		83207B8742C5908C6F0FFB837A6B7ABC /* Views */ = {
@@ -322,22 +329,6 @@
 				84F8D5B7E8BE6D3DFDF575B20292F0BE /* LookDetailViewController.swift */,
 			);
 			path = Look;
-			sourceTree = "<group>";
-		};
-		6D0496EB9B90DA93F3F2DA608E9FEFC1 /* logoAnimation.json */ = {
-			isa = PBXGroup;
-			children = (
-				383B68A47C2E2D073A82CF40AF75019D /* logoAnimation.json */,
-				B30F7F8BC0F68EC6C1F8E6A60BA9FADC /* logoAnimation_0.png */,
-				5C19FD6AF47DEEA5907B489F176EF4D7 /* logoAnimation_1.png */,
-				6F50A4F1E24E6F51CE6A972CB48E6887 /* logoAnimation_2.png */,
-				867038EB849449F75364CC44CCEAA5C3 /* logoAnimation_3.png */,
-				48907178040DAEF24AD911C4D3DCCC17 /* logoAnimation_4.png */,
-				E97E52D2F1D51780A9DF8DFDB642EA4B /* logoAnimation_5.png */,
-				CD3F448B196484D1CBCE17A7DF1646EF /* logoAnimation_6.png */,
-				C0C3160A8F2E10ED3113238FF01649F1 /* logoAnimation_7.png */,
-			);
-			path = logoAnimation.json;
 			sourceTree = "<group>";
 		};
 		C1D0C39FE48765A946888D2E109E9C40 /* Controller */ = {
@@ -417,6 +408,15 @@
 				D8E1AD8B779448DA04C464E96AECF285 /* giphy.gif */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EC299C6919C75B87B4DFEFC50617687E /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				91A6C0BF687FEF975FCB0157ADE62331 /* API+Base.swift */,
+				2F30D0EEBB291640E1A610A270E72698 /* Network.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -607,6 +607,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Toonie/Pods-Toonie-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/KTCenterFlowLayout/KTCenterFlowLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
@@ -616,6 +617,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KTCenterFlowLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",

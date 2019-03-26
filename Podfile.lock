@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.8.1)
   - Kingfisher (5.2.0)
   - KTCenterFlowLayout (1.3.1)
   - lottie-ios (3.0.0)
@@ -6,6 +7,7 @@ PODS:
   - SwiftLint (0.31.0)
 
 DEPENDENCIES:
+  - Alamofire
   - Kingfisher
   - KTCenterFlowLayout
   - lottie-ios
@@ -14,6 +16,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - Kingfisher
     - KTCenterFlowLayout
     - lottie-ios
@@ -21,12 +24,13 @@ SPEC REPOS:
     - SwiftLint
 
 SPEC CHECKSUMS:
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   Kingfisher: 07067cfacf371117330dceb4b4b8f5c4b691ab42
   KTCenterFlowLayout: 6e02b50ab2bd865025ae82fe266ed13b6d9eaf97
   lottie-ios: e412502a03b3dfdaa3e18284194022065d82c820
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
 
-PODFILE CHECKSUM: 1f23606e6cad3ada67cc44c4b0f307ed6ea24481
+PODFILE CHECKSUM: 32f2fd98a8055354eb302f20af8f45112e271c02
 
 COCOAPODS: 1.6.1
