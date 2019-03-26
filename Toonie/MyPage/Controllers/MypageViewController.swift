@@ -8,19 +8,20 @@
 
 import UIKit
 
-final class MypageViewController: UIViewController {
+final class MypageViewController: GestureViewController {
     
     // MARK: - IBOutlet
     
-    @IBOutlet weak var tagSettingButton: UIButton!
-    @IBOutlet weak var recentButton: UIButton!
-    @IBOutlet weak var myCollectionButton: UIButton!
-    @IBOutlet weak var bookMarkButton: UIButton!
-    @IBOutlet weak var tagButton: UIButton!
-    @IBOutlet weak var mypageCollectionView: UICollectionView!
+    @IBOutlet private weak var tagSettingButton: UIButton!
+    @IBOutlet private weak var recentButton: UIButton!
+    @IBOutlet private weak var myCollectionButton: UIButton!
+    @IBOutlet private weak var bookMarkButton: UIButton!
+    @IBOutlet private weak var tagButton: UIButton!
+    @IBOutlet private weak var mypageCollectionView: UICollectionView!
     
     // MARK: - DummyList
-    var mypageList: [MyPage] = []
+    
+    private var mypageList: [MyPage] = []
     
     // MARK: - Life Cycle
     
@@ -34,6 +35,7 @@ final class MypageViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     // MARK: - IBAction

@@ -8,12 +8,12 @@
 
 import UIKit
 
-final class MypageDetailViewController: UIViewController {
+final class MypageDetailViewController: GestureViewController {
     
     // MARK: - IBOutlet
     
-    @IBOutlet weak var detailCollectionView: UICollectionView!
-    @IBOutlet weak var detailTitleLabel: UILabel!
+    @IBOutlet private weak var detailCollectionView: UICollectionView!
+    @IBOutlet private weak var detailTitleLabel: UILabel!
     
     // MARK: - Life Cycle
     
