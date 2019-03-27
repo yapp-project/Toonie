@@ -13,17 +13,17 @@ final class RecommendViewController: GestureViewController {
     
     // MARK: - IBOutlets
     
-    @IBOutlet weak var recommendTableView: UITableView!
+    @IBOutlet private weak var recommendTableView: UITableView!
     
-    @IBOutlet weak var tagFrameView: UIView!
-    @IBOutlet weak var tagScrollView: UIScrollView!
+    @IBOutlet private weak var tagFrameView: UIView!
+    @IBOutlet private weak var tagScrollView: UIScrollView!
     
     ///이 수치에 따라 태그 줄수를 컨트롤 가능.
-    @IBOutlet weak var tagScrollContentViewWidth: NSLayoutConstraint!
+    @IBOutlet private weak var tagScrollContentViewWidth: NSLayoutConstraint!
     
-    @IBOutlet weak var tagCollectionView: UICollectionView!
-    @IBOutlet weak var tagCollectionViewFlowLayout: UICollectionViewFlowLayout!
-    @IBOutlet weak var tagSelectedNotInfoView: UIView!
+    @IBOutlet private weak var tagCollectionView: UICollectionView!
+    @IBOutlet private weak var tagCollectionViewFlowLayout: UICollectionViewFlowLayout!
+    @IBOutlet private weak var tagSelectedNotInfoView: UIView!
     
     // MARK: - Property
     
@@ -151,7 +151,7 @@ extension RecommendViewController: UITableViewDataSource {
         
         //역순 노출
         let reverseIndex = tagSelectArray.count - (indexPath.row + 1)
-        cell.recommentTitleLabel.text = tagSelectArray[reverseIndex]
+        cell.setRecommentTitleLabel(titleString: tagSelectArray[reverseIndex])
         
         return cell
     }
@@ -173,8 +173,8 @@ extension RecommendViewController: UICollectionViewDataSource {
             .dequeueReusableCell(withReuseIdentifier: "TagCollectionViewCell",
                                  for: indexPath) as? TagCollectionViewCell
             else { return UICollectionViewCell() }
-        cell.titleLabel.text = dummy[indexPath.row]
-        cell.cellStatus = false
+        cell.setTitleLabel(titleString: dummy[indexPath.row])
+        cell.setCellStatus(bool: false)
         
         return cell
     }
@@ -222,14 +222,14 @@ extension RecommendViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? TagCollectionViewCell {
-            cell.cellStatus = !cell.cellStatus
+            cell.setCellStatus(bool: !cell.getCellStatus())
             
             //선택한 키워드 추가 및 삭제
-            if cell.cellStatus == true {
+            if cell.getCellStatus() == true {
                 tagSelectArray.append(dummy[indexPath.row])
                 
             } else {
-                let findIndex = tagSelectArray.firstIndex(of: cell.titleLabel.text ?? "")
+                let findIndex = tagSelectArray.firstIndex(of: cell.getTitleLabel().text ?? "")
                 
                 if let index = findIndex {
                     tagSelectArray.remove(at: index)
