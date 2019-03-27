@@ -8,6 +8,17 @@
 
 import UIKit
 
+//Look의 NavigationController
+final class LookNavigationController: UINavigationController {
+    override init(rootViewController: UIViewController) {
+        super.init(rootViewController: rootViewController)
+    }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        CommonUtility.sharedInstance.lookNavigationViewController = self
+    }
+}
+
 ///둘러보기 메인 - 하단 탭 둘러보기로 진입
 final class LookViewController: GestureViewController {
     @IBOutlet weak var mainCategoryCollectionView: UICollectionView!

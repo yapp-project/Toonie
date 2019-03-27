@@ -8,6 +8,17 @@
 
 import UIKit
 
+//Main의 NavigationController
+final class MainNavigationController: UINavigationController {
+    override init(rootViewController: UIViewController) {
+        super.init(rootViewController: rootViewController)
+    }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder) 
+        CommonUtility.sharedInstance.mainNavigationViewController = self
+    }
+}
+
 final class MainViewController: GestureViewController {
     
     // MARK: - IBOutlet
@@ -20,6 +31,7 @@ final class MainViewController: GestureViewController {
     @IBOutlet private weak var myPageButton: UIButton!
     
     // MARK: - Property
+    var statusButton: UIButton!
     
     private enum TabbarButtonCase {
         case feed, look, myPage
@@ -52,6 +64,12 @@ final class MainViewController: GestureViewController {
     // MARK: - Action
     
     @IBAction func tabBarButtonDidTap(_ sender: UIButton) {
+        //전에 선택했던 버튼과 같다면 rootViewController로 돌아옴
+        if statusButton == sender {
+            didTapDoubleButton()
+            return
+        }
+        
         resetSelfView()
         
         switch sender {
@@ -68,10 +86,25 @@ final class MainViewController: GestureViewController {
             TabbarButtonCase.feed.showStatusView(view: &feedContainerView,
                                            button: &feedButton)
         }
+        
+        statusButton = sender
+        
     }
     
     // MARK: - Function
-
+    ///이전에 선택한 버튼을 또 선택하는 경우 popToRootViewController
+    func didTapDoubleButton() {
+        switch statusButton {
+        case feedButton:
+            CommonUtility.sharedInstance.feedNavigationViewController?.popToRootViewController(animated: true)
+        case lookButton:
+            CommonUtility.sharedInstance.lookNavigationViewController?.popToRootViewController(animated: true)
+        case myPageButton:
+            CommonUtility.sharedInstance.feedNavigationViewController?.popToRootViewController(animated: true)
+        default:
+            CommonUtility.sharedInstance.feedNavigationViewController?.popToRootViewController(animated: true)
+        }
+    }
     ///뷰 초기화
     func resetSelfView() {
         hideAllContainerView()

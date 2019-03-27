@@ -10,6 +10,17 @@ import UIKit
 import Lottie
 import SnapKit
 
+//Feed의 NavigationController
+final class FeedNavigationController: UINavigationController {
+    override init(rootViewController: UIViewController) {
+        super.init(rootViewController: rootViewController)
+    }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        CommonUtility.sharedInstance.feedNavigationViewController = self
+    }
+}
+
 // 홈 화면
 final class FeedViewController: GestureViewController {
   
