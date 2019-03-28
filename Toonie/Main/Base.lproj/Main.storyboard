@@ -130,12 +130,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="IXy-nV-eby"/>
                     <connections>
+                        <outlet property="feedButton" destination="nl7-nw-XL2" id="sZp-VM-Dag"/>
                         <outlet property="feedContainerView" destination="VPX-yU-680" id="ahR-2V-ZlK"/>
-                        <outlet property="homeButton" destination="nl7-nw-XL2" id="sZp-VM-Dag"/>
+                        <outlet property="lookButton" destination="aFf-MF-x0A" id="jaB-90-zdb"/>
                         <outlet property="lookContainerView" destination="cFH-zw-qKE" id="KZT-LD-2NG"/>
-                        <outlet property="myButton" destination="qne-84-rDg" id="Vha-Fc-xTx"/>
+                        <outlet property="myPageButton" destination="qne-84-rDg" id="Vha-Fc-xTx"/>
                         <outlet property="myPageContainerView" destination="DXN-qf-VAA" id="SPA-yK-c9o"/>
-                        <outlet property="searchButton" destination="aFf-MF-x0A" id="jaB-90-zdb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -204,10 +204,10 @@
             </objects>
             <point key="canvasLocation" x="-1046.25" y="-151.05633802816902"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Main Navigation Controller-->
         <scene sceneID="Njk-Et-CbB">
             <objects>
-                <navigationController storyboardIdentifier="RootViewController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="q5i-oa-dTb" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="RootViewController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="q5i-oa-dTb" customClass="MainNavigationController" customModule="Toonie" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ysE-dO-vBh">
@@ -410,7 +410,7 @@
         <image name="home" width="20" height="21"/>
         <image name="homeOn" width="20" height="22"/>
         <namedColor name="disabledButton">
-            <color red="0.60784298181533813" green="0.60784298181533813" blue="0.60784298181533813" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.60799998044967651" green="0.60799998044967651" blue="0.60799998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="main">
             <color red="1" green="0.46666666666666667" blue="0.0078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

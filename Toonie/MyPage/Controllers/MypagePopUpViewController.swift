@@ -8,12 +8,12 @@
 
 import UIKit
 
-final class MypagePopUpViewController: UIViewController {
+final class MypagePopUpViewController: GestureViewController {
 
-    @IBOutlet weak var popupView: UIView!
-    @IBOutlet weak var okButton: UIButton!
-    @IBOutlet weak var cancelButton: UIButton!
-    @IBOutlet weak var allEraseButton: UIButton!
+    @IBOutlet private weak var popupView: UIView!
+    @IBOutlet private weak var okButton: UIButton!
+    @IBOutlet private weak var cancelButton: UIButton!
+    @IBOutlet private weak var allEraseButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +27,14 @@ final class MypagePopUpViewController: UIViewController {
         // 커스텀 팝업 끄기 애니메이션
         self.removeAnimate()
         self.view.removeFromSuperview()
+        
+        let storyboard = UIStoryboard(name: "MyPage", bundle: nil)
+        guard let viewController = storyboard
+            .instantiateViewController(withIdentifier: "AddToonViewController") as? AddToonViewController
+            else {
+                return
+        }
+        navigationController?.present(viewController, animated: true)
     }
     
     @IBAction func cancelButtonDidTap(_ sender: Any) {

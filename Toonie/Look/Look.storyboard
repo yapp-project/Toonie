@@ -139,10 +139,10 @@
             </objects>
             <point key="canvasLocation" x="1169" y="-228"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Look Navigation Controller-->
         <scene sceneID="T57-Jr-iJO">
             <objects>
-                <navigationController navigationBarHidden="YES" id="KIX-zJ-v7V" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="KIX-zJ-v7V" customClass="LookNavigationController" customModule="Toonie" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Jjz-7w-yu4">
                         <autoresizingMask key="autoresizingMask"/>
