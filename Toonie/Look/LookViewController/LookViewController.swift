@@ -8,10 +8,21 @@
 
 import UIKit
 
+//Look의 NavigationController
+final class LookNavigationController: UINavigationController {
+    override init(rootViewController: UIViewController) {
+        super.init(rootViewController: rootViewController)
+    }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        CommonUtility.sharedInstance.lookNavigationViewController = self
+    }
+}
+
 ///둘러보기 메인 - 하단 탭 둘러보기로 진입
 final class LookViewController: GestureViewController {
-    @IBOutlet weak var mainCategoryCollectionView: UICollectionView!
-    @IBOutlet weak var mainCategoryCollectionViewFlowLayout: UICollectionViewFlowLayout!
+    @IBOutlet private weak var mainCategoryCollectionView: UICollectionView!
+    @IBOutlet private weak var mainCategoryCollectionViewFlowLayout: UICollectionViewFlowLayout!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +54,8 @@ extension LookViewController: UICollectionViewDelegate {
                                                                 return UICollectionViewCell()
         }
         
-        cell.backgroundImageView.image = UIImage.init(named: "LookCategoryImg_\(indexPath.row + 1)")
-        
+        cell.setBackgroundImageView(image: UIImage.init(named: "LookCategoryImg_\(indexPath.row + 1)"))
+         
         return cell
     }
     

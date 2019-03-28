@@ -13,8 +13,8 @@ final class RecommendTableViewCell: UITableViewCell {
     
     // MARK: - IBOutlet
     
-    @IBOutlet weak var recommentTitleLabel: UILabel!
-    @IBOutlet weak var recommendCollectionView: UICollectionView!
+    @IBOutlet private weak var recommentTitleLabel: UILabel!
+    @IBOutlet private weak var recommendCollectionView: UICollectionView!
     
     // MARK: - Life Cycle
     override func awakeFromNib() {
@@ -35,6 +35,10 @@ final class RecommendTableViewCell: UITableViewCell {
         
         let nibName = UINib(nibName: "RecommendCollectionViewCell", bundle: nil)
         recommendCollectionView.register(nibName, forCellWithReuseIdentifier: "RecommendCollectionViewCell")
+    }
+    
+    func setRecommentTitleLabel(titleString: String?) {
+        recommentTitleLabel.text = titleString
     }
 }
 

@@ -204,10 +204,10 @@
             </objects>
             <point key="canvasLocation" x="-1046.25" y="-151.05633802816902"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Main Navigation Controller-->
         <scene sceneID="Njk-Et-CbB">
             <objects>
-                <navigationController storyboardIdentifier="RootViewController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="q5i-oa-dTb" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="RootViewController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="q5i-oa-dTb" customClass="MainNavigationController" customModule="Toonie" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ysE-dO-vBh">

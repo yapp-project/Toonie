@@ -372,10 +372,10 @@
             </objects>
             <point key="canvasLocation" x="789.60000000000002" y="-514.28571428571433"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Feed Navigation Controller-->
         <scene sceneID="gif-f2-K80">
             <objects>
-                <navigationController navigationBarHidden="YES" id="PQr-Ap-73h" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="PQr-Ap-73h" customClass="FeedNavigationController" customModule="Toonie" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Kfw-zb-95W">
                         <autoresizingMask key="autoresizingMask"/>
