@@ -571,7 +571,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pX5-zs-iwP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1568.8" y="528.32512315270935"/>
+            <point key="canvasLocation" x="1569" y="520"/>
         </scene>
         <!--Modify View Controller-->
         <scene sceneID="i6v-hE-Qcz">
@@ -626,6 +626,10 @@
                                             <constraint firstItem="JxF-8r-8MH" firstAttribute="top" secondItem="UcM-aS-mb3" secondAttribute="top" constant="11" id="t1r-RF-dZX"/>
                                             <constraint firstItem="oJx-77-ain" firstAttribute="width" secondItem="JxF-8r-8MH" secondAttribute="width" multiplier="142:164" id="ucZ-l6-KNo"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="toonImageView" destination="JxF-8r-8MH" id="ys5-jE-jWy"/>
+                                            <outlet property="toonTitleLabel" destination="oJx-77-ain" id="vDc-Nv-ki0"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -635,6 +639,9 @@
                                     <constraint firstAttribute="width" secondItem="5Aa-JD-fjx" secondAttribute="height" multiplier="10:11" id="181-wQ-hsx"/>
                                 </constraints>
                                 <state key="normal" image="back"/>
+                                <connections>
+                                    <action selector="backButtonDidTap:" destination="qff-gZ-kMY" eventType="touchUpInside" id="2wl-b4-REC"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NV8-7S-Eal">
                                 <rect key="frame" x="311" y="120.33333333333331" width="48" height="37"/>
@@ -645,10 +652,16 @@
                                 <state key="normal" title="완료">
                                     <color key="titleColor" name="tag"/>
                                 </state>
+                                <connections>
+                                    <action selector="completeButtonDidTap:" destination="qff-gZ-kMY" eventType="touchUpInside" id="udh-Mi-gs0"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="54v-pQ-x0e">
                                 <rect key="frame" x="16" y="128" width="63" height="22"/>
                                 <state key="normal" image="selectAllBtn"/>
+                                <connections>
+                                    <action selector="selectAllButtonDidTap:" destination="qff-gZ-kMY" eventType="touchUpInside" id="BZO-z9-2my"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -669,10 +682,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8x7-ud-xGw"/>
                     </view>
+                    <connections>
+                        <outlet property="modifyCollectionView" destination="A5y-1a-jkc" id="GGR-iC-wns"/>
+                        <outlet property="selectAllButton" destination="54v-pQ-x0e" id="Dyb-0r-isE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cfb-2C-Sma" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2278" y="528"/>
+            <point key="canvasLocation" x="2354" y="520"/>
         </scene>
     </scenes>
     <resources>

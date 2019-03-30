@@ -31,6 +31,9 @@ final class MypageDetailViewController: GestureViewController {
     }
     
     @IBAction func editButtonDidTap(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "MyPage", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "ModifyViewController")
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     @IBAction func plusButtonDidTap(_ sender: Any) {
