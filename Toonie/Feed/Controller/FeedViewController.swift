@@ -12,13 +12,13 @@ import SnapKit
 
 //Feed의 NavigationController
 final class FeedNavigationController: UINavigationController {
-    override init(rootViewController: UIViewController) {
-        super.init(rootViewController: rootViewController)
-    }
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        CommonUtility.sharedInstance.feedNavigationViewController = self
-    }
+  override init(rootViewController: UIViewController) {
+    super.init(rootViewController: rootViewController)
+  }
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    CommonUtility.sharedInstance.feedNavigationViewController = self
+  }
 }
 
 // 홈 화면
@@ -26,10 +26,10 @@ final class FeedViewController: GestureViewController {
   
   // MARK: - IBOutlet
   
-  @IBOutlet weak var tagView: UIView!
-  @IBOutlet weak var forYouCollectionView: UICollectionView!
-  @IBOutlet weak var recentCollectionView: UICollectionView!
-  @IBOutlet weak var favoriteCollectionView: UICollectionView!
+  @IBOutlet private weak var tagView: UIView!
+  @IBOutlet private weak var forYouCollectionView: UICollectionView!
+  @IBOutlet private weak var recentCollectionView: UICollectionView!
+  @IBOutlet private weak var favoriteCollectionView: UICollectionView!
   
   // MARK: - Property
   
@@ -39,12 +39,21 @@ final class FeedViewController: GestureViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    setTagAnimationView()
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    setTagAnimationView()
+  }
+  
+  // MARK: - IBAction
+  
+  ///피드>피드상세 이동
+  @IBAction func moveFeedDetailDidTap(_ sender: Any) {
+    let storyboard = UIStoryboard(name: "Feed", bundle: nil)
+    let viewController = storyboard.instantiateViewController(withIdentifier: "RecommendViewController")
+    self.navigationController?.pushViewController(viewController, animated: true)
+    
   }
   
   // MARK: - Function
@@ -63,13 +72,14 @@ final class FeedViewController: GestureViewController {
       tagAnimationView.play()
     }
   }
-    ///피드>피드상세 이동
-  @IBAction func moveFeedDetailDidTap(_ sender: Any) {
-    let storyboard = UIStoryboard(name: "Feed", bundle: nil)
-    let viewController = storyboard.instantiateViewController(withIdentifier: "RecommendViewController")
-    self.navigationController?.pushViewController(viewController, animated: true)
-        
-   }
+  
+  /// 인스타툰 상세정보 화면으로 이동
+  func moveDetailToon() {
+    let storyboard = UIStoryboard(name: "Detail", bundle: nil)
+    let viewController = storyboard.instantiateViewController(withIdentifier: "DetailToonView")
+    CommonUtility.sharedInstance.mainNavigationViewController?.pushViewController(viewController, animated: true)
+  }
+  
 }
 
 // MARK: - UICollectionViewDataSource
@@ -122,5 +132,7 @@ extension FeedViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 
 extension FeedViewController: UICollectionViewDelegate {
-  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    moveDetailToon()
+  }
 }
