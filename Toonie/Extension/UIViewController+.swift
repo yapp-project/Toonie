@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 extension UIViewController {
     //커스텀 팝업 띄우기 애니메이션
     func showAnimate() {
