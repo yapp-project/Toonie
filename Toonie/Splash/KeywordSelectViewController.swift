@@ -18,7 +18,8 @@ final class KeywordSelectViewController: GestureViewController {
     var keywordSelectArray = [String]()
     
     //임시데이터
-    let dummy =  ["#학교생활",
+    
+     let dummy   =  ["#학교생활",
                   "#직업",
                   "#자기계발",
                   "#해외",
@@ -33,12 +34,19 @@ final class KeywordSelectViewController: GestureViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setKeywords()
         setKeywordFlowLayout()
     }
     
     ///시작하기 버튼-메인으로 이동
     @IBAction func startButtonDidTap(_ sender: UIButton) {
-//        print("선택한 키워드 \(keywordSelectArray)") 
+//        print("선택한 키워드 \(keywordSelectArray)")
+        
+        TokenService().getToken(url: API.token) { (res) in
+            print("asdf\(res)")
+        }
+        
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "RootViewController")
         UIApplication.shared.keyWindow?.rootViewController = viewController
@@ -65,6 +73,14 @@ final class KeywordSelectViewController: GestureViewController {
             mainMoveButton.backgroundColor = UIColor.init(named: "disabledButton")
           // color disableButton 오류
         }
+    }
+    
+    ///키워드 서버에서 받아옴
+    func setKeywords() {
+        KeywordsService().getKeywords(url: API.keywords, completion: { (res) in
+//            let resTest : NetworkResult<Keywords> = res as NetworkResult<Keywords>
+            
+        })
     }
 }
 
