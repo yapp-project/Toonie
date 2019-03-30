@@ -54,7 +54,6 @@ extension ModifyViewController: UICollectionViewDataSource {
                 return UICollectionViewCell()
         }
         cell.setModifyCollectionViewCellProperties()
-        
         cell.toonImageView.image = UIImage(named: "collectionAddLoading")
         cell.toonTitleLabel.text = "작품 제목임"
         
