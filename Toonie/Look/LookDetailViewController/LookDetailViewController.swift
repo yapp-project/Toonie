@@ -10,7 +10,7 @@ import UIKit
 
 ///둘러보기 상세 - LookViewController의 CollectionView의 didSelected시 이동되는 화면
 final class LookDetailViewController: GestureViewController {
-
+    
     // MARK: - IBOutlets
     
     @IBOutlet private weak var lookDetailTitleLabel: UILabel!
@@ -48,7 +48,7 @@ final class LookDetailViewController: GestureViewController {
         super.viewDidLoad()
         setLookDeatilTitleLabel(string: "여행") //임시
         setCollectionViewLayout()
- 
+        
     }
     
     // MARK: - IBAction
@@ -62,8 +62,8 @@ final class LookDetailViewController: GestureViewController {
     ///컬렉션 뷰 아이템 크기, 위치조정
     func setCollectionViewLayout() {
         lookDetailCollectionViewFlowLayout.scrollDirection = .vertical
-        lookDetailCollectionViewFlowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width * 0.32 ,
-                                                               height: UIScreen.main.bounds.width * 0.32)
+        lookDetailCollectionViewFlowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width * 0.322 ,
+                                                               height: UIScreen.main.bounds.width * 0.322)
         lookDetailCollectionViewFlowLayout.sectionInset = UIEdgeInsets(top: 0,
                                                                        left: 5 * CommonUtility.getDeviceRatioWidth(),
                                                                        bottom: 0,
@@ -102,7 +102,7 @@ extension LookDetailViewController: UICollectionViewDataSource {
             else { return UICollectionViewCell() }
         
         cell.setImageView(image: dummy[indexPath.row])
-         
+        
         return cell
     }
     

@@ -8,12 +8,8 @@
 
 import UIKit
 
-///둘러보기 상세 페이지의 상단 태그 선택 뷰
 class LookDetailTopSelectViewController: UIViewController {
-    
-    // MARK: - IBOutlets
-    
-    @IBOutlet private weak var lookDetailTopSelectCollectionView: UICollectionView!
+    @IBOutlet weak var lookDetailTopSelectCollectionView: UICollectionView!
     
     //임시데이터
     let dummy =  ["전체보기",
@@ -22,8 +18,6 @@ class LookDetailTopSelectViewController: UIViewController {
                   "#바캉스",
                   "#지하철여행",
                   "#뚜벅이여행"]
-    
-    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,8 +47,13 @@ extension LookDetailTopSelectViewController: UICollectionViewDataSource {
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) { 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? LookDetailTopSelectCell {
+            
+            for _ in 0...dummy.count {
+                cell.setCellStatus(bool: false)
+            }
+            
             cell.setCellStatus(bool: !cell.getCellStatus())
         }
     }

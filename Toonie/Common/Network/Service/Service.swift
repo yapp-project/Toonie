@@ -1,6 +1,7 @@
 import Foundation
 
 struct TokenService : Requestable {
+    
     typealias NetworkData = Token
     static let shareInstance = TokenService()
     

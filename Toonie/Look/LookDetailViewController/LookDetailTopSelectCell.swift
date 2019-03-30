@@ -8,23 +8,15 @@
 
 import UIKit
 
-///둘러보기 상세 페이지의 상단 태그 선택 셀
 class LookDetailTopSelectCell: UICollectionViewCell {
-
-    // MARK: - IBOutlets
-    
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var backView: UIView!
-    
-    // MARK: - Property
     
     private var cellStatus: Bool = false {
         didSet {
             setBorderViewLayout(status: cellStatus)
         }
     }
-    
-    // MARK: - IBAction
     
     /// didTap 일어날 때마다 cellBackgroundView 레이아웃 바꿔주는 함수
     func setBorderViewLayout(status: Bool) {
@@ -42,8 +34,6 @@ class LookDetailTopSelectCell: UICollectionViewCell {
         }
         backView.setCorner(cornerRadius: 15)
     }
-     
-    // MARK: - Function
     
     func setTitleLabel(text: String) {
         titleLabel.text = text
@@ -55,5 +45,4 @@ class LookDetailTopSelectCell: UICollectionViewCell {
     func getCellStatus() -> Bool {
         return cellStatus
     }
-    
 }
