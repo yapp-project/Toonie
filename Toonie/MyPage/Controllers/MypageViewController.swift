@@ -51,6 +51,13 @@ final class MypageViewController: GestureViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        goToFirstItem()
+    }
+    
+    private func goToFirstItem() {
+        self.mypageCollectionView.scrollToItem(at: IndexPath(row: 0, section: 0),
+                                               at: .top,
+                                               animated: true)
     }
     
     // MARK: - 버튼 눌리지 않은 상태로 만드는 함수
@@ -81,7 +88,7 @@ final class MypageViewController: GestureViewController {
             recentButton.setImage(UIImage(named: "RecentOn"), for: .normal)
             recentButton.setTitleColor(#colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1), for: .normal)
         }
-        
+        goToFirstItem()
     }
     
     @IBAction func myCollectionButtonDidTap(_ sender: UIButton) {
@@ -95,7 +102,7 @@ final class MypageViewController: GestureViewController {
             myCollectionButton.setImage(UIImage(named: "CollectionOn"), for: .normal)
             myCollectionButton.setTitleColor(#colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1), for: .normal)
         }
-        
+        goToFirstItem()
     }
     @IBAction func bookMarkButtonDidTap(_ sender: UIButton) {
         
@@ -108,7 +115,7 @@ final class MypageViewController: GestureViewController {
             bookMarkButton.setImage(UIImage(named: "mypageBookmarkOn"), for: .normal)
             bookMarkButton.setTitleColor(#colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1), for: .normal)
         }
-        
+        goToFirstItem()
     }
     
     @IBAction func tagButtonDidTap(_ sender: UIButton) {
@@ -120,7 +127,7 @@ final class MypageViewController: GestureViewController {
             setButtonInit()
             tagButton.setTitleColor(#colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1), for: .normal)
         }
-        
+        goToFirstItem()
     }
     
     @IBAction func tagSettingButtonDidTap(_ sender: UIButton) {
