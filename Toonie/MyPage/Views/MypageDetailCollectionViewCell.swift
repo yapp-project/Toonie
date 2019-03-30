@@ -15,7 +15,6 @@ final class MypageDetailCollectionViewCell: UICollectionViewCell {
     /// 컬렉션뷰셀 데이터 설정
     func setMypageDetailCollectionViewCellProperties() {
         detailImageView.image = UIImage(named: "collectionAddLoading")
-        detailImageView.setCorner(cornerRadius: 5)
-        detailTitleLabel.text = "테슷흐임당"
+        detailTitleLabel.text = "작품 제목임"
     }
 }
