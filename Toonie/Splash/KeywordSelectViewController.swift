@@ -34,6 +34,10 @@ final class KeywordSelectViewController: GestureViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setKeywordFlowLayout()
+        
+        TokenService().getToken(url: API.token, params: nil) { (res) in
+            print("res \(res)")
+        }
     }
     
     ///시작하기 버튼-메인으로 이동
