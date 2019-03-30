@@ -10,11 +10,13 @@ import UIKit
 import KTCenterFlowLayout
 
 final class KeywordSelectViewController: GestureViewController {
+    @IBOutlet weak var bigTitleLabel: UILabel!
     @IBOutlet weak var keywordCollecionView: UICollectionView!
     @IBOutlet weak var keywordFlowLayout: KTCenterFlowLayout!
     @IBOutlet weak var keywordCountLabel: UILabel!
     @IBOutlet weak var mainMoveButton: UIButton!
     
+    private var layoutMode: Bool = false
     var keywordSelectArray = [String]()
     
     //임시데이터
@@ -35,8 +37,13 @@ final class KeywordSelectViewController: GestureViewController {
         super.viewDidLoad()
         setKeywordFlowLayout()
         
-        TokenService().getToken(url: API.token, params: nil) { (res) in
-            print("res \(res)")
+        if layoutMode == false {
+            bigTitleLabel.text = "관심 있는 키워드를\n3개 이상 선택해주세요."
+            mainMoveButton.setTitle("시작하기", for: .normal)
+        } else {
+            bigTitleLabel.text = "관심 있는 키워드를\n편집해주세요."
+            mainMoveButton.setTitle("완료", for: .normal)
+            print("내 서재에서 진입")
         }
     }
     
@@ -69,6 +76,10 @@ final class KeywordSelectViewController: GestureViewController {
             mainMoveButton.backgroundColor = UIColor.init(named: "disabledButton")
           // color disableButton 오류
         }
+    }
+    
+    func setLayoutMode(bool: Bool) {
+        layoutMode = bool
     }
 }
 

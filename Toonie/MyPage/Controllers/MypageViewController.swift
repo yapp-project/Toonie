@@ -126,7 +126,12 @@ final class MypageViewController: GestureViewController {
     @IBAction func tagSettingButtonDidTap(_ sender: UIButton) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "KeywordSelectViewController")
+        guard let viewController = storyboard
+            .instantiateViewController(withIdentifier: "KeywordSelectViewController") as? KeywordSelectViewController
+            else {
+                return
+        }
+        viewController.setLayoutMode(bool: true)
         self.navigationController?.pushViewController(viewController, animated: true)        
     }
     
