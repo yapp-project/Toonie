@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fKL-UD-nXc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2AM-od-8ZK">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -140,6 +140,10 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="fKL-UD-nXc" id="YhO-uf-MpK"/>
+                                    <outlet property="delegate" destination="fKL-UD-nXc" id="1Hd-qJ-AH8"/>
+                                </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내서재" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="47g-Ls-rlZ">
                                 <rect key="frame" x="151.33333333333334" y="65" width="72.666666666666657" height="33.666666666666657"/>
@@ -175,6 +179,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="b3b-Jo-k7m"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Wxy-qS-biD"/>
                     <connections>
                         <outlet property="bookMarkButton" destination="5IZ-B7-DxF" id="Qmg-7s-QYN"/>
                         <outlet property="myCollectionButton" destination="baY-8L-Nhy" id="ovT-W9-sCd"/>
@@ -186,7 +191,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wCv-t1-w0R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="776.79999999999995" y="-165.51724137931035"/>
+            <point key="canvasLocation" x="1719.2" y="-165.51724137931035"/>
         </scene>
         <!--Mypage Pop Up View Controller-->
         <scene sceneID="BFR-ks-asg">
@@ -303,7 +308,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R9d-0R-TcA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1568.8" y="-166.25615763546799"/>
+            <point key="canvasLocation" x="2511.1999999999998" y="-166.25615763546799"/>
         </scene>
         <!--Add Toon View Controller-->
         <scene sceneID="eke-hx-L6P">
@@ -443,7 +448,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9LW-Vi-W4S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2356" y="-166.25615763546799"/>
+            <point key="canvasLocation" x="3298.4000000000001" y="-166.25615763546799"/>
         </scene>
         <!--Mypage Detail View Controller-->
         <scene sceneID="Oqr-mm-T7f">
@@ -504,6 +509,10 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Zsa-3P-HNR" id="hfa-IR-D2B"/>
+                                    <outlet property="delegate" destination="Zsa-3P-HNR" id="Ap8-o8-Ki0"/>
+                                </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FC6-w4-U1A">
                                 <rect key="frame" x="16" y="81.333333333333329" width="20" height="22"/>
@@ -632,6 +641,10 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="qff-gZ-kMY" id="MV3-Ad-fd9"/>
+                                    <outlet property="delegate" destination="qff-gZ-kMY" id="Qzi-ui-Pgb"/>
+                                </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Aa-JD-fjx">
                                 <rect key="frame" x="16" y="81.333333333333329" width="20" height="22"/>
@@ -690,6 +703,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cfb-2C-Sma" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2354" y="520"/>
+        </scene>
+        <!--My Page Navigation Controller-->
+        <scene sceneID="jKY-UQ-Q4T">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="2AM-od-8ZK" customClass="MyPageNavigationController" customModule="Toonie" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Jvl-Dx-yvt">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fKL-UD-nXc" kind="relationship" relationship="rootViewController" id="3XX-Nx-kc9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mJ3-CL-Bew" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="776.79999999999995" y="-165.51724137931035"/>
         </scene>
     </scenes>
     <resources>

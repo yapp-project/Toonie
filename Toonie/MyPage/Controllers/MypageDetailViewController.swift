@@ -19,9 +19,6 @@ final class MypageDetailViewController: GestureViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        detailCollectionView.dataSource = self
-        detailCollectionView.delegate = self
     }
     
     // MARK: - IBAction

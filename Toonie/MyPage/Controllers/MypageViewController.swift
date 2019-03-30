@@ -8,6 +8,17 @@
 
 import UIKit
 
+//MyPage의 MyPageNavigationController
+final class MyPageNavigationController: UINavigationController {
+    override init(rootViewController: UIViewController) {
+        super.init(rootViewController: rootViewController)
+    }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        CommonUtility.sharedInstance.myPageNavigationViewController = self
+    }
+}
+
 final class MypageViewController: GestureViewController {
     
     // MARK: - IBOutlet
@@ -31,9 +42,6 @@ final class MypageViewController: GestureViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mypageCollectionView.dataSource = self
-        mypageCollectionView.delegate = self
-        
         setMypageData()
         
         // 초기 화면 - 최근 본 목록
@@ -176,7 +184,10 @@ extension MypageViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if status == "recent" {
-            
+            let storyboard = UIStoryboard(name: "Detail", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "DetailToonView")
+            CommonUtility.sharedInstance.myPageNavigationViewController?
+                .pushViewController(viewController, animated: true)
         } else if status == "myCollection" {
             if indexPath.row == 0 {
                 let storyboard = UIStoryboard(name: "MyPage", bundle: nil)
@@ -192,9 +203,15 @@ extension MypageViewController: UICollectionViewDataSource {
                 self.navigationController?.pushViewController(viewController, animated: true)
             }
         } else if status == "bookMark" {
-            
+            let storyboard = UIStoryboard(name: "Detail", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "DetailToonView")
+            CommonUtility.sharedInstance.myPageNavigationViewController?
+                .pushViewController(viewController, animated: true)
         } else if status == "tag" {
-            
+            let storyboard = UIStoryboard(name: "Look", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "LookDetailViewController")
+            CommonUtility.sharedInstance.myPageNavigationViewController?
+                .pushViewController(viewController, animated: true)
         }
     }
 }
