@@ -17,8 +17,6 @@ final class DetailToonViewController: GestureViewController {
   @IBOutlet private weak var detailToonIdLabel: UILabel!
   @IBOutlet private weak var authorLabel: UILabel!
   @IBOutlet private weak var descriptionLabel: UILabel!
-  @IBOutlet private weak var emailLabel: UILabel!
-  @IBOutlet private weak var blogLabel: UILabel!
   @IBOutlet private weak var postCountLabel: UILabel!
   @IBOutlet private weak var followerNumberLabel: UILabel!
   @IBOutlet private weak var mainKeywordLabel: UILabel!
@@ -64,6 +62,7 @@ final class DetailToonViewController: GestureViewController {
   }
   
   @IBAction func moveToonButtonDidTap(_ sender: UIButton) {
+
   }
   
   @IBAction func addToMyCollection(_ sender: UIButton) {
