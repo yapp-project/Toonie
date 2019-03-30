@@ -56,7 +56,7 @@
                                         <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="간헐적 그림일기h" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPY-uE-xHk">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="간헐적 그림일기" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPY-uE-xHk">
                                         <rect key="frame" x="0.0" y="21" width="300" height="13.333333333333336"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="11"/>
                                         <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
@@ -112,13 +112,13 @@
                                         <color key="textColor" name="defaultText"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#여행 #직업" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dpy-Vx-3Tr">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#여행 #직업 #심리감정 #여행" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dpy-Vx-3Tr">
                                         <rect key="frame" x="0.0" y="30.666666666666629" width="300" height="17"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
                                         <color key="textColor" name="main"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#고된직장인 #고된직장인 #고된직장인 #고된직장인" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gtY-dD-1iz">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#고된 직장인을 위로하는 #프리랜서" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gtY-dD-1iz">
                                         <rect key="frame" x="0.0" y="56.666666666666629" width="300" height="13.333333333333329"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="11"/>
                                         <color key="textColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
@@ -137,6 +137,7 @@
                                 </state>
                                 <connections>
                                     <action selector="moveToonButtonDidTap:" destination="SAT-03-eWA" eventType="touchUpInside" id="qh2-Se-qIG"/>
+                                    <segue destination="6vy-PQ-pVp" kind="presentation" id="dUz-nl-8RW"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zp5-BU-IbD">
@@ -214,11 +215,138 @@
             </objects>
             <point key="canvasLocation" x="301.60000000000002" y="-471.42857142857144"/>
         </scene>
+        <!--Toon Web View Controller-->
+        <scene sceneID="6Fv-iY-rXs">
+            <objects>
+                <viewController id="6vy-PQ-pVp" customClass="ToonWebViewController" customModule="Toonie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XHR-HT-ZEN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="Xy1-c0-2db">
+                                <rect key="frame" x="0.0" y="44" width="375" height="47"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="cmS-Sy-TaO"/>
+                                </constraints>
+                            </imageView>
+                            <wkWebView contentMode="scaleToFill" allowsBackForwardNavigationGestures="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v2n-vF-e9Y">
+                                <rect key="frame" x="0.0" y="91" width="375" height="635"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5GZ-wU-QnH">
+                                <rect key="frame" x="0.0" y="45.666666666666657" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="9Ua-KC-kEB"/>
+                                    <constraint firstAttribute="height" constant="44" id="ET6-fd-hYP"/>
+                                </constraints>
+                                <state key="normal" image="closeBtn"/>
+                                <connections>
+                                    <action selector="closeButtonDidTap:" destination="6vy-PQ-pVp" eventType="touchUpInside" id="Pme-Qj-SMl"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Z4B-Wu-BFh">
+                                <rect key="frame" x="37.666666666666657" y="51.666666666666664" width="300" height="31.666666666666664"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hongal.hongal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ZN-rw-CCc">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="17"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="https://www.instagram.com/hongal.hongal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHQ-Oy-n8g">
+                                        <rect key="frame" x="0.0" y="17.000000000000007" width="300" height="14.666666666666664"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="12"/>
+                                        <color key="textColor" name="unselectedText"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aNe-fO-4kW" userLabel="bottomView">
+                                <rect key="frame" x="0.0" y="726" width="375" height="86"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="AJo-zt-QZk">
+                                        <rect key="frame" x="10" y="5" width="128" height="44"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IRf-NR-BXT">
+                                                <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="44" id="7eL-Nt-Uqo"/>
+                                                    <constraint firstAttribute="height" constant="44" id="i1X-Sa-0Fi"/>
+                                                </constraints>
+                                                <state key="normal" image="backOn"/>
+                                                <state key="disabled" image="webBack"/>
+                                                <connections>
+                                                    <action selector="backButtonDidTap:" destination="6vy-PQ-pVp" eventType="touchUpInside" id="V1x-Ev-iMm"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kUe-LW-UU8">
+                                                <rect key="frame" x="84" y="0.0" width="44" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="Qwo-mD-b6y"/>
+                                                    <constraint firstAttribute="width" constant="44" id="yLd-HN-d7Z"/>
+                                                </constraints>
+                                                <state key="normal" image="nextOn"/>
+                                                <state key="disabled" image="webNext"/>
+                                                <connections>
+                                                    <action selector="forwardButtonDidTap:" destination="6vy-PQ-pVp" eventType="touchUpInside" id="fcB-VT-uch"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="AJo-zt-QZk" firstAttribute="top" secondItem="aNe-fO-4kW" secondAttribute="top" constant="5" id="DwE-VG-Jqj"/>
+                                    <constraint firstItem="AJo-zt-QZk" firstAttribute="leading" secondItem="aNe-fO-4kW" secondAttribute="leading" constant="10" id="TwW-Vz-0Cj"/>
+                                    <constraint firstAttribute="height" constant="86" id="stL-du-wd2"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.29411764705882354" green="0.29411764705882354" blue="0.29411764705882354" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="5GZ-wU-QnH" firstAttribute="centerY" secondItem="Xy1-c0-2db" secondAttribute="centerY" id="5UT-WD-Zhx"/>
+                            <constraint firstItem="Xy1-c0-2db" firstAttribute="leading" secondItem="XzK-cD-fP8" secondAttribute="leading" id="83E-Yz-aRe"/>
+                            <constraint firstItem="v2n-vF-e9Y" firstAttribute="top" secondItem="Xy1-c0-2db" secondAttribute="bottom" id="A9c-fh-R03"/>
+                            <constraint firstItem="XzK-cD-fP8" firstAttribute="trailing" secondItem="aNe-fO-4kW" secondAttribute="trailing" id="GOJ-HY-FFm"/>
+                            <constraint firstItem="v2n-vF-e9Y" firstAttribute="leading" secondItem="XzK-cD-fP8" secondAttribute="leading" id="GnQ-Vk-qMh"/>
+                            <constraint firstItem="Z4B-Wu-BFh" firstAttribute="width" secondItem="Xy1-c0-2db" secondAttribute="width" multiplier="0.8" id="K1T-x7-y9J"/>
+                            <constraint firstItem="aNe-fO-4kW" firstAttribute="top" secondItem="v2n-vF-e9Y" secondAttribute="bottom" id="MIk-2X-Eix"/>
+                            <constraint firstItem="XzK-cD-fP8" firstAttribute="trailing" secondItem="v2n-vF-e9Y" secondAttribute="trailing" id="MnE-wC-1Tf"/>
+                            <constraint firstAttribute="bottom" secondItem="aNe-fO-4kW" secondAttribute="bottom" id="Rnc-vI-fRC"/>
+                            <constraint firstItem="aNe-fO-4kW" firstAttribute="leading" secondItem="XzK-cD-fP8" secondAttribute="leading" id="Se0-xM-bGm"/>
+                            <constraint firstItem="Xy1-c0-2db" firstAttribute="top" secondItem="XzK-cD-fP8" secondAttribute="top" id="X7g-rI-Ztz"/>
+                            <constraint firstItem="Z4B-Wu-BFh" firstAttribute="centerX" secondItem="Xy1-c0-2db" secondAttribute="centerX" id="hvy-D8-tdk"/>
+                            <constraint firstItem="5GZ-wU-QnH" firstAttribute="leading" secondItem="XzK-cD-fP8" secondAttribute="leading" id="idm-tx-rIr"/>
+                            <constraint firstItem="XzK-cD-fP8" firstAttribute="trailing" secondItem="Xy1-c0-2db" secondAttribute="trailing" id="nX3-Ux-eaH"/>
+                            <constraint firstItem="Z4B-Wu-BFh" firstAttribute="centerY" secondItem="Xy1-c0-2db" secondAttribute="centerY" id="xyH-Id-s6v"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="XzK-cD-fP8"/>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="IRf-NR-BXT" id="JhM-3p-pkt"/>
+                        <outlet property="forwardButton" destination="kUe-LW-UU8" id="dlh-vu-rIF"/>
+                        <outlet property="instagramWebView" destination="v2n-vF-e9Y" id="ygk-rk-5cW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CrH-m7-wpF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1408.8" y="-471.42857142857144"/>
+        </scene>
     </scenes>
     <resources>
         <image name="back" width="8" height="16"/>
+        <image name="backOn" width="12" height="20"/>
+        <image name="closeBtn" width="12" height="13"/>
         <image name="moreBtn" width="16" height="4"/>
+        <image name="nextOn" width="12" height="20"/>
+        <image name="rectangle" width="375" height="47"/>
         <image name="userProfileimg" width="202" height="202"/>
+        <image name="webBack" width="12" height="20"/>
+        <image name="webNext" width="12" height="20"/>
         <namedColor name="defaultText">
             <color red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -230,6 +358,9 @@
         </namedColor>
         <namedColor name="tag">
             <color red="0.99607843137254903" green="0.20000000000000001" blue="0.0039215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="unselectedText">
+            <color red="0.56862745098039214" green="0.56862745098039214" blue="0.56862745098039214" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

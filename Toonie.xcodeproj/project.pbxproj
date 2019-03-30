@@ -54,6 +54,7 @@
 		DAC921890617B9E247AE4070E1856EE9 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DC0E80B292187D81A2395BE3B5153F /* String+.swift */; };
 		4AE025D2C380F51BB508CE678B09CB78 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3671FD5527EB6A77347C274B14DB174B /* TagCollectionViewCell.swift */; };
 		2FAF393B9AC22D803FCA2D9B4EB2206B /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EBC58C2F940847C320C6A008EA812 /* Token.swift */; };
+		CDD94A58C361838A6501853F54312E0A /* ToonWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28B02ED5A86318713752322D6A15E13 /* ToonWebViewController.swift */; };
 		0957B41AD138D0A49135F214132A015A /* ToonieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BEF0670CA0E9737AC0D8BB4C759F3D /* ToonieTests.swift */; };
 		012280A5A53D6963330DB1D8B9DC3C68 /* UIAlertController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DA6955EDA11550288B07A43296B653 /* UIAlertController+.swift */; };
 		BD6A4E5D4CF8929196A01E3D1E55C9F4 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B4E73537A6A1DA88E2A6D9DCCCBB0 /* UIFont+.swift */; };
@@ -136,6 +137,7 @@
 		C5DC0E80B292187D81A2395BE3B5153F /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		3671FD5527EB6A77347C274B14DB174B /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
 		ED1EBC58C2F940847C320C6A008EA812 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		A28B02ED5A86318713752322D6A15E13 /* ToonWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonWebViewController.swift; sourceTree = "<group>"; };
 		E5B5664A67B748CC79409D5ABB761F80 /* Toonie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Toonie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8BEF0670CA0E9737AC0D8BB4C759F3D /* ToonieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonieTests.swift; sourceTree = "<group>"; };
 		D32B5ACD1A82F7A257245C24D4210ADC /* ToonieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToonieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,37 +178,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2007EB62D1BF067B2746E732A053B791 /* Detail */ = {
-			isa = PBXGroup;
-			children = (
-				1B2372F1A689B45DBFF61F1D6FBC45BE /* Controller */,
-				1F8C6970B656CEC5B74B47920EE95F11 /* View */,
-			);
-			path = Detail;
-			sourceTree = "<group>";
-		};
-		1F8C6970B656CEC5B74B47920EE95F11 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				013B051389A91973028316A3E576E272 /* Detail.storyboard */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		1B2372F1A689B45DBFF61F1D6FBC45BE /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				E4C42DB5B38C27C2E993254790693BDF /* DetailViewController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
 		09D847325C24321900807BBFB7BD0132 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				ED1EBC58C2F940847C320C6A008EA812 /* Token.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		1B2372F1A689B45DBFF61F1D6FBC45BE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E4C42DB5B38C27C2E993254790693BDF /* DetailViewController.swift */,
+				A28B02ED5A86318713752322D6A15E13 /* ToonWebViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		1E5EEACC73F0B2067BEA386D942B1580 /* MyPage */ = {
@@ -217,6 +203,23 @@
 				520E0A35F56B2B546835C7C60E855EEE /* MyPage.swift */,
 			);
 			path = MyPage;
+			sourceTree = "<group>";
+		};
+		1F8C6970B656CEC5B74B47920EE95F11 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				013B051389A91973028316A3E576E272 /* Detail.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2007EB62D1BF067B2746E732A053B791 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				1B2372F1A689B45DBFF61F1D6FBC45BE /* Controller */,
+				1F8C6970B656CEC5B74B47920EE95F11 /* View */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		262BC765159E6BB88A72DE819C145C06 = {
@@ -713,6 +716,7 @@
 				DAC921890617B9E247AE4070E1856EE9 /* String+.swift in Sources */,
 				4AE025D2C380F51BB508CE678B09CB78 /* TagCollectionViewCell.swift in Sources */,
 				2FAF393B9AC22D803FCA2D9B4EB2206B /* Token.swift in Sources */,
+				CDD94A58C361838A6501853F54312E0A /* ToonWebViewController.swift in Sources */,
 				012280A5A53D6963330DB1D8B9DC3C68 /* UIAlertController+.swift in Sources */,
 				BD6A4E5D4CF8929196A01E3D1E55C9F4 /* UIFont+.swift in Sources */,
 				BBF3D671ABB1FA62C12A76D6A4CA52CE /* UIView+.swift in Sources */,
