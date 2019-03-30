@@ -21,6 +21,7 @@ final class MypageViewController: GestureViewController {
     
     // MARK: - DummyList
     
+    private var status = ""
     private var mypageList: [MyPage] = []
     
     // MARK: - Life Cycle
@@ -36,29 +37,90 @@ final class MypageViewController: GestureViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        // 초기 화면 - 최근 본 목록
+        status = "recent"
+    }
+    
+    // MARK: - 버튼 눌리지 않은 상태로 만드는 함수
+    
+    func setButtonInit() {
+        
+        recentButton.setImage(UIImage(named: "Recent"), for: .normal)
+        myCollectionButton.setImage(UIImage(named: "Collection"), for: .normal)
+        bookMarkButton.setImage(UIImage(named: "mypageBookmark"), for: .normal)
+        
+        recentButton.setTitleColor(#colorLiteral(red: 0.6079999804, green: 0.6079999804, blue: 0.6079999804, alpha: 1), for: .normal)
+        myCollectionButton.setTitleColor(#colorLiteral(red: 0.6079999804, green: 0.6079999804, blue: 0.6079999804, alpha: 1), for: .normal)
+        bookMarkButton.setTitleColor(#colorLiteral(red: 0.6079999804, green: 0.6079999804, blue: 0.6079999804, alpha: 1), for: .normal)
+        tagButton.setTitleColor(#colorLiteral(red: 0.6079999804, green: 0.6079999804, blue: 0.6079999804, alpha: 1), for: .normal)
+        
     }
     
     // MARK: - IBAction
     
     @IBAction func recentButtonDidTap(_ sender: UIButton) {
+        
+        if status != "recent"{
+            tagSettingButton.isHidden = true
+            status = "recent"
+            mypageCollectionView.reloadData()
+            
+            setButtonInit()
+            recentButton.setImage(UIImage(named: "RecentOn"), for: .normal)
+            recentButton.setTitleColor(#colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1), for: .normal)
+        }
+        
     }
     
     @IBAction func myCollectionButtonDidTap(_ sender: UIButton) {
+        
+        if status != "myCollection"{
+            tagSettingButton.isHidden = true
+            status = "myCollection"
+            mypageCollectionView.reloadData()
+            
+            setButtonInit()
+            myCollectionButton.setImage(UIImage(named: "CollectionOn"), for: .normal)
+            myCollectionButton.setTitleColor(#colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1), for: .normal)
+        }
+        
     }
     
     @IBAction func bookMarkButtonDidTap(_ sender: UIButton) {
         
+        if status != "bookMark"{
+            tagSettingButton.isHidden = true
+            status = "bookMark"
+            mypageCollectionView.reloadData()
+
+            setButtonInit()
+            bookMarkButton.setImage(UIImage(named: "mypageBookmarkOn"), for: .normal)
+            bookMarkButton.setTitleColor(#colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1), for: .normal)
+        }
+        
     }
     
     @IBAction func tagButtonDidTap(_ sender: UIButton) {
-        tagSettingButton.isHidden = false
+        
+        if status != "tag"{
+            tagSettingButton.isHidden = false
+            status = "tag"
+            mypageCollectionView.reloadData()
+            
+            setButtonInit()
+            tagButton.setTitleColor(#colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1), for: .normal)
+        }
+        
     }
     
     @IBAction func tagSettingButtonDidTap(_ sender: UIButton) {
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "KeywordSelectViewController")
         self.navigationController?.pushViewController(viewController, animated: true)        
     }
+    
 }
 
 // MARK: - UICollectionViewDataSource
@@ -79,16 +141,31 @@ extension MypageViewController: UICollectionViewDataSource {
             else {
                 return UICollectionViewCell()
         }
+        
         cell.setMypageCollectionViewCellProperties()
         
-        if indexPath.row == 0 {
-            cell.mypageToonImageView.isHidden = true
+        if status == "recent" {
+            cell.mypageToonLabel.text = "최근 본 작품"
+            cell.mypageCollectionImageView.isHidden = true
+            cell.mypageToonImageView.isHidden = false
+        } else if status == "myCollection" {
             cell.mypageCollectionImageView.isHidden = false
-            cell.mypageToonLabel.text = "새 컬렉션 만들기"
-        } else {
-            let mypage = mypageList[indexPath.row]
-            cell.mypageToonImageView.image = UIImage(named: mypage.image)
-            cell.mypageToonLabel.text = mypage.title
+            if indexPath.row == 0 {
+                cell.mypageToonImageView.isHidden = true
+                cell.mypageToonLabel.text = "새 컬렉션 만들기"
+            } else {
+                let mypage = mypageList[indexPath.row]
+                cell.mypageToonImageView.image = UIImage(named: mypage.image)
+                cell.mypageToonLabel.text = mypage.title
+            }
+        } else if status == "bookMark" {
+            cell.mypageToonLabel.text = "찜한 목록 작품"
+            cell.mypageCollectionImageView.isHidden = true
+            cell.mypageToonImageView.isHidden = false
+        } else if status == "tag" {
+            cell.mypageToonLabel.text = "#tag"
+            cell.mypageCollectionImageView.isHidden = true
+            cell.mypageToonImageView.isHidden = false
         }
         
         return cell
@@ -97,20 +174,28 @@ extension MypageViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        if indexPath.row == 0 {
-            let storyboard = UIStoryboard(name: "MyPage", bundle: nil)
-            let popViewController = storyboard.instantiateViewController(withIdentifier: "MypagePopUpViewController")
-            self.addChild(popViewController)
-            popViewController.view.frame = self.view.frame
-            self.view.addSubview(popViewController.view)
-            popViewController.didMove(toParent: self)
-        } else {
-            let storyboard = UIStoryboard(name: "MyPage", bundle: nil)
-            let viewController = storyboard.instantiateViewController(withIdentifier: "MypageDetailViewController")
-            self.navigationController?.pushViewController(viewController, animated: true)
+        if status == "recent" {
+            
+        } else if status == "myCollection" {
+            if indexPath.row == 0 {
+                let storyboard = UIStoryboard(name: "MyPage", bundle: nil)
+                let popViewController = storyboard
+                    .instantiateViewController(withIdentifier: "MypagePopUpViewController")
+                self.addChild(popViewController)
+                popViewController.view.frame = self.view.frame
+                self.view.addSubview(popViewController.view)
+                popViewController.didMove(toParent: self)
+            } else {
+                let storyboard = UIStoryboard(name: "MyPage", bundle: nil)
+                let viewController = storyboard.instantiateViewController(withIdentifier: "MypageDetailViewController")
+                self.navigationController?.pushViewController(viewController, animated: true)
+            }
+        } else if status == "bookMark" {
+            
+        } else if status == "tag" {
+            
         }
     }
-    
 }
 
 // MARK: - UICollectionViewDelegate
@@ -122,11 +207,11 @@ extension MypageViewController: UICollectionViewDelegate {
 // 더미 모델에 더미 데이터 집어넣기
 extension MypageViewController {
     func setMypageData() {
-        let myPage1 = MyPage(image: "myRecentlyLoadingImg", title: "최근1번", status: "recent")
-        let myPage2 = MyPage(image: "myRecentlyLoadingImg", title: "최근2번", status: "recent")
-        let myPage3 = MyPage(image: "myRecentlyLoadingImg", title: "최근3번", status: "recent")
-        let myPage4 = MyPage(image: "", title: "최근4번", status: "recent")
-        let myPage5 = MyPage(image: "", title: "최근5번", status: "recent")
+        let myPage1 = MyPage(image: "", title: "내 컬렉션 1번", status: "recent")
+        let myPage2 = MyPage(image: "", title: "내 컬렉션 2번", status: "recent")
+        let myPage3 = MyPage(image: "", title: "내 컬렉션 3번", status: "recent")
+        let myPage4 = MyPage(image: "", title: "내 컬렉션 4번", status: "recent")
+        let myPage5 = MyPage(image: "", title: "내 컬렉션 5번", status: "recent")
 
         mypageList = [myPage1, myPage2, myPage3, myPage4, myPage5]
     }
