@@ -19,9 +19,12 @@ final class MypageViewController: GestureViewController {
     @IBOutlet private weak var tagButton: UIButton!
     @IBOutlet private weak var mypageCollectionView: UICollectionView!
     
-    // MARK: - DummyList
+    // MARK: - private var
     
     private var status = ""
+    
+    // MARK: - DummyList
+    
     private var mypageList: [MyPage] = []
     
     // MARK: - Life Cycle
@@ -33,18 +36,18 @@ final class MypageViewController: GestureViewController {
         
         setMypageData()
         
+        // 초기 화면 - 최근 본 목록
+        status = "recent"
+        mypageCollectionView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        // 초기 화면 - 최근 본 목록
-        status = "recent"
     }
     
     // MARK: - 버튼 눌리지 않은 상태로 만드는 함수
     
-    func setButtonInit() {
+    private func setButtonInit() {
         
         recentButton.setImage(UIImage(named: "Recent"), for: .normal)
         myCollectionButton.setImage(UIImage(named: "Collection"), for: .normal)

@@ -26,9 +26,16 @@ final class MypageDetailViewController: GestureViewController {
     
     // MARK: - IBAction
     
-    @IBAction func exitButtonDidTap(_ sender: Any) {
+    @IBAction func backButtonDidTap(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func editButtonDidTap(_ sender: Any) {
+    }
+    
+    @IBAction func plusButtonDidTap(_ sender: Any) {
+    }
+    
 }
 
 // MARK: - UICollectionViewDataSource
@@ -48,13 +55,9 @@ extension MypageDetailViewController: UICollectionViewDataSource {
         }
         cell.setMypageDetailCollectionViewCellProperties()
         
-        if indexPath.row == 0 {
-            cell.detailImageView.image = UIImage(named: "collectionAddPlus")
-            cell.detailTitleLabel.text = "작품 추가하기"
-        } else {
-            cell.detailImageView.image = UIImage(named: "collectionAddLoading")
-        }
-        
+        cell.detailImageView.image = UIImage(named: "collectionAddLoading")
+        cell.detailTitleLabel.text = "작품 제목임"
+    
         return cell
     }
 }
