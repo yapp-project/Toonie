@@ -9,7 +9,7 @@
 import UIKit
 import KTCenterFlowLayout
 
-final class KeywordSelectViewController: UIViewController {
+final class KeywordSelectViewController: GestureViewController {
     @IBOutlet weak var keywordCollecionView: UICollectionView!
     @IBOutlet weak var keywordFlowLayout: KTCenterFlowLayout!
     @IBOutlet weak var keywordCountLabel: UILabel!
@@ -34,6 +34,10 @@ final class KeywordSelectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setKeywordFlowLayout()
+        
+        TokenService().getToken(url: API.token, params: nil) { (res) in
+            print("res \(res)")
+        }
     }
     
     ///시작하기 버튼-메인으로 이동
@@ -63,6 +67,7 @@ final class KeywordSelectViewController: UIViewController {
         } else {
             mainMoveButton.isEnabled = false
             mainMoveButton.backgroundColor = UIColor.init(named: "disabledButton")
+          // color disableButton 오류
         }
     }
 }

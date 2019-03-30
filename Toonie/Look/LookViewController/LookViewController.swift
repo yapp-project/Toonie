@@ -8,10 +8,21 @@
 
 import UIKit
 
+//Look의 NavigationController
+final class LookNavigationController: UINavigationController {
+    override init(rootViewController: UIViewController) {
+        super.init(rootViewController: rootViewController)
+    }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        CommonUtility.sharedInstance.lookNavigationViewController = self
+    }
+}
+
 ///둘러보기 메인 - 하단 탭 둘러보기로 진입
-final class LookViewController: UIViewController {
-    @IBOutlet weak var mainCategoryCollectionView: UICollectionView!
-    @IBOutlet weak var mainCategoryCollectionViewFlowLayout: UICollectionViewFlowLayout!
+final class LookViewController: GestureViewController {
+    @IBOutlet private weak var mainCategoryCollectionView: UICollectionView!
+    @IBOutlet private weak var mainCategoryCollectionViewFlowLayout: UICollectionViewFlowLayout! 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,21 +41,32 @@ final class LookViewController: UIViewController {
 }
 
 extension LookViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
         //대분류 카테고리 갯수는 우선 고정.
         return 12
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        viewForSupplementaryElementOfKind kind: String,
+                        at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView
+            .dequeueReusableSupplementaryView(ofKind: kind,
+                                              withReuseIdentifier: "HeaderCell",
+                                              for: indexPath) 
+        return header
     }
 }
 extension LookViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LookCell",
-                                                            for: indexPath) as? LookCell else {
-                                                                return UICollectionViewCell()
-        }
+        guard let cell = collectionView
+            .dequeueReusableCell(withReuseIdentifier: "LookCell",
+                                 for: indexPath) as? LookCell
+            else { return UICollectionViewCell() }
         
-        cell.backgroundImageView.image = UIImage.init(named: "LookCategoryImg_\(indexPath.row + 1)")
-        
+        cell.setBackgroundImageView(image: UIImage.init(named: "LookCategoryImg_\(indexPath.row + 1)"))
+         
         return cell
     }
     

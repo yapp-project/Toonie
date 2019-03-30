@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecommendTableViewCell" rowHeight="342" id="k2N-mI-ec8" customClass="RecommendTableViewCell" customModule="Toonie" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="342"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="k2N-mI-ec8" id="uID-d1-nYh">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="341.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o1x-dp-omx" userLabel="line">
+                        <rect key="frame" x="39" y="0.0" width="297" height="0.5"/>
+                        <color key="backgroundColor" name="line"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="6hI-9L-Bix"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#귀여운 고양이가 나오는 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AhC-vW-eRP">
+                        <rect key="frame" x="20" y="26.5" width="220" height="27"/>
+                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="22"/>
+                        <color key="textColor" name="main"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jeJ-Zu-TGA">
+                        <rect key="frame" x="16" y="70" width="343" height="228"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="228" id="GMP-A8-yqf"/>
+                        </constraints>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="18" minimumInteritemSpacing="0.0" id="K7k-6d-D9j">
+                            <size key="itemSize" width="220" height="228"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="BQa-m5-oRu">
+                                <rect key="frame" x="20" y="0.0" width="220" height="228"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="220" height="228"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </view>
+                            </collectionViewCell>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gok-zH-ufh">
+                                <rect key="frame" x="258" y="0.0" width="220" height="228"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="220" height="228"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="-1" id="CIG-nr-0bE"/>
+                            <outlet property="delegate" destination="-1" id="YPG-AM-ZU2"/>
+                        </connections>
+                    </collectionView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="o1x-dp-omx" firstAttribute="leading" secondItem="uID-d1-nYh" secondAttribute="leadingMargin" constant="23" id="3IG-73-zS8"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="jeJ-Zu-TGA" secondAttribute="bottom" constant="33" id="EME-mu-Iih"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="o1x-dp-omx" secondAttribute="trailing" constant="23" id="GdX-jD-pkU"/>
+                    <constraint firstItem="jeJ-Zu-TGA" firstAttribute="leading" secondItem="uID-d1-nYh" secondAttribute="leadingMargin" id="MJw-Q5-agx"/>
+                    <constraint firstItem="AhC-vW-eRP" firstAttribute="leading" secondItem="uID-d1-nYh" secondAttribute="leading" constant="20" id="bIj-j2-iHX"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="jeJ-Zu-TGA" secondAttribute="trailing" id="dC9-B3-sp7"/>
+                    <constraint firstItem="AhC-vW-eRP" firstAttribute="top" secondItem="o1x-dp-omx" secondAttribute="bottom" constant="26" id="qSr-Ip-yAD"/>
+                    <constraint firstItem="jeJ-Zu-TGA" firstAttribute="top" secondItem="AhC-vW-eRP" secondAttribute="bottom" constant="16.333333333333329" id="s3d-dW-FFI"/>
+                    <constraint firstItem="o1x-dp-omx" firstAttribute="top" secondItem="uID-d1-nYh" secondAttribute="top" id="vTM-GW-AS7"/>
+                </constraints>
+            </tableViewCellContentView>
+            <constraints>
+                <constraint firstItem="o1x-dp-omx" firstAttribute="centerX" secondItem="k2N-mI-ec8" secondAttribute="centerX" id="uq4-Vj-Yl2"/>
+            </constraints>
+            <connections>
+                <outlet property="recommendCollectionView" destination="jeJ-Zu-TGA" id="W0a-q4-xiv"/>
+                <outlet property="recommentTitleLabel" destination="AhC-vW-eRP" id="6gg-Jb-PYR"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="line">
+            <color red="0.76470588235294112" green="0.76470588235294112" blue="0.76470588235294112" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="main">
+            <color red="1" green="0.46666666666666667" blue="0.0078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -8,47 +8,121 @@
 
 import UIKit
 
-final class MainViewController: UIViewController {
-  // 100 Feed, 101 Look, 102 MyPage
-  @IBOutlet weak var feedContainerView: UIView!
-  @IBOutlet weak var lookContainerView: UIView!
-  @IBOutlet weak var myPageContainerView: UIView!
-  @IBOutlet weak var homeButton: UIButton!
-  @IBOutlet weak var searchButton: UIButton!
-  @IBOutlet weak var myButton: UIButton!
-  
-  @IBAction func tabBarButtonDidTap(_ sender: UIButton) {
-    hideContainerView(viewTag: sender.tag - 100)
-    changeTabbarButtonState(viewTag: sender.tag)
-  }
-
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    self.view.viewWithTag(100)?.isHidden = false
-    homeButton.isSelected = true
-  }
-
-  /// 컨테이너뷰 태그값에 따라서 숨김
-  func hideContainerView(viewTag: Int) {
-    for index in 100..<103 {
-      self.view.viewWithTag(index)?.isHidden = (viewTag != index ? true : false)
+//Main의 NavigationController
+final class MainNavigationController: UINavigationController {
+    override init(rootViewController: UIViewController) {
+        super.init(rootViewController: rootViewController)
     }
-  }
-  
-  /// 태그값에 따라서 버튼 상태 변경
-  func changeTabbarButtonState(viewTag: Int) {
-    homeButton.isSelected = false
-    searchButton.isSelected = false
-    myButton.isSelected = false
-    switch viewTag {
-    case 200:
-      homeButton.isSelected = true
-    case 201:
-      searchButton.isSelected = true
-    case 202:
-      myButton.isSelected = true
-    default:
-      break
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder) 
+        CommonUtility.sharedInstance.mainNavigationViewController = self
     }
-  }
+}
+
+final class MainViewController: GestureViewController {
+    
+    // MARK: - IBOutlet
+    
+    @IBOutlet private weak var feedContainerView: UIView!
+    @IBOutlet private weak var lookContainerView: UIView!
+    @IBOutlet private weak var myPageContainerView: UIView!
+    @IBOutlet private weak var feedButton: UIButton!
+    @IBOutlet private weak var lookButton: UIButton!
+    @IBOutlet private weak var myPageButton: UIButton!
+    
+    // MARK: - Property
+    private var statusButton: UIButton!
+    
+    private enum TabbarButtonCase {
+        case feed, look, myPage
+        
+        var isStatusBool: Bool {
+            switch self {
+            case .feed:
+                return true
+            case .look:
+                return true
+            case .myPage:
+                return true
+            }
+        }
+        
+        func showStatusView(view: inout UIView,
+                            button: inout UIButton) {
+            view.isHidden = !isStatusBool
+            button.isSelected =  isStatusBool
+        }
+    }
+    
+    // MARK: - Life Cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tabBarButtonDidTap(feedButton)
+    }
+    
+    // MARK: - Action
+    
+    @IBAction func tabBarButtonDidTap(_ sender: UIButton) {
+        //전에 선택했던 버튼과 같다면 rootViewController로 돌아옴
+        if statusButton == sender {
+            didTapDoubleButton()
+            return
+        }
+        
+        resetSelfView()
+        
+        switch sender {
+        case feedButton:
+            TabbarButtonCase.feed.showStatusView(view: &feedContainerView,
+                                           button: &feedButton)
+        case lookButton:
+            TabbarButtonCase.look.showStatusView(view: &lookContainerView,
+                                           button: &lookButton)
+        case myPageButton:
+            TabbarButtonCase.myPage.showStatusView(view: &myPageContainerView,
+                                             button: &myPageButton)
+        default:
+            TabbarButtonCase.feed.showStatusView(view: &feedContainerView,
+                                           button: &feedButton)
+        }
+        
+        statusButton = sender
+        
+    }
+    
+    // MARK: - Function
+    ///이전에 선택한 버튼을 또 선택하는 경우 popToRootViewController
+    func didTapDoubleButton() {
+        switch statusButton {
+        case feedButton:
+            CommonUtility.sharedInstance.feedNavigationViewController?.popToRootViewController(animated: true)
+        case lookButton:
+            CommonUtility.sharedInstance.lookNavigationViewController?.popToRootViewController(animated: true)
+        case myPageButton:
+            CommonUtility.sharedInstance.feedNavigationViewController?.popToRootViewController(animated: true)
+        default:
+            CommonUtility.sharedInstance.feedNavigationViewController?.popToRootViewController(animated: true)
+        }
+    }
+    ///뷰 초기화
+    func resetSelfView() {
+        hideAllContainerView()
+        offTabbarButtonState()
+    }
+    
+    ///모든 뷰 컨테이너 숨김
+    func hideAllContainerView() {
+        feedContainerView.isHidden = true
+        lookContainerView.isHidden = true
+        myPageContainerView.isHidden = true
+    }
+    
+    ///모든 탭버튼 상태 off
+    func offTabbarButtonState() {
+        feedButton.isSelected = false
+        lookButton.isSelected = false
+        myPageButton.isSelected = false
+        
+    }
 }

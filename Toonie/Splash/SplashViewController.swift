@@ -11,10 +11,10 @@ import Lottie
 
 let tag = 100
 
-final class SplashViewController: UIViewController {
+final class SplashViewController: GestureViewController {
 
     @IBOutlet weak var logoFrameView: UIView!
-    private var logoAnimationView: LOTAnimationView?
+    private var logoAnimationView: AnimationView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,17 +44,18 @@ final class SplashViewController: UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "KeywordSelectViewController")
         UIApplication.shared.keyWindow?.rootViewController = viewController
     }
-    
+
     ///logoAnimationView 세팅
     func setLogoAnimationView() {
-        logoAnimationView = LOTAnimationView(name: "logo") 
-        logoAnimationView!.contentMode = .scaleAspectFill
-        logoAnimationView!.frame = CGRect.init(x: 0,
+        logoAnimationView = AnimationView(name: "logoAnimation")
+      if let logoAnimationView = logoAnimationView {
+        logoAnimationView.contentMode = .scaleAspectFit
+        logoAnimationView.frame = CGRect.init(x: 0,
                                                y: 0,
                                                width: logoFrameView.bounds.width,
                                                height: logoFrameView.bounds.height)
-        
-        logoFrameView.addSubview(logoAnimationView!)
+        logoFrameView.addSubview(logoAnimationView)
+      }
     }
    
 }

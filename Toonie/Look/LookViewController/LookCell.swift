@@ -10,6 +10,10 @@ import UIKit
 
 ///둘러보기 메인 - LookViewController.mainCategoryCollectionView의 Cell
 final class LookCell: UICollectionViewCell {
+    @IBOutlet private weak var backgroundImageView: UIImageView!
     
-    @IBOutlet weak var backgroundImageView: UIImageView!
+    func setBackgroundImageView(image: UIImage?) {
+        backgroundImageView.image = image
+    }
+    
 }
