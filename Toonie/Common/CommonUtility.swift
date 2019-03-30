@@ -17,7 +17,7 @@ final class CommonUtility: NSObject {
     var mainNavigationViewController: MainNavigationController?
     var feedNavigationViewController: FeedNavigationController?
     var lookNavigationViewController: LookNavigationController?
-//    var myPageNavigationViewController : MyPageNavigationController
+    var myPageNavigationViewController: MyPageNavigationController?
     
     //싱글톤
     static let sharedInstance: CommonUtility = {

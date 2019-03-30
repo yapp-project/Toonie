@@ -390,6 +390,7 @@
                         <viewLayoutGuide key="safeArea" id="eV0-fc-Zva"/>
                     </view>
                     <connections>
+                        <outlet property="bigTitleLabel" destination="No6-0v-LMY" id="lu0-Fu-Gr8"/>
                         <outlet property="keywordCollecionView" destination="tJO-Uu-kMz" id="WxB-es-7pA"/>
                         <outlet property="keywordCountLabel" destination="rhV-PR-AcK" id="elH-47-gE7"/>
                         <outlet property="keywordFlowLayout" destination="whP-OZ-qy1" id="Vkw-uN-etl"/>

@@ -8,19 +8,35 @@
 
 import UIKit
 
-final class MypagePopUpViewController: GestureViewController {
+final class MypagePopUpViewController: GestureViewController, UITextFieldDelegate {
 
     @IBOutlet private weak var popupView: UIView!
     @IBOutlet private weak var okButton: UIButton!
     @IBOutlet private weak var cancelButton: UIButton!
     @IBOutlet private weak var allEraseButton: UIButton!
+    @IBOutlet weak var titleTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //커스텀 팝업 켜기 애니메이션
         self.showAnimate()
+        showKeyboard()
+        titleTextField.delegate = self
+        titleTextField.returnKeyType = .done
+
         popupView.layer.cornerRadius = 5
+    }
+    
+    func showKeyboard() {
+        titleTextField.becomeFirstResponder()
+    }
+    func hideKeyboard() {
+        titleTextField.resignFirstResponder()
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        titleTextField.resignFirstResponder()
+        return true
     }
     
     @IBAction func okButtonDidTap(_ sender: Any) {
@@ -44,6 +60,7 @@ final class MypagePopUpViewController: GestureViewController {
     }
     
     @IBAction func allEraseButtonDidTap(_ sender: Any) {
+        titleTextField.text = ""
     }
     
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fKL-UD-nXc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2AM-od-8ZK">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -19,12 +19,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="pathCenter" translatesAutoresizingMaskIntoConstraints="NO" id="pEu-hE-M7z">
-                                <rect key="frame" x="187" y="113" width="2" height="730"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="2" id="Nnm-pq-1jf"/>
-                                </constraints>
-                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="57" translatesAutoresizingMaskIntoConstraints="NO" id="AGO-d7-MFl">
                                 <rect key="frame" x="24" y="515" width="131" height="198"/>
                                 <subviews>
@@ -73,8 +67,8 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="izi-e7-343">
-                                        <rect key="frame" x="0.0" y="164" width="108" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <rect key="frame" x="0.0" y="164" width="107" height="34"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <state key="normal" title="#  내 취향 태그">
                                             <color key="titleColor" red="0.56862745100000001" green="0.56862745100000001" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -140,6 +134,10 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="fKL-UD-nXc" id="YhO-uf-MpK"/>
+                                    <outlet property="delegate" destination="fKL-UD-nXc" id="1Hd-qJ-AH8"/>
+                                </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내서재" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="47g-Ls-rlZ">
                                 <rect key="frame" x="151.33333333333334" y="65" width="72.666666666666657" height="33.666666666666657"/>
@@ -157,6 +155,13 @@
                                     <action selector="tagSettingButtonDidTap:" destination="fKL-UD-nXc" eventType="touchUpInside" id="Uae-yX-IQJ"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="96V-tm-EWN">
+                                <rect key="frame" x="186.66666666666666" y="115" width="2" height="663"/>
+                                <color key="backgroundColor" white="0.82260869790429936" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="2" id="o1Z-67-jpH"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -164,17 +169,19 @@
                             <constraint firstItem="47g-Ls-rlZ" firstAttribute="top" secondItem="b3b-Jo-k7m" secondAttribute="top" constant="21" id="3zP-9s-rFi"/>
                             <constraint firstItem="AGO-d7-MFl" firstAttribute="leading" secondItem="b3b-Jo-k7m" secondAttribute="leading" constant="24" id="4Wb-6j-Hfm"/>
                             <constraint firstItem="YM2-fo-EPt" firstAttribute="centerX" secondItem="Rnj-eu-oGa" secondAttribute="centerX" id="6j2-0F-NA4"/>
-                            <constraint firstItem="YM2-fo-EPt" firstAttribute="top" secondItem="pEu-hE-M7z" secondAttribute="top" constant="-7" id="7L6-qD-YSK"/>
                             <constraint firstItem="b3b-Jo-k7m" firstAttribute="trailing" secondItem="Rnj-eu-oGa" secondAttribute="trailing" constant="8" id="7bK-B7-3dA"/>
                             <constraint firstItem="b3b-Jo-k7m" firstAttribute="bottom" secondItem="AGO-d7-MFl" secondAttribute="bottom" constant="65" id="Biv-bV-jev"/>
+                            <constraint firstItem="96V-tm-EWN" firstAttribute="centerX" secondItem="47g-Ls-rlZ" secondAttribute="centerX" id="Dnx-0r-kpa"/>
                             <constraint firstItem="47g-Ls-rlZ" firstAttribute="centerX" secondItem="b3b-Jo-k7m" secondAttribute="centerX" id="J8G-iJ-mmV"/>
-                            <constraint firstItem="pEu-hE-M7z" firstAttribute="centerX" secondItem="47g-Ls-rlZ" secondAttribute="centerX" id="Z6H-a4-P9b"/>
                             <constraint firstItem="b3b-Jo-k7m" firstAttribute="bottom" secondItem="Rnj-eu-oGa" secondAttribute="bottom" id="eRW-iH-rb9"/>
-                            <constraint firstItem="pEu-hE-M7z" firstAttribute="top" secondItem="47g-Ls-rlZ" secondAttribute="bottom" constant="14.333333333333343" id="nNB-uK-ZU8"/>
-                            <constraint firstItem="Rnj-eu-oGa" firstAttribute="leading" secondItem="pEu-hE-M7z" secondAttribute="trailing" constant="8" id="vK2-uL-TqC"/>
+                            <constraint firstItem="YM2-fo-EPt" firstAttribute="top" secondItem="47g-Ls-rlZ" secondAttribute="bottom" constant="7.3333333333333428" id="fDe-Th-XNH"/>
+                            <constraint firstItem="Rnj-eu-oGa" firstAttribute="leading" secondItem="96V-tm-EWN" secondAttribute="trailing" constant="7.9999999999999716" id="v1s-Vl-7gs"/>
+                            <constraint firstItem="b3b-Jo-k7m" firstAttribute="bottom" secondItem="96V-tm-EWN" secondAttribute="bottom" id="xmG-dG-YI6"/>
+                            <constraint firstItem="96V-tm-EWN" firstAttribute="top" secondItem="47g-Ls-rlZ" secondAttribute="bottom" constant="16.333333333333343" id="zhj-wZ-tAT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="b3b-Jo-k7m"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Wxy-qS-biD"/>
                     <connections>
                         <outlet property="bookMarkButton" destination="5IZ-B7-DxF" id="Qmg-7s-QYN"/>
                         <outlet property="myCollectionButton" destination="baY-8L-Nhy" id="ovT-W9-sCd"/>
@@ -186,7 +193,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wCv-t1-w0R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="776.79999999999995" y="-165.51724137931035"/>
+            <point key="canvasLocation" x="1719.2" y="-165.51724137931035"/>
         </scene>
         <!--Mypage Pop Up View Controller-->
         <scene sceneID="BFR-ks-asg">
@@ -299,11 +306,12 @@
                         <outlet property="cancelButton" destination="FIj-eR-fB6" id="DwI-lS-Cye"/>
                         <outlet property="okButton" destination="kjf-Lh-j9i" id="JHN-cz-2Em"/>
                         <outlet property="popupView" destination="jJl-U4-bRp" id="uua-Fi-4hk"/>
+                        <outlet property="titleTextField" destination="iic-kZ-3fH" id="nEN-or-Kpm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R9d-0R-TcA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1568.8" y="-166.25615763546799"/>
+            <point key="canvasLocation" x="2511.1999999999998" y="-166.25615763546799"/>
         </scene>
         <!--Add Toon View Controller-->
         <scene sceneID="eke-hx-L6P">
@@ -443,7 +451,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9LW-Vi-W4S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2356" y="-166.25615763546799"/>
+            <point key="canvasLocation" x="3298.4000000000001" y="-166.25615763546799"/>
         </scene>
         <!--Mypage Detail View Controller-->
         <scene sceneID="Oqr-mm-T7f">
@@ -504,6 +512,10 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Zsa-3P-HNR" id="hfa-IR-D2B"/>
+                                    <outlet property="delegate" destination="Zsa-3P-HNR" id="Ap8-o8-Ki0"/>
+                                </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FC6-w4-U1A">
                                 <rect key="frame" x="16" y="81.333333333333329" width="20" height="22"/>
@@ -632,6 +644,10 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="qff-gZ-kMY" id="MV3-Ad-fd9"/>
+                                    <outlet property="delegate" destination="qff-gZ-kMY" id="Qzi-ui-Pgb"/>
+                                </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Aa-JD-fjx">
                                 <rect key="frame" x="16" y="81.333333333333329" width="20" height="22"/>
@@ -691,6 +707,23 @@
             </objects>
             <point key="canvasLocation" x="2354" y="520"/>
         </scene>
+        <!--My Page Navigation Controller-->
+        <scene sceneID="jKY-UQ-Q4T">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="2AM-od-8ZK" customClass="MyPageNavigationController" customModule="Toonie" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Jvl-Dx-yvt">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fKL-UD-nXc" kind="relationship" relationship="rootViewController" id="3XX-Nx-kc9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mJ3-CL-Bew" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="776.79999999999995" y="-165.51724137931035"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Bookmark" width="15" height="18"/>
@@ -704,7 +737,6 @@
         <image name="collectionAddLoading" width="164" height="164"/>
         <image name="myCollectionPlus" width="122" height="129"/>
         <image name="mypageBookmarkOn" width="15" height="18"/>
-        <image name="pathCenter" width="2" height="718"/>
         <image name="searchbutton" width="96" height="30"/>
         <image name="searchbuttonOn" width="96" height="30"/>
         <image name="selectAllBtn" width="63" height="13"/>

@@ -191,6 +191,15 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		1BBAF8C3EEE0E3F70642C8F195ADFFBC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				70B498D0D26C482A8A0F27F33FEE4041 /* Keywords.swift */,
+				7416B5A1553A904FD5FFB0352FBA2962 /* Token.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		1E5EEACC73F0B2067BEA386D942B1580 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -369,6 +378,15 @@
 			path = Look;
 			sourceTree = "<group>";
 		};
+		C1D0C39FE48765A946888D2E109E9C40 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D7BD45CDB0C7E1A8A0FE2DB9C0C25B75 /* FeedViewController.swift */,
+				D79B36B02E3BE1C7354741667915DF34 /* tag.json */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		C37D02801167CB32E7911D25B408B257 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -379,32 +397,6 @@
 				829D1CCA38F55990AC6397502F777791 /* Requestable.swift */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		1BBAF8C3EEE0E3F70642C8F195ADFFBC /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				70B498D0D26C482A8A0F27F33FEE4041 /* Keywords.swift */,
-				7416B5A1553A904FD5FFB0352FBA2962 /* Token.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		D9BB40927FEEF4C6E29187542D175762 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				4558DD912DB3A5CE7CFE8F8A6B0472DC /* Service.swift */,
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
-		C1D0C39FE48765A946888D2E109E9C40 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				D7BD45CDB0C7E1A8A0FE2DB9C0C25B75 /* FeedViewController.swift */,
-				D79B36B02E3BE1C7354741667915DF34 /* tag.json */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		C7DFDA89338BAF088BD7F2A52AD01E07 /* Common */ = {
@@ -465,6 +457,14 @@
 				856BC1EDA73CD692E351511F4D51271A /* MainViewController.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		D9BB40927FEEF4C6E29187542D175762 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4558DD912DB3A5CE7CFE8F8A6B0472DC /* Service.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		E9E1A4A921F35FE4AF2DC69238B3FBED /* Supporting Files */ = {
@@ -806,14 +806,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9Q6DDFULNZ;
+				DEVELOPMENT_TEAM = NF7D3MF6YF;
 				INFOPLIST_FILE = Toonie/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Tooniee;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Tooniee.eojine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -826,14 +826,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9Q6DDFULNZ;
+				DEVELOPMENT_TEAM = NF7D3MF6YF;
 				INFOPLIST_FILE = Toonie/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Tooniee;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Tooniee.eojine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
