@@ -27,14 +27,12 @@ final class DetailToonViewController: GestureViewController {
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     
-//    (navigationController?.parent as? MainViewController)?.hideTabBar()
   }
   
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     subKeywordLabel?.text = ""
-    subKeywordLabel.text = ""
-//    (navigationController?.parent as? MainViewController)?.showTabBar()
+
   }
   
   // MARK: - IBActions
