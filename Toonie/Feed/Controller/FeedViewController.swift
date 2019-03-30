@@ -39,12 +39,11 @@ final class FeedViewController: GestureViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    setTagAnimationView()
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    setTagAnimationView()
   }
   
   // MARK: - IBAction
