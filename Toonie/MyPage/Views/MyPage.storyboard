@@ -19,11 +19,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pathCenter" translatesAutoresizingMaskIntoConstraints="NO" id="pEu-hE-M7z">
-                                <rect key="frame" x="186.66666666666666" y="94" width="2" height="684"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="pathCenter" translatesAutoresizingMaskIntoConstraints="NO" id="pEu-hE-M7z">
+                                <rect key="frame" x="187" y="113" width="2" height="730"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="2" id="Nnm-pq-1jf"/>
-                                    <constraint firstAttribute="height" constant="684" id="nFH-nh-T11"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="57" translatesAutoresizingMaskIntoConstraints="NO" id="AGO-d7-MFl">
@@ -38,6 +37,9 @@
                                                 <state key="normal" title="  최근 본 작품" image="RecentOn">
                                                     <color key="titleColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <state key="selected" title="  최근 본 작품" image="Recent">
+                                                    <color key="titleColor" name="disabledButton"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="recentButtonDidTap:" destination="fKL-UD-nXc" eventType="touchUpInside" id="knN-KL-dBH"/>
                                                 </connections>
@@ -48,6 +50,9 @@
                                                 <state key="normal" title="  내 컬렉션" image="Collection">
                                                     <color key="titleColor" red="0.56862745100000001" green="0.56862745100000001" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <state key="selected" image="CollectionOn">
+                                                    <color key="titleColor" name="defaultText"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="myCollectionButtonDidTap:" destination="fKL-UD-nXc" eventType="touchUpInside" id="SU4-rm-dpe"/>
                                                 </connections>
@@ -57,6 +62,9 @@
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                 <state key="normal" title="  찜한 작품" image="Bookmark">
                                                     <color key="titleColor" red="0.56862745100000001" green="0.56862745100000001" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <state key="selected" image="mypageBookmarkOn">
+                                                    <color key="titleColor" name="defaultText"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="bookMarkButtonDidTap:" destination="fKL-UD-nXc" eventType="touchUpInside" id="JSa-fe-Zzv"/>
@@ -77,7 +85,7 @@
                                 </subviews>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Rnj-eu-oGa">
-                                <rect key="frame" x="196.66666666666663" y="134" width="170.33333333333337" height="644"/>
+                                <rect key="frame" x="196.66666666666663" y="146" width="170.33333333333337" height="632"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ddU-NF-ERB">
                                     <size key="itemSize" width="147" height="175"/>
@@ -134,13 +142,13 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내서재" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="47g-Ls-rlZ">
-                                <rect key="frame" x="151.33333333333334" y="48" width="72.666666666666657" height="33.666666666666657"/>
+                                <rect key="frame" x="151.33333333333334" y="65" width="72.666666666666657" height="33.666666666666657"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YM2-fo-EPt">
-                                <rect key="frame" x="221.66666666666663" y="94" width="120" height="30"/>
+                                <rect key="frame" x="221.66666666666663" y="106" width="120" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="YM2-fo-EPt" secondAttribute="height" multiplier="4:1" id="qDj-jf-lc9"/>
                                 </constraints>
@@ -152,17 +160,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="47g-Ls-rlZ" firstAttribute="top" secondItem="b3b-Jo-k7m" secondAttribute="top" constant="4" id="3zP-9s-rFi"/>
+                            <constraint firstItem="Rnj-eu-oGa" firstAttribute="top" secondItem="YM2-fo-EPt" secondAttribute="bottom" constant="10" id="0oH-mK-5uz"/>
+                            <constraint firstItem="47g-Ls-rlZ" firstAttribute="top" secondItem="b3b-Jo-k7m" secondAttribute="top" constant="21" id="3zP-9s-rFi"/>
                             <constraint firstItem="AGO-d7-MFl" firstAttribute="leading" secondItem="b3b-Jo-k7m" secondAttribute="leading" constant="24" id="4Wb-6j-Hfm"/>
                             <constraint firstItem="YM2-fo-EPt" firstAttribute="centerX" secondItem="Rnj-eu-oGa" secondAttribute="centerX" id="6j2-0F-NA4"/>
+                            <constraint firstItem="YM2-fo-EPt" firstAttribute="top" secondItem="pEu-hE-M7z" secondAttribute="top" constant="-7" id="7L6-qD-YSK"/>
                             <constraint firstItem="b3b-Jo-k7m" firstAttribute="trailing" secondItem="Rnj-eu-oGa" secondAttribute="trailing" constant="8" id="7bK-B7-3dA"/>
-                            <constraint firstItem="Rnj-eu-oGa" firstAttribute="top" secondItem="pEu-hE-M7z" secondAttribute="top" constant="40" id="9k1-K2-nea"/>
                             <constraint firstItem="b3b-Jo-k7m" firstAttribute="bottom" secondItem="AGO-d7-MFl" secondAttribute="bottom" constant="65" id="Biv-bV-jev"/>
                             <constraint firstItem="47g-Ls-rlZ" firstAttribute="centerX" secondItem="b3b-Jo-k7m" secondAttribute="centerX" id="J8G-iJ-mmV"/>
-                            <constraint firstItem="Rnj-eu-oGa" firstAttribute="top" secondItem="YM2-fo-EPt" secondAttribute="bottom" constant="10" id="WKw-p3-cb3"/>
                             <constraint firstItem="pEu-hE-M7z" firstAttribute="centerX" secondItem="47g-Ls-rlZ" secondAttribute="centerX" id="Z6H-a4-P9b"/>
                             <constraint firstItem="b3b-Jo-k7m" firstAttribute="bottom" secondItem="Rnj-eu-oGa" secondAttribute="bottom" id="eRW-iH-rb9"/>
-                            <constraint firstItem="pEu-hE-M7z" firstAttribute="top" secondItem="47g-Ls-rlZ" secondAttribute="bottom" constant="12.333333333333343" id="m5D-zT-8jB"/>
+                            <constraint firstItem="pEu-hE-M7z" firstAttribute="top" secondItem="47g-Ls-rlZ" secondAttribute="bottom" constant="14.333333333333343" id="nNB-uK-ZU8"/>
                             <constraint firstItem="Rnj-eu-oGa" firstAttribute="leading" secondItem="pEu-hE-M7z" secondAttribute="trailing" constant="8" id="vK2-uL-TqC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="b3b-Jo-k7m"/>
@@ -521,14 +529,23 @@
     <resources>
         <image name="Bookmark" width="15" height="18"/>
         <image name="Collection" width="15" height="20"/>
+        <image name="CollectionOn" width="15" height="20"/>
+        <image name="Recent" width="17" height="17"/>
         <image name="RecentOn" width="17" height="17"/>
         <image name="closeBtn" width="12" height="13"/>
         <image name="collectionAddPlus" width="164" height="164"/>
         <image name="myCollectionPlus" width="122" height="129"/>
+        <image name="mypageBookmarkOn" width="15" height="18"/>
         <image name="pathCenter" width="2" height="718"/>
         <image name="searchbutton" width="96" height="30"/>
         <image name="searchbuttonOn" width="96" height="30"/>
         <image name="tagEditBtn" width="120" height="30"/>
+        <namedColor name="defaultText">
+            <color red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="disabledButton">
+            <color red="0.60799998044967651" green="0.60799998044967651" blue="0.60799998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="line">
             <color red="0.76470588235294112" green="0.76470588235294112" blue="0.76470588235294112" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
