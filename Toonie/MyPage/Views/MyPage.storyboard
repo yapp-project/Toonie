@@ -304,6 +304,7 @@
                         <outlet property="cancelButton" destination="FIj-eR-fB6" id="DwI-lS-Cye"/>
                         <outlet property="okButton" destination="kjf-Lh-j9i" id="JHN-cz-2Em"/>
                         <outlet property="popupView" destination="jJl-U4-bRp" id="uua-Fi-4hk"/>
+                        <outlet property="titleTextField" destination="iic-kZ-3fH" id="nEN-or-Kpm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R9d-0R-TcA" userLabel="First Responder" sceneMemberID="firstResponder"/>
