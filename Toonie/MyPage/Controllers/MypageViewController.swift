@@ -89,7 +89,6 @@ final class MypageViewController: GestureViewController {
         }
         
     }
-    
     @IBAction func bookMarkButtonDidTap(_ sender: UIButton) {
         
         if status != "bookMark"{
@@ -105,7 +104,6 @@ final class MypageViewController: GestureViewController {
     }
     
     @IBAction func tagButtonDidTap(_ sender: UIButton) {
-        
         if status != "tag"{
             tagSettingButton.isHidden = false
             status = "tag"
