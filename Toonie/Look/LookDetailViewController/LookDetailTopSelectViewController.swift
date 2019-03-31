@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LookDetailTopSelectViewController: UIViewController {
+final class LookDetailTopSelectViewController: UIViewController {
     @IBOutlet weak var lookDetailTopSelectCollectionView: UICollectionView!
     
     //임시데이터

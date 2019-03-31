@@ -9,7 +9,7 @@
 import UIKit
 
 ///둘러보기 상세의 셀
-class LookDetailCell: UICollectionViewCell {
+final class LookDetailCell: UICollectionViewCell {
     
     // MARK: - IBOutlet
     

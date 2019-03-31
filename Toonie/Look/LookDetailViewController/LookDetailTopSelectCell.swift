@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LookDetailTopSelectCell: UICollectionViewCell {
+final class LookDetailTopSelectCell: UICollectionViewCell {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var backView: UIView!
     
