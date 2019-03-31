@@ -245,6 +245,15 @@
 			);
 			sourceTree = "<group>";
 		};
+		27B8AA7F074F516D27CE1E5F0928633C /* LookViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4744A64E19261259A0F1C0E591CA994C /* LookCell.swift */,
+				1F86D8B1CA39FC8055C8747A6AFC2D06 /* LookViewController.swift */,
+			);
+			path = LookViewController;
+			sourceTree = "<group>";
+		};
 		2A7D018F4F821AC997F707D66FF1AAE8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +261,17 @@
 				82AF128897992796FF6ED25B199B0530 /* Pods_ToonieTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		414AA16A17FA9CB441302E34F55FEEBC /* LookDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0B7CDE333D6323D773871D9BCC1A06DC /* LookDetailCell.swift */,
+				91E75075564D7BB6E508966769F1AAA2 /* LookDetailTopSelectCell.swift */,
+				7CBEE6ADE2B72B6EC73732F7D7CCC695 /* LookDetailTopSelectViewController.swift */,
+				6F343144572D8198223CA340DABE3AAA /* LookDetailViewController.swift */,
+			);
+			path = LookDetailViewController;
 			sourceTree = "<group>";
 		};
 		50DD12AB546601FDF26E6690643AA25F /* Toonie */ = {
@@ -373,26 +393,6 @@
 				917CB174956FF8ACDAD03E1840E2F0EF /* Look.storyboard */,
 			);
 			path = Look;
-			sourceTree = "<group>";
-		};
-		414AA16A17FA9CB441302E34F55FEEBC /* LookDetailViewController */ = {
-			isa = PBXGroup;
-			children = (
-				0B7CDE333D6323D773871D9BCC1A06DC /* LookDetailCell.swift */,
-				91E75075564D7BB6E508966769F1AAA2 /* LookDetailTopSelectCell.swift */,
-				7CBEE6ADE2B72B6EC73732F7D7CCC695 /* LookDetailTopSelectViewController.swift */,
-				6F343144572D8198223CA340DABE3AAA /* LookDetailViewController.swift */,
-			);
-			path = LookDetailViewController;
-			sourceTree = "<group>";
-		};
-		27B8AA7F074F516D27CE1E5F0928633C /* LookViewController */ = {
-			isa = PBXGroup;
-			children = (
-				4744A64E19261259A0F1C0E591CA994C /* LookCell.swift */,
-				1F86D8B1CA39FC8055C8747A6AFC2D06 /* LookViewController.swift */,
-			);
-			path = LookViewController;
 			sourceTree = "<group>";
 		};
 		C1D0C39FE48765A946888D2E109E9C40 /* Controller */ = {
@@ -826,7 +826,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9Q6DDFULNZ;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Toonie/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -846,7 +846,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9Q6DDFULNZ;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Toonie/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
