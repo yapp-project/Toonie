@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class ModifyViewController: UIViewController {
+final class ModifyViewController: GestureViewController {
 
     // MARK: - IBOutlet
     
@@ -19,8 +19,6 @@ final class ModifyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        modifyCollectionView.delegate = self
-        modifyCollectionView.dataSource = self
     }
     
     // MARK: - IBAction

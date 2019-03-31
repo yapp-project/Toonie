@@ -11,13 +11,14 @@ import UIKit
 ///애플리케이션에 필요한 잡다한 도구 모음
 final class CommonUtility: NSObject {
     //디자인 가이드 기준 Xs
+    
     static let deviceWidth: CGFloat  = 375
     static let deviceHeight: CGFloat = 812
     
     var mainNavigationViewController: MainNavigationController?
     var feedNavigationViewController: FeedNavigationController?
     var lookNavigationViewController: LookNavigationController?
-//    var myPageNavigationViewController : MyPageNavigationController
+    var myPageNavigationViewController: MyPageNavigationController?
     
     //싱글톤
     static let sharedInstance: CommonUtility = {
