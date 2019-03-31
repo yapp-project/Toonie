@@ -70,7 +70,7 @@ final class KeywordSelectViewController: GestureViewController {
         if 3 <= keywordSelectArray.count {
             //버튼상태 바꿈
             mainMoveButton.isEnabled = true
-            mainMoveButton.backgroundColor = UIColor.clear // 그라디언트 소스코드로 적용해야함.
+            mainMoveButton.backgroundColor = UIColor.clear // 그라디언트 소스코드로 적용해야함
         } else {
             mainMoveButton.isEnabled = false
             mainMoveButton.backgroundColor = UIColor.init(named: "disabledButton")
