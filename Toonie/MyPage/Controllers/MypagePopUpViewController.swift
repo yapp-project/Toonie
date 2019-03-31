@@ -24,7 +24,6 @@ final class MypagePopUpViewController: GestureViewController, UITextFieldDelegat
         showKeyboard()
         titleTextField.delegate = self
         titleTextField.returnKeyType = .done
-
         popupView.layer.cornerRadius = 5
     }
     
@@ -35,11 +34,12 @@ final class MypagePopUpViewController: GestureViewController, UITextFieldDelegat
         titleTextField.resignFirstResponder()
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        titleTextField.resignFirstResponder()
+        okButtonDidTap(okButton)
+        hideKeyboard()
         return true
     }
     
-    @IBAction func okButtonDidTap(_ sender: Any) {
+    @IBAction func okButtonDidTap(_ sender: UIButton) {
         // 커스텀 팝업 끄기 애니메이션
         self.removeAnimate()
         self.view.removeFromSuperview()

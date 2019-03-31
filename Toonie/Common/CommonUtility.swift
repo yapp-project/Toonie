@@ -11,6 +11,7 @@ import UIKit
 ///애플리케이션에 필요한 잡다한 도구 모음
 final class CommonUtility: NSObject {
     //디자인 가이드 기준 Xs
+    
     static let deviceWidth: CGFloat  = 375
     static let deviceHeight: CGFloat = 812
     
