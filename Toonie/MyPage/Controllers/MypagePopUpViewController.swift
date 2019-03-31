@@ -24,7 +24,6 @@ final class MypagePopUpViewController: GestureViewController, UITextFieldDelegat
         showKeyboard()
         titleTextField.delegate = self
         titleTextField.returnKeyType = .done
-
         popupView.layer.cornerRadius = 5
     }
     
