@@ -34,6 +34,13 @@ final class MypageDetailViewController: GestureViewController {
     }
     
     @IBAction func plusButtonDidTap(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "MyPage", bundle: nil)
+        guard let viewController = storyboard
+            .instantiateViewController(withIdentifier: "AddToonViewController") as? AddToonViewController
+            else {
+                return
+        }
+        navigationController?.present(viewController, animated: true)
     }
     
 }
