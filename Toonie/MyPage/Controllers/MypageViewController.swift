@@ -75,6 +75,15 @@ final class MypageViewController: GestureViewController {
         
     }
     
+    func goPushController(storyboardName: String,
+                          identifier: String) {
+        let storyboard = UIStoryboard(name: "\(storyboardName)", bundle: nil)
+        let viewController = storyboard
+            .instantiateViewController(withIdentifier: "\(identifier)")
+        CommonUtility.sharedInstance.myPageNavigationViewController?
+            .pushViewController(viewController, animated: true)
+    }
+    
     // MARK: - IBAction
     
     @IBAction func recentButtonDidTap(_ sender: UIButton) {
@@ -196,12 +205,11 @@ extension MypageViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if status == "recent" {
-            let storyboard = UIStoryboard(name: "Detail", bundle: nil)
-            let viewController = storyboard.instantiateViewController(withIdentifier: "DetailToonView")
-            CommonUtility.sharedInstance.myPageNavigationViewController?
-                .pushViewController(viewController, animated: true)
+            goPushController(storyboardName: "Detail",
+                             identifier: "DetailToonView")
         } else if status == "myCollection" {
             if indexPath.row == 0 {
+                //팝업 뷰 컨트롤러
                 let storyboard = UIStoryboard(name: "MyPage", bundle: nil)
                 let popViewController = storyboard
                     .instantiateViewController(withIdentifier: "MypagePopUpViewController")
@@ -210,20 +218,15 @@ extension MypageViewController: UICollectionViewDataSource {
                 self.view.addSubview(popViewController.view)
                 popViewController.didMove(toParent: self)
             } else {
-                let storyboard = UIStoryboard(name: "MyPage", bundle: nil)
-                let viewController = storyboard.instantiateViewController(withIdentifier: "MypageDetailViewController")
-                self.navigationController?.pushViewController(viewController, animated: true)
+                goPushController(storyboardName: "MyPage",
+                                 identifier: "MypageDetailViewController")
             }
         } else if status == "bookMark" {
-            let storyboard = UIStoryboard(name: "Detail", bundle: nil)
-            let viewController = storyboard.instantiateViewController(withIdentifier: "DetailToonView")
-            CommonUtility.sharedInstance.myPageNavigationViewController?
-                .pushViewController(viewController, animated: true)
+            goPushController(storyboardName: "Detail",
+                             identifier: "DetailToonView")
         } else if status == "tag" {
-            let storyboard = UIStoryboard(name: "Look", bundle: nil)
-            let viewController = storyboard.instantiateViewController(withIdentifier: "LookDetailViewController")
-            CommonUtility.sharedInstance.myPageNavigationViewController?
-                .pushViewController(viewController, animated: true)
+            goPushController(storyboardName: "Look",
+                             identifier: "LookDetailViewController")
         }
     }
 }
