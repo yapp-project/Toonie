@@ -5,13 +5,12 @@ struct TokenService: Requestable {
     static let shareInstance = TokenService()
     
     func getToken(url: String,
-                  params: [String : Any]? = nil,
+                  params: [String: Any]? = nil,
                   completion: @escaping (NetworkResult<Any>) -> Void) {
         get(url, params: params) { (result) in
             
             switch result {
             case .networkSuccess(let successResult):
-//                let nextPageLink = getNextPage(linkHeader: successResult.resHeader?["Link"] as? String)
                 completion(.networkSuccess((successResult.resResult)))
             case .networkError(let errResult):
                 completion(.networkError((errResult.resCode, errResult.msg)))
