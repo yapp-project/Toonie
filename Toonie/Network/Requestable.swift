@@ -35,9 +35,9 @@ extension Requestable {
                           if let value = res.result.value {
                             let decoder = JSONDecoder()
                             do {
-                              let resCode = res.response?.statusCode
+                              let resCode = res.response?.statusCode ?? 0
                               let datas = try decoder.decode(NetworkData.self, from: value)
-                              let result: NetworkSuccessResult = (resCode!, datas)
+                              let result: NetworkSuccessResult = (resCode, datas)
                               completion(.networkSuccess(result))
                             } catch {
                               print("Decoding Err")

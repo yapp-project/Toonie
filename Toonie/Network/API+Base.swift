@@ -15,7 +15,7 @@ class API {
   //    static let baseURL = "http://192.168.1.223:8080"
   //    static let baseURL = "http://10.10.98.117:8080"
   //    static let baseURL = "http://192.168.0.3:8080"
-  static let baseURL = "http://eunbi6431.cafe24.com/Tooniee"
+  static let baseURL = "http://eunbi6431.cafe24.com/Toonie"
   
   static let jsonDecoder: JSONDecoder = {
     let jsonDecoder = JSONDecoder()

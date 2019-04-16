@@ -12,7 +12,7 @@ struct ToonListService: Requestable {
   typealias NetworkData = ToonListAPIResponse
   static let shared = ToonListService()
   
-  func requestToonList(completion: @escaping ([ToonList]) -> Void, failer: @escaping (String) -> Void) {
+  func requestToonList(completion: @escaping ([ToonList]?) -> Void) {
     get(API.tags) { result in
       switch result {
       case .networkSuccess(let data):
