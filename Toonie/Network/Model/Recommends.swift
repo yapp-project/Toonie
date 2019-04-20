@@ -7,7 +7,7 @@
 //
 
 import Foundation
-struct Recommends : Codable {
+struct Recommends: Codable {
     let succeess : Bool?
     let curationTagList : [String]?
 }

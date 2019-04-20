@@ -21,7 +21,7 @@ struct RecommendService: Requestable {
             case .networkError(let error):
                 print(error)
             case .networkFail:
-                print("fail")
+                print("Recommend Network Fail")
             }
         }
     }
