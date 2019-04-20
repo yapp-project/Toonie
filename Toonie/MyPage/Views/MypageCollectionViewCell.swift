@@ -12,13 +12,12 @@ final class MypageCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var mypageToonLabel: UILabel!
     @IBOutlet weak var mypageToonImageView: UIImageView!
-    @IBOutlet weak var mypageCollectionImageView: UIImageView!
     
     /// 컬렉션뷰셀 데이터 설정
     func setMypageCollectionViewCellProperties() {
+        mypageToonLabel.isHidden = false
         mypageToonLabel.text = "히사시부링링"
         mypageToonImageView.image = UIImage(named: "myRecentlyLoadingImg")
-        mypageToonImageView.setCorner(cornerRadius: 5)
-        mypageCollectionImageView.image = UIImage(named: "myCollectionPlus")
+        mypageToonImageView.setCorner(cornerRadius: mypageToonImageView.frame.size.height/2)
     }
 }
