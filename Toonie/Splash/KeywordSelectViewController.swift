@@ -36,7 +36,12 @@ final class KeywordSelectViewController: GestureViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setKeywordFlowLayout()
-        
+      
+      TokenService.shared.getToken { result in
+        UserDefaults.standard.set(result, forKey: "token")
+      }
+      print(CommonUtility.userToken)
+      
         if layoutMode == false {
             bigTitleLabel.text = "관심 있는 키워드를\n3개 이상 선택해주세요."
             mainMoveButton.setTitle("시작하기", for: .normal)

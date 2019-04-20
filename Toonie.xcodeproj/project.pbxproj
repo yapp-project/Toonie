@@ -61,6 +61,8 @@
 		13393926F1DE0AB7625417BC7C321DE1 /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C9CA18533D81A5A073A0EB43B6AA4 /* TokenService.swift */; };
 		36427608866E2D2017F75155121C1AA4 /* ToonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6675859F5A2DC4AFF139EF99E615C0F7 /* ToonList.swift */; };
 		8E054D502505DD4C352EBE089DEAAB99 /* ToonListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B3A5B59385F4AFAE3CC051454EBFE5 /* ToonListService.swift */; };
+		1D5BB303025367E486BC778468D1906D /* ToonOfTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46CA5CAF52713A5F0497239013E4ABA /* ToonOfTag.swift */; };
+		B6E0696924E424884A5626099200D098 /* ToonOfTagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED42905ADAEABD1D80B0CA4894DECCE /* ToonOfTagService.swift */; };
 		CDD94A58C361838A6501853F54312E0A /* ToonWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28B02ED5A86318713752322D6A15E13 /* ToonWebViewController.swift */; };
 		0957B41AD138D0A49135F214132A015A /* ToonieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BEF0670CA0E9737AC0D8BB4C759F3D /* ToonieTests.swift */; };
 		012280A5A53D6963330DB1D8B9DC3C68 /* UIAlertController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DA6955EDA11550288B07A43296B653 /* UIAlertController+.swift */; };
@@ -151,6 +153,8 @@
 		FA3C9CA18533D81A5A073A0EB43B6AA4 /* TokenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = "<group>"; };
 		6675859F5A2DC4AFF139EF99E615C0F7 /* ToonList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonList.swift; sourceTree = "<group>"; };
 		86B3A5B59385F4AFAE3CC051454EBFE5 /* ToonListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonListService.swift; sourceTree = "<group>"; };
+		A46CA5CAF52713A5F0497239013E4ABA /* ToonOfTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonOfTag.swift; sourceTree = "<group>"; };
+		BED42905ADAEABD1D80B0CA4894DECCE /* ToonOfTagService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonOfTagService.swift; sourceTree = "<group>"; };
 		A28B02ED5A86318713752322D6A15E13 /* ToonWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonWebViewController.swift; sourceTree = "<group>"; };
 		E5B5664A67B748CC79409D5ABB761F80 /* Toonie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Toonie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8BEF0670CA0E9737AC0D8BB4C759F3D /* ToonieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonieTests.swift; sourceTree = "<group>"; };
@@ -320,6 +324,7 @@
 				9222FD8324DC3A507BC365062CF19A15 /* Keywords.swift */,
 				54D7B3C93924E717E972244714BBC3C6 /* Token.swift */,
 				6675859F5A2DC4AFF139EF99E615C0F7 /* ToonList.swift */,
+				A46CA5CAF52713A5F0497239013E4ABA /* ToonOfTag.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -375,6 +380,7 @@
 			children = (
 				FA3C9CA18533D81A5A073A0EB43B6AA4 /* TokenService.swift */,
 				86B3A5B59385F4AFAE3CC051454EBFE5 /* ToonListService.swift */,
+				BED42905ADAEABD1D80B0CA4894DECCE /* ToonOfTagService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -760,6 +766,8 @@
 				13393926F1DE0AB7625417BC7C321DE1 /* TokenService.swift in Sources */,
 				36427608866E2D2017F75155121C1AA4 /* ToonList.swift in Sources */,
 				8E054D502505DD4C352EBE089DEAAB99 /* ToonListService.swift in Sources */,
+				1D5BB303025367E486BC778468D1906D /* ToonOfTag.swift in Sources */,
+				B6E0696924E424884A5626099200D098 /* ToonOfTagService.swift in Sources */,
 				CDD94A58C361838A6501853F54312E0A /* ToonWebViewController.swift in Sources */,
 				012280A5A53D6963330DB1D8B9DC3C68 /* UIAlertController+.swift in Sources */,
 				BD6A4E5D4CF8929196A01E3D1E55C9F4 /* UIFont+.swift in Sources */,
