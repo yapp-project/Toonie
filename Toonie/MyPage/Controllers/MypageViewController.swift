@@ -47,9 +47,6 @@ final class MypageViewController: GestureViewController {
         status = "recent"
         mypageCollectionView.reloadData()
         
-        TokenService.shared.getToken { (res) in
-            print(res)
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
