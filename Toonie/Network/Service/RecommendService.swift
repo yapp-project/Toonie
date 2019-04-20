@@ -12,7 +12,7 @@ struct RecommendService: Requestable {
     typealias NetworkData = Recommends
     static let shared = RecommendService()
     
-    func getRecommends(completion: @escaping ([String]?) -> Void) {
+    func getRecommends(completion: @escaping ([String]) -> Void) {
         get(API.tags) { result in
             switch result {
             case .networkSuccess(let data):
