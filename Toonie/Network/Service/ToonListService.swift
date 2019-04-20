@@ -21,7 +21,7 @@ struct ToonListService: Requestable {
       case .networkError(let error):
         print(error)
       case .networkFail:
-        print("fail")
+        print("ToonList Network Fail")
       }
     }
   }
