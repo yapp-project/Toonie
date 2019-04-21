@@ -44,7 +44,7 @@ class MyKeywordsService: Requestable {
                     return
                 }
                 print(data.resResult)
-                completion(data.resResult.keywords)
+                completion(data.resResult.myKeywords)
             case .networkError(let error):
                 print(error)
             case .networkFail:

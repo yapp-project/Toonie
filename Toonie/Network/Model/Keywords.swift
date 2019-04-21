@@ -15,5 +15,5 @@ struct Keywords: Codable {
 struct MyKeywords: Codable {
     let success: Bool?
     let token: String?
-    let keywords: [String]?
+    let myKeywords: [String]?
 }
