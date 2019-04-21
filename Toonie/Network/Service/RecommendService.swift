@@ -13,7 +13,7 @@ struct RecommendService: Requestable {
     static let shared = RecommendService()
     
     func getRecommends(completion: @escaping ([String]) -> Void) {
-        get(API.tags) { result in
+        get(API.tags + "/curationtags") { result in
             switch result {
             case .networkSuccess(let data):
                 guard let curationTagList = data.resResult.curationTagList else { return }

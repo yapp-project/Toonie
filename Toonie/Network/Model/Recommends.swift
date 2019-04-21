@@ -8,6 +8,6 @@
 
 import Foundation
 struct Recommends: Codable {
-    let succeess : Bool?
-    let curationTagList : [String]?
+    let succeess: Bool?
+    let curationTagList: [String]?
 }

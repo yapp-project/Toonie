@@ -39,48 +39,31 @@ final class RecommendViewController: GestureViewController {
     
     /// tagAllWidth - 현재 뿌려질 태그 아이템들을 일렬로 늘어왔을때의 총 길이 (간격포함)
     private var tagAllWidth: Int = 0
-    
+    private var tagList = [String]()
     private var tagSelectArray = [String]()
-    
-    //임시데이터
-    let dummy =  ["#이별의 상처를 치유하는",
-                  "#받는 만큼 일하는 직장인",
-                  "#고양이를 모시고 사는",
-                  "#심리 치료하는",
-                  "#한 템포 쉬고 싶은 백수",
-                  "#취준 생활 공감",
-                  "#이리저리 치이는 프리랜서",
-                  "#귀여운 강아지",
-                  "#힐링할 수 있는",
-                  "#우울한 날을 함께하는",
-                  "#쉽게 이해하는 페미니즘",
-                  "#맛집을 소개하는",
-                  "#훌쩍 해외로 떠나는",
-                  "#공감되는 유학 생활",
-                  "#연애 세포를 깨우는",
-                  "#공감백배 다이어트",
-                  "#유쾌한 알바썰",
-                  "#로망을 가진 워홀생활",
-                  "#짝사랑 공감",
-                  "#평생 함께할 우정",
-                  "화려한 솔로",
-                  "#해외에서 생활하는",
-                  "#미대생 야작 일기",
-                  "#너무 다른 국제연애",
-                  "#알콩달콩 결혼 생활",
-                  "#하루하루 육아일기",
-                  "#재미있는 자취일화",
-                  "#세상을 시니컬하게 보는"]
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        getCurationTagList()
         setTableViewXib()
         setTagFlowLayout()
         setTagScrollContent()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+    }
+    
     // MARK: - Function
+    
+    func getCurationTagList() {
+        RecommendService.shared.getRecommends { res in
+            self.tagList = res
+            self.tagCollectionView.reloadData()
+        }
+    }
     
     ///cell xib 이용
     func setTableViewXib() {
@@ -161,10 +144,10 @@ extension RecommendViewController: UITableViewDataSource {
 extension RecommendViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        if maxTagCount < dummy.count {
+        if maxTagCount < tagList.count {
             return maxTagCount
         }
-        return dummy.count
+        return tagList.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -173,7 +156,7 @@ extension RecommendViewController: UICollectionViewDataSource {
             .dequeueReusableCell(withReuseIdentifier: "TagCollectionViewCell",
                                  for: indexPath) as? TagCollectionViewCell
             else { return UICollectionViewCell() }
-        cell.setTitleLabel(titleString: dummy[indexPath.row])
+        cell.setTitleLabel(titleString: tagList[indexPath.row])
         cell.setCellStatus(bool: false)
         
         return cell
@@ -183,7 +166,7 @@ extension RecommendViewController: UICollectionViewDataSource {
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let keyword = dummy[indexPath.row]
+        let keyword = tagList[indexPath.row]
         let font = UIFont.getAppleSDGothicNeo(option: .regular,
                                                      size: 14)
         var width = Int(keyword.widthWithConstrainedHeight(height: 17,
@@ -198,7 +181,7 @@ extension RecommendViewController: UICollectionViewDataSource {
         tagAllWidth += width
         
         //마지막 아니면 간격인 10씩 더해줌
-        if dummy.count-1 != indexPath.row {
+        if tagList.count-1 != indexPath.row {
             tagAllWidth += 10
         } else {
             // 개수, 길이에 상관없이 5줄, 가운데 정렬을 위한 수치 계산.
@@ -226,7 +209,7 @@ extension RecommendViewController: UICollectionViewDelegate {
             
             //선택한 키워드 추가 및 삭제
             if cell.getCellStatus() == true {
-                tagSelectArray.append(dummy[indexPath.row])
+                tagSelectArray.append(tagList[indexPath.row])
                 
             } else {
                 let findIndex = tagSelectArray.firstIndex(of: cell.getTitleLabel().text ?? "")
@@ -247,7 +230,7 @@ extension RecommendViewController: UICollectionViewDelegateFlowLayout {
     private func collectionView(collectionView: UICollectionView,
                                 layout collectionViewLayout: UICollectionViewLayout,
                                 sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
-        let keyword = dummy[indexPath.row]
+        let keyword = tagList[indexPath.row]
         let font = UIFont.getAppleSDGothicNeo(option: .regular,
                                                      size: 14)
         var width = Int(keyword.widthWithConstrainedHeight(height: 17,
