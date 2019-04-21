@@ -58,10 +58,7 @@ final class MainViewController: GestureViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBarButtonDidTap(feedButton)
-      TokenService.shared.getToken { result in
-        print(result)
-      }
+        tabBarButtonDidTap(feedButton) 
     }
     
     // MARK: - Action
