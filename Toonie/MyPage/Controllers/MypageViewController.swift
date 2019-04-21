@@ -29,9 +29,13 @@ final class MypageViewController: GestureViewController {
     @IBOutlet private weak var tagButton: UIButton!
     @IBOutlet private weak var mypageCollectionView: UICollectionView!
     
+    @IBOutlet weak var mypageCollectionViewFlowLayout: UICollectionViewFlowLayout!
     // MARK: - private var
     
     private var status = ""
+    private var recentList: [String] = []
+    private var bookmarkList: [String] = []
+    private var tagList: [String] = []
     
     // MARK: - DummyList
     
@@ -60,7 +64,7 @@ final class MypageViewController: GestureViewController {
                                                animated: true)
     }
     
-    // MARK: - 버튼 눌리지 않은 상태로 만드는 함수
+    // MARK: - 함수
     
     private func setButtonInit() {
         
@@ -80,6 +84,52 @@ final class MypageViewController: GestureViewController {
             .instantiateViewController(withIdentifier: "\(identifier)")
         CommonUtility.sharedInstance.myPageNavigationViewController?
             .pushViewController(viewController, animated: true)
+    }
+    
+    func getTagList() {
+        MyKeywordsService.shared.getMyKeywords { res in
+            self.tagList = res!
+            self.mypageCollectionView.reloadData()
+        }
+    }
+    
+//    func setCollectionViewLayout() {
+//        if status == "tag" {
+//            DispatchQueue.main.async {
+//                self.mypageCollectionViewFlowLayout.minimumLineSpacing = -15.0
+//            }
+//        }
+//    }
+
+    func tagImage(name: String) -> String {
+        switch name {
+        case "반려동물":
+            return "LookCategoryImg_1"
+        case "직업":
+            return "LookCategoryImg_2"
+        case "음식":
+            return "LookCategoryImg_3"
+        case "자취생활":
+            return "LookCategoryImg_4"
+        case "해외":
+            return "LookCategoryImg_5"
+        case "페미니즘":
+            return "LookCategoryImg_6"
+        case "심리 감정":
+            return "LookCategoryImg_7"
+        case "여행":
+            return "LookCategoryImg_8"
+        case "학교생활":
+            return "LookCategoryImg_9"
+        case "가족":
+            return "LookCategoryImg_10"
+        case "자기계발":
+            return "LookCategoryImg_11"
+        case "사랑 연애":
+            return "LookCategoryImg_12"
+        default:
+            return ""
+        }
     }
     
     // MARK: - IBAction
@@ -115,7 +165,7 @@ final class MypageViewController: GestureViewController {
         if status != "tag"{
             tagSettingButton.isHidden = false
             status = "tag"
-            mypageCollectionView.reloadData()
+            getTagList()
             
             setButtonInit()
             tagButton.setTitleColor(#colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1), for: .normal)
@@ -143,7 +193,17 @@ extension MypageViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return mypageList.count
+        
+        if status == "recent" {
+            return mypageList.count
+        } else if status == "bookMark" {
+            return mypageList.count
+        } else if status == "tag" {
+            return tagList.count
+        } else {
+            return mypageList.count
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -163,7 +223,11 @@ extension MypageViewController: UICollectionViewDataSource {
         } else if status == "bookMark" {
             cell.mypageToonLabel.text = "찜한 목록 작품"
         } else if status == "tag" {
-            cell.mypageToonLabel.isHidden = true
+            let tagName = tagList[indexPath.row]
+//            cell.mypageToonLabel.isHidden = true
+            cell.mypageToonLabel.isHidden = false
+            cell.mypageToonLabel.text = tagName
+            cell.mypageToonImageView.image = UIImage(named: tagImage(name: tagName))
             cell.mypageToonImageView.setCorner(cornerRadius: 5)
         }
         
