@@ -11,4 +11,9 @@ struct Keywords: Codable {
     let success: Bool?
     let keywords: [String]?
 }
- 
+
+struct MyKeywords: Codable {
+    let success: Bool?
+    let token: String?
+    let keywords: [String]?
+}

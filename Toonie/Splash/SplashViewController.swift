@@ -12,25 +12,33 @@ import Lottie
 let tag = 100
 
 final class SplashViewController: GestureViewController {
-
+    
     @IBOutlet weak var logoFrameView: UIView!
     private var logoAnimationView: AnimationView?
     
+    var moveMode: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
- 
+        
         setLogoAnimationView()
         
-        logoAnimationView?.play { (finished) in
-            if finished {
-                //키워드 선택해야하는 유저라면
-                self.moveKeywordView()
-                //아니라면 일반화면으로 이동
-//                self.moveMainView()
+        //사용자 상태 체크 후 애니메이션 실행.
+        getUserSelectedKeyword { (mode) in
+            self.logoAnimationView?.play { (finished) in
+                if finished {
+                    if mode == true {
+                        self.moveKeywordView()
+                    } else {
+                        self.moveMainView()
+                    }
+                }
             }
+            
         }
+        
     }
-  
+    
     ///애니메이션 후 메인화면으로 이동
     func moveMainView() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -44,18 +52,37 @@ final class SplashViewController: GestureViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "KeywordSelectViewController")
         UIApplication.shared.keyWindow?.rootViewController = viewController
     }
-
+    
     ///logoAnimationView 세팅
     func setLogoAnimationView() {
         logoAnimationView = AnimationView(name: "logoAnimation")
-      if let logoAnimationView = logoAnimationView {
-        logoAnimationView.contentMode = .scaleAspectFit
-        logoAnimationView.frame = CGRect.init(x: 0,
-                                               y: 0,
-                                               width: logoFrameView.bounds.width,
-                                               height: logoFrameView.bounds.height)
-        logoFrameView.addSubview(logoAnimationView)
-      }
+        if let logoAnimationView = logoAnimationView {
+            logoAnimationView.contentMode = .scaleAspectFit
+            logoAnimationView.frame = CGRect.init(x: 0,
+                                                  y: 0,
+                                                  width: logoFrameView.bounds.width,
+                                                  height: logoFrameView.bounds.height)
+            logoFrameView.addSubview(logoAnimationView)
+        }
     }
-   
+    
+    ///user가 선택한 keyword가 있냐 없냐에 따라 이동하는 화면 mode를 다르게할 메서드
+    func getUserSelectedKeyword(mode: @escaping (Bool) -> Void) {
+        
+        //userToken이 없거나 키워드 선택을 하지 않은 유저인 경우 - true
+        //나머지의 경우 - false
+        if CommonUtility.userToken == ""{
+            mode(true)
+        } else {
+            MyKeywordsService.shared.getMyKeywords { (myKeywords) in
+                if myKeywords?.count == 0 || myKeywords == nil {
+                    mode(true)
+                } else {
+                    mode(false)
+                }
+            }
+            
+        }
+    }
+    
 }

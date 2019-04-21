@@ -14,7 +14,8 @@ final class CommonUtility: NSObject {
   
   static let deviceWidth: CGFloat  = 375
   static let deviceHeight: CGFloat = 812
-  static let userToken = UserDefaults.standard.value(forKey: "token")
+//    static let userToken = UserDefaults.standard.string(forKey: "token")
+    static let userToken = "7777777777777777777777" //임시
   
   var mainNavigationViewController: MainNavigationController?
   var feedNavigationViewController: FeedNavigationController?
