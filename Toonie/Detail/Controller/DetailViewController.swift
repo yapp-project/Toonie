@@ -11,6 +11,10 @@ import UIKit
 // 인스타툰 상세 화면
 final class DetailToonViewController: GestureViewController {
   
+  // MARK: - Properties
+  
+  var detailToonInfo: ToonInfoList?
+  
   // MARK: - IBOutlets
   
   @IBOutlet private weak var detailToonImageView: UIImageView!
