@@ -42,9 +42,8 @@ class MyKeywordsService: Requestable {
             case .networkSuccess(let data):
                 if data.resResult.success == false {
                     return
-                }
-                print(data.resResult)
-                completion(data.resResult.keywords)
+                } 
+                completion(data.resResult.myKeywords)
             case .networkError(let error):
                 print(error)
             case .networkFail:
