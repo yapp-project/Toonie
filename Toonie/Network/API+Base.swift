@@ -27,7 +27,11 @@ class API {
     static let keywords = {
         return baseURL + "/keywords"
     }()
-  
+    
+    static let myKeywords = {
+        return baseURL + "/mykeywords/\(String(describing: CommonUtility.userToken))"
+    }()
+    
     static let tags = {
         return baseURL + "/tags"
     }()
