@@ -39,6 +39,7 @@ final class KeywordSelectViewController: GestureViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setKeywordValue()
+        setSelectedKeywordValue()
     }
     
     ///시작하기 버튼-메인으로 이동
@@ -81,6 +82,20 @@ final class KeywordSelectViewController: GestureViewController {
     func setKeywordValue() {
         KeywordsService.shared.getKeywords { (result) in
             self.keywords = result ?? [String]()
+            self.reloadKeywordCollectionView()
+        }
+    }
+    
+    ///사용자가 선택한 keywords를 가져옴
+    func setSelectedKeywordValue() {
+        MyKeywordsService.shared.getMyKeywords { (myKeywords) in
+            self.keywordSelectArray = myKeywords ?? [String]()
+            self.reloadKeywordCollectionView()
+        }
+    }
+    
+    func reloadKeywordCollectionView() {
+        DispatchQueue.main.async {
             self.keywordCollecionView.reloadData()
         }
     }
@@ -110,7 +125,14 @@ extension KeywordSelectViewController: UICollectionViewDelegate, UICollectionVie
         }
         
         cell.titleLabel.text = keywords[indexPath.row]
+        
         cell.cellStatus = false
+        
+        //사용자가 선택한 키워드는 활성화처리
+        for keywordSelect in keywordSelectArray
+            where keywords[indexPath.row] == keywordSelect {
+                cell.cellStatus = true
+        }
         
         return cell
     }
@@ -127,21 +149,29 @@ extension KeywordSelectViewController: UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? KeywordCell {
-            cell.cellStatus = !cell.cellStatus
+            let body = [
+                "keywords": [self.keywords[indexPath.row]]
+            ]
             
-            //선택한 키워드 추가 및 삭제
-            if cell.cellStatus == true {
-                keywordSelectArray.append(keywords[indexPath.row])
-            } else {
-                let findIndex = keywordSelectArray.firstIndex(of: cell.titleLabel.text ?? "")
+            MyKeywordsService.shared.postMyKeywords(params: body,
+                                                    completion: {
+                cell.cellStatus = !cell.cellStatus
                 
-                if let index = findIndex {
-                    keywordSelectArray.remove(at: index)
+                //선택한 키워드 추가 및 삭제
+                if cell.cellStatus == true {
+                    self.keywordSelectArray.append(self.keywords[indexPath.row])
+                } else {
+                    let findIndex = self.keywordSelectArray.firstIndex(of: cell.titleLabel.text ?? "")
+                    
+                    if let index = findIndex {
+                        self.keywordSelectArray.remove(at: index)
+                    }
                 }
-            }
+                
+                //카운트레이블, 버튼 리로드
+                self.reloadKeywordView()
+            })
             
-            //카운트레이블, 버튼 리로드
-            reloadKeywordView()
         }
     }
     
