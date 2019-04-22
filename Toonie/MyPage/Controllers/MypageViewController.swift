@@ -100,37 +100,6 @@ final class MypageViewController: GestureViewController {
 //            }
 //        }
 //    }
-
-    func tagImage(name: String) -> String {
-        switch name {
-        case "반려동물":
-            return "LookCategoryImg_1"
-        case "직업":
-            return "LookCategoryImg_2"
-        case "음식":
-            return "LookCategoryImg_3"
-        case "자취생활":
-            return "LookCategoryImg_4"
-        case "해외":
-            return "LookCategoryImg_5"
-        case "페미니즘":
-            return "LookCategoryImg_6"
-        case "심리 감정":
-            return "LookCategoryImg_7"
-        case "여행":
-            return "LookCategoryImg_8"
-        case "학교생활":
-            return "LookCategoryImg_9"
-        case "가족":
-            return "LookCategoryImg_10"
-        case "자기계발":
-            return "LookCategoryImg_11"
-        case "사랑 연애":
-            return "LookCategoryImg_12"
-        default:
-            return ""
-        }
-    }
     
     // MARK: - IBAction
     
@@ -227,7 +196,7 @@ extension MypageViewController: UICollectionViewDataSource {
 //            cell.mypageToonLabel.isHidden = true
             cell.mypageToonLabel.isHidden = false
             cell.mypageToonLabel.text = tagName
-            cell.mypageToonImageView.image = UIImage(named: tagImage(name: tagName))
+            cell.mypageToonImageView.image = UIImage(named: CommonUtility.tagImage(name: tagName))
             cell.mypageToonImageView.setCorner(cornerRadius: 5)
         }
         
