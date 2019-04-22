@@ -9,23 +9,21 @@
 import Foundation
 
 struct ToonOfTagService: Requestable {
-  typealias NetworkData = ToonOfTag
-  static let shared = ToonOfTagService()
-  
-  func requestToonOfTag(completion: @escaping ([ToonInfoList]?) -> Void) {
-    get(API.tags) { result in
-      print(result)
-      switch result {
-      case .networkSuccess(let data):
-        guard let toonOfTag = data.resResult.toonInfoList else { return }
-        completion(toonOfTag)
-        print(toonOfTag)
-      case .networkError(let error):
-        print(error)
-      case .networkFail:
-        print("ToonofTag Network Fail")
-      }
+    typealias NetworkData = ToonOfTag
+    static let shared = ToonOfTagService()
+    
+    func getToonOfTags(tagName: String, completion: @escaping ([ToonInfoList]?) -> Void) {
+        let tagURL = API.tags + "/curationtags/" + tagName
+        get(tagURL) { result in
+            switch result {
+            case .networkSuccess(let data):
+                guard let toonOfTags = data.resResult.toonInfoList else { return }
+                completion(toonOfTags)
+            case .networkError(let error):
+                print(error)
+            case .networkFail:
+                print("ToonofTag Network Fail")
+            }
+        }
     }
-  }
-  
 }

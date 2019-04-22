@@ -65,6 +65,12 @@ final class RecommendViewController: GestureViewController {
         }
     }
     
+    func getToonOfTagList(tag: String) {
+        ToonOfTagService.shared.getToonOfTags(tagName: tag) { (res) in
+            print("res : ", res!)
+        }
+    }
+    
     ///cell xib 이용
     func setTableViewXib() {
         let nibName = UINib(nibName: "RecommendTableViewCell",
