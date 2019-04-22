@@ -90,7 +90,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rM0-BQ-URO">
-                                                    <rect key="frame" x="12" y="136" width="123" height="20"/>
+                                                    <rect key="frame" x="12" y="139" width="123" height="20"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -102,7 +102,7 @@
                                             <constraint firstItem="rM0-BQ-URO" firstAttribute="width" secondItem="Ks4-2q-8ed" secondAttribute="width" id="BrA-Xx-cAP"/>
                                             <constraint firstItem="Ks4-2q-8ed" firstAttribute="top" secondItem="ZRm-HE-QWe" secondAttribute="top" constant="6" id="PWK-ws-8ir"/>
                                             <constraint firstItem="rM0-BQ-URO" firstAttribute="centerX" secondItem="Ks4-2q-8ed" secondAttribute="centerX" id="c0y-j6-edw"/>
-                                            <constraint firstItem="rM0-BQ-URO" firstAttribute="top" secondItem="Ks4-2q-8ed" secondAttribute="bottom" constant="7" id="dds-n2-kvh"/>
+                                            <constraint firstItem="rM0-BQ-URO" firstAttribute="top" secondItem="Ks4-2q-8ed" secondAttribute="bottom" constant="10" id="dds-n2-kvh"/>
                                             <constraint firstAttribute="trailing" secondItem="Ks4-2q-8ed" secondAttribute="trailing" constant="12" id="p4I-Mn-3RF"/>
                                             <constraint firstItem="Ks4-2q-8ed" firstAttribute="leading" secondItem="ZRm-HE-QWe" secondAttribute="leading" constant="12" id="tOa-Uw-EmS"/>
                                         </constraints>
@@ -163,6 +163,7 @@
                     <connections>
                         <outlet property="bookMarkButton" destination="5IZ-B7-DxF" id="Qmg-7s-QYN"/>
                         <outlet property="mypageCollectionView" destination="Rnj-eu-oGa" id="WfH-5r-HxJ"/>
+                        <outlet property="mypageCollectionViewFlowLayout" destination="ddU-NF-ERB" id="4IG-Mc-rPV"/>
                         <outlet property="recentButton" destination="pAh-su-ek4" id="vCm-Cs-Qm0"/>
                         <outlet property="tagButton" destination="izi-e7-343" id="YI3-cK-2BI"/>
                         <outlet property="tagSettingButton" destination="YM2-fo-EPt" id="k7t-gU-z1H"/>
