@@ -19,7 +19,6 @@ final class KeywordSelectViewController: GestureViewController {
     private var layoutMode: Bool = false
     var keywordSelectArray = [String]()
     
-    //임시데이터
     var keywords = [String]()
     
     override func viewDidLoad() {

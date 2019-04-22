@@ -8,7 +8,7 @@
 
 import UIKit
 
-//Look의 NavigationController
+///Look의 NavigationController
 final class LookNavigationController: UINavigationController {
     override init(rootViewController: UIViewController) {
         super.init(rootViewController: rootViewController)
@@ -21,13 +21,25 @@ final class LookNavigationController: UINavigationController {
 
 ///둘러보기 메인 - 하단 탭 둘러보기로 진입
 final class LookViewController: GestureViewController {
+    
+    // MARK: - Properties
+    
+    var keywords = [String]()
+    
+    // MARK: - IBOutlets
+    
     @IBOutlet private weak var mainCategoryCollectionView: UICollectionView!
-    @IBOutlet private weak var mainCategoryCollectionViewFlowLayout: UICollectionViewFlowLayout! 
+    @IBOutlet private weak var mainCategoryCollectionViewFlowLayout: UICollectionViewFlowLayout!
+    
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setCollectionViewLayout()
+        setKeywordValue()
     }
+    
+    // MARK: - Functions
     
     ///컬렉션 뷰 아이템 크기, 위치조정
     func setCollectionViewLayout() {
@@ -38,13 +50,56 @@ final class LookViewController: GestureViewController {
         mainCategoryCollectionViewFlowLayout.minimumLineSpacing = 10.0
         mainCategoryCollectionViewFlowLayout.minimumInteritemSpacing = 1.0
     }
+    
+    ///keywrods 값들 가져옴
+    func setKeywordValue() {
+        KeywordsService.shared.getKeywords { (result) in
+            self.keywords = result ?? [String]()
+            self.reloadKeywordCollectionView()
+        }
+    }
+    
+    func reloadKeywordCollectionView() {
+        DispatchQueue.main.async {
+            self.mainCategoryCollectionView.reloadData()
+        }
+    }
+    
 }
+
+// MARK: - UICollectionViewDelegate
+
+extension LookViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        guard let cell = collectionView
+            .dequeueReusableCell(withReuseIdentifier: "LookCell",
+                                 for: indexPath) as? LookCell
+            else { return UICollectionViewCell() }
+        
+        let image: UIImage? = UIImage.init(named: CommonUtility.tagImage(name: keywords[indexPath.row]))
+        cell.setBackgroundImageView(image: image)
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Look", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "LookDetailViewController")
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+}
+
+// MARK: - UICollectionViewDataSource
 
 extension LookViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
         //대분류 카테고리 갯수는 우선 고정.
-        return 12
+        return keywords.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -56,24 +111,4 @@ extension LookViewController: UICollectionViewDataSource {
                                               for: indexPath) 
         return header
     }
-}
-extension LookViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView
-            .dequeueReusableCell(withReuseIdentifier: "LookCell",
-                                 for: indexPath) as? LookCell
-            else { return UICollectionViewCell() }
-        
-        cell.setBackgroundImageView(image: UIImage.init(named: "LookCategoryImg_\(indexPath.row + 1)"))
-         
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) { 
-        let storyboard = UIStoryboard(name: "Look", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "LookDetailViewController")
-        self.navigationController?.pushViewController(viewController, animated: true)
-    }
-    
 }
