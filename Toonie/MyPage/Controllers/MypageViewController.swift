@@ -88,7 +88,7 @@ final class MypageViewController: GestureViewController {
     
     func getTagList() {
         MyKeywordsService.shared.getMyKeywords { res in
-            self.tagList = res!
+            self.tagList = res ?? [String]()
             self.mypageCollectionView.reloadData()
         }
     }
@@ -195,7 +195,7 @@ extension MypageViewController: UICollectionViewDataSource {
             let tagName = tagList[indexPath.row]
 //            cell.mypageToonLabel.isHidden = true
             cell.mypageToonLabel.isHidden = false
-            cell.mypageToonLabel.text = tagName
+            cell.mypageToonLabel.text = "#" + tagName
             cell.mypageToonImageView.image = UIImage(named: CommonUtility.tagImage(name: tagName))
             cell.mypageToonImageView.setCorner(cornerRadius: 5)
         }

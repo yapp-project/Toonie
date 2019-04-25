@@ -9,27 +9,27 @@
 import Foundation
 
 struct ToonListAPIResponse: Codable {
-  let toonList: [ToonList]?
+    let toonList: [ToonList]?
 }
 
 struct ToonList: Codable {
-  let toonID: String?
-  let toonName: String?
-  let instaID: String?
-  let instaUrl: String?
-  let instaThumnailUrl: String?
-  let instaInfo: String?
-  let instafollowerCount: String?
-  let instaPostCount: String?
-  let instaLatestPostUrl: String?
-  let toonTagList: [String]?
-  let curationTagList: [String]?
-  
-  enum CodingKeys: String, CodingKey {
+    let toonID: String?
+    let toonName: String?
+    let instaID: String?
+    let instaUrl: String?
+    let instaThumnailUrl: String?
+    let instaInfo: String?
+    let instafollowerCount: String?
+    let instaPostCount: String?
+    let instaLatestPostUrl: String?
+    let toonTagList: [String]?
+    let curationTagList: [String]?
     
-    case toonID, toonName, instaID, instaUrl, instaThumnailUrl,
-    instaInfo, instaLatestPostUrl, toonTagList, curationTagList
-    case instafollowerCount = "instafollowerCnt"
-    case instaPostCount = "instaPostCnt"
-  }
+    enum CodingKeys: String, CodingKey {
+        
+        case toonID, toonName, instaID, instaUrl, instaThumnailUrl,
+        instaInfo, instaLatestPostUrl, toonTagList, curationTagList
+        case instafollowerCount = "instafollowerCnt"
+        case instaPostCount = "instaPostCnt"
+    }
 }

@@ -1,19 +1,20 @@
 //
-//  ToonOfTagService.swift
+//  CurationTagService.swift
 //  Toonie
 //
-//  Created by 이재은 on 16/04/2019.
+//  Created by 양어진 on 25/04/2019.
 //  Copyright © 2019 Yapp. All rights reserved.
 //
 
 import Foundation
 
-struct ToonOfTagService: Requestable {
+struct CurationTagService: Requestable {
     typealias NetworkData = ToonOfTag
-    static let shared = ToonOfTagService()
+    static let shared = CurationTagService()
     
-    func requestToonOfTag(completion: @escaping ([ToonInfoList]?) -> Void) {
-        get(API.tags) { result in
+    func getCurationTagList(tagName: String, completion: @escaping ([ToonInfoList]?) -> Void) {
+        let tagURL = API.tags + "/curationtags/" + tagName
+        get(tagURL) { result in
             switch result {
             case .networkSuccess(let data):
                 guard let toonOfTags = data.resResult.toonInfoList else { return }
@@ -26,4 +27,3 @@ struct ToonOfTagService: Requestable {
         }
     }
 }
-
