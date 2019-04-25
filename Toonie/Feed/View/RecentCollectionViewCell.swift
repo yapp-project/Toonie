@@ -14,13 +14,13 @@ final class RecentCollectionViewCell: UICollectionViewCell {
     // MARK: - IBOutlets
     
     @IBOutlet weak var recentToonImageView: UIImageView!
-    @IBOutlet weak var artistLabel: UILabel!
+    @IBOutlet weak var recentToonTitleLabel: UILabel!
     @IBOutlet weak var bookMarkButton: UIButton!
     
     override func prepareForReuse() {
         super.prepareForReuse()
         recentToonImageView.image = nil
-        artistLabel.text = nil
+        recentToonTitleLabel.text = nil
         bookMarkButton.isSelected  = false
     }
     
@@ -36,6 +36,7 @@ final class RecentCollectionViewCell: UICollectionViewCell {
                 print("Error : \(error.localizedDescription)")
             }
         }
-        artistLabel.text = toonInfoList.toonName
+        recentToonTitleLabel.text = toonInfoList.toonName
     }
 }
+
