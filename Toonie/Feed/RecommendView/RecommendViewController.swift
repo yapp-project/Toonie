@@ -49,6 +49,9 @@ final class RecommendViewController: GestureViewController {
         setTableViewXib()
         setTagFlowLayout()
         setTagScrollContent()
+        
+        // test
+        getToonOfTagList(tag: "알콩달콩 결혼 생활")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,7 +69,8 @@ final class RecommendViewController: GestureViewController {
     }
     
     func getToonOfTagList(tag: String) {
-        ToonOfTagService.shared.getToonOfTags(tagName: tag) { (res) in
+        CurationTagService.shared.getCurationTagList(tagName: tag) { res in
+            // test
             print("res : ", res!)
         }
     }
@@ -162,7 +166,8 @@ extension RecommendViewController: UICollectionViewDataSource {
             .dequeueReusableCell(withReuseIdentifier: "TagCollectionViewCell",
                                  for: indexPath) as? TagCollectionViewCell
             else { return UICollectionViewCell() }
-        cell.setTitleLabel(titleString: tagList[indexPath.row])
+        let titleName = tagList[indexPath.row]
+        cell.setTitleLabel(titleString: titleName)
         cell.setCellStatus(bool: false)
         
         return cell

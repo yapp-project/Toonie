@@ -88,7 +88,7 @@ final class MypageViewController: GestureViewController {
     
     func getTagList() {
         MyKeywordsService.shared.getMyKeywords { res in
-            self.tagList = res!
+            self.tagList = res ?? [String]()
             self.mypageCollectionView.reloadData()
         }
     }

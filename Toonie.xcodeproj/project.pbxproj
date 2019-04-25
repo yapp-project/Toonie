@@ -13,6 +13,7 @@
 		BB57D379599E229DE86C9F3A93FCBB0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80C2C41933AFF35CEA1787DF94DFAF18 /* Assets.xcassets */; };
 		CE58BDE4B385906F80FB4510F44E5C7B /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A77C9F89A069C22EF59EBA5C5E17A8 /* CALayer+.swift */; };
 		AB9BF389A4D6A9A12F45BDE69A35B72E /* CommonUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391E18129E3FD4CA97AD73AFBEA5D5A5 /* CommonUtility.swift */; };
+		FDC116E19C09047E762A2BFF96608026 /* CurationTagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DFADE2E74674626C62C5847756D7C3 /* CurationTagService.swift */; };
 		5D7C2A319945FF57226321B488D96614 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 013B051389A91973028316A3E576E272 /* Detail.storyboard */; };
 		687C00FF78A900251B747635F98172EC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C42DB5B38C27C2E993254790693BDF /* DetailViewController.swift */; };
 		558FAE24BC1D46AEE96A7839D2EECDF9 /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6181A5BE3CAF62901728B8DEC5745044 /* FavoriteCollectionViewCell.swift */; };
@@ -98,6 +99,7 @@
 		D96ADF5E22F9048B9EE1FA43C04A076F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		02A77C9F89A069C22EF59EBA5C5E17A8 /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
 		391E18129E3FD4CA97AD73AFBEA5D5A5 /* CommonUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtility.swift; sourceTree = "<group>"; };
+		F0DFADE2E74674626C62C5847756D7C3 /* CurationTagService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurationTagService.swift; sourceTree = "<group>"; };
 		013B051389A91973028316A3E576E272 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
 		E4C42DB5B38C27C2E993254790693BDF /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		6181A5BE3CAF62901728B8DEC5745044 /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 		877FCA25BE64FC5825B741ED98AE22E1 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				F0DFADE2E74674626C62C5847756D7C3 /* CurationTagService.swift */,
 				BF827ADC08C996D3C51D60BE675C7641 /* KeywordsService.swift */,
 				FBB7847F6E2C082500A180183EDA27D6 /* RecommendService.swift */,
 				FA3C9CA18533D81A5A073A0EB43B6AA4 /* TokenService.swift */,
@@ -719,6 +722,7 @@
 				2356B514E09193A5CBF1127EB3E77AB0 /* AppDelegate.swift in Sources */,
 				CE58BDE4B385906F80FB4510F44E5C7B /* CALayer+.swift in Sources */,
 				AB9BF389A4D6A9A12F45BDE69A35B72E /* CommonUtility.swift in Sources */,
+				FDC116E19C09047E762A2BFF96608026 /* CurationTagService.swift in Sources */,
 				687C00FF78A900251B747635F98172EC /* DetailViewController.swift in Sources */,
 				558FAE24BC1D46AEE96A7839D2EECDF9 /* FavoriteCollectionViewCell.swift in Sources */,
 				C9355A5FA67D262F35C7B8B185D2CA62 /* FeedViewController.swift in Sources */,
