@@ -10,7 +10,7 @@ import UIKit
 import Lottie
 import SnapKit
 
-//Feed의 NavigationController
+// Feed의 NavigationController
 final class FeedNavigationController: UINavigationController {
     override init(rootViewController: UIViewController) {
         super.init(rootViewController: rootViewController)
@@ -34,9 +34,9 @@ final class FeedViewController: GestureViewController {
     // MARK: - Property
     
     private var tagAnimationView: AnimationView?
-    private var toonLists: [ToonList]?
+    private var forYouToonLists: [ToonList]?
     private var toonsOfTag: [ToonInfoList]?
-    private var detailToonInfo: ToonInfoList?
+    private var detailToonId = ""
     
     // MARK: - Life Cycle
     
@@ -63,13 +63,17 @@ final class FeedViewController: GestureViewController {
     // MARK: - Function
     
     private func loadToon() {
-
-        ToonOfTagService.shared.requestToonOfTag { result in
+        ForYouToonListService.shared.getForYouToonList { result in
+            self.forYouToonLists = result
+            self.forYouCollectionView.reloadData()
+        }
+        ToonOfTagService.shared.getToonOfTag { result in
             self.toonsOfTag = result
+            self.recentCollectionView.reloadData()
+            self.favoriteCollectionView.reloadData()
         }
         setTagAnimationView()
-        recentCollectionView.reloadData()
-        favoriteCollectionView.reloadData()
+        
     }
     
     /// tagAnimationView 세팅
@@ -88,12 +92,14 @@ final class FeedViewController: GestureViewController {
     }
     
     /// 인스타툰 상세정보 화면으로 이동
-    private func pushDetailToonViewController(toonTitle: String) {
+    private func pushDetailToonViewController(toonID: String) {
         let storyboard = UIStoryboard(name: "Detail", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "DetailToonView")
-        CommonUtility.sharedInstance.mainNavigationViewController?.pushViewController(viewController, animated: true)
+        if let viewController = storyboard.instantiateViewController(withIdentifier: "DetailToonView") as? DetailToonViewController {
+            viewController.detailToonID = toonID
+            CommonUtility.sharedInstance.mainNavigationViewController?.pushViewController(viewController, animated: true)
+        }
+        
     }
-    
 }
 
 // MARK: - UICollectionViewDataSource
@@ -103,7 +109,7 @@ extension FeedViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
         if collectionView == forYouCollectionView {
-            return toonsOfTag?.count ?? 0
+            return forYouToonLists?.count ?? 0
         } else if collectionView == recentCollectionView {
             return toonsOfTag?.count ?? 0
         } else if collectionView == favoriteCollectionView {
@@ -121,8 +127,8 @@ extension FeedViewController: UICollectionViewDataSource {
                 .dequeueReusableCell(withReuseIdentifier: "forYouCell",
                                      for: indexPath) as? ForYouCollectionViewCell
                 else { return UICollectionViewCell() }
-            if let toonOfTag = toonsOfTag?[indexPath.item] {
-                cell.setForYouCollectionViewCellProperties(toonOfTag)
+            if let forYouToonList = forYouToonLists?[indexPath.item] {
+                cell.setForYouCollectionViewCellProperties(forYouToonList)
             }
             return cell
             
@@ -156,10 +162,41 @@ extension FeedViewController: UICollectionViewDataSource {
 extension FeedViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
+        if let currentCell = collectionView.cellForItem(at: indexPath) as? ForYouCollectionViewCell {
+            detailToonId = findToonId(toonTitle: currentCell.forYouToonTitleLabel.text ?? "")
+        }
+        if let currentCell = collectionView.cellForItem(at: indexPath) as? RecentCollectionViewCell {
+            detailToonId = findToonId(toonTitle: currentCell.recentToonTitleLabel.text ?? "")
+        }
+        if let currentCell = collectionView.cellForItem(at: indexPath) as? FavoriteCollectionViewCell {
+            detailToonId = findToonId(toonTitle: currentCell.favoriteToonTitleLabel.text ?? "")
+        }
+        pushDetailToonViewController(toonID: detailToonId)
         
-        guard let currentCell = collectionView.cellForItem(at: indexPath) else { return }
-        pushDetailToonViewController(toonTitle: detailToonInfo?.toonID ?? "")
-        //        guard let detailToonInfo = toonsOfTag?[indexPath] else { return }
+    }
+    
+    func findToonId(toonTitle: String) -> String {
+        print("forYouToonLists \(String(describing: forYouToonLists))")
         
+        var toonId = ""
+        if let forYouToonLists = forYouToonLists {
+            for index in 0..<forYouToonLists.count {
+                print("i\(index)")
+                if toonTitle == forYouToonLists[index].toonName {
+                    toonId = forYouToonLists[index].toonID ?? ""
+                }
+            }
+        }
+        
+        print("toonsOfTag \(String(describing: toonsOfTag))")
+        if let toonsOfTag = toonsOfTag {
+            for index in 0..<toonsOfTag.count {
+                print("i\(index)")
+                if toonTitle == toonsOfTag[index].toonName {
+                    toonId = toonsOfTag[index].toonID ?? ""
+                }
+            }
+        }
+        return toonId
     }
 }
