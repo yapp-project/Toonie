@@ -37,4 +37,7 @@ class API {
         return baseURL + "/tags"
     }()
     
+    static let toons = {
+        return baseURL + "/toons"
+    }()
 }
