@@ -29,6 +29,7 @@ final class DetailToonViewController: GestureViewController {
     
     // MARK: - IBActions
     
+    /// 뒤로 가기
     @IBAction func backButtonDidTap(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -56,6 +57,7 @@ final class DetailToonViewController: GestureViewController {
         
     }
     
+    /// 툰 웹뷰 띄우기
     @IBAction func moveToonButtonDidTap(_ sender: UIButton) {
         if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "ToonWebView") as? ToonWebViewController {
             viewController.modalTransitionStyle = UIModalTransitionStyle.coverVertical
@@ -65,6 +67,7 @@ final class DetailToonViewController: GestureViewController {
         }
     }
     
+    /// 툰 찜하기
     @IBAction func addToMyCollection(_ sender: UIButton) {
     }
     
@@ -93,6 +96,7 @@ final class DetailToonViewController: GestureViewController {
     
     // MARK: - Functions
     
+    /// 상세화면 툰 정보 네트워크 요청
     private func loadDetailToon(_ toonID: String) {
         DetailToonService.shared.getDetailToon(toonId: toonID) { result in
             self.detailToon = result
@@ -102,6 +106,7 @@ final class DetailToonViewController: GestureViewController {
         }
     }
     
+    /// 툰 정보 넣기
     private func setDetailToon(_ detailToon: DetailToon) {
         if let url = URL(string: detailToon.instaThumnailUrl ?? "") {
             do {

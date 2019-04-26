@@ -12,6 +12,7 @@ struct DetailToonService: Requestable {
     typealias NetworkData = DetailToon
     static let shared = DetailToonService()
     
+    /// 툰 상세 화면 정보 조회
     func getDetailToon(toonId: String, completion: @escaping (DetailToon?) -> Void) {
         get(API.toons+"/\(toonId)") { result in
             switch result {
@@ -21,7 +22,7 @@ struct DetailToonService: Requestable {
             case .networkError(let error):
                 print(error)
             case .networkFail:
-                print("ToonList Network Fail")
+                print("DetailToon Network Fail")
             }
         }
     }

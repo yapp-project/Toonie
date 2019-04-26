@@ -12,6 +12,7 @@ struct ToonOfTagService: Requestable {
     typealias NetworkData = ToonOfTag
     static let shared = ToonOfTagService()
     
+    /// 태그로 툰 정보 조회
     func getToonOfTag(completion: @escaping ([ToonInfoList]?) -> Void) {
         get(API.tags+"/고양이") { result in
             switch result {

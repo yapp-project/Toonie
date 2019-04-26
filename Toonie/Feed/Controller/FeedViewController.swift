@@ -62,6 +62,7 @@ final class FeedViewController: GestureViewController {
     
     // MARK: - Function
     
+    /// 툰 정보 네트워크 요청
     private func loadToon() {
         ForYouToonListService.shared.getForYouToonList { result in
             self.forYouToonLists = result
@@ -94,9 +95,13 @@ final class FeedViewController: GestureViewController {
     /// 인스타툰 상세정보 화면으로 이동
     private func pushDetailToonViewController(toonID: String) {
         let storyboard = UIStoryboard(name: "Detail", bundle: nil)
-        if let viewController = storyboard.instantiateViewController(withIdentifier: "DetailToonView") as? DetailToonViewController {
+        if let viewController = storyboard
+            .instantiateViewController(withIdentifier: "DetailToonView")
+            as? DetailToonViewController {
             viewController.detailToonID = toonID
-            CommonUtility.sharedInstance.mainNavigationViewController?.pushViewController(viewController, animated: true)
+            CommonUtility.sharedInstance.mainNavigationViewController?
+                .pushViewController(viewController,
+                                    animated: true)
         }
         
     }
@@ -175,23 +180,18 @@ extension FeedViewController: UICollectionViewDelegate {
         
     }
     
-    func findToonId(toonTitle: String) -> String {
-        print("forYouToonLists \(String(describing: forYouToonLists))")
-        
+    /// 선택한 툰 타이틀로 툰 id 찾기
+    private func findToonId(toonTitle: String) -> String {
         var toonId = ""
         if let forYouToonLists = forYouToonLists {
             for index in 0..<forYouToonLists.count {
-                print("i\(index)")
                 if toonTitle == forYouToonLists[index].toonName {
                     toonId = forYouToonLists[index].toonID ?? ""
                 }
             }
         }
-        
-        print("toonsOfTag \(String(describing: toonsOfTag))")
         if let toonsOfTag = toonsOfTag {
             for index in 0..<toonsOfTag.count {
-                print("i\(index)")
                 if toonTitle == toonsOfTag[index].toonName {
                     toonId = toonsOfTag[index].toonID ?? ""
                 }

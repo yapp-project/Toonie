@@ -40,15 +40,18 @@ final class ToonWebViewController: UIViewController, WKNavigationDelegate {
     
     // MARK: - IBAction
     
+    /// 모달 닫기
     @IBAction func closeButtonDidTap(_ sender: Any) {
         dismiss(animated: true)
     }
     
+    /// 웹 화면 이동
     @IBAction func backButtonDidTap(_ sender: UIButton) {
         instagramWebView.goBack()
         instagramWebView.reload()
     }
     
+    /// 웹 화면 이동
     @IBAction func forwardButtonDidTap(_ sender: UIButton) {
         instagramWebView.goForward()
         instagramWebView.reload()
@@ -56,8 +59,8 @@ final class ToonWebViewController: UIViewController, WKNavigationDelegate {
     
     // MARK: - Function
     
-    /// 웹뷰를 처음 띄움
-    func loadWebView() {
+    /// 웹뷰를 띄우기
+    private func loadWebView() {
         let url = URL(string: toonUrl ?? "https://www.instagram.com/")
         if let url = url {
             let request = URLRequest(url: url)
@@ -67,12 +70,14 @@ final class ToonWebViewController: UIViewController, WKNavigationDelegate {
         instagramWebView.allowsBackForwardNavigationGestures = true
     }
     
-    func setLabel(instaId: String, url: String) {
+    /// 웹뷰 정보 넣기
+    private func setLabel(instaId: String, url: String) {
         idLabel.text = instaId
         urlLabel.text = url
     }
     
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+    /// 웹뷰 버튼 설정
+    private func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         backButton.isEnabled = instagramWebView.canGoBack
         forwardButton.isEnabled = instagramWebView.canGoForward
     }

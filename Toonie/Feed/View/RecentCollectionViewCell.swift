@@ -13,9 +13,9 @@ final class RecentCollectionViewCell: UICollectionViewCell {
     
     // MARK: - IBOutlets
     
-    @IBOutlet weak var recentToonImageView: UIImageView!
+    @IBOutlet private weak var recentToonImageView: UIImageView!
     @IBOutlet weak var recentToonTitleLabel: UILabel!
-    @IBOutlet weak var bookMarkButton: UIButton!
+    @IBOutlet private weak var bookMarkButton: UIButton!
     
     override func prepareForReuse() {
         super.prepareForReuse()

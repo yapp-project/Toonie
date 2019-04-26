@@ -12,6 +12,7 @@ struct ForYouToonListService: Requestable {
     typealias NetworkData = ForYouToonLists
     static let shared = ForYouToonListService()
     
+    /// '당신을 위한 공감툰' 정보 조회
     func getForYouToonList(completion: @escaping ([ToonList]?) -> Void) {
         get(API.tags+"/token/\(CommonUtility.userToken)") { result in
             switch result {
@@ -21,7 +22,7 @@ struct ForYouToonListService: Requestable {
             case .networkError(let error):
                 print(error)
             case .networkFail:
-                print("ToonList Network Fail")
+                print("ForYouToonList Network Fail")
             }
         }
     }

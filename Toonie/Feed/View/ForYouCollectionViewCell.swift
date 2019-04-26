@@ -13,10 +13,10 @@ final class ForYouCollectionViewCell: UICollectionViewCell {
     
     // MARK: - IBOutlets
     
-    @IBOutlet weak var forYouToonImageView: UIImageView!
+    @IBOutlet private weak var forYouToonImageView: UIImageView!
     @IBOutlet weak var forYouToonTitleLabel: UILabel!
-    @IBOutlet weak var forYouToonTagLabel: UILabel!
-    @IBOutlet weak var bookMarkButton: UIButton!
+    @IBOutlet private weak var forYouToonTagLabel: UILabel!
+    @IBOutlet private weak var bookMarkButton: UIButton!
     
     override func prepareForReuse() {
         super.prepareForReuse()

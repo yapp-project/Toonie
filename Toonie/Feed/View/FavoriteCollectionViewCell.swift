@@ -13,10 +13,10 @@ final class FavoriteCollectionViewCell: UICollectionViewCell {
     
     // MARK: - IBOutlets
     
-    @IBOutlet weak var favoriteToonImageView: UIImageView!
+    @IBOutlet private weak var favoriteToonImageView: UIImageView!
     @IBOutlet weak var favoriteToonTitleLabel: UILabel!
-    @IBOutlet weak var favoriteToonTagLabel: UILabel!
-    @IBOutlet weak var bookMarkButton: UIButton!
+    @IBOutlet private weak var favoriteToonTagLabel: UILabel!
+    @IBOutlet private weak var bookMarkButton: UIButton!
     
     override func prepareForReuse() {
         super.prepareForReuse()
