@@ -1,5 +1,5 @@
 //
-//  ToonListService.swift
+//  ForYouToonListService.swift
 //  Toonie
 //
 //  Created by 이재은 on 07/04/2019.
@@ -8,12 +8,13 @@
 
 import Foundation
 
-struct ToonListService: Requestable {
-    typealias NetworkData = ToonListAPIResponse
-    static let shared = ToonListService()
+struct ForYouToonListService: Requestable {
+    typealias NetworkData = ForYouToonLists
+    static let shared = ForYouToonListService()
     
-    func getToonList(completion: @escaping ([ToonList]?) -> Void) {
-        get(API.tags) { result in
+    /// '당신을 위한 공감툰' 정보 조회
+    func getForYouToonList(completion: @escaping ([ToonList]?) -> Void) {
+        get(API.tags+"/token/\(CommonUtility.userToken)") { result in
             switch result {
             case .networkSuccess(let data):
                 guard let toonList = data.resResult.toonList else { return }
@@ -21,7 +22,7 @@ struct ToonListService: Requestable {
             case .networkError(let error):
                 print(error)
             case .networkFail:
-                print("ToonList Network Fail")
+                print("ForYouToonList Network Fail")
             }
         }
     }

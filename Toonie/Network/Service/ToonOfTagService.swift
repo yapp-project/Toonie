@@ -12,12 +12,13 @@ struct ToonOfTagService: Requestable {
     typealias NetworkData = ToonOfTag
     static let shared = ToonOfTagService()
     
-    func requestToonOfTag(completion: @escaping ([ToonInfoList]?) -> Void) {
-        get(API.tags) { result in
+    /// 태그로 툰 정보 조회
+    func getToonOfTag(completion: @escaping ([ToonInfoList]?) -> Void) {
+        get(API.tags+"/고양이") { result in
             switch result {
             case .networkSuccess(let data):
-                guard let toonOfTags = data.resResult.toonInfoList else { return }
-                completion(toonOfTags)
+                guard let toonOfTag = data.resResult.toonInfoList else { return }
+                completion(toonOfTag)
             case .networkError(let error):
                 print(error)
             case .networkFail:
@@ -25,5 +26,5 @@ struct ToonOfTagService: Requestable {
             }
         }
     }
+    
 }
-

@@ -1,5 +1,5 @@
 //
-//  ToonieList.swift
+//  ForYouToonLists.swift
 //  Toonie
 //
 //  Created by 이재은 on 07/04/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ToonListAPIResponse: Codable {
+struct ForYouToonLists: Codable {
     let toonList: [ToonList]?
 }
 
@@ -19,7 +19,7 @@ struct ToonList: Codable {
     let instaUrl: String?
     let instaThumnailUrl: String?
     let instaInfo: String?
-    let instafollowerCount: String?
+    let instaFollowerCount: String?
     let instaPostCount: String?
     let instaLatestPostUrl: String?
     let toonTagList: [String]?
@@ -29,7 +29,7 @@ struct ToonList: Codable {
         
         case toonID, toonName, instaID, instaUrl, instaThumnailUrl,
         instaInfo, instaLatestPostUrl, toonTagList, curationTagList
-        case instafollowerCount = "instafollowerCnt"
+        case instaFollowerCount = "instafollowerCnt"
         case instaPostCount = "instaPostCnt"
     }
 }

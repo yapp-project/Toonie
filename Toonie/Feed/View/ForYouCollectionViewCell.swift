@@ -13,10 +13,10 @@ final class ForYouCollectionViewCell: UICollectionViewCell {
     
     // MARK: - IBOutlets
     
-    @IBOutlet weak var forYouToonImageView: UIImageView!
+    @IBOutlet private weak var forYouToonImageView: UIImageView!
     @IBOutlet weak var forYouToonTitleLabel: UILabel!
-    @IBOutlet weak var forYouToonTagLabel: UILabel!
-    @IBOutlet weak var bookMarkButton: UIButton!
+    @IBOutlet private weak var forYouToonTagLabel: UILabel!
+    @IBOutlet private weak var bookMarkButton: UIButton!
     
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -29,8 +29,8 @@ final class ForYouCollectionViewCell: UICollectionViewCell {
     // MARK: - Functions
     
     /// 컬렉션뷰셀 데이터 설정  ((임시))
-    func setForYouCollectionViewCellProperties(_ toonInfoList: ToonInfoList) {
-        if let url = URL(string: toonInfoList.instaThumnailUrl ?? "") {
+    func setForYouCollectionViewCellProperties(_ toonList: ToonList) {
+        if let url = URL(string: toonList.instaThumnailUrl ?? "") {
             do {
                 let data = try Data(contentsOf: url)
                 forYouToonImageView.image = UIImage(data: data)
@@ -38,9 +38,9 @@ final class ForYouCollectionViewCell: UICollectionViewCell {
                 print("Error : \(error.localizedDescription)")
             }
         }
-        forYouToonTitleLabel.text = toonInfoList.toonID
+        forYouToonTitleLabel.text = toonList.toonName
         var tagList = ""
-        if let toonTagList = toonInfoList.toonTagList {
+        if let toonTagList = toonList.toonTagList {
             for index in 0..<toonTagList.count {
                 tagList += "#" + toonTagList[index] + " "
             }
