@@ -19,7 +19,6 @@ struct ToonOfTagService: Requestable {
             case .networkSuccess(let data):
                 guard let toonOfTag = data.resResult.toonInfoList else { return }
                 completion(toonOfTag)
-                print(toonOfTag)
             case .networkError(let error):
                 print(error)
             case .networkFail:
