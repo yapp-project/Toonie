@@ -59,7 +59,9 @@ final class DetailToonViewController: GestureViewController {
     
     /// 툰 웹뷰 띄우기
     @IBAction func moveToonButtonDidTap(_ sender: UIButton) {
-        if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "ToonWebView") as? ToonWebViewController {
+        if let viewController = self.storyboard?
+            .instantiateViewController(withIdentifier: "ToonWebView")
+            as? ToonWebViewController {
             viewController.modalTransitionStyle = UIModalTransitionStyle.coverVertical
             viewController.toonUrl = detailToon?.instaUrl
             viewController.instaID = detailToon?.instaID

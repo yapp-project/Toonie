@@ -69,6 +69,7 @@
 		BD6A4E5D4CF8929196A01E3D1E55C9F4 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B4E73537A6A1DA88E2A6D9DCCCBB0 /* UIFont+.swift */; };
 		BBF3D671ABB1FA62C12A76D6A4CA52CE /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB68F163875F9F1F23D628BB5BB2372 /* UIView+.swift */; };
 		FF0CB358B72DD3162E223F5DEB7D2A94 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858BE106FDE6184D77010506B5097F1A /* UIViewController+.swift */; };
+		670151333E6F80078812ECE61880E12B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5485179E9A27EAB9530294A695C09AD /* WebKit.framework */; };
 		16B5F805D0B84D4BAE707BAAED697F08 /* giphy.gif in Resources */ = {isa = PBXBuildFile; fileRef = D8E1AD8B779448DA04C464E96AECF285 /* giphy.gif */; };
 		FA6A0300E24AEEA193156198DE17CAD1 /* logoAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 383B68A47C2E2D073A82CF40AF75019D /* logoAnimation.json */; };
 		2E7EAAD475E98814E7AFE2629614E5F5 /* logoAnimation_0.png in Resources */ = {isa = PBXBuildFile; fileRef = B30F7F8BC0F68EC6C1F8E6A60BA9FADC /* logoAnimation_0.png */; };
@@ -163,6 +164,7 @@
 		852B4E73537A6A1DA88E2A6D9DCCCBB0 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		3EB68F163875F9F1F23D628BB5BB2372 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		858BE106FDE6184D77010506B5097F1A /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		A5485179E9A27EAB9530294A695C09AD /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		D8E1AD8B779448DA04C464E96AECF285 /* giphy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = giphy.gif; path = "toonie/Supporting Files/giphy.gif"; sourceTree = SOURCE_ROOT; };
 		383B68A47C2E2D073A82CF40AF75019D /* logoAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = logoAnimation.json; sourceTree = "<group>"; };
 		B30F7F8BC0F68EC6C1F8E6A60BA9FADC /* logoAnimation_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoAnimation_0.png; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E1130891C97D8F4786070CA5F865527 /* Pods_Toonie.framework in Frameworks */,
+				670151333E6F80078812ECE61880E12B /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +261,7 @@
 			children = (
 				117585FB9F8E77DCB04082EAF82AE342 /* Pods_Toonie.framework */,
 				82AF128897992796FF6ED25B199B0530 /* Pods_ToonieTests.framework */,
+				A5485179E9A27EAB9530294A695C09AD /* WebKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
