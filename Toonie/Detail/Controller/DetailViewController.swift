@@ -64,7 +64,6 @@ final class DetailToonViewController: GestureViewController {
             as? ToonWebViewController {
             viewController.modalTransitionStyle = UIModalTransitionStyle.coverVertical
             viewController.toonUrl = detailToon?.instaUrl
-            viewController.instaID = detailToon?.instaID
             self.present(viewController, animated: true, completion: nil)
         }
     }

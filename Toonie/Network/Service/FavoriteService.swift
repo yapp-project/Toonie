@@ -18,7 +18,7 @@ struct FavoriteService: Requestable {
         post((API.worklist+"/\(CommonUtility.userToken)"),
              params: params) { result in
                 switch result {
-                case .networkSuccess(let data):
+                case .networkSuccess(let data): break
 //                    if data.resResult.success == false {
 //                        return
 //                    }
