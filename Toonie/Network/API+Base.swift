@@ -40,4 +40,15 @@ class API {
     static let toons = {
         return baseURL + "/toons"
     }()
+    
+    //mykeywords/:token
+    static let myKeywordsToken = { (token) in
+        return myKeywords + token
+    }
+     
+    //kewords/:keyword
+    static let keywordInfo = { (keyword) in
+        return keywords + "/" + keyword
+    }
+    
 }

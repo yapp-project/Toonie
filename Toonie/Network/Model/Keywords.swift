@@ -14,6 +14,11 @@ struct Keywords: Codable {
 
 struct MyKeywords: Codable {
     let success: Bool?
-    let token: String?
     let myKeywords: [String]?
+    let token: String?
+}
+
+struct KeywordToonList: Codable {
+    let toonKeyword: String?
+    let toonTags: [String]?
 }

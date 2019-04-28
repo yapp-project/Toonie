@@ -17,7 +17,7 @@ protocol Requestable {
              completion: @escaping (NetworkResult<NetworkSuccessResult>) -> Void)
     
     func post(_ URL: String,
-              params: [String: Any],
+              params:[String: Any],
               completion: @escaping (NetworkResult<NetworkSuccessResult>) -> Void) 
 }
 
@@ -64,8 +64,7 @@ extension Requestable {
         guard let encodedUrl = URL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
             print("networking - invalid url")
             return
-        }
-        print("params \(params)")
+        } 
         
         Alamofire.request(encodedUrl,
                           method: .post,

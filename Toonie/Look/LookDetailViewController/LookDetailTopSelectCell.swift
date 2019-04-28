@@ -36,7 +36,7 @@ final class LookDetailTopSelectCell: UICollectionViewCell {
     }
     
     func setTitleLabel(text: String) {
-        titleLabel.text = text
+        titleLabel.text = text == "전체보기" ? text : "#" + text
     }
     
     func setCellStatus(bool: Bool) {
