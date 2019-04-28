@@ -17,7 +17,7 @@ protocol Requestable {
              completion: @escaping (NetworkResult<NetworkSuccessResult>) -> Void)
     
     func post(_ URL: String,
-              params:[String: Any],
+              params: [String: Any],
               completion: @escaping (NetworkResult<NetworkSuccessResult>) -> Void) 
 }
 

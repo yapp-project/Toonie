@@ -8,6 +8,11 @@
 
 import UIKit
 
+struct TagStructure {
+    let tagName: String
+    var state: Bool
+}
+
 final class LookDetailTopSelectViewController: UIViewController {
   
     // MARK: - IBOutlets
@@ -20,7 +25,8 @@ final class LookDetailTopSelectViewController: UIViewController {
     var tagDidTapClosure: ((String) -> Void)?
     var selectedKeyword: String = ""
     
-    var tags = ["전체보기"]
+    //state로 on off 진행
+    var tags = [TagStructure]()
     
     // MARK: - Life Cycle
     
@@ -30,10 +36,19 @@ final class LookDetailTopSelectViewController: UIViewController {
     }
     
     func setTags() {
+        
+        //맨처음 전체보기 기본세팅
+        let tagStructure: TagStructure = TagStructure.init(tagName: "전체보기",
+                                                           state: true)
+        tags.append(tagStructure)
+        
         KeywordToonListService
             .shared
             .getKeywords(keyword: selectedKeyword) {(tags) in
-                self.tags += tags ?? [String]()
+                for tag in tags ?? [String]() {
+                    self.tags.append(TagStructure.init(tagName: "#"+tag,
+                                                       state: false))
+                }
                 self.lookDetailTopSelectCollectionView.reloadData()
         }
     }
@@ -55,44 +70,44 @@ extension LookDetailTopSelectViewController: UICollectionViewDataSource {
             .dequeueReusableCell(withReuseIdentifier: "LookDetailTopSelectCell",
                                  for: indexPath) as? LookDetailTopSelectCell
             else { return UICollectionViewCell() }
-        
-        cell.setTitleLabel(text: tags[indexPath.row])
-        cell.setCellStatus(bool: false)
+  
+        cell.setTitleLabel(text: tags[indexPath.row].tagName)
+        cell.setCellStatus(bool: tags[indexPath.row].state)
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
-        
+
         if let closure = self.tagDidTapClosure {
-            closure(tags[indexPath.row])
+            closure(tags[indexPath.row]
+                .tagName
+                .replacingOccurrences(of: "#",
+                                      with: ""))
         }
         
         //우선 cell 상태 모두 초기화
-        for index in 0...tags.count {
-            let loopIndexPath = IndexPath.init(item: index, section: 0)
-            if let cell = collectionView.cellForItem(at: loopIndexPath) as? LookDetailTopSelectCell {
-                cell.setCellStatus(bool: false)
-            }
+        for index in 0..<tags.count {
+            tags[index].state = false
         }
         
         //선택한 cell만 상태 변경
-        if let cell = collectionView.cellForItem(at: indexPath) as? LookDetailTopSelectCell {
-            cell.setCellStatus(bool: true)
-        }
+        tags[indexPath.row].state = true
+        
+        self.lookDetailTopSelectCollectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let keyword = tags[indexPath.row]
+        let keyword = tags[indexPath.row].tagName
         let font = UIFont.getAppleSDGothicNeo(option: .medium,
                                               size: 14)
         var width = Int(keyword.widthWithConstrainedHeight(height: 17,
                                                            font: font))
-        width += 48
+        width += 41
         
         return CGSize(width: width, height: 30)
     }
@@ -112,12 +127,12 @@ extension LookDetailTopSelectViewController: UICollectionViewDelegateFlowLayout 
                                 layout collectionViewLayout: UICollectionViewLayout,
                                 sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
 
-        let keyword = tags[indexPath.row]
+        let keyword = tags[indexPath.row].tagName
         let font = UIFont.getAppleSDGothicNeo(option: .medium,
                                               size: 14)
         var width = Int(keyword.widthWithConstrainedHeight(height: 17,
                                                            font: font))
-        width += 48
+        width += 41
         
         return CGSize(width: width, height: 30)
     }

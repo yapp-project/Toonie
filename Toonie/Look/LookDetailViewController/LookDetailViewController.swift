@@ -61,7 +61,11 @@ final class LookDetailViewController: GestureViewController {
                 viewController.selectedKeyword = self.selectedKeyword
                 viewController.tagDidTapClosure = {
                     (tagString) -> Void in
-                    print("으아아아아아아!!!!!!\(tagString)")
+                    print("Top 컬렉션 뷰의 선택된 tagString\(tagString)")
+                    /*
+                     To. 어진
+                     여기서 받아온 tagString으로 toonList 조회하시면 될것 같습니다
+                     */
                 }
             }
         }
