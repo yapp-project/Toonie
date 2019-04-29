@@ -69,7 +69,17 @@ final class DetailToonViewController: GestureViewController {
     }
     
     /// 툰 찜하기
-    @IBAction func addToMyCollection(_ sender: UIButton) {
+    @IBAction func addToMyFavorite(_ sender: UIButton) {
+        let body = [
+            "workListName": "default",
+            "workListInfo": "찜한 목록",
+            "toonId": detailToon?.toonID
+        ]
+        
+        FavoriteService.shared.postFavoriteToon(params: body as [String : Any],
+                                                completion: {
+                                                    print("Success to add favorite toon")
+        })
     }
     
     // MARK: - Life Cycle

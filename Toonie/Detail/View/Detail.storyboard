@@ -149,7 +149,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="addToMyCollection:" destination="SAT-03-eWA" eventType="touchUpInside" id="QNV-IU-tSB"/>
+                                    <action selector="addToMyFavorite:" destination="SAT-03-eWA" eventType="touchUpInside" id="QNV-IU-tSB"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mW4-Am-OaH" userLabel="line">
@@ -160,7 +160,7 @@
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userProfileimg" translatesAutoresizingMaskIntoConstraints="NO" id="3WF-JR-rme">
-                                <rect key="frame" x="87.333333333333329" y="100.99999999999999" width="200.33333333333337" height="200.66666666666663"/>
+                                <rect key="frame" x="87.333333333333314" y="100.99999999999999" width="200.33333333333337" height="200.66666666666663"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="3WF-JR-rme" secondAttribute="height" multiplier="1:1" id="wGF-Go-DS3"/>
                                 </constraints>

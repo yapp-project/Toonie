@@ -12,21 +12,22 @@ struct FavoriteService: Requestable {
     typealias NetworkData = FavoriteToon
     static let shared = FavoriteService()
     
-    ///선택한 키워드 post 통신
+    ///선택한 툰 즐겨찾기 post 통신
     func postFavoriteToon(params: [String: Any],
-                        completion: @escaping () -> Void) {
-        post((API.worklist+"/\(CommonUtility.userToken)"),
+                          completion: @escaping () -> Void) {
+        post((API.myWorklist),
              params: params) { result in
                 switch result {
-                case .networkSuccess(let data): break
-//                    if data.resResult.success == false {
-//                        return
-//                    }
-//                    completion()
+                case .networkSuccess(let data):
+                    if data.resResult.success == false {
+                        return
+                    }
+                    completion()
+                    print("FavoriteToon post success")
                 case .networkError(let error):
                     print(error)
                 case .networkFail:
-                    print("FavoriteToon Post fail")
+                    print("FavoriteToon post fail")
                 }
         }
     }

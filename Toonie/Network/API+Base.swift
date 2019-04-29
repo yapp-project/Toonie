@@ -44,4 +44,8 @@ class API {
     static let worklist = {
         return baseURL + "/worklist"
     }()
+    
+    static let myWorklist = {
+        return baseURL + "/worklist/\(CommonUtility.userToken)/default"
+    }()
 }
