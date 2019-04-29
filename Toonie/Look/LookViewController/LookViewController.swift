@@ -87,10 +87,14 @@ extension LookViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Look", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "LookDetailViewController")
+        guard let viewController = storyboard
+            .instantiateViewController(withIdentifier: "LookDetailViewController") as? LookDetailViewController
+            else {
+                return
+        }
+        viewController.selectedKeyword = keywords[indexPath.row]
         self.navigationController?.pushViewController(viewController, animated: true)
     }
-    
 }
 
 // MARK: - UICollectionViewDataSource

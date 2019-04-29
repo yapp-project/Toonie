@@ -64,8 +64,7 @@ extension Requestable {
         guard let encodedUrl = URL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
             print("networking - invalid url")
             return
-        }
-        print("params \(params)")
+        } 
         
         Alamofire.request(encodedUrl,
                           method: .post,
