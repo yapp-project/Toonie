@@ -17,6 +17,9 @@ final class LookDetailViewController: GestureViewController {
     @IBOutlet private weak var lookDetailCollectionView: UICollectionView!
     @IBOutlet private weak var lookDetailCollectionViewFlowLayout: UICollectionViewFlowLayout!
     
+    // MARK: - Properties
+    var selectedKeyword: String = ""
+    
     //임시데이터
     let dummy =  [#imageLiteral(resourceName: "myRecentlyLoadingImg"),
                   #imageLiteral(resourceName: "sample2"),
@@ -46,9 +49,26 @@ final class LookDetailViewController: GestureViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setLookDeatilTitleLabel(string: "여행") //임시
+        lookDetailTitleLabel.text = selectedKeyword
+        
         setCollectionViewLayout()
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "topSetting" {
+            if let viewController = segue.destination as? LookDetailTopSelectViewController {
+                viewController.selectedKeyword = self.selectedKeyword
+                viewController.tagDidTapClosure = {
+                    (tagString) -> Void in
+                    print("Top 컬렉션 뷰의 선택된 tagString\(tagString)")
+                    /*
+                     To. 어진
+                     여기서 받아온 tagString으로 toonList 조회하시면 될것 같습니다
+                     */
+                }
+            }
+        }
     }
     
     // MARK: - IBAction
@@ -69,11 +89,7 @@ final class LookDetailViewController: GestureViewController {
                                                                        bottom: 0,
                                                                        right: 5 * CommonUtility.getDeviceRatioWidth())
         lookDetailCollectionViewFlowLayout.minimumLineSpacing = 1.0 * CommonUtility.getDeviceRatioWidth()
-    }
-    
-    func setLookDeatilTitleLabel(string: String) {
-        lookDetailTitleLabel.text = string
-    }
+    } 
     
     /// 인스타툰 상세정보 화면으로 이동
     func moveDetailToon() {
@@ -82,6 +98,11 @@ final class LookDetailViewController: GestureViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "DetailToonView")
         CommonUtility.sharedInstance.mainNavigationViewController?.pushViewController(viewController,
                                                                                       animated: true)
+    }
+    
+    ///타이틀 세팅
+    func setLookDetailTitleLabel(titleString: String) {
+        self.lookDetailTitleLabel.text = titleString
     }
 }
 

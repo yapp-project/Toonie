@@ -29,8 +29,12 @@ class API {
         return baseURL + "/keywords"
     }()
     
+//    static let myKeywords = {
+//        return baseURL + "/mykeywords/\(String(describing: CommonUtility.userToken))"
+//    }()
+
     static let myKeywords = {
-        return baseURL + "/mykeywords/\(String(describing: CommonUtility.userToken))"
+        return baseURL + "/mykeywords"
     }()
     
     static let tags = {
@@ -40,4 +44,15 @@ class API {
     static let toons = {
         return baseURL + "/toons"
     }()
+    
+    //mykeywords/:token
+    static let myKeywordsToken = { (token) in
+        return myKeywords + "/" + token
+    }
+     
+    //kewords/:keyword
+    static let keywordInfo = { (keyword) in
+        return keywords + "/" + keyword
+    }
+    
 }
