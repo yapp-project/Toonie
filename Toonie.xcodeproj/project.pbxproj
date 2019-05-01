@@ -19,6 +19,8 @@
 		92D88D4D5D1ACC0BB983D7797079C87C /* DetailToonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E371E0D955FBC2867AD25C4BD72ABF4 /* DetailToonService.swift */; };
 		687C00FF78A900251B747635F98172EC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C42DB5B38C27C2E993254790693BDF /* DetailViewController.swift */; };
 		558FAE24BC1D46AEE96A7839D2EECDF9 /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6181A5BE3CAF62901728B8DEC5745044 /* FavoriteCollectionViewCell.swift */; };
+		1FDC495E51E4103A48DBE746A3B5742F /* FavoriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384EC31B5698BBD32C8427B4D3D3FA9E /* FavoriteService.swift */; };
+		AEEF2D26F2272450934285EA171238A5 /* FavoriteToon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A15E6123D0B310EBC6C8200A8A7BCE /* FavoriteToon.swift */; };
 		461C3F46EE79F602B9C6DC249B3A419C /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 482A114E8A6A879454C3CB47C1BA9443 /* Feed.storyboard */; };
 		C9355A5FA67D262F35C7B8B185D2CA62 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BD45CDB0C7E1A8A0FE2DB9C0C25B75 /* FeedViewController.swift */; };
 		6931E65B235D9EF98AF252FC0326C078 /* ForYouCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C59DFBC67BAFC0446C4ACC3CD30166 /* ForYouCollectionViewCell.swift */; };
@@ -108,6 +110,8 @@
 		2E371E0D955FBC2867AD25C4BD72ABF4 /* DetailToonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailToonService.swift; sourceTree = "<group>"; };
 		E4C42DB5B38C27C2E993254790693BDF /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		6181A5BE3CAF62901728B8DEC5745044 /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
+		384EC31B5698BBD32C8427B4D3D3FA9E /* FavoriteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteService.swift; sourceTree = "<group>"; };
+		B9A15E6123D0B310EBC6C8200A8A7BCE /* FavoriteToon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteToon.swift; sourceTree = "<group>"; };
 		482A114E8A6A879454C3CB47C1BA9443 /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
 		D7BD45CDB0C7E1A8A0FE2DB9C0C25B75 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		C3C59DFBC67BAFC0446C4ACC3CD30166 /* ForYouCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -326,6 +330,7 @@
 			isa = PBXGroup;
 			children = (
 				5C0F9FDA6D7EDBB6CC18F7B48E4304F5 /* DetailToon.swift */,
+				B9A15E6123D0B310EBC6C8200A8A7BCE /* FavoriteToon.swift */,
 				92086364F206D590B0D7FF7BD726FD80 /* ForYouToonLists.swift */,
 				9222FD8324DC3A507BC365062CF19A15 /* Keywords.swift */,
 				7ACAA8940643DB9FC71B7E231C435FD6 /* Recommends.swift */,
@@ -380,6 +385,7 @@
 			children = (
 				F0DFADE2E74674626C62C5847756D7C3 /* CurationTagService.swift */,
 				2E371E0D955FBC2867AD25C4BD72ABF4 /* DetailToonService.swift */,
+				384EC31B5698BBD32C8427B4D3D3FA9E /* FavoriteService.swift */,
 				919CB7352060E4267D23B8B6D5169BEC /* ForYouToonListService.swift */,
 				BF827ADC08C996D3C51D60BE675C7641 /* KeywordsService.swift */,
 				FBB7847F6E2C082500A180183EDA27D6 /* RecommendService.swift */,
@@ -737,6 +743,8 @@
 				92D88D4D5D1ACC0BB983D7797079C87C /* DetailToonService.swift in Sources */,
 				687C00FF78A900251B747635F98172EC /* DetailViewController.swift in Sources */,
 				558FAE24BC1D46AEE96A7839D2EECDF9 /* FavoriteCollectionViewCell.swift in Sources */,
+				1FDC495E51E4103A48DBE746A3B5742F /* FavoriteService.swift in Sources */,
+				AEEF2D26F2272450934285EA171238A5 /* FavoriteToon.swift in Sources */,
 				C9355A5FA67D262F35C7B8B185D2CA62 /* FeedViewController.swift in Sources */,
 				6931E65B235D9EF98AF252FC0326C078 /* ForYouCollectionViewCell.swift in Sources */,
 				EB475B47E259D7432C73537026F9FF8D /* ForYouToonListService.swift in Sources */,

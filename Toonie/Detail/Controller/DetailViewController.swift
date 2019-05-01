@@ -64,13 +64,22 @@ final class DetailToonViewController: GestureViewController {
             as? ToonWebViewController {
             viewController.modalTransitionStyle = UIModalTransitionStyle.coverVertical
             viewController.toonUrl = detailToon?.instaUrl
-            viewController.instaID = detailToon?.instaID
             self.present(viewController, animated: true, completion: nil)
         }
     }
     
     /// 툰 찜하기
-    @IBAction func addToMyCollection(_ sender: UIButton) {
+    @IBAction func addToMyFavorite(_ sender: UIButton) {
+        let body = [
+            "workListName": "default",
+            "workListInfo": "찜한 목록",
+            "toonId": detailToon?.toonID
+        ]
+        
+        FavoriteService.shared.postFavoriteToon(params: body as [String : Any],
+                                                completion: {
+                                                    print("Success to add favorite toon")
+        })
     }
     
     // MARK: - Life Cycle

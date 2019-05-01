@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N5B-jj-8nl">
-                                <rect key="frame" x="20" y="44" width="44" height="44"/>
+                                <rect key="frame" x="0.0" y="44" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="C6X-wr-PU0"/>
                                     <constraint firstAttribute="height" constant="44" id="JPq-NZ-4LP"/>
@@ -149,7 +149,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="addToMyCollection:" destination="SAT-03-eWA" eventType="touchUpInside" id="QNV-IU-tSB"/>
+                                    <action selector="addToMyFavorite:" destination="SAT-03-eWA" eventType="touchUpInside" id="QNV-IU-tSB"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mW4-Am-OaH" userLabel="line">
@@ -160,7 +160,7 @@
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userProfileimg" translatesAutoresizingMaskIntoConstraints="NO" id="3WF-JR-rme">
-                                <rect key="frame" x="87.333333333333329" y="100.99999999999999" width="200.33333333333337" height="200.66666666666663"/>
+                                <rect key="frame" x="87.333333333333314" y="100.99999999999999" width="200.33333333333337" height="200.66666666666663"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="3WF-JR-rme" secondAttribute="height" multiplier="1:1" id="wGF-Go-DS3"/>
                                 </constraints>
@@ -182,7 +182,7 @@
                             <constraint firstItem="3WF-JR-rme" firstAttribute="centerX" secondItem="an7-mg-Mse" secondAttribute="centerX" id="PKC-Fq-il8"/>
                             <constraint firstItem="Sew-Sr-lzS" firstAttribute="top" secondItem="kmQ-2P-dcV" secondAttribute="bottom" constant="14" id="RWD-2p-Q7e"/>
                             <constraint firstItem="kmQ-2P-dcV" firstAttribute="centerX" secondItem="an7-mg-Mse" secondAttribute="centerX" id="SQh-Ad-qdZ"/>
-                            <constraint firstItem="N5B-jj-8nl" firstAttribute="leading" secondItem="an7-mg-Mse" secondAttribute="leading" constant="20" id="Vwb-t0-gNZ"/>
+                            <constraint firstItem="N5B-jj-8nl" firstAttribute="leading" secondItem="an7-mg-Mse" secondAttribute="leading" id="Vwb-t0-gNZ"/>
                             <constraint firstItem="an7-mg-Mse" firstAttribute="trailing" secondItem="mW4-Am-OaH" secondAttribute="trailing" constant="20" id="W6T-sh-bk7"/>
                             <constraint firstItem="mW4-Am-OaH" firstAttribute="centerX" secondItem="an7-mg-Mse" secondAttribute="centerX" id="WNa-21-Np2"/>
                             <constraint firstItem="an7-mg-Mse" firstAttribute="trailing" secondItem="Zp5-BU-IbD" secondAttribute="trailing" id="bZY-gJ-lFM"/>
@@ -250,13 +250,13 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Z4B-Wu-BFh">
                                 <rect key="frame" x="37.666666666666657" y="51.666666666666664" width="300" height="31.666666666666664"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hongal.hongal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ZN-rw-CCc">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ZN-rw-CCc">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="17"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="https://www.instagram.com/hongal.hongal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHQ-Oy-n8g">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHQ-Oy-n8g">
                                         <rect key="frame" x="0.0" y="17.000000000000007" width="300" height="14.666666666666664"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="12"/>
                                         <color key="textColor" name="unselectedText"/>
@@ -270,7 +270,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="AJo-zt-QZk">
                                         <rect key="frame" x="10" y="5" width="128" height="44"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IRf-NR-BXT">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IRf-NR-BXT">
                                                 <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="44" id="7eL-Nt-Uqo"/>
@@ -282,7 +282,7 @@
                                                     <action selector="backButtonDidTap:" destination="6vy-PQ-pVp" eventType="touchUpInside" id="V1x-Ev-iMm"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kUe-LW-UU8">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kUe-LW-UU8">
                                                 <rect key="frame" x="84" y="0.0" width="44" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="Qwo-mD-b6y"/>
@@ -365,4 +365,3 @@
         </namedColor>
     </resources>
 </document>
-
