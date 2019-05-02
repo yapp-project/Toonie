@@ -72,6 +72,8 @@
 		BBF3D671ABB1FA62C12A76D6A4CA52CE /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB68F163875F9F1F23D628BB5BB2372 /* UIView+.swift */; };
 		FF0CB358B72DD3162E223F5DEB7D2A94 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858BE106FDE6184D77010506B5097F1A /* UIViewController+.swift */; };
 		670151333E6F80078812ECE61880E12B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5485179E9A27EAB9530294A695C09AD /* WebKit.framework */; };
+		2BBA96003DD132C44B1C6FACA2174DDF /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = E6886B6230EC73C8544C25D7D99BA354 /* arrow.png */; };
+		1FE5F0F3F7EADD85E0CC08BB48032894 /* feed_background.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C57CC33A83D4DAC545777AF8998EDE /* feed_background.png */; };
 		16B5F805D0B84D4BAE707BAAED697F08 /* giphy.gif in Resources */ = {isa = PBXBuildFile; fileRef = D8E1AD8B779448DA04C464E96AECF285 /* giphy.gif */; };
 		FA6A0300E24AEEA193156198DE17CAD1 /* logoAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 383B68A47C2E2D073A82CF40AF75019D /* logoAnimation.json */; };
 		2E7EAAD475E98814E7AFE2629614E5F5 /* logoAnimation_0.png in Resources */ = {isa = PBXBuildFile; fileRef = B30F7F8BC0F68EC6C1F8E6A60BA9FADC /* logoAnimation_0.png */; };
@@ -82,7 +84,13 @@
 		2F1F9A4D0EFB45023F9CD1B834B084A4 /* logoAnimation_5.png in Resources */ = {isa = PBXBuildFile; fileRef = E97E52D2F1D51780A9DF8DFDB642EA4B /* logoAnimation_5.png */; };
 		53E73D8950182E8DD26636EFA6F06A74 /* logoAnimation_6.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3F448B196484D1CBCE17A7DF1646EF /* logoAnimation_6.png */; };
 		A5137D001B4001A2183D0FB8A7873958 /* logoAnimation_7.png in Resources */ = {isa = PBXBuildFile; fileRef = C0C3160A8F2E10ED3113238FF01649F1 /* logoAnimation_7.png */; };
-		42C9F1D0BE9554E33B9D52C08E676107 /* tag.json in Resources */ = {isa = PBXBuildFile; fileRef = CB4CC3F62E900540AB7D0805DE646065 /* tag.json */; };
+		5D84C2A0B6960A265C29978B9AAA3E0E /* newTag.json in Resources */ = {isa = PBXBuildFile; fileRef = F81177EA3ADF85BFA31A60E47F61600E /* newTag.json */; };
+		8AAED83E6CA0AD8134D716C8324E62F9 /* sentence_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 911E9E1F8A8C3FE7874EEA96232BFDFC /* sentence_0.png */; };
+		2F84251217E89874D5E4D5A53A88A39E /* sentence_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 69D3E33A36912B8ED69AB5058D58BC2D /* sentence_1.png */; };
+		A2D1A54083A25E5007AAAA9DC72F3560 /* sentence_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F49E5207D9FEE49B6C18387DEDD9663 /* sentence_2.png */; };
+		2B2403A6B504017B39C99405596E93EF /* sentence_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C9C64111E9C65991F378F4EB5747470 /* sentence_3.png */; };
+		AFE220FEA835446FDBCC3A08BA728222 /* sentence_bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 03A0D62CE83D8FDC83F7E15E3739B843 /* sentence_bottom.png */; };
+		C1D5C39D1FB120359C4B1DBCF781E2A9 /* sentence_top.png in Resources */ = {isa = PBXBuildFile; fileRef = 991D9CA716980D2C8249F9B1C0F30CE5 /* sentence_top.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,6 +177,8 @@
 		3EB68F163875F9F1F23D628BB5BB2372 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		858BE106FDE6184D77010506B5097F1A /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		A5485179E9A27EAB9530294A695C09AD /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		E6886B6230EC73C8544C25D7D99BA354 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		D6C57CC33A83D4DAC545777AF8998EDE /* feed_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feed_background.png; sourceTree = "<group>"; };
 		D8E1AD8B779448DA04C464E96AECF285 /* giphy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = giphy.gif; path = "toonie/Supporting Files/giphy.gif"; sourceTree = SOURCE_ROOT; };
 		383B68A47C2E2D073A82CF40AF75019D /* logoAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = logoAnimation.json; sourceTree = "<group>"; };
 		B30F7F8BC0F68EC6C1F8E6A60BA9FADC /* logoAnimation_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoAnimation_0.png; sourceTree = "<group>"; };
@@ -179,7 +189,13 @@
 		E97E52D2F1D51780A9DF8DFDB642EA4B /* logoAnimation_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoAnimation_5.png; sourceTree = "<group>"; };
 		CD3F448B196484D1CBCE17A7DF1646EF /* logoAnimation_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoAnimation_6.png; sourceTree = "<group>"; };
 		C0C3160A8F2E10ED3113238FF01649F1 /* logoAnimation_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoAnimation_7.png; sourceTree = "<group>"; };
-		CB4CC3F62E900540AB7D0805DE646065 /* tag.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tag.json; sourceTree = "<group>"; };
+		F81177EA3ADF85BFA31A60E47F61600E /* newTag.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = newTag.json; sourceTree = "<group>"; };
+		911E9E1F8A8C3FE7874EEA96232BFDFC /* sentence_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sentence_0.png; sourceTree = "<group>"; };
+		69D3E33A36912B8ED69AB5058D58BC2D /* sentence_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sentence_1.png; sourceTree = "<group>"; };
+		6F49E5207D9FEE49B6C18387DEDD9663 /* sentence_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sentence_2.png; sourceTree = "<group>"; };
+		8C9C64111E9C65991F378F4EB5747470 /* sentence_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sentence_3.png; sourceTree = "<group>"; };
+		03A0D62CE83D8FDC83F7E15E3739B843 /* sentence_bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sentence_bottom.png; sourceTree = "<group>"; };
+		991D9CA716980D2C8249F9B1C0F30CE5 /* sentence_top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sentence_top.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -310,6 +326,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		53BB9FA5EDD85BAE71727F2F1E542485 /* newTag,json */ = {
+			isa = PBXGroup;
+			children = (
+				E6886B6230EC73C8544C25D7D99BA354 /* arrow.png */,
+				D6C57CC33A83D4DAC545777AF8998EDE /* feed_background.png */,
+				F81177EA3ADF85BFA31A60E47F61600E /* newTag.json */,
+				911E9E1F8A8C3FE7874EEA96232BFDFC /* sentence_0.png */,
+				69D3E33A36912B8ED69AB5058D58BC2D /* sentence_1.png */,
+				6F49E5207D9FEE49B6C18387DEDD9663 /* sentence_2.png */,
+				8C9C64111E9C65991F378F4EB5747470 /* sentence_3.png */,
+				03A0D62CE83D8FDC83F7E15E3739B843 /* sentence_bottom.png */,
+				991D9CA716980D2C8249F9B1C0F30CE5 /* sentence_top.png */,
+			);
+			path = "newTag,json";
+			sourceTree = "<group>";
+		};
 		6D0496EB9B90DA93F3F2DA608E9FEFC1 /* logoAnimation.json */ = {
 			isa = PBXGroup;
 			children = (
@@ -429,8 +461,8 @@
 		C1D0C39FE48765A946888D2E109E9C40 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				53BB9FA5EDD85BAE71727F2F1E542485 /* newTag,json */,
 				D7BD45CDB0C7E1A8A0FE2DB9C0C25B75 /* FeedViewController.swift */,
-				D79B36B02E3BE1C7354741667915DF34 /* tag.json */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -466,14 +498,6 @@
 				AE103DAB3F381AA2D9D28295093EC833 /* RecentCollectionViewCell.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		D79B36B02E3BE1C7354741667915DF34 /* tag.json */ = {
-			isa = PBXGroup;
-			children = (
-				CB4CC3F62E900540AB7D0805DE646065 /* tag.json */,
-			);
-			path = tag.json;
 			sourceTree = "<group>";
 		};
 		D7EB0356146547BFA7F3C37A1D559F26 /* ToonieTests */ = {
@@ -527,7 +551,7 @@
 				0A03A8E701D8806A7558B618CCC2B0D5 /* [CP] Check Pods Manifest.lock */,
 				7B171198A32EB3EFBC3D890069B09B16 /* Sources */,
 				CE5F455DCBC4B8425D238EF8FF886C7F /* Frameworks */,
-				F6B7743005D9067ED5559530A50CE69C /* [CP] Embed Pods Frameworks */,
+				CF120053B284775B4869DE30ACAECF1F /* [CP] Embed Pods Frameworks */,
 				177D19B0706A07426A4F6DC7872AF528 /* Resources */,
 				130436991E1155E6C5F84FFA8B34B848 /* ShellScript */,
 			);
@@ -612,6 +636,8 @@
 				DD198E2FFCBF428D3BB0345A1CB1F292 /* MyPage.storyboard in Resources */,
 				9DB4FBA4627CB67F03A18B9E44D17331 /* RecommendCollectionViewCell.xib in Resources */,
 				20F97B5303210BE76821322E74DB2E06 /* RecommendTableViewCell.xib in Resources */,
+				2BBA96003DD132C44B1C6FACA2174DDF /* arrow.png in Resources */,
+				1FE5F0F3F7EADD85E0CC08BB48032894 /* feed_background.png in Resources */,
 				16B5F805D0B84D4BAE707BAAED697F08 /* giphy.gif in Resources */,
 				FA6A0300E24AEEA193156198DE17CAD1 /* logoAnimation.json in Resources */,
 				2E7EAAD475E98814E7AFE2629614E5F5 /* logoAnimation_0.png in Resources */,
@@ -622,7 +648,13 @@
 				2F1F9A4D0EFB45023F9CD1B834B084A4 /* logoAnimation_5.png in Resources */,
 				53E73D8950182E8DD26636EFA6F06A74 /* logoAnimation_6.png in Resources */,
 				A5137D001B4001A2183D0FB8A7873958 /* logoAnimation_7.png in Resources */,
-				42C9F1D0BE9554E33B9D52C08E676107 /* tag.json in Resources */,
+				5D84C2A0B6960A265C29978B9AAA3E0E /* newTag.json in Resources */,
+				8AAED83E6CA0AD8134D716C8324E62F9 /* sentence_0.png in Resources */,
+				2F84251217E89874D5E4D5A53A88A39E /* sentence_1.png in Resources */,
+				A2D1A54083A25E5007AAAA9DC72F3560 /* sentence_2.png in Resources */,
+				2B2403A6B504017B39C99405596E93EF /* sentence_3.png in Resources */,
+				AFE220FEA835446FDBCC3A08BA728222 /* sentence_bottom.png in Resources */,
+				C1D5C39D1FB120359C4B1DBCF781E2A9 /* sentence_top.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -697,7 +729,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F6B7743005D9067ED5559530A50CE69C /* [CP] Embed Pods Frameworks */ = {
+		CF120053B284775B4869DE30ACAECF1F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -705,7 +737,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Toonie/Pods-Toonie-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Toonie/Pods-Toonie-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/KTCenterFlowLayout/KTCenterFlowLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
@@ -724,7 +756,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Toonie/Pods-Toonie-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Toonie/Pods-Toonie-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -854,7 +886,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = R78643UTJ5;
+				DEVELOPMENT_TEAM = 9Q6DDFULNZ;
 				INFOPLIST_FILE = Toonie/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -874,7 +906,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = R78643UTJ5;
+				DEVELOPMENT_TEAM = 9Q6DDFULNZ;
 				INFOPLIST_FILE = Toonie/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

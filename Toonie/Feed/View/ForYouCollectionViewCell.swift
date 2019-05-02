@@ -30,10 +30,14 @@ final class ForYouCollectionViewCell: UICollectionViewCell {
     
     /// 컬렉션뷰셀 데이터 설정  ((임시))
     func setForYouCollectionViewCellProperties(_ toonList: ToonList) {
+        prepareForReuse()
+        
         if let url = URL(string: toonList.instaThumnailUrl ?? "") {
             do {
                 let data = try Data(contentsOf: url)
-                forYouToonImageView.image = UIImage(data: data)
+                DispatchQueue.main.async {
+                    self.forYouToonImageView.image = UIImage(data: data)
+                }
             } catch let error {
                 print("Error : \(error.localizedDescription)")
             }
@@ -44,7 +48,9 @@ final class ForYouCollectionViewCell: UICollectionViewCell {
             for index in 0..<toonTagList.count {
                 tagList += "#" + toonTagList[index] + " "
             }
-            forYouToonTagLabel.text = tagList
+            DispatchQueue.main.async {
+                self.forYouToonTagLabel.text = tagList
+            }
         }
     }
 }

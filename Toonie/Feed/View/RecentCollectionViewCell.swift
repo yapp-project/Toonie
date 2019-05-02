@@ -28,15 +28,22 @@ final class RecentCollectionViewCell: UICollectionViewCell {
     
     /// 컬렉션뷰셀 데이터 설정
     func setRecentCollectionViewCellProperties(_ toonInfoList: ToonInfoList) {
+        prepareForReuse()
+        
         if let url = URL(string: toonInfoList.instaThumnailUrl ?? "") {
             do {
                 let data = try Data(contentsOf: url)
-                recentToonImageView.image = UIImage(data: data)
+                
+                DispatchQueue.main.async {
+                    self.recentToonImageView.image = UIImage(data: data)
+                }
             } catch let error {
                 print("Error : \(error.localizedDescription)")
             }
         }
-        recentToonTitleLabel.text = toonInfoList.toonName
+        DispatchQueue.main.async {
+            self.recentToonTitleLabel.text = toonInfoList.toonName
+        }
     }
 }
 
