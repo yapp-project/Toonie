@@ -27,7 +27,7 @@ final class DetailToonViewController: GestureViewController {
     @IBOutlet private weak var followerNumberLabel: UILabel!
     @IBOutlet private weak var mainKeywordLabel: UILabel!
     @IBOutlet private weak var subKeywordLabel: UILabel!
-    @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet private weak var favoriteButton: UIButton!
     
     // MARK: - IBActions
     
@@ -40,14 +40,8 @@ final class DetailToonViewController: GestureViewController {
     @IBAction func moreButtonDidTap(_ sender: UIButton) {
         UIAlertController
             .alert(title: nil, message: nil, style: .actionSheet)
-            .action(title: "KakaoTalk에 공유", style: .default) { _ in
-                print("dd")
-            }
-            .action(title: "Messager에 공유", style: .default) { _ in
-                print("dd")
-            }
-            .action(title: "링크 복사", style: .default) { _ in
-                print("dd")
+            .action(title: "인스타툰 링크 공유하기", style: .default) { _ in
+                self.shareActivity()
             }
             .action(title: "이 작품 더이상 추천 받지 않기", style: .destructive) { _ in
                 print("dd")
@@ -56,7 +50,6 @@ final class DetailToonViewController: GestureViewController {
                 print("dd")
             }
             .present(to: self)
-        
     }
     
     /// 툰 웹뷰 띄우기
@@ -158,9 +151,6 @@ final class DetailToonViewController: GestureViewController {
             subKeywordLabel.text = tagList
         }
     }
-}
-
-extension DetailToonViewController {
     
     /// '찜하기' 했을 때 뜨는 토스트
     func showAddFavoriteToast() {
@@ -207,4 +197,12 @@ extension DetailToonViewController {
         }
     }
     
+    /// 공유하기 기능
+    private func shareActivity() {
+        let textToShare = [detailToon?.instaUrl]
+        let activityVC = UIActivityViewController(activityItems: textToShare as [Any],
+                                                  applicationActivities: nil)
+        self.present(activityVC, animated: true, completion: nil)
+    }
+
 }
