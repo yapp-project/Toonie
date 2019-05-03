@@ -124,12 +124,15 @@ final class DetailToonViewController: GestureViewController {
     
     /// 툰 정보 넣기
     private func setDetailToon(_ detailToon: DetailToon) {
-        if let url = URL(string: detailToon.instaThumnailUrl ?? "") {
-            do {
-                let data = try Data(contentsOf: url)
-                detailToonImageView.image = UIImage(data: data)
-            } catch let error {
-                print("Error : \(error.localizedDescription)")
+        DispatchQueue.main.async {
+            if let url = URL(string: detailToon.instaThumnailUrl ?? "") {
+                do {
+                    let data = try Data(contentsOf: url)
+                    self.detailToonImageView.image = UIImage(data: data)
+                    self.detailToonImageView.setCorner(cornerRadius: self.detailToonImageView.frame.width / 2)
+                } catch let error {
+                    print("Error : \(error.localizedDescription)")
+                }
             }
         }
         detailToonIdLabel.text = detailToon.toonID
@@ -204,5 +207,5 @@ final class DetailToonViewController: GestureViewController {
                                                   applicationActivities: nil)
         self.present(activityVC, animated: true, completion: nil)
     }
-
+    
 }
