@@ -42,12 +42,13 @@ final class FeedViewController: GestureViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setTagAnimationView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadToon()
+        playTagAnimationView()
     }
     
     // MARK: - IBAction
@@ -73,13 +74,13 @@ final class FeedViewController: GestureViewController {
             self.recentCollectionView.reloadData()
             self.favoriteCollectionView.reloadData()
         }
-        setTagAnimationView()
+//        setTagAnimationView()
         
     }
     
     /// tagAnimationView 세팅
     private func setTagAnimationView() {
-        tagAnimationView = AnimationView(name: "tag")
+        tagAnimationView = AnimationView(name: "newTag")
         if let tagAnimationView = tagAnimationView {
             tagAnimationView.contentMode = .scaleAspectFit
             tagView.addSubview(tagAnimationView)
@@ -88,8 +89,11 @@ final class FeedViewController: GestureViewController {
                 make.height.equalTo(tagView.bounds.height)
                 make.center.equalTo(tagView)
             }
-            tagAnimationView.play()
-        }
+            playTagAnimationView()        }
+    }
+    
+    private func playTagAnimationView() {
+        tagAnimationView?.play()
     }
     
     /// 인스타툰 상세정보 화면으로 이동
