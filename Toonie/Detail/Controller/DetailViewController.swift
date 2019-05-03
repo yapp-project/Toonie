@@ -158,6 +158,9 @@ final class DetailToonViewController: GestureViewController {
             subKeywordLabel.text = tagList
         }
     }
+}
+
+extension DetailToonViewController {
     
     /// '찜하기' 했을 때 뜨는 토스트
     func showAddFavoriteToast() {
@@ -167,36 +170,26 @@ final class DetailToonViewController: GestureViewController {
         
         let window = UIApplication.shared.keyWindow
         let toastButton = UIButton(frame: CGRect(x: 0,
-                                                 y: view.frame.size.height,
+                                                 y: view.frame.size.height - (window?.safeAreaInsets.bottom)! - 86,
                                                  width: view.frame.size.width,
-                                                 height: 86 + (window?.safeAreaInsets.bottom)!))
+                                                 height: 86))
         toastButton.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.3764705882, blue: 0.2509803922, alpha: 1)
         toastButton.setImage(bookmarkImage, for: .normal)
         toastButton.titleLabel?.textColor = UIColor.white
         toastButton.setTitle("    내 찜한 작품에 추가되었습니다.", for: .normal)
-        toastButton.titleLabel?.font = UIFont.getAppleSDGothicNeo(option: .medium, size: 12)
+        toastButton.titleLabel?.font = UIFont.getAppleSDGothicNeo(option: .medium, size: 14)
         toastButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         toastButton.alpha = 1.0
         view.addSubview(toastButton)
         
-        UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveLinear, animations: {
-            self.toastUp(view: toastButton)
-        }, completion: { _ in
-            self.toastDown(view: toastButton)
-        })
-    }
-    
-    /// 토스트 위로 올라오는 애니메이션 기능
-    func toastUp(view: UIView) {
-        let window = UIApplication.shared.keyWindow
-        view.center.y -= 86 + (window?.safeAreaInsets.bottom)!
+        self.toastDown(view: toastButton)
     }
     
     /// 토스트 아래로 사라지는 애니메이션 기능
     func toastDown(view: UIView) {
         let window = UIApplication.shared.keyWindow
-        UIView.animate(withDuration: 0.7, delay: 1.0, options: .curveLinear, animations: {
-            view.center.y += 86 + (window?.safeAreaInsets.bottom)!
+        UIView.animate(withDuration: 0.3, delay: 0.8, options: .curveLinear, animations: {
+            view.center.y += 40 - (window?.safeAreaInsets.bottom)!
             view.alpha = 0
         }, completion: { _ in
             self.dismiss(animated: true, completion: nil)
@@ -206,7 +199,7 @@ final class DetailToonViewController: GestureViewController {
     /// '찜하기' 버튼 상태 변경 기능
     private func changeFavoriteButton(_ button: UIButton) {
         if isFavorite == true {
-            button.backgroundColor = .lightGray
+            button.backgroundColor = #colorLiteral(red: 0.6078431373, green: 0.6078431373, blue: 0.6078431373, alpha: 1)
             button.setTitle("찜하기 취소", for: .normal)
         } else {
             button.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.3764705882, blue: 0.2509803922, alpha: 1)

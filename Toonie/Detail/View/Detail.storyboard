@@ -128,7 +128,7 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tpb-y5-23V">
                                 <rect key="frame" x="0.0" y="714" width="187.66666666666666" height="64"/>
-                                <color key="backgroundColor" name="addButton"/>
+                                <color key="backgroundColor" red="1" green="0.62352941176470589" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="j7V-HU-ccT"/>
                                 </constraints>
@@ -349,9 +349,6 @@
         <image name="userProfileimg" width="202" height="202"/>
         <image name="webBack" width="12" height="20"/>
         <image name="webNext" width="12" height="20"/>
-        <namedColor name="addButton">
-            <color red="0.98799997568130493" green="0.68599998950958252" blue="0.27099999785423279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="defaultText">
             <color red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
