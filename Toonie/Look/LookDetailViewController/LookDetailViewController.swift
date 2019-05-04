@@ -20,30 +20,8 @@ final class LookDetailViewController: GestureViewController {
     // MARK: - Properties
     var selectedKeyword: String = ""
     
-    //임시데이터
-    let dummy =  [#imageLiteral(resourceName: "myRecentlyLoadingImg"),
-                  #imageLiteral(resourceName: "sample2"),
-                  #imageLiteral(resourceName: "sampleImg"),
-                  #imageLiteral(resourceName: "sample3"),
-                  #imageLiteral(resourceName: "feedDetail_NotInfo"),
-                  #imageLiteral(resourceName: "userProfileimg"),
-                  #imageLiteral(resourceName: "LookCategoryImg_9"),
-                  #imageLiteral(resourceName: "LookCategoryImg_1"),
-                  #imageLiteral(resourceName: "LookCategoryImg_5"),
-                  #imageLiteral(resourceName: "LookCategoryImg_2"),
-                  #imageLiteral(resourceName: "sample3"),
-                  #imageLiteral(resourceName: "feedDetail_NotInfo"),
-                  #imageLiteral(resourceName: "userProfileimg"),
-                  #imageLiteral(resourceName: "LookCategoryImg_9"),
-                  #imageLiteral(resourceName: "LookCategoryImg_1"),
-                  #imageLiteral(resourceName: "LookCategoryImg_5"),
-                  #imageLiteral(resourceName: "LookCategoryImg_2"),
-                  #imageLiteral(resourceName: "sample3"),
-                  #imageLiteral(resourceName: "feedDetail_NotInfo"),
-                  #imageLiteral(resourceName: "userProfileimg"),
-                  #imageLiteral(resourceName: "LookCategoryImg_9"),
-                  #imageLiteral(resourceName: "LookCategoryImg_1"),
-                  #imageLiteral(resourceName: "LookCategoryImg_5")]
+    private var toonDataList = [ToonInfoList]()
+    private var toonList = [ToonOfTag]()
     
     // MARK: - Life Cycle
     
@@ -62,10 +40,28 @@ final class LookDetailViewController: GestureViewController {
                 viewController.tagDidTapClosure = {
                     (tagString) -> Void in
                     print("Top 컬렉션 뷰의 선택된 tagString\(tagString)")
-                    /*
-                     To. 어진
-                     여기서 받아온 tagString으로 toonList 조회하시면 될것 같습니다
-                     */
+                    
+//                    LookToonOfTagService.shared.getLookToonOfTag(toonTag: tagString, completion: { [weak self] (res) in
+//
+//                        guard self != nil else { return }
+//                        let toonData = res as ToonOfTag
+//                        guard let toonInfoList = toonData.toonInfoList else { return }
+//                        self?.thumnailImageList = toonInfoList
+//                        print("toonInfoList : ", toonInfoList)
+////                        guard let toonImages = toonData
+////                        guard let events = detailData.dThemeEventList else { return }
+//                    })
+                    
+                    LookToonOfTagService.shared.getLookToonOfTag(toonTag: tagString, completion: { res in
+                        self.toonList = [res]
+                        guard let toonData = res.toonInfoList else { return }
+                        self.toonDataList = toonData
+                        
+                        print("toonList.count : ", self.toonList.count)
+                        print("self.toonDataList : ", self.toonDataList)
+                        self.lookDetailCollectionView.reloadData()
+                    })
+                
                 }
             }
         }
@@ -80,7 +76,7 @@ final class LookDetailViewController: GestureViewController {
     // MARK: - Function
     
     ///컬렉션 뷰 아이템 크기, 위치조정
-    func setCollectionViewLayout() {
+    private func setCollectionViewLayout() {
         lookDetailCollectionViewFlowLayout.scrollDirection = .vertical
         lookDetailCollectionViewFlowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width * 0.322 ,
                                                                height: UIScreen.main.bounds.width * 0.322)
@@ -92,7 +88,7 @@ final class LookDetailViewController: GestureViewController {
     } 
     
     /// 인스타툰 상세정보 화면으로 이동
-    func moveDetailToon() {
+    private func moveDetailToon() {
         let storyboard = UIStoryboard(name: "Detail",
                                       bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "DetailToonView")
@@ -112,7 +108,7 @@ extension LookDetailViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return dummy.count
+        return toonDataList.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -122,7 +118,15 @@ extension LookDetailViewController: UICollectionViewDataSource {
                                  for: indexPath) as? LookDetailCell
             else { return UICollectionViewCell() }
         
-        cell.setImageView(image: dummy[indexPath.row])
+        if let thumnailURL = toonDataList[indexPath.item].instaThumnailUrl {
+            print("thumnailURL : ", thumnailURL)
+            // 왜 안될까?
+            cell.setImageView(imageURL: thumnailURL)
+        }
+        
+        //이거도 안댐
+        //        let toonOfTag = toonDataList[indexPath.item]
+        //        cell.setRecentCollectionViewCellProperties(toonOfTag)
         
         return cell
     }
