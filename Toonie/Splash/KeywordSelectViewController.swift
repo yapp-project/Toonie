@@ -19,24 +19,12 @@ final class KeywordSelectViewController: GestureViewController {
     private var layoutMode: Bool = false
     var keywordSelectArray = [String]()
     
-    //임시데이터
-    let dummy =  ["#학교생활",
-                  "#직업",
-                  "#자기계발",
-                  "#해외",
-                  "#심리•감정",
-                  "#여행",
-                  "#자취생활",
-                  "#음식",
-                  "#반려동물",
-                  "#가족",
-                  "#사랑•연애",
-                  "#페미니즘"]
+    var keywords = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setKeywordFlowLayout()
-        
+        setUserToken()
+    
         if layoutMode == false {
             bigTitleLabel.text = "관심 있는 키워드를\n3개 이상 선택해주세요."
             mainMoveButton.setTitle("시작하기", for: .normal)
@@ -47,9 +35,16 @@ final class KeywordSelectViewController: GestureViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setKeywordValue()
+        setSelectedKeywordValue()
+    }
+    
     ///시작하기 버튼-메인으로 이동
     @IBAction func startButtonDidTap(_ sender: UIButton) {
-//        print("선택한 키워드 \(keywordSelectArray)") 
+        //        print("선택한 키워드 \(keywordSelectArray)")
+        // 누르면
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "RootViewController")
         UIApplication.shared.keyWindow?.rootViewController = viewController
@@ -74,60 +69,108 @@ final class KeywordSelectViewController: GestureViewController {
         } else {
             mainMoveButton.isEnabled = false
             mainMoveButton.backgroundColor = UIColor.init(named: "disabledButton")
-          // color disableButton 오류
+            // color disableButton 오류
         }
     }
     
     func setLayoutMode(bool: Bool) {
         layoutMode = bool
     }
+    
+    ///keywrods 값들 가져옴
+    func setKeywordValue() {
+        KeywordsService.shared.getKeywords { (result) in
+            self.keywords = result ?? [String]()
+            self.reloadKeywordCollectionView()
+        }
+    }
+    
+    ///사용자가 선택한 keywords를 가져옴
+    func setSelectedKeywordValue() {
+        MyKeywordsService.shared.getMyKeywords { (myKeywords) in
+            self.keywordSelectArray = myKeywords ?? [String]()
+            self.reloadKeywordCollectionView()
+        }
+    }
+    
+    func reloadKeywordCollectionView() {
+        DispatchQueue.main.async {
+            self.keywordCollecionView.reloadData()
+        }
+    }
+    
+    ///기기에 UserToken값 없다면 서버에서 받아옴
+    func setUserToken() {
+        if CommonUtility.userToken == "" {
+            TokenService.shared.getToken { result in
+                UserDefaults.standard.set(result, forKey: "token")
+            }
+        }
+        
+    }
+    
 }
 
 extension KeywordSelectViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dummy.count
+        return keywords.count
     }
-
+    
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "KeywordCell",
                                                             for: indexPath) as? KeywordCell else {
-            return UICollectionViewCell()
+                                                                return UICollectionViewCell()
         }
-
-        cell.titleLabel.text = dummy[indexPath.row]
+        
+        cell.titleLabel.text = keywords[indexPath.row]
+        
         cell.cellStatus = false
+        
+        //사용자가 선택한 키워드는 활성화처리
+        for keywordSelect in keywordSelectArray
+            where keywords[indexPath.row] == keywordSelect {
+                cell.cellStatus = true
+        }
         
         return cell
     }
-     
+    
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-        let keyword = dummy[indexPath.row]
+        
+        let keyword = keywords[indexPath.row]
         let width = Int(keyword.widthWithConstrainedHeight(height: 49, font: UIFont.systemFont(ofSize: 20)))
-
+        
         return CGSize(width: width + 20, height: 50)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? KeywordCell {
-            cell.cellStatus = !cell.cellStatus
+            let body = [
+                "keywords": [self.keywords[indexPath.row]]
+            ]
             
-            //선택한 키워드 추가 및 삭제
-            if cell.cellStatus == true {
-                keywordSelectArray.append(dummy[indexPath.row])
-            } else {
-                let findIndex = keywordSelectArray.firstIndex(of: cell.titleLabel.text ?? "")
+            MyKeywordsService.shared.postMyKeywords(params: body,
+                                                    completion: {
+                cell.cellStatus = !cell.cellStatus
                 
-                if let index = findIndex {
-                    keywordSelectArray.remove(at: index)
+                //선택한 키워드 추가 및 삭제
+                if cell.cellStatus == true {
+                    self.keywordSelectArray.append(self.keywords[indexPath.row])
+                } else {
+                    let findIndex = self.keywordSelectArray.firstIndex(of: cell.titleLabel.text ?? "")
+                    
+                    if let index = findIndex {
+                        self.keywordSelectArray.remove(at: index)
+                    }
                 }
-            }
+                
+                //카운트레이블, 버튼 리로드
+                self.reloadKeywordView()
+            })
             
-            //카운트레이블, 버튼 리로드
-            reloadKeywordView()
         }
     }
     
@@ -137,7 +180,7 @@ extension KeywordSelectViewController: UICollectionViewDelegateFlowLayout {
     private func collectionView(collectionView: UICollectionView,
                                 layout collectionViewLayout: UICollectionViewLayout,
                                 sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
-        let keyword = dummy[indexPath.row]
+        let keyword = keywords[indexPath.row]
         let width = Int(keyword.widthWithConstrainedHeight(height: 49, font: UIFont.systemFont(ofSize: 20)))
         
         return CGSize(width: width + 20, height: 50)

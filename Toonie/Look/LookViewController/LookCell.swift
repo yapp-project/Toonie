@@ -13,6 +13,11 @@ final class LookCell: UICollectionViewCell {
     @IBOutlet private weak var backgroundImageView: UIImageView!
     
     func setBackgroundImageView(image: UIImage?) {
+        backgroundImageView.backgroundColor = UIColor.lightGray
+
+        guard image != nil else {
+            return
+        }
         backgroundImageView.image = image
     }
     

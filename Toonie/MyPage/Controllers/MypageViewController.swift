@@ -25,14 +25,17 @@ final class MypageViewController: GestureViewController {
     
     @IBOutlet private weak var tagSettingButton: UIButton!
     @IBOutlet private weak var recentButton: UIButton!
-    @IBOutlet private weak var myCollectionButton: UIButton!
     @IBOutlet private weak var bookMarkButton: UIButton!
     @IBOutlet private weak var tagButton: UIButton!
     @IBOutlet private weak var mypageCollectionView: UICollectionView!
     
+    @IBOutlet weak var mypageCollectionViewFlowLayout: UICollectionViewFlowLayout!
     // MARK: - private var
     
     private var status = ""
+    private var recentList: [String] = []
+    private var bookmarkList: [String] = []
+    private var tagList: [String] = []
     
     // MARK: - DummyList
     
@@ -47,6 +50,7 @@ final class MypageViewController: GestureViewController {
         // 초기 화면 - 최근 본 목록
         status = "recent"
         mypageCollectionView.reloadData()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,20 +64,42 @@ final class MypageViewController: GestureViewController {
                                                animated: true)
     }
     
-    // MARK: - 버튼 눌리지 않은 상태로 만드는 함수
+    // MARK: - 함수
     
     private func setButtonInit() {
         
         recentButton.setImage(UIImage(named: "Recent"), for: .normal)
-        myCollectionButton.setImage(UIImage(named: "Collection"), for: .normal)
         bookMarkButton.setImage(UIImage(named: "mypageBookmark"), for: .normal)
         
         recentButton.setTitleColor(#colorLiteral(red: 0.6079999804, green: 0.6079999804, blue: 0.6079999804, alpha: 1), for: .normal)
-        myCollectionButton.setTitleColor(#colorLiteral(red: 0.6079999804, green: 0.6079999804, blue: 0.6079999804, alpha: 1), for: .normal)
         bookMarkButton.setTitleColor(#colorLiteral(red: 0.6079999804, green: 0.6079999804, blue: 0.6079999804, alpha: 1), for: .normal)
         tagButton.setTitleColor(#colorLiteral(red: 0.6079999804, green: 0.6079999804, blue: 0.6079999804, alpha: 1), for: .normal)
         
     }
+    
+    func goPushController(storyboardName: String,
+                          identifier: String) {
+        let storyboard = UIStoryboard(name: "\(storyboardName)", bundle: nil)
+        let viewController = storyboard
+            .instantiateViewController(withIdentifier: "\(identifier)")
+        CommonUtility.sharedInstance.myPageNavigationViewController?
+            .pushViewController(viewController, animated: true)
+    }
+    
+    func getTagList() {
+        MyKeywordsService.shared.getMyKeywords { res in
+            self.tagList = res ?? [String]()
+            self.mypageCollectionView.reloadData()
+        }
+    }
+    
+//    func setCollectionViewLayout() {
+//        if status == "tag" {
+//            DispatchQueue.main.async {
+//                self.mypageCollectionViewFlowLayout.minimumLineSpacing = -15.0
+//            }
+//        }
+//    }
     
     // MARK: - IBAction
     
@@ -91,21 +117,7 @@ final class MypageViewController: GestureViewController {
         goToFirstItem()
     }
     
-    @IBAction func myCollectionButtonDidTap(_ sender: UIButton) {
-        
-        if status != "myCollection"{
-            tagSettingButton.isHidden = true
-            status = "myCollection"
-            mypageCollectionView.reloadData()
-            
-            setButtonInit()
-            myCollectionButton.setImage(UIImage(named: "CollectionOn"), for: .normal)
-            myCollectionButton.setTitleColor(#colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1), for: .normal)
-        }
-        goToFirstItem()
-    }
     @IBAction func bookMarkButtonDidTap(_ sender: UIButton) {
-        
         if status != "bookMark"{
             tagSettingButton.isHidden = true
             status = "bookMark"
@@ -122,7 +134,7 @@ final class MypageViewController: GestureViewController {
         if status != "tag"{
             tagSettingButton.isHidden = false
             status = "tag"
-            mypageCollectionView.reloadData()
+            getTagList()
             
             setButtonInit()
             tagButton.setTitleColor(#colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1), for: .normal)
@@ -150,7 +162,17 @@ extension MypageViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return mypageList.count
+        
+        if status == "recent" {
+            return mypageList.count
+        } else if status == "bookMark" {
+            return mypageList.count
+        } else if status == "tag" {
+            return tagList.count
+        } else {
+            return mypageList.count
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -167,26 +189,15 @@ extension MypageViewController: UICollectionViewDataSource {
         
         if status == "recent" {
             cell.mypageToonLabel.text = "최근 본 작품"
-            cell.mypageCollectionImageView.isHidden = true
-            cell.mypageToonImageView.isHidden = false
-        } else if status == "myCollection" {
-            cell.mypageCollectionImageView.isHidden = false
-            if indexPath.row == 0 {
-                cell.mypageToonImageView.isHidden = true
-                cell.mypageToonLabel.text = "새 컬렉션 만들기"
-            } else {
-                let mypage = mypageList[indexPath.row]
-                cell.mypageToonImageView.image = UIImage(named: mypage.image)
-                cell.mypageToonLabel.text = mypage.title
-            }
         } else if status == "bookMark" {
             cell.mypageToonLabel.text = "찜한 목록 작품"
-            cell.mypageCollectionImageView.isHidden = true
-            cell.mypageToonImageView.isHidden = false
         } else if status == "tag" {
-            cell.mypageToonLabel.text = "#tag"
-            cell.mypageCollectionImageView.isHidden = true
-            cell.mypageToonImageView.isHidden = false
+            let tagName = tagList[indexPath.row]
+//            cell.mypageToonLabel.isHidden = true
+            cell.mypageToonLabel.isHidden = false
+            cell.mypageToonLabel.text = "#" + tagName
+            cell.mypageToonImageView.image = UIImage(named: CommonUtility.tagImage(name: tagName))
+            cell.mypageToonImageView.setCorner(cornerRadius: 5)
         }
         
         return cell
@@ -194,38 +205,28 @@ extension MypageViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         if status == "recent" {
-            let storyboard = UIStoryboard(name: "Detail", bundle: nil)
-            let viewController = storyboard.instantiateViewController(withIdentifier: "DetailToonView")
-            CommonUtility.sharedInstance.myPageNavigationViewController?
-                .pushViewController(viewController, animated: true)
-        } else if status == "myCollection" {
-            if indexPath.row == 0 {
-                let storyboard = UIStoryboard(name: "MyPage", bundle: nil)
-                let popViewController = storyboard
-                    .instantiateViewController(withIdentifier: "MypagePopUpViewController")
-                self.addChild(popViewController)
-                popViewController.view.frame = self.view.frame
-                self.view.addSubview(popViewController.view)
-                popViewController.didMove(toParent: self)
-            } else {
-                let storyboard = UIStoryboard(name: "MyPage", bundle: nil)
-                let viewController = storyboard.instantiateViewController(withIdentifier: "MypageDetailViewController")
-                self.navigationController?.pushViewController(viewController, animated: true)
-            }
+            goPushController(storyboardName: "Detail",
+                             identifier: "DetailToonView")
         } else if status == "bookMark" {
-            let storyboard = UIStoryboard(name: "Detail", bundle: nil)
-            let viewController = storyboard.instantiateViewController(withIdentifier: "DetailToonView")
-            CommonUtility.sharedInstance.myPageNavigationViewController?
-                .pushViewController(viewController, animated: true)
+            goPushController(storyboardName: "Detail",
+                             identifier: "DetailToonView")
         } else if status == "tag" {
-            let storyboard = UIStoryboard(name: "Look", bundle: nil)
-            let viewController = storyboard.instantiateViewController(withIdentifier: "LookDetailViewController")
-            CommonUtility.sharedInstance.myPageNavigationViewController?
-                .pushViewController(viewController, animated: true)
+            goPushController(storyboardName: "Look",
+                             identifier: "LookDetailViewController")
         }
     }
+
+//    func collectionView(_ collectionView: UICollectionView,
+//                        layout collectionViewLayout: UICollectionViewLayout,
+//                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+//        if status == "tag" {
+//            return 0.0
+//        } else {
+//            return 10.0
+//        }
+//    }
+    
 }
 
 // MARK: - UICollectionViewDelegate

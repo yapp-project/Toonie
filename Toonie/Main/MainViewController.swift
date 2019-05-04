@@ -58,7 +58,7 @@ final class MainViewController: GestureViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBarButtonDidTap(feedButton)
+        tabBarButtonDidTap(feedButton) 
     }
     
     // MARK: - Action
@@ -100,7 +100,7 @@ final class MainViewController: GestureViewController {
         case lookButton:
             CommonUtility.sharedInstance.lookNavigationViewController?.popToRootViewController(animated: true)
         case myPageButton:
-            CommonUtility.sharedInstance.feedNavigationViewController?.popToRootViewController(animated: true)
+            CommonUtility.sharedInstance.myPageNavigationViewController?.popToRootViewController(animated: true)
         default:
             CommonUtility.sharedInstance.feedNavigationViewController?.popToRootViewController(animated: true)
         }

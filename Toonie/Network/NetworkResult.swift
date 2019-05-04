@@ -10,6 +10,6 @@ import Foundation
 
 enum NetworkResult<T> {
     case networkSuccess(T)
-    case networkError((resCode : Int, msg : String))
+    case networkError((resCode: Int, msg: String))
     case networkFail
 }

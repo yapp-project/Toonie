@@ -10,129 +10,197 @@ import UIKit
 import Lottie
 import SnapKit
 
-//Feed의 NavigationController
+// Feed의 NavigationController
 final class FeedNavigationController: UINavigationController {
-  override init(rootViewController: UIViewController) {
-    super.init(rootViewController: rootViewController)
-  }
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-    CommonUtility.sharedInstance.feedNavigationViewController = self
-  }
+    override init(rootViewController: UIViewController) {
+        super.init(rootViewController: rootViewController)
+    }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        CommonUtility.sharedInstance.feedNavigationViewController = self
+    }
 }
 
 // 홈 화면
 final class FeedViewController: GestureViewController {
-  
-  // MARK: - IBOutlet
-  
-  @IBOutlet private weak var tagView: UIView!
-  @IBOutlet private weak var forYouCollectionView: UICollectionView!
-  @IBOutlet private weak var recentCollectionView: UICollectionView!
-  @IBOutlet private weak var favoriteCollectionView: UICollectionView!
-  
-  // MARK: - Property
-  
-  private var tagAnimationView: AnimationView?
-  
-  // MARK: - Life Cycle
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    setTagAnimationView()
-  }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-  }
-  
-  // MARK: - IBAction
-  
-  ///피드>피드상세 이동
-  @IBAction func moveFeedDetailDidTap(_ sender: Any) {
-    let storyboard = UIStoryboard(name: "Feed", bundle: nil)
-    let viewController = storyboard.instantiateViewController(withIdentifier: "RecommendViewController")
-    self.navigationController?.pushViewController(viewController, animated: true)
     
-  }
-  
-  // MARK: - Function
-  
-  /// tagAnimationView 세팅
-  func setTagAnimationView() {
-    tagAnimationView = AnimationView(name: "tag")
-    if let tagAnimationView = tagAnimationView {
-      tagAnimationView.contentMode = .scaleAspectFit
-      tagView.addSubview(tagAnimationView)
-      tagAnimationView.snp.makeConstraints { (make) -> Void in
-        make.width.equalTo(tagView.bounds.width)
-        make.height.equalTo(tagView.bounds.height)
-        make.center.equalTo(tagView)
-      }
-      tagAnimationView.play()
+    // MARK: - IBOutlet
+    
+    @IBOutlet private weak var tagView: UIView!
+    @IBOutlet private weak var forYouCollectionView: UICollectionView!
+    @IBOutlet private weak var recentCollectionView: UICollectionView!
+    @IBOutlet private weak var favoriteCollectionView: UICollectionView!
+    
+    // MARK: - Property
+    
+    private var tagAnimationView: AnimationView?
+    private var forYouToonLists: [ToonList]?
+    private var toonsOfTag: [ToonInfoList]?
+    private var detailToonId = ""
+    
+    // MARK: - Life Cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setTagAnimationView()
     }
-  }
-  
-  /// 인스타툰 상세정보 화면으로 이동
-  func moveDetailToon() {
-    let storyboard = UIStoryboard(name: "Detail", bundle: nil)
-    let viewController = storyboard.instantiateViewController(withIdentifier: "DetailToonView")
-    CommonUtility.sharedInstance.mainNavigationViewController?.pushViewController(viewController, animated: true)
-  }
-  
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadToon()
+        playTagAnimationView()
+    }
+    
+    // MARK: - IBAction
+    
+    /// 피드>피드상세 이동
+    @IBAction func moveFeedDetailDidTap(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Feed", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "RecommendViewController")
+        self.navigationController?.pushViewController(viewController, animated: true)
+        
+    }
+    
+    // MARK: - Function
+    
+    /// 툰 정보 네트워크 요청
+    private func loadToon() {
+        ForYouToonListService.shared.getForYouToonList { result in
+            self.forYouToonLists = result
+            self.forYouCollectionView.reloadData()
+        }
+        ToonOfTagService.shared.getToonOfTag { result in
+            self.toonsOfTag = result
+            self.recentCollectionView.reloadData()
+            self.favoriteCollectionView.reloadData()
+        }
+//        setTagAnimationView()
+        
+    }
+    
+    /// tagAnimationView 세팅
+    private func setTagAnimationView() {
+        tagAnimationView = AnimationView(name: "newTag")
+        if let tagAnimationView = tagAnimationView {
+            tagAnimationView.contentMode = .scaleAspectFit
+            tagView.addSubview(tagAnimationView)
+            tagAnimationView.snp.makeConstraints { (make) -> Void in
+                make.width.equalTo(tagView.bounds.width)
+                make.height.equalTo(tagView.bounds.height)
+                make.center.equalTo(tagView)
+            }
+            playTagAnimationView()        }
+    }
+    
+    private func playTagAnimationView() {
+        tagAnimationView?.play()
+    }
+    
+    /// 인스타툰 상세정보 화면으로 이동
+    private func pushDetailToonViewController(toonID: String) {
+        let storyboard = UIStoryboard(name: "Detail", bundle: nil)
+        if let viewController = storyboard
+            .instantiateViewController(withIdentifier: "DetailToonView")
+            as? DetailToonViewController {
+            viewController.detailToonID = toonID
+            CommonUtility.sharedInstance.mainNavigationViewController?
+                .pushViewController(viewController,
+                                    animated: true)
+        }
+        
+    }
 }
 
 // MARK: - UICollectionViewDataSource
 
 extension FeedViewController: UICollectionViewDataSource {
-  
-  func collectionView(_ collectionView: UICollectionView,
-                      numberOfItemsInSection section: Int) -> Int {
-    if collectionView == forYouCollectionView {
-      return 3
-    } else if collectionView == recentCollectionView {
-      return 3
-    } else if collectionView == favoriteCollectionView {
-      return 3
-    } else {
-      return 0
-    }
-  }
-  
-  func collectionView(_ collectionView: UICollectionView,
-                      cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
-    if collectionView == forYouCollectionView {
-      guard let cell = collectionView
-        .dequeueReusableCell(withReuseIdentifier: "forYouCell",
-                             for: indexPath) as? ForYouCollectionViewCell
-        else { return UICollectionViewCell() }
-      cell.setForYouCollectionViewCellProperties()
-      return cell
-      
-    } else if collectionView == recentCollectionView {
-      guard let cell = collectionView
-        .dequeueReusableCell(withReuseIdentifier: "recentCell",
-                             for: indexPath) as? RecentCollectionViewCell
-        else { return UICollectionViewCell() }
-      cell.setRecentCollectionViewCellProperties()
-      return cell
-    } else if collectionView == favoriteCollectionView {
-      guard let cell = collectionView
-        .dequeueReusableCell(withReuseIdentifier: "favoriteCell",
-                             for: indexPath) as? FavoriteCollectionViewCell
-        else { return UICollectionViewCell() }
-      cell.setFavoriteCollectionViewCellProperties()
-      return cell
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
+        if collectionView == forYouCollectionView {
+            return forYouToonLists?.count ?? 0
+        } else if collectionView == recentCollectionView {
+            return toonsOfTag?.count ?? 0
+        } else if collectionView == favoriteCollectionView {
+            return toonsOfTag?.count ?? 0
+        } else {
+            return 0
+        }
     }
-    return UICollectionViewCell()
-  }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        if collectionView == forYouCollectionView {
+            guard let cell = collectionView
+                .dequeueReusableCell(withReuseIdentifier: "forYouCell",
+                                     for: indexPath) as? ForYouCollectionViewCell
+                else { return UICollectionViewCell() }
+            if let forYouToonList = forYouToonLists?[indexPath.item] {
+                cell.setForYouCollectionViewCellProperties(forYouToonList)
+            }
+            return cell
+            
+        } else if collectionView == recentCollectionView {
+            guard let cell = collectionView
+                .dequeueReusableCell(withReuseIdentifier: "recentCell",
+                                     for: indexPath) as? RecentCollectionViewCell
+                else { return UICollectionViewCell() }
+            if let toonOfTag = toonsOfTag?[indexPath.item] {
+                cell.setRecentCollectionViewCellProperties(toonOfTag)
+            }
+            return cell
+            
+        } else if collectionView == favoriteCollectionView {
+            guard let cell = collectionView
+                .dequeueReusableCell(withReuseIdentifier: "favoriteCell",
+                                     for: indexPath) as? FavoriteCollectionViewCell
+                else { return UICollectionViewCell() }
+            
+            if let toonOfTag = toonsOfTag?[indexPath.item] {
+                cell.setFavoriteCollectionViewCellProperties(toonOfTag)
+            }
+            return cell
+        }
+        return UICollectionViewCell()
+    }
 }
 
 // MARK: - UICollectionViewDelegate
 
 extension FeedViewController: UICollectionViewDelegate {
-  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    moveDetailToon()
-  }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        if let currentCell = collectionView.cellForItem(at: indexPath) as? ForYouCollectionViewCell {
+            detailToonId = findToonId(toonTitle: currentCell.forYouToonTitleLabel.text ?? "")
+        }
+        if let currentCell = collectionView.cellForItem(at: indexPath) as? RecentCollectionViewCell {
+            detailToonId = findToonId(toonTitle: currentCell.recentToonTitleLabel.text ?? "")
+        }
+        if let currentCell = collectionView.cellForItem(at: indexPath) as? FavoriteCollectionViewCell {
+            detailToonId = findToonId(toonTitle: currentCell.favoriteToonTitleLabel.text ?? "")
+        }
+        pushDetailToonViewController(toonID: detailToonId)
+        
+    }
+    
+    /// 선택한 툰 타이틀로 툰 id 찾기
+    private func findToonId(toonTitle: String) -> String {
+        var toonId = ""
+        if let forYouToonLists = forYouToonLists {
+            for index in 0..<forYouToonLists.count {
+                if toonTitle == forYouToonLists[index].toonName {
+                    toonId = forYouToonLists[index].toonID ?? ""
+                }
+            }
+        }
+        if let toonsOfTag = toonsOfTag {
+            for index in 0..<toonsOfTag.count {
+                if toonTitle == toonsOfTag[index].toonName {
+                    toonId = toonsOfTag[index].toonID ?? ""
+                }
+            }
+        }
+        return toonId
+    }
 }

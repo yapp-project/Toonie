@@ -10,25 +10,40 @@ import UIKit
 
 // '최근 본 작품과 연관된' 세번째 컬렉션뷰셀
 final class RecentCollectionViewCell: UICollectionViewCell {
-  
-  // MARK: - IBOutlets
-  
-  @IBOutlet weak var recentToonImageView: UIImageView!
-  @IBOutlet weak var artistLabel: UILabel!
-  @IBOutlet weak var bookMarkButton: UIButton!
-  
-  override func prepareForReuse() {
-    super.prepareForReuse()
-    recentToonImageView.image = nil
-    artistLabel.text = nil
-    bookMarkButton.isSelected  = false
-  }
-  
-  // MARK: - Functions
-  
-  /// 컬렉션뷰셀 데이터 설정
-  func setRecentCollectionViewCellProperties() {
-    recentToonImageView.image = UIImage(named: "sample2")
-    artistLabel.text = "임유끼"
-  }
+    
+    // MARK: - IBOutlets
+    
+    @IBOutlet private weak var recentToonImageView: UIImageView!
+    @IBOutlet weak var recentToonTitleLabel: UILabel!
+    @IBOutlet private weak var bookMarkButton: UIButton!
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        recentToonImageView.image = nil
+        recentToonTitleLabel.text = nil
+        bookMarkButton.isSelected  = false
+    }
+    
+    // MARK: - Functions
+    
+    /// 컬렉션뷰셀 데이터 설정
+    func setRecentCollectionViewCellProperties(_ toonInfoList: ToonInfoList) {
+        prepareForReuse()
+        
+        if let url = URL(string: toonInfoList.instaThumnailUrl ?? "") {
+            do {
+                let data = try Data(contentsOf: url)
+                
+                DispatchQueue.main.async {
+                    self.recentToonImageView.image = UIImage(data: data)
+                }
+            } catch let error {
+                print("Error : \(error.localizedDescription)")
+            }
+        }
+        DispatchQueue.main.async {
+            self.recentToonTitleLabel.text = toonInfoList.toonName
+        }
+    }
 }
+
