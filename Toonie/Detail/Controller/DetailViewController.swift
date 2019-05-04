@@ -15,6 +15,7 @@ final class DetailToonViewController: GestureViewController {
     
     var detailToonID: String?
     private var detailToon: DetailToon?
+    private var isFavorite: Bool?
     
     // MARK: - IBOutlets
     
@@ -26,6 +27,7 @@ final class DetailToonViewController: GestureViewController {
     @IBOutlet private weak var followerNumberLabel: UILabel!
     @IBOutlet private weak var mainKeywordLabel: UILabel!
     @IBOutlet private weak var subKeywordLabel: UILabel!
+    @IBOutlet private weak var favoriteButton: UIButton!
     
     // MARK: - IBActions
     
@@ -38,14 +40,8 @@ final class DetailToonViewController: GestureViewController {
     @IBAction func moreButtonDidTap(_ sender: UIButton) {
         UIAlertController
             .alert(title: nil, message: nil, style: .actionSheet)
-            .action(title: "KakaoTalk에 공유", style: .default) { _ in
-                print("dd")
-            }
-            .action(title: "Messager에 공유", style: .default) { _ in
-                print("dd")
-            }
-            .action(title: "링크 복사", style: .default) { _ in
-                print("dd")
+            .action(title: "인스타툰 링크 공유하기", style: .default) { _ in
+                self.shareActivity()
             }
             .action(title: "이 작품 더이상 추천 받지 않기", style: .destructive) { _ in
                 print("dd")
@@ -54,7 +50,6 @@ final class DetailToonViewController: GestureViewController {
                 print("dd")
             }
             .present(to: self)
-        
     }
     
     /// 툰 웹뷰 띄우기
@@ -68,18 +63,27 @@ final class DetailToonViewController: GestureViewController {
         }
     }
     
-    /// 툰 찜하기
+    /// 툰 찜하기 & 취소 기능
     @IBAction func addToMyFavorite(_ sender: UIButton) {
+        isFavorite?.toggle()
+        
         let body = [
             "workListName": "default",
             "workListInfo": "찜한 목록",
             "toonId": detailToon?.toonID
         ]
         
-        FavoriteService.shared.postFavoriteToon(params: body as [String : Any],
-                                                completion: {
-                                                    print("Success to add favorite toon")
-        })
+        FavoriteService.shared
+            .postFavoriteToon(params: body as [String: Any],
+                              completion: {
+                                if self.isFavorite == true {
+                                    print("Success to add favorite toon")
+                                    self.showAddFavoriteToast()
+                                } else {
+                                    print("Success to delete favorite toon")
+                                }
+                                self.changeFavoriteButton(self.favoriteButton)
+            })
     }
     
     // MARK: - Life Cycle
@@ -96,7 +100,8 @@ final class DetailToonViewController: GestureViewController {
         if let detailToon = detailToon {
             setDetailToon(detailToon)
         }
-        
+        isFavorite = false
+        changeFavoriteButton(self.favoriteButton)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -119,12 +124,15 @@ final class DetailToonViewController: GestureViewController {
     
     /// 툰 정보 넣기
     private func setDetailToon(_ detailToon: DetailToon) {
-        if let url = URL(string: detailToon.instaThumnailUrl ?? "") {
-            do {
-                let data = try Data(contentsOf: url)
-                detailToonImageView.image = UIImage(data: data)
-            } catch let error {
-                print("Error : \(error.localizedDescription)")
+        DispatchQueue.main.async {
+            if let url = URL(string: detailToon.instaThumnailUrl ?? "") {
+                do {
+                    let data = try Data(contentsOf: url)
+                    self.detailToonImageView.image = UIImage(data: data)
+                    self.detailToonImageView.setCorner(cornerRadius: self.detailToonImageView.frame.width / 2)
+                } catch let error {
+                    print("Error : \(error.localizedDescription)")
+                }
             }
         }
         detailToonIdLabel.text = detailToon.toonID
@@ -145,6 +153,59 @@ final class DetailToonViewController: GestureViewController {
             }
             subKeywordLabel.text = tagList
         }
+    }
+    
+    /// '찜하기' 했을 때 뜨는 토스트
+    func showAddFavoriteToast() {
+        let bookmarkImage = UIImage(named: "bookmark")
+        let bookmarkImageView = UIImageView(image: bookmarkImage)
+        bookmarkImageView.frame = CGRect(x: 0, y: 0, width: 15, height: 18)
+        
+        let window = UIApplication.shared.keyWindow
+        let toastButton = UIButton(frame: CGRect(x: 0,
+                                                 y: view.frame.size.height - (window?.safeAreaInsets.bottom)! - 86,
+                                                 width: view.frame.size.width,
+                                                 height: 86))
+        toastButton.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.3764705882, blue: 0.2509803922, alpha: 1)
+        toastButton.setImage(bookmarkImage, for: .normal)
+        toastButton.titleLabel?.textColor = UIColor.white
+        toastButton.setTitle("    내 찜한 작품에 추가되었습니다.", for: .normal)
+        toastButton.titleLabel?.font = UIFont.getAppleSDGothicNeo(option: .medium, size: 14)
+        toastButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        toastButton.alpha = 1.0
+        view.addSubview(toastButton)
+        
+        self.toastDown(view: toastButton)
+    }
+    
+    /// 토스트 아래로 사라지는 애니메이션 기능
+    func toastDown(view: UIView) {
+        let window = UIApplication.shared.keyWindow
+        UIView.animate(withDuration: 0.3, delay: 0.8, options: .curveLinear, animations: {
+            view.center.y += 40 - (window?.safeAreaInsets.bottom)!
+            view.alpha = 0
+        }, completion: { _ in
+            self.dismiss(animated: true, completion: nil)
+        })
+    }
+    
+    /// '찜하기' 버튼 상태 변경 기능
+    private func changeFavoriteButton(_ button: UIButton) {
+        if isFavorite == true {
+            button.backgroundColor = #colorLiteral(red: 0.6078431373, green: 0.6078431373, blue: 0.6078431373, alpha: 1)
+            button.setTitle("찜하기 취소", for: .normal)
+        } else {
+            button.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.3764705882, blue: 0.2509803922, alpha: 1)
+            button.setTitle("찜하기", for: .normal)
+        }
+    }
+    
+    /// 공유하기 기능
+    private func shareActivity() {
+        let textToShare = [detailToon?.instaUrl]
+        let activityVC = UIActivityViewController(activityItems: textToShare as [Any],
+                                                  applicationActivities: nil)
+        self.present(activityVC, animated: true, completion: nil)
     }
     
 }
