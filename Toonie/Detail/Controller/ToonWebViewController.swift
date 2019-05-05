@@ -15,7 +15,6 @@ final class ToonWebViewController: UIViewController, WKNavigationDelegate {
     // MARK: - Property
     
     var toonUrl: String?
-    var instaID: String?
     
     // MARK: - IBOutlet
     
@@ -30,8 +29,8 @@ final class ToonWebViewController: UIViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        instagramWebView.navigationDelegate = self
         loadWebView()
-        setLabel(instaId: instaID ?? "", url: toonUrl ?? "https://www.instagram.com/")
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -48,13 +47,11 @@ final class ToonWebViewController: UIViewController, WKNavigationDelegate {
     /// 웹 화면 이동
     @IBAction func backButtonDidTap(_ sender: UIButton) {
         instagramWebView.goBack()
-        instagramWebView.reload()
     }
     
     /// 웹 화면 이동
     @IBAction func forwardButtonDidTap(_ sender: UIButton) {
         instagramWebView.goForward()
-        instagramWebView.reload()
     }
     
     // MARK: - Function
@@ -66,19 +63,25 @@ final class ToonWebViewController: UIViewController, WKNavigationDelegate {
             let request = URLRequest(url: url)
             instagramWebView.load(request)
         }
-        instagramWebView.navigationDelegate = self
-        instagramWebView.allowsBackForwardNavigationGestures = true
     }
     
-    /// 웹뷰 정보 넣기
-    private func setLabel(instaId: String, url: String) {
-        idLabel.text = instaId
-        urlLabel.text = url
+    /// 웹뷰 타이틀, url 넣기
+    private func setLabel() {
+        let javascript = "document.title\n"
+        
+        instagramWebView.evaluateJavaScript(javascript) { (result, error) -> Void in
+            if error == nil {
+                self.idLabel.text = result as? String
+            }
+        }
+        urlLabel.text = instagramWebView.url?.absoluteString
     }
     
-    /// 웹뷰 버튼 설정
-    private func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+    /// 웹뷰 버튼, 레이블 설정
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
         backButton.isEnabled = instagramWebView.canGoBack
         forwardButton.isEnabled = instagramWebView.canGoForward
+        setLabel()
     }
+    
 }

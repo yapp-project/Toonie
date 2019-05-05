@@ -11,24 +11,66 @@ import UIKit
 // '지금나는
 final class RecommendCollectionViewCell: UICollectionViewCell {
     
+    // MARK: - Properties
+    var toonID: String = ""
+    var toonName: String = ""
+    var instaID: String = ""
+    var instaUrl: String = ""
+    var instaThumnailUrl: String = ""
+    var instafollowerCnt: String = ""
+    var instaLatestPostUrl: String = ""
+    
     // MARK: - IBOutlets
     
     @IBOutlet private weak var recentToonImageView: UIImageView!
-    @IBOutlet private weak var artistLabel: UILabel!
+    @IBOutlet private weak var toonNameTitle: UILabel!
     @IBOutlet private weak var bookMarkButton: UIButton!
+    @IBOutlet weak var curationTagList: UILabel!
     
     override func prepareForReuse() {
         super.prepareForReuse()
         recentToonImageView.image = nil
-        artistLabel.text = nil
+        toonNameTitle.text = nil
         bookMarkButton.isSelected  = false
     }
     
     // MARK: - Functions
     
     /// 컬렉션뷰셀 데이터 설정
-    func setRecommendCollectionViewCellProperties() {
-        recentToonImageView.image = UIImage(named: "sample2")
-        artistLabel.text = "임유끼"
+    func setRecommendCollectionViewCellProperties(curationInfoList: ToonInfoList?) {
+        prepareForReuse()
+        
+        if let info = curationInfoList { 
+            DispatchQueue.main.async {
+                if let url = URL(string: info.instaThumnailUrl ?? "") {
+                    do {
+                        let data = try Data(contentsOf: url)
+                        self.recentToonImageView.image = UIImage(data: data)
+                    } catch let error {
+                        print("Error : \(error.localizedDescription)")
+                    }
+                }
+            }
+            if let nameString = info.toonName {
+                toonNameTitle.text = nameString
+            }
+            
+            var tagList = ""
+            if let toonTagList = info.toonTagList {
+                for index in 0..<toonTagList.count {
+                    tagList += "#" + toonTagList[index] + " "
+                }
+                curationTagList.text = tagList
+            }
+            
+            toonID = info.toonID ?? ""
+            toonName = info.toonName ?? ""
+            instaID = info.instaID ?? ""
+            instaUrl = info.instaUrl ?? ""
+            instaThumnailUrl = info.instaThumnailUrl ?? ""
+            instafollowerCnt = info.instafollowerCount ?? ""
+            instaLatestPostUrl = info.instaLatestPostUrl ?? ""
+            
+        }
     }
 }

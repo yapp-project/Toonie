@@ -13,18 +13,18 @@ import Foundation
  */
 class API {
     static let baseURL = "http://220.76.238.7:10"
-//    static let baseURL = "http://172.30.1.12:8080"
-  
+    //    static let baseURL = "http://172.30.1.12:8080"
+    
     static let jsonDecoder: JSONDecoder = {
         let jsonDecoder = JSONDecoder()
         jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
         return jsonDecoder
     }()
-  
+    
     static let token = {
         return baseURL + "/token"
     }()
-  
+    
     static let keywords = {
         return baseURL + "/keywords"
     }()
@@ -44,7 +44,7 @@ class API {
     static let toons = {
         return baseURL + "/toons"
     }()
-    
+
     //mykeywords/:token
     static let myKeywordsToken = { (token) in
         return myKeywords + "/" + token
@@ -55,4 +55,12 @@ class API {
         return keywords + "/" + keyword
     }
     
+      static let worklist = {
+        return baseURL + "/worklist"
+    }()
+    
+    static let myWorklist = {
+        return baseURL + "/worklist/\(CommonUtility.userToken)/default"
+    }()
+
 }
