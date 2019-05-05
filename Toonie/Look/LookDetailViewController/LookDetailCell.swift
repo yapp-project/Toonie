@@ -20,16 +20,4 @@ final class LookDetailCell: UICollectionViewCell {
     func setImageView(imageURL: String) {
         imageView.imageFromUrl(imageURL, defaultImgPath: "collectionAddLoading")
     }
-    
-    /// 컬렉션뷰셀 데이터 설정
-    func setRecentCollectionViewCellProperties(_ toonInfoList: ToonInfoList) {
-        if let url = URL(string: toonInfoList.instaThumnailUrl ?? "") {
-            do {
-                let data = try Data(contentsOf: url)
-                imageView.image = UIImage(data: data)
-            } catch let error {
-                print("Error : \(error.localizedDescription)")
-            }
-        }
-    }
 }

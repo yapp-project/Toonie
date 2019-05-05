@@ -28,9 +28,7 @@ final class LookDetailViewController: GestureViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         lookDetailTitleLabel.text = selectedKeyword
-        
         setCollectionViewLayout()
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -39,26 +37,12 @@ final class LookDetailViewController: GestureViewController {
                 viewController.selectedKeyword = self.selectedKeyword
                 viewController.tagDidTapClosure = {
                     (tagString) -> Void in
-                    print("Top 컬렉션 뷰의 선택된 tagString\(tagString)")
-                    
-//                    LookToonOfTagService.shared.getLookToonOfTag(toonTag: tagString, completion: { [weak self] (res) in
-//
-//                        guard self != nil else { return }
-//                        let toonData = res as ToonOfTag
-//                        guard let toonInfoList = toonData.toonInfoList else { return }
-//                        self?.thumnailImageList = toonInfoList
-//                        print("toonInfoList : ", toonInfoList)
-////                        guard let toonImages = toonData
-////                        guard let events = detailData.dThemeEventList else { return }
-//                    })
-                    
-                    LookToonOfTagService.shared.getLookToonOfTag(toonTag: tagString, completion: { res in
+                    LookToonOfTagService.shared
+                        .getLookToonOfTag(toonTag: tagString,
+                                          completion: { res in
                         self.toonList = [res]
                         guard let toonData = res.toonInfoList else { return }
                         self.toonDataList = toonData
-                        
-                        print("toonList.count : ", self.toonList.count)
-                        print("self.toonDataList : ", self.toonDataList)
                         self.lookDetailCollectionView.reloadData()
                     })
                 
@@ -117,17 +101,10 @@ extension LookDetailViewController: UICollectionViewDataSource {
             .dequeueReusableCell(withReuseIdentifier: "LookDetailCell",
                                  for: indexPath) as? LookDetailCell
             else { return UICollectionViewCell() }
-        
+
         if let thumnailURL = toonDataList[indexPath.item].instaThumnailUrl {
-            print("thumnailURL : ", thumnailURL)
-            // 왜 안될까?
             cell.setImageView(imageURL: thumnailURL)
         }
-        
-        //이거도 안댐
-        //        let toonOfTag = toonDataList[indexPath.item]
-        //        cell.setRecentCollectionViewCellProperties(toonOfTag)
-        
         return cell
     }
     
