@@ -102,9 +102,7 @@ final class DetailToonViewController: GestureViewController {
         if let detailToon = detailToon {
             setDetailToon(detailToon)
         }
-        if let isFavorite = isFavorite {
-            changeFavoriteButton(isFavorite)
-        }
+        changeFavoriteButton(isFavorite ?? false)
     }
     
     // MARK: - Functions

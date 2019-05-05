@@ -67,14 +67,40 @@ final class FeedViewController: GestureViewController {
     /// 툰 정보 네트워크 요청
     private func loadToon() {
         ForYouToonListService.shared.getForYouToonList { result in
-            self.forYouToonLists = result
+            
+            if let result = result {
+                if result.count <= 10 {
+                    self.forYouToonLists = result
+                } else {
+                    self.forYouToonLists = self.makeRandomList(result)
+                }
+            }
             self.forYouCollectionView.reloadData()
         }
         ToonOfTagService.shared.getToonOfTag { result in
-            self.toonsOfTag = result
+            
+            if let result = result {
+                if result.count <= 10 {
+                    self.toonsOfTag = result
+                } else {
+                    self.toonsOfTag = self.makeRandomList(result)
+                }
+            }
             self.recentCollectionView.reloadData()
             self.favoriteCollectionView.reloadData()
         }
+    }
+    
+    /// 툰 랜덤 10개 목록 만들기
+    private func makeRandomList<T>(_ list: [T]) -> [T] {
+        var temporaryList = list
+        var randomList: [T] = []
+        for _ in 0..<10 {
+            let index = Int(arc4random_uniform(UInt32((temporaryList.count - 1))))
+            randomList.append(temporaryList[index])
+            temporaryList.remove(at: index)
+        }
+        return randomList
     }
     
     /// tagAnimationView 세팅
