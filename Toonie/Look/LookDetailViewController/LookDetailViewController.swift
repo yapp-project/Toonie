@@ -72,12 +72,17 @@ final class LookDetailViewController: GestureViewController {
     } 
     
     /// 인스타툰 상세정보 화면으로 이동
-    private func moveDetailToon() {
-        let storyboard = UIStoryboard(name: "Detail",
-                                      bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "DetailToonView")
-        CommonUtility.sharedInstance.mainNavigationViewController?.pushViewController(viewController,
-                                                                                      animated: true)
+    private func pushDetailToonViewController(toonID: String) {
+        let storyboard = UIStoryboard(name: "Detail", bundle: nil)
+        if let viewController = storyboard
+            .instantiateViewController(withIdentifier: "DetailToonView")
+            as? DetailToonViewController {
+            viewController.detailToonID = toonID
+            CommonUtility.sharedInstance.mainNavigationViewController?
+                .pushViewController(viewController,
+                                    animated: true)
+        }
+        
     }
     
     ///타이틀 세팅
@@ -110,8 +115,9 @@ extension LookDetailViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
-        //화면이동
-        self.moveDetailToon()
+        if let toonId = toonDataList[indexPath.item].toonID {
+            pushDetailToonViewController(toonID: toonId)
+        }
     }
 }
 
