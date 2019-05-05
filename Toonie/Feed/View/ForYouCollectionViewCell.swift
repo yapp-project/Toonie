@@ -28,22 +28,16 @@ final class ForYouCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Functions
     
-    /// 컬렉션뷰셀 데이터 설정  ((임시))
+    /// 컬렉션뷰셀 데이터 설정
     func setForYouCollectionViewCellProperties(_ toonList: ToonList) {
         prepareForReuse()
         
-        if let url = URL(string: toonList.instaThumnailUrl ?? "") {
-            do {
-                let data = try Data(contentsOf: url)
-                DispatchQueue.main.async {
-                    self.forYouToonImageView.image = UIImage(data: data)
-                    self.forYouToonImageView.setCorner(cornerRadius: 3)
-                }
-            } catch let error {
-                print("Error : \(error.localizedDescription)")
-            }
+        DispatchQueue.main.async {
+            self.forYouToonImageView.imageFromUrl(toonList.instaThumnailUrl,
+                                                  defaultImgPath: "collectionAddLoading")
+            self.forYouToonImageView.setCorner(cornerRadius: 3)
+            self.forYouToonTitleLabel.text = toonList.toonName
         }
-        forYouToonTitleLabel.text = toonList.toonName
         var tagList = ""
         if let toonTagList = toonList.toonTagList {
             for index in 0..<toonTagList.count {
