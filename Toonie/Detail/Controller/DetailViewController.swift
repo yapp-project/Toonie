@@ -95,19 +95,15 @@ final class DetailToonViewController: GestureViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("did\(String(describing: detailToonID))")
+        
+        addLatestToonList()
+        
         loadDetailToon(detailToonID ?? "")
         if let detailToon = detailToon {
             setDetailToon(detailToon)
         }
         isFavorite = false
         changeFavoriteButton(self.favoriteButton)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        subKeywordLabel?.text = ""
-        
     }
     
     // MARK: - Functions
@@ -206,6 +202,21 @@ final class DetailToonViewController: GestureViewController {
         let activityVC = UIActivityViewController(activityItems: textToShare as [Any],
                                                   applicationActivities: nil)
         self.present(activityVC, animated: true, completion: nil)
+    }
+    
+    /// 최근 조회한 툰 등록하기
+    private func addLatestToonList() {
+        let body = [
+            "workListName": "latest",
+            "workListInfo": "최근 본 목록",
+            "toonId": detailToon?.toonID
+        ]
+        
+        LatestService.shared
+            .postLatestToon(params: body as [String: Any],
+                            completion: {
+                                print("Success to add latest toon")
+            })
     }
     
 }
