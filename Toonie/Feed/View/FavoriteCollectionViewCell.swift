@@ -37,6 +37,7 @@ final class FavoriteCollectionViewCell: UICollectionViewCell {
                 let data = try Data(contentsOf: url)
                 DispatchQueue.main.async {
                     self.favoriteToonImageView.image = UIImage(data: data)
+                    self.favoriteToonImageView.setCorner(cornerRadius: 3)
                 }
             } catch let error {
                 print("Error : \(error.localizedDescription)")

@@ -37,6 +37,7 @@ final class ForYouCollectionViewCell: UICollectionViewCell {
                 let data = try Data(contentsOf: url)
                 DispatchQueue.main.async {
                     self.forYouToonImageView.image = UIImage(data: data)
+                    self.forYouToonImageView.setCorner(cornerRadius: 3)
                 }
             } catch let error {
                 print("Error : \(error.localizedDescription)")

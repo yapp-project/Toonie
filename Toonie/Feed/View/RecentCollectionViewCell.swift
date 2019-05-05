@@ -36,6 +36,7 @@ final class RecentCollectionViewCell: UICollectionViewCell {
                 
                 DispatchQueue.main.async {
                     self.recentToonImageView.image = UIImage(data: data)
+                    self.recentToonImageView.setCorner(cornerRadius: 3)
                 }
             } catch let error {
                 print("Error : \(error.localizedDescription)")
@@ -46,4 +47,3 @@ final class RecentCollectionViewCell: UICollectionViewCell {
         }
     }
 }
-
