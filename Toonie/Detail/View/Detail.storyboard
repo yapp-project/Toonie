@@ -41,7 +41,7 @@
                                     <action selector="moreButtonDidTap:" destination="SAT-03-eWA" eventType="touchUpInside" id="87g-dz-sde"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Vl-NR-4nm">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Vl-NR-4nm">
                                 <rect key="frame" x="0.0" y="88" width="375" height="626"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="3Rq-LU-TAv" userLabel="Third Stack View">

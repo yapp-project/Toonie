@@ -30,6 +30,8 @@ final class FeedViewController: GestureViewController {
     @IBOutlet private weak var forYouCollectionView: UICollectionView!
     @IBOutlet private weak var recentCollectionView: UICollectionView!
     @IBOutlet private weak var favoriteCollectionView: UICollectionView!
+    @IBOutlet weak var recentCollectionViewTitleLabel: UILabel!
+    @IBOutlet weak var favoriteCollectionViewTitleLabel: UILabel!
     
     // MARK: - Property
     
@@ -135,6 +137,24 @@ final class FeedViewController: GestureViewController {
         }
         
     }
+    
+    /// 선택한 툰 타이틀로 툰 id 찾기
+    private func findToonId(toonTitle: String) -> String {
+        var toonId = ""
+        if let forYouToonLists = forYouToonLists {
+            for index in 0..<forYouToonLists.count
+                where toonTitle == forYouToonLists[index].toonName {
+                    toonId = forYouToonLists[index].toonID ?? ""
+            }
+        }
+        if let toonsOfTag = toonsOfTag {
+            for index in 0..<toonsOfTag.count
+                where toonTitle == toonsOfTag[index].toonName {
+                    toonId = toonsOfTag[index].toonID ?? ""
+            }
+        }
+        return toonId
+    }
 }
 
 // MARK: - UICollectionViewDataSource
@@ -211,23 +231,5 @@ extension FeedViewController: UICollectionViewDelegate {
         }
         pushDetailToonViewController(toonID: detailToonId, isFavorite: isFavorite)
         
-    }
-    
-    /// 선택한 툰 타이틀로 툰 id 찾기
-    private func findToonId(toonTitle: String) -> String {
-        var toonId = ""
-        if let forYouToonLists = forYouToonLists {
-            for index in 0..<forYouToonLists.count
-                where toonTitle == forYouToonLists[index].toonName {
-                    toonId = forYouToonLists[index].toonID ?? ""
-            }
-        }
-        if let toonsOfTag = toonsOfTag {
-            for index in 0..<toonsOfTag.count
-                where toonTitle == toonsOfTag[index].toonName {
-                    toonId = toonsOfTag[index].toonID ?? ""
-            }
-        }
-        return toonId
     }
 }
