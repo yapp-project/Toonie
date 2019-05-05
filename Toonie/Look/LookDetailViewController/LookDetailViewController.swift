@@ -20,39 +20,15 @@ final class LookDetailViewController: GestureViewController {
     // MARK: - Properties
     var selectedKeyword: String = ""
     
-    //임시데이터
-    let dummy =  [#imageLiteral(resourceName: "myRecentlyLoadingImg"),
-                  #imageLiteral(resourceName: "sample2"),
-                  #imageLiteral(resourceName: "sampleImg"),
-                  #imageLiteral(resourceName: "sample3"),
-                  #imageLiteral(resourceName: "feedDetail_NotInfo"),
-                  #imageLiteral(resourceName: "userProfileimg"),
-                  #imageLiteral(resourceName: "LookCategoryImg_9"),
-                  #imageLiteral(resourceName: "LookCategoryImg_1"),
-                  #imageLiteral(resourceName: "LookCategoryImg_5"),
-                  #imageLiteral(resourceName: "LookCategoryImg_2"),
-                  #imageLiteral(resourceName: "sample3"),
-                  #imageLiteral(resourceName: "feedDetail_NotInfo"),
-                  #imageLiteral(resourceName: "userProfileimg"),
-                  #imageLiteral(resourceName: "LookCategoryImg_9"),
-                  #imageLiteral(resourceName: "LookCategoryImg_1"),
-                  #imageLiteral(resourceName: "LookCategoryImg_5"),
-                  #imageLiteral(resourceName: "LookCategoryImg_2"),
-                  #imageLiteral(resourceName: "sample3"),
-                  #imageLiteral(resourceName: "feedDetail_NotInfo"),
-                  #imageLiteral(resourceName: "userProfileimg"),
-                  #imageLiteral(resourceName: "LookCategoryImg_9"),
-                  #imageLiteral(resourceName: "LookCategoryImg_1"),
-                  #imageLiteral(resourceName: "LookCategoryImg_5")]
+    private var toonDataList = [ToonInfoList]()
+    private var toonList = [ToonOfTag]()
     
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         lookDetailTitleLabel.text = selectedKeyword
-        
         setCollectionViewLayout()
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -61,11 +37,15 @@ final class LookDetailViewController: GestureViewController {
                 viewController.selectedKeyword = self.selectedKeyword
                 viewController.tagDidTapClosure = {
                     (tagString) -> Void in
-                    print("Top 컬렉션 뷰의 선택된 tagString\(tagString)")
-                    /*
-                     To. 어진
-                     여기서 받아온 tagString으로 toonList 조회하시면 될것 같습니다
-                     */
+                    LookToonOfTagService.shared
+                        .getLookToonOfTag(toonTag: tagString,
+                                          completion: { res in
+                        self.toonList = [res]
+                        guard let toonData = res.toonInfoList else { return }
+                        self.toonDataList = toonData
+                        self.lookDetailCollectionView.reloadData()
+                    })
+                
                 }
             }
         }
@@ -80,7 +60,7 @@ final class LookDetailViewController: GestureViewController {
     // MARK: - Function
     
     ///컬렉션 뷰 아이템 크기, 위치조정
-    func setCollectionViewLayout() {
+    private func setCollectionViewLayout() {
         lookDetailCollectionViewFlowLayout.scrollDirection = .vertical
         lookDetailCollectionViewFlowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width * 0.322 ,
                                                                height: UIScreen.main.bounds.width * 0.322)
@@ -92,12 +72,17 @@ final class LookDetailViewController: GestureViewController {
     } 
     
     /// 인스타툰 상세정보 화면으로 이동
-    func moveDetailToon() {
-        let storyboard = UIStoryboard(name: "Detail",
-                                      bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "DetailToonView")
-        CommonUtility.sharedInstance.mainNavigationViewController?.pushViewController(viewController,
-                                                                                      animated: true)
+    private func pushDetailToonViewController(toonID: String) {
+        let storyboard = UIStoryboard(name: "Detail", bundle: nil)
+        if let viewController = storyboard
+            .instantiateViewController(withIdentifier: "DetailToonView")
+            as? DetailToonViewController {
+            viewController.detailToonID = toonID
+            CommonUtility.sharedInstance.mainNavigationViewController?
+                .pushViewController(viewController,
+                                    animated: true)
+        }
+        
     }
     
     ///타이틀 세팅
@@ -112,7 +97,7 @@ extension LookDetailViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return dummy.count
+        return toonDataList.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -121,16 +106,18 @@ extension LookDetailViewController: UICollectionViewDataSource {
             .dequeueReusableCell(withReuseIdentifier: "LookDetailCell",
                                  for: indexPath) as? LookDetailCell
             else { return UICollectionViewCell() }
-        
-        cell.setImageView(image: dummy[indexPath.row])
-        
+
+        if let thumnailURL = toonDataList[indexPath.item].instaThumnailUrl {
+            cell.setImageView(imageURL: thumnailURL)
+        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
-        //화면이동
-        self.moveDetailToon()
+        if let toonId = toonDataList[indexPath.item].toonID {
+            pushDetailToonViewController(toonID: toonId)
+        }
     }
 }
 
