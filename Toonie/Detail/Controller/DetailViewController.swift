@@ -95,19 +95,15 @@ final class DetailToonViewController: GestureViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("did\(String(describing: detailToonID))")
+        
+        addLatestToonList()
+        
         loadDetailToon(detailToonID ?? "")
         if let detailToon = detailToon {
             setDetailToon(detailToon)
         }
         isFavorite = false
         changeFavoriteButton(self.favoriteButton)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        subKeywordLabel?.text = ""
-        
     }
     
     // MARK: - Functions
@@ -125,33 +121,31 @@ final class DetailToonViewController: GestureViewController {
     /// 툰 정보 넣기
     private func setDetailToon(_ detailToon: DetailToon) {
         DispatchQueue.main.async {
-            if let url = URL(string: detailToon.instaThumnailUrl ?? "") {
-                do {
-                    let data = try Data(contentsOf: url)
-                    self.detailToonImageView.image = UIImage(data: data)
-                    self.detailToonImageView.setCorner(cornerRadius: self.detailToonImageView.frame.width / 2)
-                } catch let error {
-                    print("Error : \(error.localizedDescription)")
-                }
-            }
+            self.detailToonImageView.imageFromUrl(detailToon.instaThumnailUrl, defaultImgPath: "collectionAddLoading")
+            self.detailToonImageView.setCorner(cornerRadius: self.detailToonImageView.frame.width / 2)
+            self.detailToonIdLabel.text = detailToon.toonID
+            self.authorLabel.text = detailToon.instaID
+            self.descriptionLabel.text = detailToon.instaInfo
+            self.postCountLabel.text = detailToon.instaPostCount
+            self.followerNumberLabel.text = detailToon.instaFollowerCount
         }
-        detailToonIdLabel.text = detailToon.toonID
-        authorLabel.text = detailToon.instaID
-        descriptionLabel.text = detailToon.instaInfo
-        postCountLabel.text = detailToon.instaPostCount
-        followerNumberLabel.text = detailToon.instaFollowerCount
+        
         var tagList = ""
         if let toonTagList = detailToon.toonTagList {
             for index in 0..<toonTagList.count {
                 tagList += "#" + toonTagList[index] + " "
             }
-            mainKeywordLabel.text = tagList
+            DispatchQueue.main.async {
+                self.mainKeywordLabel.text = tagList
+            }
         }
         if let toonTagList = detailToon.curationTagList {
             for index in 0..<toonTagList.count {
                 tagList += "#" + toonTagList[index] + " "
             }
-            subKeywordLabel.text = tagList
+            DispatchQueue.main.async {
+                self.subKeywordLabel.text = tagList
+            }
         }
     }
     
@@ -206,6 +200,21 @@ final class DetailToonViewController: GestureViewController {
         let activityVC = UIActivityViewController(activityItems: textToShare as [Any],
                                                   applicationActivities: nil)
         self.present(activityVC, animated: true, completion: nil)
+    }
+    
+    /// 최근 조회한 툰 등록하기
+    private func addLatestToonList() {
+        let body = [
+            "workListName": "latest",
+            "workListInfo": "최근 본 목록",
+            "toonId": detailToon?.toonID
+        ]
+        
+        LatestService.shared
+            .postLatestToon(params: body as [String: Any],
+                            completion: {
+                                print("Success to add latest toon")
+            })
     }
     
 }

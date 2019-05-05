@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct FavoriteToon: Codable {
+struct WorkList: Codable {
     let success: Bool?
     let workListName: String?
     let workListInfo: String?

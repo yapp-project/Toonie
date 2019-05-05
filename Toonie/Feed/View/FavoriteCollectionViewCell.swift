@@ -31,18 +31,12 @@ final class FavoriteCollectionViewCell: UICollectionViewCell {
     /// 컬렉션뷰셀 데이터 설정 ((임시))
     func setFavoriteCollectionViewCellProperties(_ toonInfoList: ToonInfoList) {
         prepareForReuse()
-        
-        if let url = URL(string: toonInfoList.instaThumnailUrl ?? "") {
-            do {
-                let data = try Data(contentsOf: url)
-                DispatchQueue.main.async {
-                    self.favoriteToonImageView.image = UIImage(data: data)
-                }
-            } catch let error {
-                print("Error : \(error.localizedDescription)")
-            }
+        DispatchQueue.main.async {
+            self.favoriteToonImageView.imageFromUrl(toonInfoList.instaThumnailUrl,
+                                                    defaultImgPath: "collectionAddLoading")
+            self.favoriteToonImageView.setCorner(cornerRadius: 3)
+            self.favoriteToonTitleLabel.text = toonInfoList.toonName
         }
-        favoriteToonTitleLabel.text = toonInfoList.toonName
         var tagList = ""
         if let toonTagList = toonInfoList.toonTagList {
             for index in 0..<toonTagList.count {

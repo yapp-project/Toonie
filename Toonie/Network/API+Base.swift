@@ -29,10 +29,10 @@ class API {
         return baseURL + "/keywords"
     }()
     
-//    static let myKeywords = {
-//        return baseURL + "/mykeywords/\(String(describing: CommonUtility.userToken))"
-//    }()
-
+    //    static let myKeywords = {
+    //        return baseURL + "/mykeywords/\(String(describing: CommonUtility.userToken))"
+    //    }()
+    
     static let myKeywords = {
         return baseURL + "/mykeywords"
     }()
@@ -41,26 +41,34 @@ class API {
         return baseURL + "/tags"
     }()
     
+    static let forYouToons = {
+        return baseURL + "/tags/token/\(CommonUtility.userToken)"
+    }()
+    
     static let toons = {
         return baseURL + "/toons"
     }()
-
+    
     //mykeywords/:token
     static let myKeywordsToken = { (token) in
         return myKeywords + "/" + token
     }
-     
+    
     //kewords/:keyword
     static let keywordInfo = { (keyword) in
         return keywords + "/" + keyword
     }
     
-      static let worklist = {
+    static let worklist = {
         return baseURL + "/worklist"
     }()
     
-    static let myWorklist = {
+    static let myFavoriteList = {
         return baseURL + "/worklist/\(CommonUtility.userToken)/default"
     }()
-
+    
+    static let myLatestList = {
+        return baseURL + "/worklist/\(CommonUtility.userToken)/latest"
+    }()
+    
 }
