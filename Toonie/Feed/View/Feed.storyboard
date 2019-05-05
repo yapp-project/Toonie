@@ -82,13 +82,13 @@
                                                                 <constraint firstAttribute="width" secondItem="XQJ-lE-EeX" secondAttribute="height" multiplier="1:1" id="Ivg-US-9sV"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="고양이 빵집_캣 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tfj-7H-e1p">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tfj-7H-e1p">
                                                             <rect key="frame" x="0.0" y="350" width="279" height="22"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="18"/>
                                                             <color key="textColor" name="defaultText"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#작가 #일러스트" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obS-vm-S3u">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obS-vm-S3u">
                                                             <rect key="frame" x="0.0" y="378" width="279" height="17"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="14"/>
                                                             <color key="textColor" name="tag"/>
@@ -103,7 +103,17 @@
                                                             </constraints>
                                                             <state key="normal" image="Bookmark"/>
                                                             <state key="selected" image="BookmarkOn"/>
+                                                            <connections>
+                                                                <action selector="addFavoriteToon:" destination="NW9-8U-KLF" eventType="touchUpInside" id="fDc-YJ-jQV"/>
+                                                            </connections>
                                                         </button>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXb-b2-058">
+                                                            <rect key="frame" x="293" y="404" width="42" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" white="1" alpha="0.89000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                 </view>
                                                 <constraints>
@@ -124,6 +134,7 @@
                                                     <outlet property="forYouToonImageView" destination="XQJ-lE-EeX" id="A0e-Mh-kNI"/>
                                                     <outlet property="forYouToonTagLabel" destination="obS-vm-S3u" id="UgJ-uv-8vK"/>
                                                     <outlet property="forYouToonTitleLabel" destination="Tfj-7H-e1p" id="Mqd-1M-oS3"/>
+                                                    <outlet property="toonIdLabel" destination="QXb-b2-058" id="4cg-cN-bf2"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
@@ -183,13 +194,13 @@
                                                                 <constraint firstAttribute="width" secondItem="pc6-Dh-vLy" secondAttribute="height" multiplier="1:1" id="LCB-Lm-SJS"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="고양이 빵집_캣 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XpR-Yn-Lou">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XpR-Yn-Lou">
                                                             <rect key="frame" x="0.0" y="350" width="279" height="22"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="18"/>
                                                             <color key="textColor" name="defaultText"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#작가 #일러스트" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xx8-z6-Ui0">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xx8-z6-Ui0">
                                                             <rect key="frame" x="0.0" y="378" width="279" height="17"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="14"/>
                                                             <color key="textColor" name="tag"/>
@@ -204,7 +215,17 @@
                                                             </constraints>
                                                             <state key="normal" image="Bookmark"/>
                                                             <state key="selected" image="BookmarkOn"/>
+                                                            <connections>
+                                                                <action selector="addFavoriteToon:" destination="vNF-2r-3tC" eventType="touchUpInside" id="PiC-rO-kZf"/>
+                                                            </connections>
                                                         </button>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rIX-RQ-zle">
+                                                            <rect key="frame" x="293" y="395" width="36" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                 </view>
                                                 <constraints>
@@ -225,6 +246,7 @@
                                                     <outlet property="favoriteToonImageView" destination="pc6-Dh-vLy" id="pAt-PJ-ejz"/>
                                                     <outlet property="favoriteToonTagLabel" destination="Xx8-z6-Ui0" id="WpO-zO-z1E"/>
                                                     <outlet property="favoriteToonTitleLabel" destination="XpR-Yn-Lou" id="rXc-b9-KIc"/>
+                                                    <outlet property="toonIdLabel" destination="rIX-RQ-zle" id="0ey-o9-qRD"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
@@ -268,7 +290,7 @@
                                                                 <constraint firstAttribute="width" secondItem="A8o-Og-VtP" secondAttribute="height" multiplier="1:1" id="lXL-jM-cyt"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="작가이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRU-A2-qiH">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRU-A2-qiH">
                                                             <rect key="frame" x="1" y="173" width="110" height="22"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="18"/>
                                                             <color key="textColor" name="defaultText"/>
@@ -284,7 +306,17 @@
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="18"/>
                                                             <state key="normal" image="Bookmark"/>
                                                             <state key="selected" image="BookmarkOn"/>
+                                                            <connections>
+                                                                <action selector="addFavoriteToon:" destination="uxp-hL-n1H" eventType="touchUpInside" id="Y9S-7q-BLW"/>
+                                                            </connections>
                                                         </button>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fv-Mv-dcz">
+                                                            <rect key="frame" x="128" y="197" width="34" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                 </view>
                                                 <constraints>
@@ -302,6 +334,7 @@
                                                     <outlet property="bookMarkButton" destination="YcC-nJ-kxU" id="hMf-No-qLl"/>
                                                     <outlet property="recentToonImageView" destination="A8o-Og-VtP" id="jeb-QA-3uS"/>
                                                     <outlet property="recentToonTitleLabel" destination="aRU-A2-qiH" id="fp1-NV-15N"/>
+                                                    <outlet property="toonIdLabel" destination="2Fv-Mv-dcz" id="cbp-rm-3jG"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
@@ -368,7 +401,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mMI-21-kQr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="789.60000000000002" y="-514.28571428571433"/>
+            <point key="canvasLocation" x="789.13043478260875" y="-514.28571428571422"/>
         </scene>
         <!--Feed Navigation Controller-->
         <scene sceneID="gif-f2-K80">

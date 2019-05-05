@@ -15,7 +15,7 @@ final class DetailToonViewController: GestureViewController {
     
     var detailToonID: String?
     private var detailToon: DetailToon?
-    private var isFavorite: Bool?
+    var isFavorite: Bool?
     
     // MARK: - IBOutlets
     
@@ -82,7 +82,7 @@ final class DetailToonViewController: GestureViewController {
                                 } else {
                                     print("Success to delete favorite toon")
                                 }
-                                self.changeFavoriteButton(self.favoriteButton)
+                                self.changeFavoriteButton(self.isFavorite ?? false)
             })
     }
     
@@ -102,8 +102,9 @@ final class DetailToonViewController: GestureViewController {
         if let detailToon = detailToon {
             setDetailToon(detailToon)
         }
-        isFavorite = false
-        changeFavoriteButton(self.favoriteButton)
+        if let isFavorite = isFavorite {
+            changeFavoriteButton(isFavorite)
+        }
     }
     
     // MARK: - Functions
@@ -150,7 +151,7 @@ final class DetailToonViewController: GestureViewController {
     }
     
     /// '찜하기' 했을 때 뜨는 토스트
-    func showAddFavoriteToast() {
+    private func showAddFavoriteToast() {
         let bookmarkImage = UIImage(named: "bookmark")
         let bookmarkImageView = UIImageView(image: bookmarkImage)
         bookmarkImageView.frame = CGRect(x: 0, y: 0, width: 15, height: 18)
@@ -173,7 +174,7 @@ final class DetailToonViewController: GestureViewController {
     }
     
     /// 토스트 아래로 사라지는 애니메이션 기능
-    func toastDown(view: UIView) {
+    private func toastDown(view: UIView) {
         let window = UIApplication.shared.keyWindow
         UIView.animate(withDuration: 0.3, delay: 0.8, options: .curveLinear, animations: {
             view.center.y += 40 - (window?.safeAreaInsets.bottom)!
@@ -184,13 +185,13 @@ final class DetailToonViewController: GestureViewController {
     }
     
     /// '찜하기' 버튼 상태 변경 기능
-    private func changeFavoriteButton(_ button: UIButton) {
+    private func changeFavoriteButton(_ isFavorite: Bool) {
         if isFavorite == true {
-            button.backgroundColor = #colorLiteral(red: 0.6078431373, green: 0.6078431373, blue: 0.6078431373, alpha: 1)
-            button.setTitle("찜하기 취소", for: .normal)
+            favoriteButton.backgroundColor = #colorLiteral(red: 0.6078431373, green: 0.6078431373, blue: 0.6078431373, alpha: 1)
+            favoriteButton.setTitle("찜하기 취소", for: .normal)
         } else {
-            button.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.3764705882, blue: 0.2509803922, alpha: 1)
-            button.setTitle("찜하기", for: .normal)
+            favoriteButton.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.3764705882, blue: 0.2509803922, alpha: 1)
+            favoriteButton.setTitle("찜하기", for: .normal)
         }
     }
     

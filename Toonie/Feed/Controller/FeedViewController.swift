@@ -37,6 +37,7 @@ final class FeedViewController: GestureViewController {
     private var forYouToonLists: [ToonList]?
     private var toonsOfTag: [ToonInfoList]?
     private var detailToonId = ""
+    private var isFavorite = false
     
     // MARK: - Life Cycle
     
@@ -74,8 +75,6 @@ final class FeedViewController: GestureViewController {
             self.recentCollectionView.reloadData()
             self.favoriteCollectionView.reloadData()
         }
-//        setTagAnimationView()
-        
     }
     
     /// tagAnimationView 세팅
@@ -97,12 +96,13 @@ final class FeedViewController: GestureViewController {
     }
     
     /// 인스타툰 상세정보 화면으로 이동
-    private func pushDetailToonViewController(toonID: String) {
+    private func pushDetailToonViewController(toonID: String, isFavorite: Bool) {
         let storyboard = UIStoryboard(name: "Detail", bundle: nil)
         if let viewController = storyboard
             .instantiateViewController(withIdentifier: "DetailToonView")
             as? DetailToonViewController {
             viewController.detailToonID = toonID
+            viewController.isFavorite = isFavorite
             CommonUtility.sharedInstance.mainNavigationViewController?
                 .pushViewController(viewController,
                                     animated: true)
@@ -173,14 +173,17 @@ extension FeedViewController: UICollectionViewDelegate {
         collectionView.deselectItem(at: indexPath, animated: true)
         if let currentCell = collectionView.cellForItem(at: indexPath) as? ForYouCollectionViewCell {
             detailToonId = findToonId(toonTitle: currentCell.forYouToonTitleLabel.text ?? "")
+            isFavorite = currentCell.bookMarkButton.isSelected
         }
         if let currentCell = collectionView.cellForItem(at: indexPath) as? RecentCollectionViewCell {
             detailToonId = findToonId(toonTitle: currentCell.recentToonTitleLabel.text ?? "")
+            isFavorite = currentCell.bookMarkButton.isSelected
         }
         if let currentCell = collectionView.cellForItem(at: indexPath) as? FavoriteCollectionViewCell {
             detailToonId = findToonId(toonTitle: currentCell.favoriteToonTitleLabel.text ?? "")
+            isFavorite = currentCell.bookMarkButton.isSelected
         }
-        pushDetailToonViewController(toonID: detailToonId)
+        pushDetailToonViewController(toonID: detailToonId, isFavorite: isFavorite)
         
     }
     
@@ -188,17 +191,15 @@ extension FeedViewController: UICollectionViewDelegate {
     private func findToonId(toonTitle: String) -> String {
         var toonId = ""
         if let forYouToonLists = forYouToonLists {
-            for index in 0..<forYouToonLists.count {
-                if toonTitle == forYouToonLists[index].toonName {
+            for index in 0..<forYouToonLists.count
+                where toonTitle == forYouToonLists[index].toonName {
                     toonId = forYouToonLists[index].toonID ?? ""
-                }
             }
         }
         if let toonsOfTag = toonsOfTag {
-            for index in 0..<toonsOfTag.count {
-                if toonTitle == toonsOfTag[index].toonName {
+            for index in 0..<toonsOfTag.count
+                where toonTitle == toonsOfTag[index].toonName {
                     toonId = toonsOfTag[index].toonID ?? ""
-                }
             }
         }
         return toonId
