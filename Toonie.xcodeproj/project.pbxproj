@@ -38,6 +38,7 @@
 		EAC74CAA33B2653EA961CCB307D7673A /* LookDetailTopSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E75075564D7BB6E508966769F1AAA2 /* LookDetailTopSelectCell.swift */; };
 		29B80C6D63C0208EA94D6FE5E73B9E1B /* LookDetailTopSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBEE6ADE2B72B6EC73732F7D7CCC695 /* LookDetailTopSelectViewController.swift */; };
 		343AED7608C0A5C8D608FD5219286F1D /* LookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F343144572D8198223CA340DABE3AAA /* LookDetailViewController.swift */; };
+		F75646CDB61475B72C0BBBFB3842D0E9 /* LookToonOfTagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037E6B4E432C7D955CAB4DE2ED92D11C /* LookToonOfTagService.swift */; };
 		2F487FFA72B9B1CA1B571558775F065E /* LookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F86D8B1CA39FC8055C8747A6AFC2D06 /* LookViewController.swift */; };
 		4FFEF2D3318AC791E3F9C6ECC7710F1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA5DF823B0E683B7C42B1DAFAC7C1D6E /* Main.storyboard */; };
 		A31F7D42C07575D642B19CEE561AAD2A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856BC1EDA73CD692E351511F4D51271A /* MainViewController.swift */; };
@@ -138,6 +139,7 @@
 		91E75075564D7BB6E508966769F1AAA2 /* LookDetailTopSelectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookDetailTopSelectCell.swift; sourceTree = "<group>"; };
 		7CBEE6ADE2B72B6EC73732F7D7CCC695 /* LookDetailTopSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookDetailTopSelectViewController.swift; sourceTree = "<group>"; };
 		6F343144572D8198223CA340DABE3AAA /* LookDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookDetailViewController.swift; sourceTree = "<group>"; };
+		037E6B4E432C7D955CAB4DE2ED92D11C /* LookToonOfTagService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookToonOfTagService.swift; sourceTree = "<group>"; };
 		1F86D8B1CA39FC8055C8747A6AFC2D06 /* LookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookViewController.swift; sourceTree = "<group>"; };
 		856BC1EDA73CD692E351511F4D51271A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3410CCB8DC07905AB283969582125522 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
@@ -420,6 +422,7 @@
 				384EC31B5698BBD32C8427B4D3D3FA9E /* FavoriteService.swift */,
 				919CB7352060E4267D23B8B6D5169BEC /* ForYouToonListService.swift */,
 				BF827ADC08C996D3C51D60BE675C7641 /* KeywordsService.swift */,
+				037E6B4E432C7D955CAB4DE2ED92D11C /* LookToonOfTagService.swift */,
 				FBB7847F6E2C082500A180183EDA27D6 /* RecommendService.swift */,
 				FA3C9CA18533D81A5A073A0EB43B6AA4 /* TokenService.swift */,
 				BED42905ADAEABD1D80B0CA4894DECCE /* ToonOfTagService.swift */,
@@ -791,6 +794,7 @@
 				EAC74CAA33B2653EA961CCB307D7673A /* LookDetailTopSelectCell.swift in Sources */,
 				29B80C6D63C0208EA94D6FE5E73B9E1B /* LookDetailTopSelectViewController.swift in Sources */,
 				343AED7608C0A5C8D608FD5219286F1D /* LookDetailViewController.swift in Sources */,
+				F75646CDB61475B72C0BBBFB3842D0E9 /* LookToonOfTagService.swift in Sources */,
 				2F487FFA72B9B1CA1B571558775F065E /* LookViewController.swift in Sources */,
 				A31F7D42C07575D642B19CEE561AAD2A /* MainViewController.swift in Sources */,
 				3D7829A51FE8C5A1D54342BA93D42FE8 /* MyPage.swift in Sources */,
@@ -893,7 +897,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Tooniee;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Toonie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -913,7 +917,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Tooniee;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Toonie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
