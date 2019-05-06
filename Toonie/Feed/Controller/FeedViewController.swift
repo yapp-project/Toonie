@@ -30,8 +30,8 @@ final class FeedViewController: GestureViewController {
     @IBOutlet private weak var forYouCollectionView: UICollectionView!
     @IBOutlet private weak var recentCollectionView: UICollectionView!
     @IBOutlet private weak var favoriteCollectionView: UICollectionView!
-    @IBOutlet weak var recentCollectionViewTitleLabel: UILabel!
-    @IBOutlet weak var favoriteCollectionViewTitleLabel: UILabel!
+    @IBOutlet private weak var recentViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var favoriteViewHeightConstraint: NSLayoutConstraint!
     
     // MARK: - Property
     
@@ -116,7 +116,8 @@ final class FeedViewController: GestureViewController {
                 make.height.equalTo(tagView.bounds.height)
                 make.center.equalTo(tagView)
             }
-            playTagAnimationView()        }
+            playTagAnimationView()
+        }
     }
     
     private func playTagAnimationView() {
@@ -155,6 +156,11 @@ final class FeedViewController: GestureViewController {
         }
         return toonId
     }
+    
+    /// 뷰 높이 constant 0으로 해서 없앰
+    private func removeView(_ height: NSLayoutConstraint) {
+        height.constant = 0
+    }
 }
 
 // MARK: - UICollectionViewDataSource
@@ -166,12 +172,19 @@ extension FeedViewController: UICollectionViewDataSource {
         if collectionView == forYouCollectionView {
             return forYouToonLists?.count ?? 0
         } else if collectionView == recentCollectionView {
+            if toonsOfTag?.count == 0 {
+                removeView(recentViewHeightConstraint)
+            }
             return toonsOfTag?.count ?? 0
         } else if collectionView == favoriteCollectionView {
+            if toonsOfTag?.count == 0 {
+                removeView(favoriteViewHeightConstraint)
+            }
             return toonsOfTag?.count ?? 0
         } else {
             return 0
         }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -230,6 +243,5 @@ extension FeedViewController: UICollectionViewDelegate {
             isFavorite = currentCell.bookMarkButton.isSelected
         }
         pushDetailToonViewController(toonID: detailToonId, isFavorite: isFavorite)
-        
     }
 }

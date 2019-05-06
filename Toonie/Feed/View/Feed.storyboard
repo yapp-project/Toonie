@@ -457,13 +457,13 @@
                                         <rect key="frame" x="0.0" y="1104.5" width="375" height="429"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="찜한 작품과 연관된" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOy-oF-xgZ">
-                                                <rect key="frame" x="20" y="30" width="164" height="27"/>
+                                                <rect key="frame" x="20" y="30" width="164" height="25"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="22"/>
                                                 <color key="textColor" name="main"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RS9-D1-vTH">
-                                                <rect key="frame" x="0.0" y="68" width="375" height="336"/>
+                                                <rect key="frame" x="0.0" y="66" width="375" height="336"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="336" id="pDs-ls-f0G"/>
@@ -566,8 +566,9 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="429" id="9WS-HR-fEc"/>
                                             <constraint firstItem="RS9-D1-vTH" firstAttribute="leading" secondItem="4pC-y0-sbe" secondAttribute="leading" id="FGD-fL-6Ot"/>
-                                            <constraint firstAttribute="bottom" secondItem="RS9-D1-vTH" secondAttribute="bottom" constant="25" id="Qi2-FB-OGs"/>
+                                            <constraint firstAttribute="bottom" secondItem="RS9-D1-vTH" secondAttribute="bottom" constant="27" id="Qi2-FB-OGs"/>
                                             <constraint firstItem="RS9-D1-vTH" firstAttribute="top" secondItem="WOy-oF-xgZ" secondAttribute="bottom" constant="11" id="Zes-tu-5Rs"/>
                                             <constraint firstAttribute="trailing" secondItem="RS9-D1-vTH" secondAttribute="trailing" id="p6T-wm-RGq"/>
                                             <constraint firstItem="WOy-oF-xgZ" firstAttribute="leading" secondItem="4pC-y0-sbe" secondAttribute="leading" constant="20" id="pev-oK-I0h"/>
@@ -667,6 +668,7 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="296" id="4qh-rs-9b3"/>
                                             <constraint firstItem="Wuy-86-xtS" firstAttribute="leading" secondItem="7hg-u3-Kli" secondAttribute="leading" constant="20" id="G5g-3y-RhI"/>
                                             <constraint firstItem="Wuy-86-xtS" firstAttribute="top" secondItem="7hg-u3-Kli" secondAttribute="top" constant="24" id="NGr-df-lE8"/>
                                             <constraint firstItem="OFi-Vh-XOk" firstAttribute="top" secondItem="Wuy-86-xtS" secondAttribute="bottom" constant="11" id="S9t-3b-mez"/>
@@ -714,10 +716,10 @@
                     <size key="freeformSize" width="375" height="1700"/>
                     <connections>
                         <outlet property="favoriteCollectionView" destination="RS9-D1-vTH" id="v2n-X5-gRx"/>
-                        <outlet property="favoriteCollectionViewTitleLabel" destination="WOy-oF-xgZ" id="DVG-I3-zYU"/>
+                        <outlet property="favoriteViewHeightConstraint" destination="9WS-HR-fEc" id="AGQ-SG-uMJ"/>
                         <outlet property="forYouCollectionView" destination="jZL-Lj-rak" id="KiF-8G-5eK"/>
                         <outlet property="recentCollectionView" destination="OFi-Vh-XOk" id="HhF-Fd-Er0"/>
-                        <outlet property="recentCollectionViewTitleLabel" destination="Wuy-86-xtS" id="2tH-vY-FY8"/>
+                        <outlet property="recentViewHeightConstraint" destination="4qh-rs-9b3" id="CzS-Gp-BUi"/>
                         <outlet property="tagView" destination="vJ8-Mn-SEn" id="jIi-fc-408"/>
                     </connections>
                 </viewController>
