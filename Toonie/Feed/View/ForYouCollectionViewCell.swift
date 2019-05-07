@@ -16,13 +16,38 @@ final class ForYouCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var forYouToonImageView: UIImageView!
     @IBOutlet weak var forYouToonTitleLabel: UILabel!
     @IBOutlet private weak var forYouToonTagLabel: UILabel!
-    @IBOutlet private weak var bookMarkButton: UIButton!
+    @IBOutlet weak var bookMarkButton: UIButton!
+    @IBOutlet private weak var toonIdLabel: UILabel!
+    
+    // MARK: - IBAction
+    
+    /// 찜한 작품 등록 & 취소 기능
+    @IBAction func addFavoriteToon(_ sender: UIButton) {
+        sender.isSelected.toggle()
+        
+        let body = [
+            "workListName": "default",
+            "workListInfo": "찜한 목록",
+            "toonId": toonIdLabel.text
+        ]
+        
+        FavoriteService.shared
+            .postFavoriteToon(params: body as [String: Any],
+                              completion: {
+                                if sender.isSelected == true {
+                                    print("Success to add favorite toon")
+                                } else {
+                                    print("Success to delete favorite toon")
+                                }
+            })
+    }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         forYouToonImageView.image = nil
         forYouToonTitleLabel.text = nil
         forYouToonTagLabel.text = nil
+        toonIdLabel.text = nil
         bookMarkButton.isSelected  = false
     }
     
@@ -35,8 +60,9 @@ final class ForYouCollectionViewCell: UICollectionViewCell {
         DispatchQueue.main.async {
             self.forYouToonImageView.imageFromUrl(toonList.instaThumnailUrl,
                                                   defaultImgPath: "collectionAddLoading")
-            self.forYouToonImageView.setCorner(cornerRadius: 3)
+            self.forYouToonImageView.setCorner(cornerRadius: 4)
             self.forYouToonTitleLabel.text = toonList.toonName
+            self.toonIdLabel.text = toonList.toonID
         }
         var tagList = ""
         if let toonTagList = toonList.toonTagList {
