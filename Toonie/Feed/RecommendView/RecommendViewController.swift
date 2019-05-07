@@ -11,10 +11,21 @@ import UIKit
 // '지금 나는' 태그에 따른 인스타툰 추천 화면
 final class RecommendViewController: GestureViewController {
     
+    // MARK: - IBOutlets
+    
+    @IBOutlet private weak var recommendTableView: UITableView!
+    
+    @IBOutlet private weak var tagFrameView: UIView!
+    @IBOutlet private weak var tagScrollView: UIScrollView!
+    
+    ///이 수치에 따라 태그 줄수를 컨트롤 가능.
+    @IBOutlet private weak var tagScrollContentViewWidth: NSLayoutConstraint!
+    
+    @IBOutlet private weak var tagCollectionView: UICollectionView!
+    @IBOutlet private weak var tagCollectionViewFlowLayout: UICollectionViewFlowLayout!
+    @IBOutlet private weak var tagSelectedNotInfoView: UIView!
+    
     // MARK: - Property
-    
-    var closeButtonClosure: (() -> Void)?
-    
     
     //tagCollectionView 5줄 고정 위한 상수, 변수
     private let tagScrollContentViewWidthInitValue: CGFloat = 853
@@ -30,21 +41,6 @@ final class RecommendViewController: GestureViewController {
     private var tagAllWidth: Int = 0
     private var tagList = [String]()
     private var tagSelectArray = [String]()
-    
-    
-    // MARK: - IBOutlets
-    
-    @IBOutlet private weak var recommendTableView: UITableView!
-    
-    @IBOutlet private weak var tagFrameView: UIView!
-    @IBOutlet private weak var tagScrollView: UIScrollView!
-    
-    ///이 수치에 따라 태그 줄수를 컨트롤 가능.
-    @IBOutlet private weak var tagScrollContentViewWidth: NSLayoutConstraint!
-    
-    @IBOutlet private weak var tagCollectionView: UICollectionView!
-    @IBOutlet private weak var tagCollectionViewFlowLayout: UICollectionViewFlowLayout!
-    @IBOutlet private weak var tagSelectedNotInfoView: UIView!
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -112,12 +108,8 @@ final class RecommendViewController: GestureViewController {
         recommendTableView.reloadData()
     }
     
-    @IBAction func closeButtonDidTap(_ sender: Any) {
-//        self.navigationController?.popViewController(animated: true)
-        if let closure = self.closeButtonClosure {
-            closure()
-        }
-        
+    @IBAction func backButtonDidTap(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
