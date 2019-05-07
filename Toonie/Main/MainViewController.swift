@@ -58,6 +58,7 @@ final class MainViewController: GestureViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setButtonTextCenter()
         tabBarButtonDidTap(feedButton) 
     }
     
@@ -123,6 +124,13 @@ final class MainViewController: GestureViewController {
         feedButton.isSelected = false
         lookButton.isSelected = false
         myPageButton.isSelected = false
+        
+    }
+    
+    func setButtonTextCenter() {
+        feedButton.centerImageAndButton(5, imageOnTop: true)
+        lookButton.centerImageAndButton(5, imageOnTop: true)
+        myPageButton.centerImageAndButton(5, imageOnTop: true)
         
     }
 }
