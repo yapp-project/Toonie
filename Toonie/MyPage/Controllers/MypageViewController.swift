@@ -33,29 +33,24 @@ final class MypageViewController: GestureViewController {
     // MARK: - private var
     
     private var status = ""
-    private var recentList: [String] = []
-    private var bookmarkList: [String] = []
+    private var dataList: [ToonList] = []
+    private var bookmarkList: [ToonList] = []
     private var tagList: [String] = []
-    
-    // MARK: - DummyList
-    
-    private var mypageList: [MyPage] = []
     
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setMypageData()
         
         // 초기 화면 - 최근 본 목록
         status = "recent"
+        getToonList(status: status)
         mypageCollectionView.reloadData()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        goToFirstItem()
+//        goToFirstItem()
     }
     
     private func goToFirstItem() {
@@ -77,8 +72,8 @@ final class MypageViewController: GestureViewController {
         
     }
     
-    func goPushController(storyboardName: String,
-                          identifier: String) {
+    private func goPushController(storyboardName: String,
+                                  identifier: String) {
         let storyboard = UIStoryboard(name: "\(storyboardName)", bundle: nil)
         let viewController = storyboard
             .instantiateViewController(withIdentifier: "\(identifier)")
@@ -86,20 +81,28 @@ final class MypageViewController: GestureViewController {
             .pushViewController(viewController, animated: true)
     }
     
-    func getTagList() {
-        MyKeywordsService.shared.getMyKeywords { res in
-            self.tagList = res ?? [String]()
+    private func getTagList() {
+        MyKeywordsService.shared.getMyKeywords { (res) in
+            guard let list = res else { return }
+            self.tagList = list
             self.mypageCollectionView.reloadData()
         }
     }
     
-//    func setCollectionViewLayout() {
-//        if status == "tag" {
-//            DispatchQueue.main.async {
-//                self.mypageCollectionViewFlowLayout.minimumLineSpacing = -15.0
-//            }
-//        }
-//    }
+    private func getToonList(status: String) {
+        
+        if status == "recent" {
+            LatestService.shared.getLatestToon { (res) in
+                guard let list = res else { return }
+                self.dataList = list
+                self.mypageCollectionView.reloadData()
+            }
+            
+        } else if status == "bookMark" {
+            
+            self.mypageCollectionView.reloadData()
+        }
+    }
     
     // MARK: - IBAction
     
@@ -108,8 +111,8 @@ final class MypageViewController: GestureViewController {
         if status != "recent"{
             tagSettingButton.isHidden = true
             status = "recent"
-            mypageCollectionView.reloadData()
-            
+            getToonList(status: status)
+    
             setButtonInit()
             recentButton.setImage(UIImage(named: "RecentOn"), for: .normal)
             recentButton.setTitleColor(#colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1), for: .normal)
@@ -121,8 +124,8 @@ final class MypageViewController: GestureViewController {
         if status != "bookMark"{
             tagSettingButton.isHidden = true
             status = "bookMark"
-            mypageCollectionView.reloadData()
-
+            getToonList(status: status)
+            
             setButtonInit()
             bookMarkButton.setImage(UIImage(named: "mypageBookmarkOn"), for: .normal)
             bookMarkButton.setTitleColor(#colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1), for: .normal)
@@ -162,17 +165,11 @@ extension MypageViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        
-        if status == "recent" {
-            return mypageList.count
-        } else if status == "bookMark" {
-            return mypageList.count
-        } else if status == "tag" {
+        if status == "tag" {
             return tagList.count
         } else {
-            return mypageList.count
+            return dataList.count
         }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -187,33 +184,30 @@ extension MypageViewController: UICollectionViewDataSource {
         
         cell.setMypageCollectionViewCellProperties()
         
-        if status == "recent" {
-            cell.mypageToonLabel.text = "최근 본 작품"
-        } else if status == "bookMark" {
-            cell.mypageToonLabel.text = "찜한 목록 작품"
-        } else if status == "tag" {
+        if status == "tag" {
             let tagName = tagList[indexPath.row]
-//            cell.mypageToonLabel.isHidden = true
             cell.mypageToonLabel.isHidden = false
             cell.mypageToonLabel.text = "#" + tagName
             cell.mypageToonImageView.image = UIImage(named: CommonUtility.tagImage(name: tagName))
             cell.mypageToonImageView.setCorner(cornerRadius: 5)
+            
+        } else {
+            let list = dataList[indexPath.row]
+            print("recentList : ", list)
+            cell.mypageToonLabel.text = list.instaID
+            cell.mypageToonImageView.imageFromUrl(list.instaThumnailUrl, defaultImgPath: "")
         }
         
         return cell
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if status == "recent" {
-            goPushController(storyboardName: "Detail",
-                             identifier: "DetailToonView")
-        } else if status == "bookMark" {
-            goPushController(storyboardName: "Detail",
-                             identifier: "DetailToonView")
-        } else if status == "tag" {
+        if status == "tag" {
             goPushController(storyboardName: "Look",
                              identifier: "LookDetailViewController")
+        } else {
+            goPushController(storyboardName: "Detail",
+                             identifier: "DetailToonView")
         }
     }
 }
@@ -222,17 +216,4 @@ extension MypageViewController: UICollectionViewDataSource {
 
 extension MypageViewController: UICollectionViewDelegate {
     
-}
-
-// 더미 모델에 더미 데이터 집어넣기
-extension MypageViewController {
-    func setMypageData() {
-        let myPage1 = MyPage(image: "", title: "내 컬렉션 1번", status: "recent")
-        let myPage2 = MyPage(image: "", title: "내 컬렉션 2번", status: "recent")
-        let myPage3 = MyPage(image: "", title: "내 컬렉션 3번", status: "recent")
-        let myPage4 = MyPage(image: "", title: "내 컬렉션 4번", status: "recent")
-        let myPage5 = MyPage(image: "", title: "내 컬렉션 5번", status: "recent")
-
-        mypageList = [myPage1, myPage2, myPage3, myPage4, myPage5]
-    }
 }

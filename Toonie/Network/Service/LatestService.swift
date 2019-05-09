@@ -30,4 +30,21 @@ struct LatestService: Requestable {
                 }
         }
     }
+
+    /// 최근 본 툰 get 통신
+    func getLatestToon(completion: @escaping ([ToonList]?) -> Void) {
+        get(API.myLatestList) { result in
+            switch result {
+            case .networkSuccess(let data):
+                if data.resResult.success == false {
+                    return
+                }
+                completion(data.resResult.toonList)
+            case .networkError(let error):
+                print(error)
+            case .networkFail:
+                print("LatestToon Get Fail")
+            }
+        }
+    }
 }
