@@ -216,17 +216,6 @@ extension MypageViewController: UICollectionViewDataSource {
                              identifier: "LookDetailViewController")
         }
     }
-
-//    func collectionView(_ collectionView: UICollectionView,
-//                        layout collectionViewLayout: UICollectionViewLayout,
-//                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        if status == "tag" {
-//            return 0.0
-//        } else {
-//            return 10.0
-//        }
-//    }
-    
 }
 
 // MARK: - UICollectionViewDelegate
