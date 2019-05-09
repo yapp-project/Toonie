@@ -12,6 +12,12 @@ final class MypageDetailCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var detailImageView: UIImageView!
     @IBOutlet weak var detailTitleLabel: UILabel!
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        detailImageView.image = nil
+        detailTitleLabel.text = nil
+    }
+    
     /// 컬렉션뷰셀 데이터 설정
     func setMypageDetailCollectionViewCellProperties() {
         detailImageView.image = UIImage(named: "collectionAddLoading")

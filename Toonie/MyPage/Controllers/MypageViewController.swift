@@ -30,11 +30,10 @@ final class MypageViewController: GestureViewController {
     @IBOutlet private weak var mypageCollectionView: UICollectionView!
     
     @IBOutlet weak var mypageCollectionViewFlowLayout: UICollectionViewFlowLayout!
-    // MARK: - private var
     
+    // MARK: - private var
     private var status = ""
     private var dataList: [ToonList] = []
-    private var bookmarkList: [ToonList] = []
     private var tagList: [String] = []
     
     // MARK: - Life Cycle
@@ -53,32 +52,45 @@ final class MypageViewController: GestureViewController {
 //        goToFirstItem()
     }
     
+    // MARK: - 함수
+    
     private func goToFirstItem() {
         self.mypageCollectionView.scrollToItem(at: IndexPath(row: 0, section: 0),
                                                at: .top,
                                                animated: true)
     }
     
-    // MARK: - 함수
-    
     private func setButtonInit() {
-        
         recentButton.setImage(UIImage(named: "Recent"), for: .normal)
         bookMarkButton.setImage(UIImage(named: "mypageBookmark"), for: .normal)
         
         recentButton.setTitleColor(#colorLiteral(red: 0.6079999804, green: 0.6079999804, blue: 0.6079999804, alpha: 1), for: .normal)
         bookMarkButton.setTitleColor(#colorLiteral(red: 0.6079999804, green: 0.6079999804, blue: 0.6079999804, alpha: 1), for: .normal)
         tagButton.setTitleColor(#colorLiteral(red: 0.6079999804, green: 0.6079999804, blue: 0.6079999804, alpha: 1), for: .normal)
-        
     }
     
-    private func goPushController(storyboardName: String,
-                                  identifier: String) {
-        let storyboard = UIStoryboard(name: "\(storyboardName)", bundle: nil)
-        let viewController = storyboard
-            .instantiateViewController(withIdentifier: "\(identifier)")
-        CommonUtility.sharedInstance.myPageNavigationViewController?
-            .pushViewController(viewController, animated: true)
+    /// 인스타툰 상세정보 화면으로 이동
+    private func pushDetailToonViewController(toonID: String) {
+        let storyboard = UIStoryboard(name: "Detail", bundle: nil)
+        if let viewController = storyboard
+            .instantiateViewController(withIdentifier: "DetailToonView")
+            as? DetailToonViewController {
+            viewController.detailToonID = toonID
+            CommonUtility.sharedInstance.mainNavigationViewController?
+                .pushViewController(viewController,
+                                    animated: true)
+        }
+    }
+    
+    private func pushTagDetailViewController(keyword: String) {
+        let storyboard = UIStoryboard(name: "Look", bundle: nil)
+        guard let viewController = storyboard
+            .instantiateViewController(withIdentifier: "LookDetailViewController") as? LookDetailViewController
+            else {
+                return
+        }
+        viewController.selectedKeyword = keyword
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     private func getTagList() {
@@ -90,7 +102,6 @@ final class MypageViewController: GestureViewController {
     }
     
     private func getToonList(status: String) {
-        
         if status == "recent" {
             LatestService.shared.getLatestToon { (res) in
                 guard let list = res else { return }
@@ -99,8 +110,11 @@ final class MypageViewController: GestureViewController {
             }
             
         } else if status == "bookMark" {
-            
-            self.mypageCollectionView.reloadData()
+            FavoriteService.shared.getFavoriteToon { (res) in
+                guard let list = res else { return }
+                self.dataList = list
+                self.mypageCollectionView.reloadData()
+            }
         }
     }
     
@@ -182,20 +196,14 @@ extension MypageViewController: UICollectionViewDataSource {
                 return UICollectionViewCell()
         }
         
-        cell.setMypageCollectionViewCellProperties()
-        
         if status == "tag" {
             let tagName = tagList[indexPath.row]
-            cell.mypageToonLabel.isHidden = false
-            cell.mypageToonLabel.text = "#" + tagName
-            cell.mypageToonImageView.image = UIImage(named: CommonUtility.tagImage(name: tagName))
-            cell.mypageToonImageView.setCorner(cornerRadius: 5)
-            
+            cell.setMypageCollectionViewTagCellProperties(tagName: tagName)
         } else {
             let list = dataList[indexPath.row]
-            print("recentList : ", list)
-            cell.mypageToonLabel.text = list.instaID
-            cell.mypageToonImageView.imageFromUrl(list.instaThumnailUrl, defaultImgPath: "")
+            if let label = list.instaID, let url = list.instaThumnailUrl {
+                cell.setMypageCollectionViewToonCellProperties(labelText: label, imageViewURL: url)
+            }
         }
         
         return cell
@@ -203,11 +211,11 @@ extension MypageViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if status == "tag" {
-            goPushController(storyboardName: "Look",
-                             identifier: "LookDetailViewController")
+            pushTagDetailViewController(keyword: tagList[indexPath.row])
         } else {
-            goPushController(storyboardName: "Detail",
-                             identifier: "DetailToonView")
+            if let toonId = dataList[indexPath.row].toonID {
+                pushDetailToonViewController(toonID: toonId)
+            }
         }
     }
 }
