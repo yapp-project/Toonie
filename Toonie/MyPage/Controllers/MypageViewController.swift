@@ -9,6 +9,7 @@
 import UIKit
 
 //MyPage의 MyPageNavigationController
+
 final class MyPageNavigationController: UINavigationController {
     override init(rootViewController: UIViewController) {
         super.init(rootViewController: rootViewController)
@@ -32,6 +33,7 @@ final class MypageViewController: GestureViewController {
     @IBOutlet weak var mypageCollectionViewFlowLayout: UICollectionViewFlowLayout!
     
     // MARK: - private var
+    
     private var status = ""
     private var dataList: [ToonList] = []
     private var tagList: [String] = []
@@ -54,12 +56,14 @@ final class MypageViewController: GestureViewController {
     
     // MARK: - 함수
     
+    /// status가 바뀔 때 마다 컬렉션뷰의 제일 첫번째 셀로 돌아가게하는 함수
     private func goToFirstItem() {
         self.mypageCollectionView.scrollToItem(at: IndexPath(row: 0, section: 0),
                                                at: .top,
                                                animated: true)
     }
     
+    /// button의 상태를 초기화해주는 함수
     private func setButtonInit() {
         recentButton.setImage(UIImage(named: "Recent"), for: .normal)
         bookMarkButton.setImage(UIImage(named: "mypageBookmark"), for: .normal)
@@ -69,7 +73,7 @@ final class MypageViewController: GestureViewController {
         tagButton.setTitleColor(#colorLiteral(red: 0.6079999804, green: 0.6079999804, blue: 0.6079999804, alpha: 1), for: .normal)
     }
     
-    /// 인스타툰 상세정보 화면으로 이동
+    /// 인스타툰 상세정보 화면으로 이동하는 함수
     private func pushDetailToonViewController(toonID: String) {
         let storyboard = UIStoryboard(name: "Detail", bundle: nil)
         if let viewController = storyboard
@@ -82,6 +86,7 @@ final class MypageViewController: GestureViewController {
         }
     }
     
+    /// Tag키워드를 가지고 TagDetail뷰로 이동하는 함수
     private func pushTagDetailViewController(keyword: String) {
         let storyboard = UIStoryboard(name: "Look", bundle: nil)
         guard let viewController = storyboard
@@ -93,6 +98,7 @@ final class MypageViewController: GestureViewController {
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
+    /// Tag리스트를 불러오는 통신 함수
     private func getTagList() {
         MyKeywordsService.shared.getMyKeywords { (res) in
             guard let list = res else { return }
@@ -101,6 +107,7 @@ final class MypageViewController: GestureViewController {
         }
     }
     
+    /// 툰 리스트를 status에 따라 통신하는 함수
     private func getToonList(status: String) {
         if status == "recent" {
             LatestService.shared.getLatestToon { (res) in
