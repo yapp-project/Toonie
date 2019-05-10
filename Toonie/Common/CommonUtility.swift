@@ -73,7 +73,7 @@ final class CommonUtility: NSObject {
         }
     }
     
-    func compareToVersion(newVersion: String) -> Int {
+    static func compareToVersion(newVersion: String) -> Int {
         var curVersion = ""
         if let bundleVersion = Bundle.main.infoDictionary?["CFBundleVersion"] as? String {
             curVersion = bundleVersion
@@ -88,7 +88,7 @@ final class CommonUtility: NSObject {
         }
         
         let curArray = curVersion.components(separatedBy: ".")
-        let newArray = curVersion.components(separatedBy: ".")
+        let newArray = newVersion.components(separatedBy: ".")
         
         let maxLength: Int = curArray.count >= newArray.count ? curVersion.count : newArray.count
         
@@ -104,14 +104,14 @@ final class CommonUtility: NSObject {
             }
             
             if cur < newInt {
-                return -1
+                return -1 // 들어온 버전이 더 큼
             }
             
             if cur > newInt {
-                return 1
+                return 1 // 현재 버전이 더 큼
             }
         }
-        return 0
+        return 0 
     }
     
 }
