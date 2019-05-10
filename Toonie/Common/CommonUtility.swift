@@ -75,7 +75,7 @@ final class CommonUtility: NSObject {
     
     static func compareToVersion(newVersion: String) -> Int {
         var curVersion = ""
-        if let bundleVersion = Bundle.main.infoDictionary?["CFBundleVersion"] as? String {
+        if let bundleVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
             curVersion = bundleVersion
         }
         
@@ -90,17 +90,19 @@ final class CommonUtility: NSObject {
         let curArray = curVersion.components(separatedBy: ".")
         let newArray = newVersion.components(separatedBy: ".")
         
-        let maxLength: Int = curArray.count >= newArray.count ? curVersion.count : newArray.count
+        let maxLength: Int = curArray.count >= newArray.count ? curArray.count : newArray.count
         
         for index in 0..<maxLength {
             var cur = 0
             if index < curArray.count {
-                cur = curArray.index(after: index) as Int
+//                cur = curArray.index(after: index) as Int
+                
+                cur = Int(curArray[index]) ?? 0
             }
             
             var newInt = 0
             if index < newArray.count {
-                newInt = newArray.index(after: index) as Int
+                newInt = Int(newArray[index]) ?? 0
             }
             
             if cur < newInt {

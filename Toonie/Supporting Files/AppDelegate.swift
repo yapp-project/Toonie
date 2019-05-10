@@ -14,29 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    ToonieUpdateChkService.shared.getUpdateInfo { result in
-        print("업데이트 정보 \(result)")
-        print("강제업데이트 정보 \(String(describing: result.forceInfo?.forcedVersion))")
-        
-        //1.0.0 - 0
-        //0.0.9 - 0
-        //
-        if let newVersion = result.forceInfo?.forcedVersion{
-            print("강제업데이트 비교 \(CommonUtility.compareToVersion(newVersion: newVersion))")
-        }
-        
-        if let newVersion = result.forceInfo?.forcedVersion{
-            if CommonUtility.compareToVersion(newVersion: newVersion) == 0 {
-                print("1.0.0 분기들어옴")
-            }
-            else{
-                print("안들어옴")
-            }
-        }
-        
-      
-    }
-    
     return true
   }
 
