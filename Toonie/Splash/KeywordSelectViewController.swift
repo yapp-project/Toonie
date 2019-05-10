@@ -90,6 +90,7 @@ final class KeywordSelectViewController: GestureViewController {
         MyKeywordsService.shared.getMyKeywords { (myKeywords) in
             self.keywordSelectArray = myKeywords ?? [String]()
             self.reloadKeywordCollectionView()
+            self.reloadKeywordView()
         }
     }
     
