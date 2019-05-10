@@ -13,4 +13,5 @@ struct WorkList: Codable {
     let workListName: String?
     let workListInfo: String?
     let toonId: String?
+    let toonList: [ToonList]?
 }

@@ -30,4 +30,22 @@ struct FavoriteService: Requestable {
                 }
         }
     }
+    
+    /// 찜한 작품 내역 get 통신
+    func getFavoriteToon(completion: @escaping ([ToonList]?) -> Void) {
+        get(API.myFavoriteList) { result in
+            switch result {
+            case .networkSuccess(let data):
+                guard let toonList = data.resResult.toonList else {
+                    return
+                }
+                print("toonList : \(toonList)")
+                completion(toonList)
+            case .networkError(let error):
+                print(error)
+            case .networkFail:
+                print("DetailToon Network Fail")
+            }
+        }
+    }
 }
