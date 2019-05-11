@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct ToonieUpdateChk: Codable {
+struct ChkToonieUpdate: Codable {
     let forcedUpdate: Bool?
     let forceInfo: ForceInfo?
     let targetUpdate: Bool?

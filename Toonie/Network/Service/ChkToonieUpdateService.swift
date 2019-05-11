@@ -8,19 +8,19 @@
 
 import UIKit
 
-struct ToonieUpdateChkService: Requestable {
-    typealias NetworkData = ToonieUpdateChk
-    static let shared = ToonieUpdateChkService()
+struct ChkToonieUpdateService: Requestable {
+    typealias NetworkData = ChkToonieUpdate
+    static let shared = ChkToonieUpdateService()
     
-    func getUpdateInfo(completion : @escaping (ToonieUpdateChk) -> Void) {
-        get(API.toonieUpdateChk) { result in
+    func getUpdateInfo(completion : @escaping (ChkToonieUpdate) -> Void) {
+        get(API.chkToonieUpdate) { result in
             switch result {
             case .networkSuccess(let data):
                 completion(data.resResult)
             case .networkError(let error):
                 print(error)
             case .networkFail:
-                print("Token Network Fail")
+                print("ToonieUpdateChkService Network Fail")
             }
         }
     }
