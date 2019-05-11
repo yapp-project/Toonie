@@ -29,6 +29,7 @@ final class MypageViewController: GestureViewController {
     @IBOutlet private weak var bookMarkButton: UIButton!
     @IBOutlet private weak var tagButton: UIButton!
     @IBOutlet private weak var mypageCollectionView: UICollectionView!
+    @IBOutlet private weak var dataCheckLabel: UILabel!
     
     @IBOutlet weak var mypageCollectionViewFlowLayout: UICollectionViewFlowLayout!
     
@@ -98,10 +99,21 @@ final class MypageViewController: GestureViewController {
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
+    /// dataCheckLabel Hidden 함수
+    private func dataCheckCount(count: Int) {
+        if count == 0 {
+            dataCheckLabel.isHidden = false
+        } else {
+            dataCheckLabel.isHidden = true
+        }
+    }
+    
     /// Tag리스트를 불러오는 통신 함수
     private func getTagList() {
         MyKeywordsService.shared.getMyKeywords { (res) in
             guard let list = res else { return }
+            //datacheck test
+            self.dataCheckCount(count: list.count)
             self.tagList = list
             self.mypageCollectionView.reloadData()
         }
@@ -112,6 +124,8 @@ final class MypageViewController: GestureViewController {
         if status == "recent" {
             LatestService.shared.getLatestToon { (res) in
                 guard let list = res else { return }
+                //datacheck test
+                self.dataCheckCount(count: list.count)
                 self.dataList = list
                 self.mypageCollectionView.reloadData()
             }
@@ -119,6 +133,8 @@ final class MypageViewController: GestureViewController {
         } else if status == "bookMark" {
             FavoriteService.shared.getFavoriteToon { (res) in
                 guard let list = res else { return }
+                //datacheck test
+                self.dataCheckCount(count: list.count)
                 self.dataList = list
                 self.mypageCollectionView.reloadData()
             }
