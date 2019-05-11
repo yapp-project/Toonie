@@ -21,8 +21,6 @@ final class SplashViewController: GestureViewController {
         
         setLogoAnimationView()
 
-        //버전 체크 후 다음 로직 진행
-        chkToonieUpdate {
             //사용자 상태 체크 후 애니메이션 실행.
             self.getUserSelectedKeyword { (mode) in
                 self.logoAnimationView?.play { (finished) in
@@ -34,7 +32,6 @@ final class SplashViewController: GestureViewController {
                         }
                     }
                 }
-            }
         }
     }
     
@@ -81,78 +78,6 @@ final class SplashViewController: GestureViewController {
                 }
             }
             
-        }
-    }
-    
-    ///업데이트 체크
-    func chkToonieUpdate(complete: @escaping () -> Void) {
-        ChkToonieUpdateService.shared.getUpdateInfo { result in
-            if result.forcedUpdate == true {
-                if let forcedVersion = result.forceInfo?.forcedVersion {
-                    if CommonUtility.compareToVersion(newVersion: forcedVersion) < 0 {
-                        self.chkToonieUpdateAlertShow(message: result.forceInfo?.forcedString ?? "최신 버전이 나왔어요! 업데이트하고 즐거운 투니 되세요!",
-                                                      urlString: result.forceInfo?.forcedMoveUrl ?? "",
-                                                      mode: result.forceInfo?.forcedAlertMode == "oneButton",
-                                                      complete: {
-                                                        complete()
-                        })
-                    }
-                }
-            }
-            if result.targetUpdate == true {
-                if let targetVersion = result.targetInfo?.targetVersion {
-                    if CommonUtility.compareToVersion(newVersion: targetVersion) == 0 {
-                        self.chkToonieUpdateAlertShow(message: result.targetInfo?.targetString ?? "최신 버전이 나왔어요! 업데이트하고 즐거운 투니 되세요!",
-                                                      urlString: result.targetInfo?.targetMoveUrl ?? "",
-                                                      mode: result.targetInfo?.targetAlertMode == "oneButton",
-                                                      complete: {
-                                                        complete()
-                        })
-                    }
-                }
-            }
-            
-            if result.targetUpdate == false &&
-                result.targetUpdate == false {
-                complete()
-            }
-        }
-    }
-    
-    ///모드에 따라 업데이트 알럿을 다르게 띄움
-    func chkToonieUpdateAlertShow(message: String,
-                                  urlString: String,
-                                  mode: Bool,
-                                  complete: @escaping () -> Void) {
-        if mode {
-            UIAlertController
-                .alert(title: nil,
-                       message: message,
-                       style: .alert)
-                .action(title: "업데이트", style: .default) { _ in
-                    if let url = URL(string: urlString) {
-                        UIApplication.shared.open(url, options: [:])
-                    } else {
-                        complete()
-                    }
-                }
-                .present(to: self)
-        } else {
-            UIAlertController
-                .alert(title: nil,
-                       message: message,
-                       style: .alert)
-                .action(title: "AppStore", style: .default) { _ in
-                    if let url = URL(string: urlString) {
-                        UIApplication.shared.open(url, options: [:])
-                    } else {
-                        complete()
-                    }
-                }
-                .action(title: "취소", style: .default) { _ in
-                    complete()
-                }
-                .present(to: self)
         }
     }
     
