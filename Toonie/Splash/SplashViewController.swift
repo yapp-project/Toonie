@@ -97,7 +97,7 @@ final class SplashViewController: GestureViewController {
                                                         complete()
                         })
                     }
-                } 
+                }
             }
             if result.targetUpdate == true {
                 if let targetVersion = result.targetInfo?.targetVersion {
@@ -142,7 +142,7 @@ final class SplashViewController: GestureViewController {
                 .alert(title: nil,
                        message: message,
                        style: .alert)
-                .action(title: "업데이트", style: .default) { _ in
+                .action(title: "AppStore", style: .default) { _ in
                     if let url = URL(string: urlString) {
                         UIApplication.shared.open(url, options: [:])
                     } else {
