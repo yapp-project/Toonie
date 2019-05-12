@@ -59,15 +59,18 @@ final class MypageViewController: GestureViewController {
     
     /// status가 바뀔 때 마다 컬렉션뷰의 제일 첫번째 셀로 돌아가게하는 함수
     private func goToFirstItem() {
-        self.mypageCollectionView.scrollToItem(at: IndexPath(row: 0, section: 0),
+        self.mypageCollectionView.scrollToItem(at: IndexPath(row: 0,
+                                                             section: 0),
                                                at: .top,
                                                animated: true)
     }
     
     /// button의 상태를 초기화해주는 함수
     private func setButtonInit() {
-        recentButton.setImage(UIImage(named: "Recent"), for: .normal)
-        bookMarkButton.setImage(UIImage(named: "mypageBookmark"), for: .normal)
+        recentButton.setImage(UIImage(named: "Recent"),
+                              for: .normal)
+        bookMarkButton.setImage(UIImage(named: "mypageBookmark"),
+                                for: .normal)
         
         recentButton.setTitleColor(#colorLiteral(red: 0.6079999804, green: 0.6079999804, blue: 0.6079999804, alpha: 1), for: .normal)
         bookMarkButton.setTitleColor(#colorLiteral(red: 0.6079999804, green: 0.6079999804, blue: 0.6079999804, alpha: 1), for: .normal)
@@ -76,7 +79,8 @@ final class MypageViewController: GestureViewController {
     
     /// 인스타툰 상세정보 화면으로 이동하는 함수
     private func pushDetailToonViewController(toonID: String) {
-        let storyboard = UIStoryboard(name: "Detail", bundle: nil)
+        let storyboard = UIStoryboard(name: "Detail",
+                                      bundle: nil)
         if let viewController = storyboard
             .instantiateViewController(withIdentifier: "DetailToonView")
             as? DetailToonViewController {
@@ -89,14 +93,16 @@ final class MypageViewController: GestureViewController {
     
     /// Tag키워드를 가지고 TagDetail뷰로 이동하는 함수
     private func pushTagDetailViewController(keyword: String) {
-        let storyboard = UIStoryboard(name: "Look", bundle: nil)
+        let storyboard = UIStoryboard(name: "Look",
+                                      bundle: nil)
         guard let viewController = storyboard
             .instantiateViewController(withIdentifier: "LookDetailViewController") as? LookDetailViewController
             else {
                 return
         }
         viewController.selectedKeyword = keyword
-        self.navigationController?.pushViewController(viewController, animated: true)
+        self.navigationController?.pushViewController(viewController,
+                                                      animated: true)
     }
     
     /// dataCheckLabel Hidden 함수
@@ -164,7 +170,8 @@ final class MypageViewController: GestureViewController {
             getToonList(status: status)
             
             setButtonInit()
-            bookMarkButton.setImage(UIImage(named: "mypageBookmarkOn"), for: .normal)
+            bookMarkButton.setImage(UIImage(named: "mypageBookmarkOn"),
+                                    for: .normal)
             bookMarkButton.setTitleColor(#colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1), for: .normal)
         }
         goToFirstItem()
@@ -184,14 +191,16 @@ final class MypageViewController: GestureViewController {
     
     @IBAction func tagSettingButtonDidTap(_ sender: UIButton) {
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name: "Main",
+                                      bundle: nil)
         guard let viewController = storyboard
             .instantiateViewController(withIdentifier: "KeywordSelectViewController") as? KeywordSelectViewController
             else {
                 return
         }
         viewController.setLayoutMode(bool: true)
-        self.navigationController?.pushViewController(viewController, animated: true)        
+        self.navigationController?.pushViewController(viewController,
+                                                      animated: true)
     }
     
 }
@@ -224,15 +233,18 @@ extension MypageViewController: UICollectionViewDataSource {
             cell.setMypageCollectionViewTagCellProperties(tagName: tagName)
         } else {
             let list = dataList[indexPath.row]
-            if let label = list.instaID, let url = list.instaThumnailUrl {
-                cell.setMypageCollectionViewToonCellProperties(labelText: label, imageViewURL: url)
+            if let label = list.instaID,
+                let url = list.instaThumnailUrl {
+                cell.setMypageCollectionViewToonCellProperties(labelText: label,
+                                                               imageViewURL: url)
             }
         }
         
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
         if status == "tag" {
             pushTagDetailViewController(keyword: tagList[indexPath.row])
         } else {
