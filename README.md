@@ -1,4 +1,4 @@
-# Toonie <img alt="toonie_app_store_logo.png" src="https://github.com/yapp-project/Toonie/blob/develop/image/toonie_app_store_logo.png" "> 
+# Toonie <img alt="toonie_app_store_logo.png" src="https://github.com/yapp-project/Toonie/blob/develop/image/toonie_app_store_logo.png" style="max-width: 0.2%"> 
 <p align="center">
   <img alt="Swift" src="https://img.shields.io/badge/swift-4.2-orange.svg">
   <img alt="Platform" src="https://img.shields.io/badge/platform-ios-lightgrey.svg">
