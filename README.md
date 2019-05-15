@@ -1,4 +1,4 @@
-# Toonie  <img alt="Swift" src="https://img.shields.io/badge/swift-4.2-orange.svg"> <img alt="Platform" src="https://img.shields.io/badge/platform-ios-lightgrey.svg"> <a href="https://travis-ci.org/boostcamp3-iOS/team-c2" target="_blank"><img alt="Build Status" src="https://travis-ci.org/yapp-project/Toonie.svg?branch=master"></a>
+# ![이미지](./image/toonie_app_store_logo.png) Toonie  <img alt="Swift" src="https://img.shields.io/badge/swift-4.2-orange.svg"> <img alt="Platform" src="https://img.shields.io/badge/platform-ios-lightgrey.svg"> <a href="https://travis-ci.org/boostcamp3-iOS/team-c2" target="_blank"><img alt="Build Status" src="https://travis-ci.org/yapp-project/Toonie.svg?branch=master"></a>
 
 
 
@@ -36,7 +36,7 @@
 
 ## 앱 스토어
 
-![이미지](./image/toonie_app_store_logo.png)<a href="https://www.apple.com/itunes/"> <img src="" width="170" height="58"></a>
+<a href="https://www.apple.com/itunes/"> <img src="" width="170" height="58"></a>
 
 ## 
 
