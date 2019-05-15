@@ -1,11 +1,5 @@
-<p align="center">
-  <img alt="Swift" src="https://img.shields.io/badge/swift-4.2-orange.svg">
-  <img alt="Platform" src="https://img.shields.io/badge/platform-ios-lightgrey.svg">
-  <a href="https://travis-ci.org/boostcamp3-iOS/team-c2" target="_blank">
-    <img alt="Build Status" src="https://travis-ci.org/yapp-project/Toonie.svg?branch=master">
-  </a>
+# Toonie  <img alt="Swift" src="https://img.shields.io/badge/swift-4.2-orange.svg"> <img alt="Platform" src="https://img.shields.io/badge/platform-ios-lightgrey.svg"> <a href="https://travis-ci.org/boostcamp3-iOS/team-c2" target="_blank"><img alt="Build Status" src="https://travis-ci.org/yapp-project/Toonie.svg?branch=master"></a>
 
-# <img alt="toonie_app_store_logo.png" src="https://github.com/yapp-project/Toonie/blob/develop/image/toonie_app_store_logo.png" style="max-width: 5%">  Toonie 
 
 
 ## 팀원 정보
@@ -42,7 +36,7 @@
 
 ## 앱 스토어
 
-<a href="https://www.apple.com/itunes/"> <img src="" width="170" height="58"></a>
+<a href="https://www.apple.com/itunes/"> <img src="./image/AppStore.png" width="170" height="58"></a>
 
 ## 
 
@@ -69,3 +63,8 @@ excluded:
 
 - **[xUnique](https://github.com/truebit/xUnique)** : `project.pbxproj` 파일의 충돌을 최소화하고 해결을 도움
 - **[Travis CI](https://travis-ci.org/yapp-project/Toonie)** : 자동 빌드 테스트를 통해 안정성 있는 코드 통합을 함
+- Kingfisher
+- Alamofire
+- Lottie
+- SnapKit
+- WebKit
