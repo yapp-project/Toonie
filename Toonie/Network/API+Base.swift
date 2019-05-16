@@ -21,6 +21,11 @@ class API {
         return jsonDecoder
     }()
     
+    static let chkToonieUpdate = {
+        return "http://eunbi6431.cafe24.com/Toonie/chkToonieUpdate.json"
+    }()
+
+    
     static let token = {
         return baseURL + "/token"
     }()

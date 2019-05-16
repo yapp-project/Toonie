@@ -59,7 +59,10 @@ final class MainViewController: GestureViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setButtonTextCenter()
-        tabBarButtonDidTap(feedButton) 
+        tabBarButtonDidTap(feedButton)
+    
+        //버전 체크
+        chkToonieUpdate()
     }
     
     // MARK: - Action
@@ -131,6 +134,61 @@ final class MainViewController: GestureViewController {
         feedButton.centerImageAndButton(5, imageOnTop: true)
         lookButton.centerImageAndButton(5, imageOnTop: true)
         myPageButton.centerImageAndButton(5, imageOnTop: true)
-        
+    }
+    
+    ///업데이트 체크
+    func chkToonieUpdate() {
+        ChkToonieUpdateService.shared.getUpdateInfo { result in
+            if result.forcedUpdate == true {
+                if let forcedVersion = result.forceInfo?.forcedVersion {
+                    if CommonUtility.compareToVersion(newVersion: forcedVersion) < 0 {
+                        self.chkToonieUpdateAlertShow(message: result.forceInfo?.forcedString ?? "최신 버전이 나왔어요! 업데이트하고 즐거운 투니 되세요!",
+                                                      urlString: result.forceInfo?.forcedMoveUrl ?? "",
+                                                      mode: result.forceInfo?.forcedAlertMode == "oneButton")
+                    }
+                }
+            }
+            if result.targetUpdate == true {
+                if let targetVersion = result.targetInfo?.targetVersion {
+                    if CommonUtility.compareToVersion(newVersion: targetVersion) == 0 {
+                        self.chkToonieUpdateAlertShow(message: result.targetInfo?.targetString ?? "최신 버전이 나왔어요! 업데이트하고 즐거운 투니 되세요!",
+                                                      urlString: result.targetInfo?.targetMoveUrl ?? "",
+                                                      mode: result.targetInfo?.targetAlertMode == "oneButton")
+                    }
+                }
+            }
+            
+        }
+    }
+    
+    ///모드에 따라 업데이트 알럿을 다르게 띄움
+    func chkToonieUpdateAlertShow(message: String,
+                                  urlString: String,
+                                  mode: Bool) {
+        if mode {
+            UIAlertController
+                .alert(title: nil,
+                       message: message,
+                       style: .alert)
+                .action(title: "업데이트", style: .default) { _ in
+                    if let url = URL(string: urlString) {
+                        UIApplication.shared.open(url, options: [:])
+                    }
+                }
+                .present(to: self)
+        } else {
+            UIAlertController
+                .alert(title: nil,
+                       message: message,
+                       style: .alert)
+                .action(title: "AppStore", style: .default) { _ in
+                    if let url = URL(string: urlString) {
+                        UIApplication.shared.open(url, options: [:])
+                    }
+                }
+                .action(title: "취소", style: .default) { _ in
+                }
+                .present(to: self)
+        }
     }
 }

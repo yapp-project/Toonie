@@ -55,40 +55,14 @@ final class FeedViewController: GestureViewController {
         loadToon()
         playTagAnimationView()
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "FeedDetail" {
-            if let viewController = segue.destination as? RecommendViewController {
-                viewController.closeButtonClosure = {
-                    () -> Void in
-                    UIView.animate(withDuration: 0.5,
-                                   animations: {
-                                    self.recommendContainerView.alpha = 0
-                    }) { (finish) in
-                        self.view.bringSubviewToFront(self.feedScrollView)
-                        self.recommendContainerView.alpha = 1
-                    }
-                    
-                }
-            }
-        }
-    }
  
     // MARK: - IBAction
     
     /// 피드>피드상세 이동
     @IBAction func moveFeedDetailDidTap(_ sender: Any) {
-//        let storyboard = UIStoryboard(name: "Feed", bundle: nil)
-//        let viewController = storyboard.instantiateViewController(withIdentifier: "RecommendViewController")
-//        self.navigationController?.pushViewController(viewController, animated: true)
-        
-        UIView.animate(withDuration: 0.5,
-                       animations: {
-                    self.feedScrollView.alpha = 0
-        }) { (finish) in
-            self.view.bringSubviewToFront(self.recommendContainerView)
-            self.feedScrollView.alpha = 1
-        }
+        let storyboard = UIStoryboard(name: "Feed", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "RecommendViewController")
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     // MARK: - Function

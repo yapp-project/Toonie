@@ -12,6 +12,8 @@
 		2356B514E09193A5CBF1127EB3E77AB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0983BCBA1C869D8FA91A7719C7D244E3 /* AppDelegate.swift */; };
 		BB57D379599E229DE86C9F3A93FCBB0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80C2C41933AFF35CEA1787DF94DFAF18 /* Assets.xcassets */; };
 		CE58BDE4B385906F80FB4510F44E5C7B /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A77C9F89A069C22EF59EBA5C5E17A8 /* CALayer+.swift */; };
+		BCDEA1EC37D4D5343EE8EB89C50EC320 /* ChkToonieUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8675F866B2CC5FC1DDB18021BE67EABF /* ChkToonieUpdate.swift */; };
+		C51E480B0D1262D5020AF02E2B26CF37 /* ChkToonieUpdateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383FC02752E41DED4201FA814927EC4C /* ChkToonieUpdateService.swift */; };
 		AB9BF389A4D6A9A12F45BDE69A35B72E /* CommonUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391E18129E3FD4CA97AD73AFBEA5D5A5 /* CommonUtility.swift */; };
 		FDC116E19C09047E762A2BFF96608026 /* CurationTagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DFADE2E74674626C62C5847756D7C3 /* CurationTagService.swift */; };
 		5D7C2A319945FF57226321B488D96614 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 013B051389A91973028316A3E576E272 /* Detail.storyboard */; };
@@ -113,6 +115,8 @@
 		CB66083F3ABEA7C967799226FCA1E83F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D96ADF5E22F9048B9EE1FA43C04A076F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		02A77C9F89A069C22EF59EBA5C5E17A8 /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
+		8675F866B2CC5FC1DDB18021BE67EABF /* ChkToonieUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChkToonieUpdate.swift; sourceTree = "<group>"; };
+		383FC02752E41DED4201FA814927EC4C /* ChkToonieUpdateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChkToonieUpdateService.swift; sourceTree = "<group>"; };
 		391E18129E3FD4CA97AD73AFBEA5D5A5 /* CommonUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtility.swift; sourceTree = "<group>"; };
 		F0DFADE2E74674626C62C5847756D7C3 /* CurationTagService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurationTagService.swift; sourceTree = "<group>"; };
 		013B051389A91973028316A3E576E272 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
@@ -364,6 +368,7 @@
 		732C7D1EFCE62ECA3841AD774047133C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8675F866B2CC5FC1DDB18021BE67EABF /* ChkToonieUpdate.swift */,
 				5C0F9FDA6D7EDBB6CC18F7B48E4304F5 /* DetailToon.swift */,
 				92086364F206D590B0D7FF7BD726FD80 /* ForYouToonLists.swift */,
 				9222FD8324DC3A507BC365062CF19A15 /* Keywords.swift */,
@@ -419,6 +424,7 @@
 		877FCA25BE64FC5825B741ED98AE22E1 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				383FC02752E41DED4201FA814927EC4C /* ChkToonieUpdateService.swift */,
 				F0DFADE2E74674626C62C5847756D7C3 /* CurationTagService.swift */,
 				2E371E0D955FBC2867AD25C4BD72ABF4 /* DetailToonService.swift */,
 				384EC31B5698BBD32C8427B4D3D3FA9E /* FavoriteService.swift */,
@@ -774,6 +780,8 @@
 				CD3B71BFA9A4A0A122FD68E070D94845 /* API+Base.swift in Sources */,
 				2356B514E09193A5CBF1127EB3E77AB0 /* AppDelegate.swift in Sources */,
 				CE58BDE4B385906F80FB4510F44E5C7B /* CALayer+.swift in Sources */,
+				BCDEA1EC37D4D5343EE8EB89C50EC320 /* ChkToonieUpdate.swift in Sources */,
+				C51E480B0D1262D5020AF02E2B26CF37 /* ChkToonieUpdateService.swift in Sources */,
 				AB9BF389A4D6A9A12F45BDE69A35B72E /* CommonUtility.swift in Sources */,
 				FDC116E19C09047E762A2BFF96608026 /* CurationTagService.swift in Sources */,
 				8BFC98E4C41B9F358D61ED8AB127CB30 /* DetailToon.swift in Sources */,

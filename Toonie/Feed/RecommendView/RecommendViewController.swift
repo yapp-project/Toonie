@@ -11,11 +11,6 @@ import UIKit
 // '지금 나는' 태그에 따른 인스타툰 추천 화면
 final class RecommendViewController: GestureViewController {
     
-    // MARK: - Property
-    
-    var closeButtonClosure: (() -> Void)?
-    
-    
     //tagCollectionView 5줄 고정 위한 상수, 변수
     private let tagScrollContentViewWidthInitValue: CGFloat = 853
     private let maxTagItemWidth = 168
@@ -30,7 +25,6 @@ final class RecommendViewController: GestureViewController {
     private var tagAllWidth: Int = 0
     private var tagList = [String]()
     private var tagSelectArray = [String]()
-    
     
     // MARK: - IBOutlets
     
@@ -113,10 +107,7 @@ final class RecommendViewController: GestureViewController {
     }
     
     @IBAction func closeButtonDidTap(_ sender: Any) { 
-        if let closure = self.closeButtonClosure {
-            closure()
-        }
-        
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
