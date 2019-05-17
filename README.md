@@ -66,5 +66,5 @@ excluded:
 - Kingfisher
 - Alamofire
 - Lottie
-- SnapKit
+- **[SnapKit](http://snapkit.io/)** : NSLayoutConstraint를 사용시 코드의 양이 많고 가독성이 떨어지기 때문에 SnapKit으로 유지보수성를 높이기 위해 사용하였습니다.
 - WebKit
