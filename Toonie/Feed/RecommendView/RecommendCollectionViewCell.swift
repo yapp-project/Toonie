@@ -42,14 +42,8 @@ final class RecommendCollectionViewCell: UICollectionViewCell {
         
         if let info = curationInfoList { 
             DispatchQueue.main.async {
-                if let url = URL(string: info.instaThumnailUrl ?? "") {
-                    do {
-                        let data = try Data(contentsOf: url)
-                        self.recentToonImageView.image = UIImage(data: data)
-                    } catch let error {
-                        print("Error : \(error.localizedDescription)")
-                    }
-                }
+                self.recentToonImageView.imageFromUrl(info.instaThumnailUrl,
+                                                      defaultImgPath: "")
             }
             if let nameString = info.toonName {
                 toonNameTitle.text = nameString
