@@ -79,9 +79,9 @@ final class ToonWebViewController: UIViewController, WKNavigationDelegate {
     
     /// 웹뷰 버튼, 레이블 설정
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
-        backButton.isEnabled = instagramWebView.canGoBack
-        forwardButton.isEnabled = instagramWebView.canGoForward
+//        backButton.isEnabled = instagramWebView.canGoBack
+//        forwardButton.isEnabled = instagramWebView.canGoForward
         setLabel()
     }
-    
+  
 }
