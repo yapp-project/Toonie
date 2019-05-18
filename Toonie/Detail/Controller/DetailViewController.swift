@@ -43,9 +43,9 @@ final class DetailToonViewController: GestureViewController {
             .action(title: "인스타툰 링크 공유하기", style: .default) { _ in
                 self.shareActivity()
             }
-            .action(title: "이 작품 더이상 추천 받지 않기", style: .destructive) { _ in
-                print("dd")
-            }
+//            .action(title: "이 작품 더이상 추천 받지 않기", style: .destructive) { _ in
+//                print("dd")
+//            }
             .action(title: "취소", style: .cancel) { _ in
                 print("dd")
             }
