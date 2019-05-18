@@ -1,10 +1,10 @@
 PODS:
   - Alamofire (4.8.2)
-  - Kingfisher (5.3.1)
+  - Kingfisher (5.5.0)
   - KTCenterFlowLayout (1.3.1)
-  - lottie-ios (3.0.3)
-  - SnapKit (4.2.0)
-  - SwiftLint (0.31.0)
+  - lottie-ios (3.0.6)
+  - SnapKit (5.0.0)
+  - SwiftLint (0.32.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -25,11 +25,11 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  Kingfisher: d9e7e0b209b59b8f9873aa2f37654e81a7beea51
+  Kingfisher: 6fe5e67a90fd335e49b0f5c075ff55ac5ebedd94
   KTCenterFlowLayout: 6e02b50ab2bd865025ae82fe266ed13b6d9eaf97
-  lottie-ios: 06e0b54aab85ba128e332687d7f4ac4861a7a7ae
-  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
-  SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
+  lottie-ios: d030b6cda141cfd8bbaa3db89264785e6fdf675a
+  SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
+  SwiftLint: 009a898ef2a1c851f45e1b59349bf6ff2ddc990d
 
 PODFILE CHECKSUM: 32f2fd98a8055354eb302f20af8f45112e271c02
 
