@@ -389,8 +389,9 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="335" height="335"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sampleImg" translatesAutoresizingMaskIntoConstraints="NO" id="hHD-8I-LHW">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hHD-8I-LHW">
                                                             <rect key="frame" x="0.0" y="0.0" width="335" height="335"/>
+                                                            <color key="backgroundColor" red="1" green="0.93725490196078431" blue="0.76862745098039209" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="hHD-8I-LHW" secondAttribute="height" multiplier="1:1" id="UvB-Kq-Y33"/>
                                                             </constraints>
@@ -504,8 +505,9 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="335" height="335"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample3" translatesAutoresizingMaskIntoConstraints="NO" id="aml-Pp-bER">
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aml-Pp-bER">
                                                                     <rect key="frame" x="0.0" y="0.0" width="335" height="335"/>
+                                                                    <color key="backgroundColor" red="1" green="0.93725490199999995" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="aml-Pp-bER" secondAttribute="height" multiplier="1:1" id="EwN-Q7-v1X"/>
                                                                     </constraints>
@@ -626,8 +628,9 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="162" height="233"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample2" translatesAutoresizingMaskIntoConstraints="NO" id="TWn-rF-NGP">
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TWn-rF-NGP">
                                                                     <rect key="frame" x="0.0" y="0.0" width="162" height="162"/>
+                                                                    <color key="backgroundColor" red="1" green="0.93725490199999995" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="TWn-rF-NGP" secondAttribute="height" multiplier="1:1" id="H5L-sQ-XhT"/>
                                                                         <constraint firstAttribute="height" constant="162" id="Tat-e9-jrB"/>
@@ -763,9 +766,6 @@
         <image name="BookmarkOn" width="15" height="18"/>
         <image name="closeBtn" width="12" height="13"/>
         <image name="feedDetail_NotInfo" width="173" height="99"/>
-        <image name="sample2" width="162" height="163"/>
-        <image name="sample3" width="335" height="361"/>
-        <image name="sampleImg" width="335" height="335"/>
         <namedColor name="defaultText">
             <color red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
