@@ -150,23 +150,26 @@ final class MypageViewController: GestureViewController {
     // MARK: - IBAction
     
     @IBAction func recentButtonDidTap(_ sender: UIButton) {
-        
         if status != "recent"{
             tagSettingButton.isHidden = true
             status = "recent"
+            tagList.removeAll()
+            dataList.removeAll()
             getToonList(status: status)
     
             setButtonInit()
             recentButton.setImage(UIImage(named: "RecentOn"), for: .normal)
             recentButton.setTitleColor(#colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1), for: .normal)
         }
-        goToFirstItem()
+//        goToFirstItem()
     }
     
     @IBAction func bookMarkButtonDidTap(_ sender: UIButton) {
         if status != "bookMark"{
             tagSettingButton.isHidden = true
             status = "bookMark"
+            tagList.removeAll()
+            dataList.removeAll()
             getToonList(status: status)
             
             setButtonInit()
@@ -174,19 +177,21 @@ final class MypageViewController: GestureViewController {
                                     for: .normal)
             bookMarkButton.setTitleColor(#colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1), for: .normal)
         }
-        goToFirstItem()
+//        goToFirstItem()
     }
     
     @IBAction func tagButtonDidTap(_ sender: UIButton) {
         if status != "tag"{
             tagSettingButton.isHidden = false
             status = "tag"
+            tagList.removeAll()
+            dataList.removeAll()
             getTagList()
             
             setButtonInit()
             tagButton.setTitleColor(#colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1), for: .normal)
         }
-        goToFirstItem()
+//        goToFirstItem()
     }
     
     @IBAction func tagSettingButtonDidTap(_ sender: UIButton) {
