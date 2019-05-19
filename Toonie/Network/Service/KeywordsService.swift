@@ -37,7 +37,7 @@ class MyKeywordsService: Requestable {
     
     ///전체 키워드 리스트를 조회
     func getMyKeywords(completion: @escaping ([String]?) -> Void) {
-        get(API.myKeywordsToken(CommonUtility.userToken)) { result in
+        get(API.myKeywordsToken(CommonUtility.userToken ?? "")) { result in
             switch result {
             case .networkSuccess(let data):
                 if data.resResult.success == false {
@@ -55,7 +55,7 @@ class MyKeywordsService: Requestable {
     ///선택한 키워드 post 통신
     func postMyKeywords(params: [String: Any],
                         completion: @escaping () -> Void) {
-        post((API.myKeywordsToken(CommonUtility.userToken)),
+        post((API.myKeywordsToken(CommonUtility.userToken ?? "")),
              params: params) { result in
                 switch result {
                 case .networkSuccess(let data):

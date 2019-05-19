@@ -24,7 +24,6 @@ class API {
         return "http://eunbi6431.cafe24.com/Toonie/chkToonieUpdate.json"
     }()
 
-    
     static let token = {
         return baseURL + "/token"
     }()
@@ -46,7 +45,7 @@ class API {
     }()
     
     static let forYouToons = {
-        return baseURL + "/tags/token/\(CommonUtility.userToken)"
+        return baseURL + "/tags/token/\(String(describing: CommonUtility.userToken))"
     }()
     
     static let toons = {
@@ -68,11 +67,11 @@ class API {
     }()
     
     static let myFavoriteList = {
-        return baseURL + "/worklist/\(CommonUtility.userToken)/default"
+        return baseURL + "/worklist/\(String(describing: CommonUtility.userToken))/default"
     }()
     
     static let myLatestList = {
-        return baseURL + "/worklist/\(CommonUtility.userToken)/latest"
+        return baseURL + "/worklist/\(String(describing: CommonUtility.userToken))/latest"
     }()
     
 }
