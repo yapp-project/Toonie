@@ -69,7 +69,6 @@ final class RecommendCollectionViewCell: UICollectionViewCell {
             instaUrl = info.instaUrl ?? ""
             instaThumnailUrl = info.instaThumnailUrl ?? ""
             instafollowerCnt = info.instafollowerCount ?? ""
-            instaLatestPostUrl = info.instaLatestPostUrl ?? ""
             
         }
     }
