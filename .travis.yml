@@ -8,3 +8,4 @@ notifications:
 before_install:
 - gem install cocoapods-acknowledgements
 - gem install cocoapods
+- pod update
