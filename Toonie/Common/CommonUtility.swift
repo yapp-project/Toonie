@@ -14,21 +14,15 @@ final class CommonUtility: NSObject {
     
     static let deviceWidth: CGFloat  = 375
     static let deviceHeight: CGFloat = 812
-    //    static let userToken = UserDefaults.standard.string(forKey: "token")
-    static let userToken = "7777777777777777777777" //임시
+    static let userToken = UserDefaults.standard.string(forKey: "token")
     
     var mainNavigationViewController: MainNavigationController?
     var feedNavigationViewController: FeedNavigationController?
     var lookNavigationViewController: LookNavigationController?
     var myPageNavigationViewController: MyPageNavigationController?
-
-    //싱글톤
-    static let sharedInstance: CommonUtility = {
-        let instance = CommonUtility()
-        return instance
-    } ()
     
-    //  static let shared = CommonUtility()
+    //싱글톤
+    static let sharedInstance = CommonUtility()
     
     ///아이폰Xs 해상도 기준으로 타 디바이스 비율을 가져오는 메서드
     static func getDeviceRatioWidth() -> CGFloat {
@@ -95,7 +89,7 @@ final class CommonUtility: NSObject {
         for index in 0..<maxLength {
             var cur = 0
             if index < curArray.count {
-//                cur = curArray.index(after: index) as Int
+                //                cur = curArray.index(after: index) as Int
                 
                 cur = Int(curArray[index]) ?? 0
             }
