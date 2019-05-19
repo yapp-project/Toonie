@@ -42,7 +42,7 @@
 
 ### 활용 기술
 
-- **[SwiftLint](https://github.com/realm/SwiftLint)** : 명확하고 깔끔한 코드 작성과 팀원 간의 코드 이해를 도움
+- **[SwiftLint](https://github.com/realm/SwiftLint)** : 명확하고 깔끔한 코드 작성과 팀원 간의 코드 이해를 도움.
 
 ```yaml
 # .swiftlint.yml
@@ -61,10 +61,9 @@ excluded:
 - Pods
 ```
 
-- **[xUnique](https://github.com/truebit/xUnique)** : `project.pbxproj` 파일의 충돌을 최소화하고 해결을 도움
-- **[Travis CI](https://travis-ci.org/yapp-project/Toonie)** : 자동 빌드 테스트를 통해 안정성 있는 코드 통합을 함
-- Kingfisher
-- Alamofire
-- Lottie
-- **[SnapKit](http://snapkit.io/)** : NSLayoutConstraint를 사용시 코드의 양이 많고 가독성이 떨어지기 때문에 SnapKit으로 유지보수성를 높이기 위해 사용하였습니다.
-- WebKit
+- **[xUnique](https://github.com/truebit/xUnique)** : `project.pbxproj` 파일의 충돌을 최소화하고 해결을 도움.
+- **[Travis CI](https://travis-ci.org/yapp-project/Toonie)** : 자동 빌드 테스트를 통해 안정성 있는 코드 통합을 함.
+- **[Kingfisher](https://github.com/onevcat/Kingfisher)**
+- **[Alamofire](https://github.com/Alamofire/Alamofire)** : 설정 변경시 많은 코드가 추가되는 기존 URLSession을 편리한 서버 통신 구축과 유지보수를 위해 사용함.
+- **[Lottie](https://github.com/airbnb/lottie-ios)** : 효율적인 애니메이션 효과 제작에 사용함. svg 벡터 이미지로 gif로 넣을 때보다 선명한 화질을 제공할 수 있음.
+- **[SnapKit](http://snapkit.io/)** : NSLayoutConstraint를 사용시 코드의 양이 많고 가독성이 떨어지기 때문에, 짧고 직관적인 코드로 유지보수성를 높이기 위해 사용함.
