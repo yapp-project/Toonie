@@ -140,6 +140,12 @@
                                     <constraint firstAttribute="width" constant="1" id="o1Z-67-jpH"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="데이터가 없습니다!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xa8-l7-dF9">
+                                <rect key="frame" x="218.66666666666663" y="452" width="127" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -154,6 +160,8 @@
                             <constraint firstItem="Rnj-eu-oGa" firstAttribute="leading" secondItem="96V-tm-EWN" secondAttribute="trailing" constant="8.9999999999999716" id="bRM-rD-XZM"/>
                             <constraint firstItem="b3b-Jo-k7m" firstAttribute="bottom" secondItem="Rnj-eu-oGa" secondAttribute="bottom" id="eRW-iH-rb9"/>
                             <constraint firstItem="YM2-fo-EPt" firstAttribute="top" secondItem="47g-Ls-rlZ" secondAttribute="bottom" constant="7.3333333333333428" id="fDe-Th-XNH"/>
+                            <constraint firstItem="Xa8-l7-dF9" firstAttribute="centerX" secondItem="Rnj-eu-oGa" secondAttribute="centerX" id="lU0-Cw-HdV"/>
+                            <constraint firstItem="Xa8-l7-dF9" firstAttribute="centerY" secondItem="Rnj-eu-oGa" secondAttribute="centerY" id="ud1-5k-DUa"/>
                             <constraint firstItem="b3b-Jo-k7m" firstAttribute="bottom" secondItem="96V-tm-EWN" secondAttribute="bottom" id="xmG-dG-YI6"/>
                             <constraint firstItem="96V-tm-EWN" firstAttribute="top" secondItem="47g-Ls-rlZ" secondAttribute="bottom" constant="16.333333333333343" id="zhj-wZ-tAT"/>
                         </constraints>
@@ -162,6 +170,7 @@
                     <navigationItem key="navigationItem" id="Wxy-qS-biD"/>
                     <connections>
                         <outlet property="bookMarkButton" destination="5IZ-B7-DxF" id="Qmg-7s-QYN"/>
+                        <outlet property="dataCheckLabel" destination="Xa8-l7-dF9" id="m3L-PE-LYh"/>
                         <outlet property="mypageCollectionView" destination="Rnj-eu-oGa" id="WfH-5r-HxJ"/>
                         <outlet property="mypageCollectionViewFlowLayout" destination="ddU-NF-ERB" id="4IG-Mc-rPV"/>
                         <outlet property="recentButton" destination="pAh-su-ek4" id="vCm-Cs-Qm0"/>

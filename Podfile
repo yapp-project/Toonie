@@ -7,7 +7,7 @@ target 'Toonie' do
 
   # Pods for Toonie
   pod 'KTCenterFlowLayout'
-  pod 'Kingfisher'
+  pod 'Kingfisher', '~> 4.2'
   pod 'lottie-ios'
   pod 'SwiftLint'
   pod 'SnapKit'
