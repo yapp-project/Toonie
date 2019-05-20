@@ -213,9 +213,9 @@
                         <viewLayoutGuide key="safeArea" id="an7-mg-Mse"/>
                     </view>
                     <connections>
-                        <outlet property="authorLabel" destination="cPp-2I-6MS" id="HsK-4T-dKh"/>
+                        <outlet property="authorIDLabel" destination="kmQ-2P-dcV" id="EWa-ev-67A"/>
+                        <outlet property="authorNameLabel" destination="cPp-2I-6MS" id="HsK-4T-dKh"/>
                         <outlet property="descriptionLabel" destination="aPY-uE-xHk" id="FUR-Yk-Jn9"/>
-                        <outlet property="detailToonIdLabel" destination="kmQ-2P-dcV" id="EWa-ev-67A"/>
                         <outlet property="detailToonImageView" destination="3WF-JR-rme" id="Gw2-Fq-d1K"/>
                         <outlet property="favoriteButton" destination="Zp5-BU-IbD" id="dna-gz-ZC3"/>
                         <outlet property="followerNumberLabel" destination="cLo-hV-Na8" id="A6h-nh-DN1"/>
