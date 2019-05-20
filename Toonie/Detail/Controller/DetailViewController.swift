@@ -125,7 +125,7 @@ final class DetailToonViewController: GestureViewController {
             self.detailToonImageView.setCorner(cornerRadius: self.detailToonImageView.frame.width / 2)
             self.authorIDLabel.text = detailToon.instaID
             self.authorNameLabel.text = detailToon.toonName
-            self.descriptionLabel.text = detailToon.instaInfo
+            self.descriptionLabel.text = " " //detailToon.instaInfo
             self.postCountLabel.text = detailToon.instaPostCount
             self.followerNumberLabel.text = detailToon.instaFollowerCount
         }
