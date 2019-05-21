@@ -52,14 +52,14 @@ final class FeedViewController: GestureViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setTagAnimationView()
+        loadToon()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        loadToon()
         playTagAnimationView()
     }
- 
+    
     // MARK: - IBAction
     
     /// 피드>피드상세 이동
@@ -83,16 +83,24 @@ final class FeedViewController: GestureViewController {
             }
             self.forYouCollectionView.reloadData()
         }
-        ToonOfTagService.shared.getToonOfTag { result in
-            
+        LatestService.shared.getLatestToon { result in
             if let result = result {
                 if result.count <= 10 {
-                    self.toonsOfTag = result
+                    self.latestToonLists = result
                 } else {
-                    self.toonsOfTag = self.makeRandomList(result)
+                    self.latestToonLists = self.makeRandomList(result)
                 }
             }
             self.recentCollectionView.reloadData()
+        }
+        FavoriteService.shared.getFavoriteToon { result in
+            if let result = result {
+                if result.count <= 10 {
+                    self.favoriteToonLists = result
+                } else {
+                    self.favoriteToonLists = self.makeRandomList(result)
+                }
+            }
             self.favoriteCollectionView.reloadData()
         }
     }
@@ -177,15 +185,15 @@ extension FeedViewController: UICollectionViewDataSource {
         if collectionView == forYouCollectionView {
             return forYouToonLists?.count ?? 0
         } else if collectionView == recentCollectionView {
-            if toonsOfTag?.count == 0 {
+            if latestToonLists?.count == 0 {
                 removeView(recentViewHeightConstraint)
             }
-            return toonsOfTag?.count ?? 0
+            return latestToonLists?.count ?? 0
         } else if collectionView == favoriteCollectionView {
-            if toonsOfTag?.count == 0 {
+            if favoriteToonLists?.count == 0 {
                 removeView(favoriteViewHeightConstraint)
             }
-            return toonsOfTag?.count ?? 0
+            return favoriteToonLists?.count ?? 0
         } else {
             return 0
         }
@@ -210,8 +218,8 @@ extension FeedViewController: UICollectionViewDataSource {
                 .dequeueReusableCell(withReuseIdentifier: "recentCell",
                                      for: indexPath) as? RecentCollectionViewCell
                 else { return UICollectionViewCell() }
-            if let toonOfTag = toonsOfTag?[indexPath.item] {
-                cell.setRecentCollectionViewCellProperties(toonOfTag)
+            if let latestToonList = latestToonLists?[indexPath.item] {
+                cell.setRecentCollectionViewCellProperties(latestToonList)
             }
             return cell
             
@@ -221,8 +229,8 @@ extension FeedViewController: UICollectionViewDataSource {
                                      for: indexPath) as? FavoriteCollectionViewCell
                 else { return UICollectionViewCell() }
             
-            if let toonOfTag = toonsOfTag?[indexPath.item] {
-                cell.setFavoriteCollectionViewCellProperties(toonOfTag)
+            if let favoriteToonList = favoriteToonLists?[indexPath.item] {
+                cell.setFavoriteCollectionViewCellProperties(favoriteToonList)
             }
             return cell
         }

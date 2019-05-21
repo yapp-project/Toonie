@@ -26,7 +26,7 @@ struct LatestService: Requestable {
                 case .networkError(let error):
                     print(error)
                 case .networkFail:
-                    print("LatestToon post fail")
+                    print("LatestToon Post fail")
                 }
         }
     }

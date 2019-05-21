@@ -43,7 +43,7 @@ struct FavoriteService: Requestable {
             case .networkError(let error):
                 print(error)
             case .networkFail:
-                print("DetailToon Network Fail")
+                print("FavoriteToon get fail")
             }
         }
     }
