@@ -64,6 +64,14 @@ final class MainViewController: GestureViewController {
     
         //버전 체크
         chkToonieUpdate()
+        
+        UIAlertController
+            .alert(title: "1.0.0(3)",
+                   message: "일부 오류 수정\n추천받지 않기 기능 없앰\n둘러보기 UI 수정\nAPI describing 제거",
+                   style: .alert)
+            .action(title: "확인", style: .default) { _ in
+                }
+            .present(to: self)
     }
     
     // MARK: - Action

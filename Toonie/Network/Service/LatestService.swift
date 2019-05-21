@@ -15,7 +15,7 @@ struct LatestService: Requestable {
     /// 최근 본 툰 post 통신
     func postLatestToon(params: [String: Any],
                         completion: @escaping () -> Void) {
-        post((API.myLatestList), params: params) { result in
+        post((API.myLatestList(CommonUtility.getUserToken() ?? "")), params: params) { result in
                 switch result {
                 case .networkSuccess(let data):
                     if data.resResult.success == false {
@@ -33,7 +33,7 @@ struct LatestService: Requestable {
 
     /// 최근 본 툰 get 통신
     func getLatestToon(completion: @escaping ([ToonList]?) -> Void) {
-        get(API.myLatestList) { result in
+        get(API.myLatestList(CommonUtility.getUserToken() ?? "")) { result in
             switch result {
             case .networkSuccess(let data):
                 if data.resResult.success == false {

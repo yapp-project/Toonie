@@ -15,7 +15,7 @@ struct FavoriteService: Requestable {
     ///선택한 툰 즐겨찾기 post 통신
     func postFavoriteToon(params: [String: Any],
                           completion: @escaping () -> Void) {
-        post((API.myFavoriteList), params: params) { result in
+        post((API.myFavoriteList(CommonUtility.getUserToken() ?? "")), params: params) { result in
                 switch result {
                 case .networkSuccess(let data):
                     if data.resResult.success == false {
@@ -33,7 +33,7 @@ struct FavoriteService: Requestable {
     
     /// 찜한 작품 내역 get 통신
     func getFavoriteToon(completion: @escaping ([ToonList]?) -> Void) {
-        get(API.myFavoriteList) { result in
+        get(API.myFavoriteList(CommonUtility.getUserToken() ?? "")) { result in
             switch result {
             case .networkSuccess(let data):
                 guard let toonList = data.resResult.toonList else {
