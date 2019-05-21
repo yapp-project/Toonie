@@ -15,7 +15,8 @@ final class LookNavigationController: UINavigationController {
     }
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        CommonUtility.sharedInstance.lookNavigationViewController = self
+        CommonUtility.sharedInstance
+            .lookNavigationViewController = self
     }
 }
 
@@ -78,7 +79,9 @@ extension LookViewController: UICollectionViewDelegate {
                                  for: indexPath) as? LookCell
             else { return UICollectionViewCell() }
         
-        let image: UIImage? = UIImage.init(named: CommonUtility.tagImage(name: keywords[indexPath.row]))
+        let image: UIImage? = UIImage.init(named: CommonUtility.sharedInstance
+            .tagImage(name: keywords[indexPath.row]))
+        
         cell.setBackgroundImageView(image: image)
         
         return cell

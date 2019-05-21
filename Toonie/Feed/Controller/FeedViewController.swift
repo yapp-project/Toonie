@@ -17,7 +17,8 @@ final class FeedNavigationController: UINavigationController {
     }
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        CommonUtility.sharedInstance.feedNavigationViewController = self
+        CommonUtility.sharedInstance
+            .feedNavigationViewController = self
     }
 }
 
@@ -133,7 +134,8 @@ final class FeedViewController: GestureViewController {
             as? DetailToonViewController {
             viewController.detailToonID = toonID
             viewController.isFavorite = isFavorite
-            CommonUtility.sharedInstance.mainNavigationViewController?
+            CommonUtility.sharedInstance
+                .mainNavigationViewController?
                 .pushViewController(viewController,
                                     animated: true)
         }

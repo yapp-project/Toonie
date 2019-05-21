@@ -15,7 +15,8 @@ final class MainNavigationController: UINavigationController {
     }
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder) 
-        CommonUtility.sharedInstance.mainNavigationViewController = self
+        CommonUtility.sharedInstance
+            .mainNavigationViewController = self
     }
 }
 
@@ -100,13 +101,21 @@ final class MainViewController: GestureViewController {
     func didTapDoubleButton() {
         switch statusButton {
         case feedButton:
-            CommonUtility.sharedInstance.feedNavigationViewController?.popToRootViewController(animated: true)
+            CommonUtility.sharedInstance
+                .feedNavigationViewController?
+                .popToRootViewController(animated: true)
         case lookButton:
-            CommonUtility.sharedInstance.lookNavigationViewController?.popToRootViewController(animated: true)
+            CommonUtility.sharedInstance
+                .lookNavigationViewController?
+                .popToRootViewController(animated: true)
         case myPageButton:
-            CommonUtility.sharedInstance.myPageNavigationViewController?.popToRootViewController(animated: true)
+            CommonUtility.sharedInstance
+                .myPageNavigationViewController?
+                .popToRootViewController(animated: true)
         default:
-            CommonUtility.sharedInstance.feedNavigationViewController?.popToRootViewController(animated: true)
+            CommonUtility.sharedInstance
+                .feedNavigationViewController?
+                .popToRootViewController(animated: true)
         }
     }
     ///뷰 초기화
@@ -141,17 +150,29 @@ final class MainViewController: GestureViewController {
         ChkToonieUpdateService.shared.getUpdateInfo { result in
             if result.forcedUpdate == true {
                 if let forcedVersion = result.forceInfo?.forcedVersion {
-                    if CommonUtility.compareToVersion(newVersion: forcedVersion) < 0 {
-                        self.chkToonieUpdateAlertShow(message: result.forceInfo?.forcedString ?? "최신 버전이 나왔어요! 업데이트하고 즐거운 투니 되세요!",
-                                                      urlString: result.forceInfo?.forcedMoveUrl ?? "",
-                                                      mode: result.forceInfo?.forcedAlertMode == "oneButton")
+                    if CommonUtility.sharedInstance
+                        .compareToVersion(newVersion: forcedVersion) < 0 {
+                    
+                        self.chkToonieUpdateAlertShow(message: result
+                            .forceInfo?
+                            .forcedString ?? "최신 버전이 나왔어요! 업데이트하고 즐거운 투니 되세요!",
+                                                      urlString: result
+                                                        .forceInfo?
+                                                        .forcedMoveUrl ?? "",
+                                                      mode: result
+                                                        .forceInfo?
+                                                        .forcedAlertMode == "oneButton")
                     }
                 }
             }
             if result.targetUpdate == true {
                 if let targetVersion = result.targetInfo?.targetVersion {
-                    if CommonUtility.compareToVersion(newVersion: targetVersion) == 0 {
-                        self.chkToonieUpdateAlertShow(message: result.targetInfo?.targetString ?? "최신 버전이 나왔어요! 업데이트하고 즐거운 투니 되세요!",
+                    if CommonUtility.sharedInstance
+                        .compareToVersion(newVersion: targetVersion) == 0 {
+                       
+                        self.chkToonieUpdateAlertShow(message: result
+                            .targetInfo?
+                            .targetString ?? "최신 버전이 나왔어요! 업데이트하고 즐거운 투니 되세요!",
                                                       urlString: result.targetInfo?.targetMoveUrl ?? "",
                                                       mode: result.targetInfo?.targetAlertMode == "oneButton")
                     }

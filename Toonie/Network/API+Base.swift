@@ -71,11 +71,11 @@ class API {
     }()
     
     static let myFavoriteList = {
-        return baseURL + "/worklist/\(String(describing: CommonUtility.userToken))/default"
+        return baseURL + "/worklist/\(String(describing: CommonUtility.getUserToken()))/default"
     }()
     
     static let myLatestList = {
-        return baseURL + "/worklist/\(String(describing: CommonUtility.userToken))/latest"
+        return baseURL + "/worklist/\(String(describing: CommonUtility.getUserToken()))/latest"
     }()
     
 }

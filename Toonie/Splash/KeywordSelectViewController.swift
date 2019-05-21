@@ -102,7 +102,7 @@ final class KeywordSelectViewController: GestureViewController {
     
     ///기기에 UserToken값 없다면 서버에서 받아옴
     func setUserToken() {
-        if CommonUtility.userToken == nil {
+        if CommonUtility.getUserToken() == nil {
             TokenService.shared.getToken { result in
                 UserDefaults.standard.set(result, forKey: "token")
             }
