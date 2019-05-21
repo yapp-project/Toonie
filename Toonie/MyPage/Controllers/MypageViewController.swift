@@ -243,7 +243,7 @@ extension MypageViewController: UICollectionViewDataSource {
             cell.setMypageCollectionViewTagCellProperties(tagName: tagName)
         } else {
             let list = dataList[indexPath.row]
-            if let label = list.instaID,
+            if let label = list.toonName,
                 let url = list.instaThumnailUrl {
                 cell.setMypageCollectionViewToonCellProperties(labelText: label,
                                                                imageViewURL: url)
