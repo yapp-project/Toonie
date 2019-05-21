@@ -15,7 +15,8 @@ final class LookNavigationController: UINavigationController {
     }
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        CommonUtility.sharedInstance.lookNavigationViewController = self
+        CommonUtility.sharedInstance
+            .lookNavigationViewController = self
     }
 }
 
@@ -45,9 +46,9 @@ final class LookViewController: GestureViewController {
     func setCollectionViewLayout() {
         mainCategoryCollectionViewFlowLayout.scrollDirection = .vertical
         mainCategoryCollectionViewFlowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width * 0.432 ,
-                                                               height: (UIScreen.main.bounds.width * 0.432) * 0.95 )
+                                                               height: (UIScreen.main.bounds.width * 0.432) * 0.96 )
         mainCategoryCollectionViewFlowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 4, right: 0)
-        mainCategoryCollectionViewFlowLayout.minimumLineSpacing = 10.0
+        mainCategoryCollectionViewFlowLayout.minimumLineSpacing = 11.0
         mainCategoryCollectionViewFlowLayout.minimumInteritemSpacing = 1.0
     }
     
@@ -78,7 +79,9 @@ extension LookViewController: UICollectionViewDelegate {
                                  for: indexPath) as? LookCell
             else { return UICollectionViewCell() }
         
-        let image: UIImage? = UIImage.init(named: CommonUtility.tagImage(name: keywords[indexPath.row]))
+        let image: UIImage? = UIImage.init(named: CommonUtility.sharedInstance
+            .tagImage(name: keywords[indexPath.row]))
+        
         cell.setBackgroundImageView(image: image)
         
         return cell

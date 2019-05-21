@@ -20,8 +20,8 @@ final class DetailToonViewController: GestureViewController {
     // MARK: - IBOutlets
     
     @IBOutlet private weak var detailToonImageView: UIImageView!
-    @IBOutlet private weak var detailToonIdLabel: UILabel!
-    @IBOutlet private weak var authorLabel: UILabel!
+    @IBOutlet private weak var authorIDLabel: UILabel!
+    @IBOutlet private weak var authorNameLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var postCountLabel: UILabel!
     @IBOutlet private weak var followerNumberLabel: UILabel!
@@ -38,18 +38,18 @@ final class DetailToonViewController: GestureViewController {
     
     /// 공유 액션시트
     @IBAction func moreButtonDidTap(_ sender: UIButton) {
-        UIAlertController
-            .alert(title: nil, message: nil, style: .actionSheet)
-            .action(title: "인스타툰 링크 공유하기", style: .default) { _ in
+//        UIAlertController
+//            .alert(title: nil, message: nil, style: .actionSheet)
+//            .action(title: "인스타툰 링크 공유하기", style: .default) { _ in
                 self.shareActivity()
-            }
-            .action(title: "이 작품 더이상 추천 받지 않기", style: .destructive) { _ in
-                print("dd")
-            }
-            .action(title: "취소", style: .cancel) { _ in
-                print("dd")
-            }
-            .present(to: self)
+//            }
+//            .action(title: "이 작품 더이상 추천 받지 않기", style: .destructive) { _ in
+//                print("dd")
+//            }
+//            .action(title: "취소", style: .cancel) { _ in
+//                print("dd")
+//            }
+//            .present(to: self)
     }
     
     /// 툰 웹뷰 띄우기
@@ -121,10 +121,11 @@ final class DetailToonViewController: GestureViewController {
     private func setDetailToon(_ detailToon: DetailToon) {
         DispatchQueue.main.async {
             self.detailToonImageView.imageFromUrl(detailToon.instaThumnailUrl, defaultImgPath: "collectionAddLoading")
+            print("pppp\(String(describing: detailToon.instaThumnailUrl!))")
             self.detailToonImageView.setCorner(cornerRadius: self.detailToonImageView.frame.width / 2)
-            self.detailToonIdLabel.text = detailToon.toonID
-            self.authorLabel.text = detailToon.instaID
-            self.descriptionLabel.text = detailToon.instaInfo
+            self.authorIDLabel.text = detailToon.instaID
+            self.authorNameLabel.text = detailToon.toonName
+            self.descriptionLabel.text = " " //detailToon.instaInfo
             self.postCountLabel.text = detailToon.instaPostCount
             self.followerNumberLabel.text = detailToon.instaFollowerCount
         }

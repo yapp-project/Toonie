@@ -17,7 +17,8 @@ final class FeedNavigationController: UINavigationController {
     }
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        CommonUtility.sharedInstance.feedNavigationViewController = self
+        CommonUtility.sharedInstance
+            .feedNavigationViewController = self
     }
 }
 
@@ -39,6 +40,9 @@ final class FeedViewController: GestureViewController {
     
     private var tagAnimationView: AnimationView?
     private var forYouToonLists: [ToonList]?
+    private var latestToonLists: [ToonList]?
+    private var favoriteToonLists: [ToonList]?
+    
     private var toonsOfTag: [ToonInfoList]?
     private var detailToonId = ""
     private var isFavorite = false
@@ -70,7 +74,6 @@ final class FeedViewController: GestureViewController {
     /// 툰 정보 네트워크 요청
     private func loadToon() {
         ForYouToonListService.shared.getForYouToonList { result in
-            
             if let result = result {
                 if result.count <= 10 {
                     self.forYouToonLists = result
@@ -133,7 +136,8 @@ final class FeedViewController: GestureViewController {
             as? DetailToonViewController {
             viewController.detailToonID = toonID
             viewController.isFavorite = isFavorite
-            CommonUtility.sharedInstance.mainNavigationViewController?
+            CommonUtility.sharedInstance
+                .mainNavigationViewController?
                 .pushViewController(viewController,
                                     animated: true)
         }

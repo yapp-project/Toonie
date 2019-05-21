@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KIX-zJ-v7V">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KIX-zJ-v7V">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7Kj-yc-Zfy">
-                                        <rect key="frame" x="18.666666666666657" y="0.0" width="337.66666666666674" height="734"/>
+                                        <rect key="frame" x="20.666666666666657" y="0.0" width="333.66666666666674" height="734"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="4" minimumInteritemSpacing="5" id="FmF-ch-KZy">
                                             <size key="itemSize" width="160" height="158"/>
@@ -58,7 +58,7 @@
                                             </collectionViewCell>
                                         </cells>
                                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="HeaderCell" id="aIW-9d-mma">
-                                            <rect key="frame" x="0.0" y="0.0" width="337.66666666666674" height="104"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="333.66666666666674" height="104"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ccs-Rs-aOQ" userLabel="TitleView">
@@ -95,7 +95,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="7Kj-yc-Zfy" secondAttribute="bottom" id="Hi6-HX-e9f"/>
-                                    <constraint firstItem="7Kj-yc-Zfy" firstAttribute="width" secondItem="Yp9-fC-7jS" secondAttribute="width" multiplier="0.9" id="WsA-yp-9rL"/>
+                                    <constraint firstItem="7Kj-yc-Zfy" firstAttribute="width" secondItem="Yp9-fC-7jS" secondAttribute="width" multiplier="0.89" id="WsA-yp-9rL"/>
                                     <constraint firstItem="7Kj-yc-Zfy" firstAttribute="centerX" secondItem="Yp9-fC-7jS" secondAttribute="centerX" id="kid-dc-Btb"/>
                                     <constraint firstItem="7Kj-yc-Zfy" firstAttribute="top" secondItem="Yp9-fC-7jS" secondAttribute="top" id="zbH-zx-XDQ"/>
                                 </constraints>

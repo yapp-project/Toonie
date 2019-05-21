@@ -14,7 +14,8 @@ final class LookCell: UICollectionViewCell {
     
     func setBackgroundImageView(image: UIImage?) {
         backgroundImageView.backgroundColor = UIColor.lightGray
-
+        backgroundImageView.setCorner(cornerRadius: 3.0)
+        
         guard image != nil else {
             return
         }
