@@ -67,7 +67,7 @@ final class MainViewController: GestureViewController {
         
         UIAlertController
             .alert(title: "1.0.0(3)",
-                   message: "일부 오류 수정\n추천받지 않기 기능 없앰\n둘러보기 UI 수정\nAPI describing 제거",
+                   message: "일부 오류 수정\n추천받지 않기 기능 없앰\n둘러보기 UI 수정\nAPI describing 제거\n마이페이지 데이터 없음 표시",
                    style: .alert)
             .action(title: "확인", style: .default) { _ in
                 }

@@ -39,7 +39,6 @@ struct FavoriteService: Requestable {
                 guard let toonList = data.resResult.toonList else {
                     return
                 }
-                print("toonList : \(toonList)")
                 completion(toonList)
             case .networkError(let error):
                 print(error)
