@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2AM-od-8ZK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2AM-od-8ZK">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -84,13 +84,13 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ks4-2q-8ed">
                                                     <rect key="frame" x="12" y="6" width="123" height="123"/>
-                                                    <color key="backgroundColor" name="line"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Ks4-2q-8ed" secondAttribute="height" multiplier="1:1" id="Man-DK-b2f"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rM0-BQ-URO">
-                                                    <rect key="frame" x="12" y="139" width="123" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rM0-BQ-URO">
+                                                    <rect key="frame" x="12" y="139" width="123" height="0.0"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -140,18 +140,30 @@
                                     <constraint firstAttribute="width" constant="1" id="o1Z-67-jpH"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="데이터가 없습니다!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xa8-l7-dF9">
-                                <rect key="frame" x="218.66666666666663" y="452" width="127" height="20.333333333333314"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5sK-yt-G5L">
+                                <rect key="frame" x="229.66666666666663" y="373.33333333333331" width="105" height="97.666666666666686"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconNothing" translatesAutoresizingMaskIntoConstraints="NO" id="Zxm-y7-OYz">
+                                        <rect key="frame" x="0.0" y="0.0" width="105" height="61"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아직 감상한 작품이 없습니다!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xa8-l7-dF9">
+                                        <rect key="frame" x="0.0" y="69" width="105" height="28.666666666666671"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="105" id="ET9-YU-UK5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" name="disabledButton"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Rnj-eu-oGa" firstAttribute="top" secondItem="YM2-fo-EPt" secondAttribute="bottom" constant="10" id="0oH-mK-5uz"/>
                             <constraint firstItem="47g-Ls-rlZ" firstAttribute="top" secondItem="b3b-Jo-k7m" secondAttribute="top" constant="21" id="3zP-9s-rFi"/>
                             <constraint firstItem="AGO-d7-MFl" firstAttribute="leading" secondItem="b3b-Jo-k7m" secondAttribute="leading" constant="24" id="4Wb-6j-Hfm"/>
+                            <constraint firstItem="5sK-yt-G5L" firstAttribute="centerX" secondItem="Rnj-eu-oGa" secondAttribute="centerX" id="5W6-5g-1Hn"/>
                             <constraint firstItem="YM2-fo-EPt" firstAttribute="centerX" secondItem="Rnj-eu-oGa" secondAttribute="centerX" id="6j2-0F-NA4"/>
                             <constraint firstItem="b3b-Jo-k7m" firstAttribute="trailing" secondItem="Rnj-eu-oGa" secondAttribute="trailing" constant="8" id="7bK-B7-3dA"/>
                             <constraint firstItem="b3b-Jo-k7m" firstAttribute="bottom" secondItem="AGO-d7-MFl" secondAttribute="bottom" constant="65" id="Biv-bV-jev"/>
@@ -160,8 +172,7 @@
                             <constraint firstItem="Rnj-eu-oGa" firstAttribute="leading" secondItem="96V-tm-EWN" secondAttribute="trailing" constant="8.9999999999999716" id="bRM-rD-XZM"/>
                             <constraint firstItem="b3b-Jo-k7m" firstAttribute="bottom" secondItem="Rnj-eu-oGa" secondAttribute="bottom" id="eRW-iH-rb9"/>
                             <constraint firstItem="YM2-fo-EPt" firstAttribute="top" secondItem="47g-Ls-rlZ" secondAttribute="bottom" constant="7.3333333333333428" id="fDe-Th-XNH"/>
-                            <constraint firstItem="Xa8-l7-dF9" firstAttribute="centerX" secondItem="Rnj-eu-oGa" secondAttribute="centerX" id="lU0-Cw-HdV"/>
-                            <constraint firstItem="Xa8-l7-dF9" firstAttribute="centerY" secondItem="Rnj-eu-oGa" secondAttribute="centerY" id="ud1-5k-DUa"/>
+                            <constraint firstItem="5sK-yt-G5L" firstAttribute="centerY" secondItem="Rnj-eu-oGa" secondAttribute="centerY" constant="-40" id="jvt-LZ-tbs"/>
                             <constraint firstItem="b3b-Jo-k7m" firstAttribute="bottom" secondItem="96V-tm-EWN" secondAttribute="bottom" id="xmG-dG-YI6"/>
                             <constraint firstItem="96V-tm-EWN" firstAttribute="top" secondItem="47g-Ls-rlZ" secondAttribute="bottom" constant="16.333333333333343" id="zhj-wZ-tAT"/>
                         </constraints>
@@ -170,6 +181,7 @@
                     <navigationItem key="navigationItem" id="Wxy-qS-biD"/>
                     <connections>
                         <outlet property="bookMarkButton" destination="5IZ-B7-DxF" id="Qmg-7s-QYN"/>
+                        <outlet property="dataCheckImageView" destination="Zxm-y7-OYz" id="l6T-pU-jcZ"/>
                         <outlet property="dataCheckLabel" destination="Xa8-l7-dF9" id="m3L-PE-LYh"/>
                         <outlet property="mypageCollectionView" destination="Rnj-eu-oGa" id="WfH-5r-HxJ"/>
                         <outlet property="mypageCollectionViewFlowLayout" destination="ddU-NF-ERB" id="4IG-Mc-rPV"/>
@@ -204,6 +216,7 @@
         <image name="Bookmark" width="15" height="18"/>
         <image name="Recent" width="17" height="17"/>
         <image name="RecentOn" width="17" height="17"/>
+        <image name="iconNothing" width="100" height="61"/>
         <image name="mypageBookmarkOn" width="15" height="18"/>
         <image name="tagEditBtn" width="120" height="30"/>
         <namedColor name="defaultText">
@@ -211,9 +224,6 @@
         </namedColor>
         <namedColor name="disabledButton">
             <color red="0.60799998044967651" green="0.60799998044967651" blue="0.60799998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="line">
-            <color red="0.76470588235294112" green="0.76470588235294112" blue="0.76470588235294112" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
