@@ -46,9 +46,9 @@ final class LookViewController: GestureViewController {
     func setCollectionViewLayout() {
         mainCategoryCollectionViewFlowLayout.scrollDirection = .vertical
         mainCategoryCollectionViewFlowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width * 0.432 ,
-                                                               height: (UIScreen.main.bounds.width * 0.432) * 0.95 )
+                                                               height: (UIScreen.main.bounds.width * 0.432) * 0.96 )
         mainCategoryCollectionViewFlowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 4, right: 0)
-        mainCategoryCollectionViewFlowLayout.minimumLineSpacing = 10.0
+        mainCategoryCollectionViewFlowLayout.minimumLineSpacing = 11.0
         mainCategoryCollectionViewFlowLayout.minimumInteritemSpacing = 1.0
     }
     

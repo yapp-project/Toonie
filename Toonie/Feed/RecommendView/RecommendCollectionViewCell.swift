@@ -32,6 +32,8 @@ final class RecommendCollectionViewCell: UICollectionViewCell {
         recentToonImageView.image = nil
         toonNameTitle.text = nil
         bookMarkButton.isSelected  = false
+        
+        recentToonImageView.setCorner(cornerRadius: 3.0)
     }
     
     // MARK: - Functions
