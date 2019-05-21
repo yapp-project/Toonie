@@ -19,15 +19,17 @@ final class LookDetailViewController: GestureViewController {
     
     // MARK: - Properties
     var selectedKeyword: String = ""
-    
+    private var tag = "전체보기"
     private var toonDataList = [ToonInfoList]()
     private var toonList = [ToonOfTag]()
+    private var toonAllList = [ToonList]()
     
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         lookDetailTitleLabel.text = selectedKeyword
+        setCollectionViewData(keyword: selectedKeyword)
         setCollectionViewLayout()
     }
     
@@ -37,15 +39,9 @@ final class LookDetailViewController: GestureViewController {
                 viewController.selectedKeyword = self.selectedKeyword
                 viewController.tagDidTapClosure = {
                     (tagString) -> Void in
-                    LookToonOfTagService.shared
-                        .getLookToonOfTag(toonTag: tagString,
-                                          completion: { res in
-                        self.toonList = [res]
-                        guard let toonData = res.toonInfoList else { return }
-                        self.toonDataList = toonData
-                        self.lookDetailCollectionView.reloadData()
-                    })
-                
+                    self.tag = tagString
+                    print("self.selectedKeyword : \(self.selectedKeyword)")
+                    self.setCollectionViewData(keyword: self.selectedKeyword)
                 }
             }
         }
@@ -58,6 +54,33 @@ final class LookDetailViewController: GestureViewController {
     }
     
     // MARK: - Function
+    
+    ///
+    private func setCollectionViewData(keyword: String) {
+        if tag == "전체보기" {
+            print("hihihihi")
+            KeywordToonAllListService
+                .shared
+                .getKeywordToonAllList(keyword: self.selectedKeyword,
+                                       completion: { (res) in
+                                        print("reszgzgzg \(res)")
+                                        guard let toonData = res else { return }
+                                        self.toonAllList = toonData
+                                        self.lookDetailCollectionView.reloadData()
+                })
+            
+        } else {
+            print("byebyebye")
+            LookToonOfTagService.shared
+                .getLookToonOfTag(toonTag: tag,
+                                  completion: { res in
+                                    self.toonList = [res]
+                                    guard let toonData = res.toonInfoList else { return }
+                                    self.toonDataList = toonData
+                                    self.lookDetailCollectionView.reloadData()
+                })
+        }
+    }
     
     ///컬렉션 뷰 아이템 크기, 위치조정
     private func setCollectionViewLayout() {
@@ -98,7 +121,11 @@ extension LookDetailViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return toonDataList.count
+        if tag == "전체보기" {
+            return toonAllList.count
+        } else {
+            return toonDataList.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -108,16 +135,28 @@ extension LookDetailViewController: UICollectionViewDataSource {
                                  for: indexPath) as? LookDetailCell
             else { return UICollectionViewCell() }
 
-        if let thumnailURL = toonDataList[indexPath.item].instaThumnailUrl {
-            cell.setImageView(imageURL: thumnailURL)
+        if tag == "전체보기" {
+            if let thumnailURL = toonAllList[indexPath.item].instaThumnailUrl {
+                cell.setImageView(imageURL: thumnailURL)
+            }
+        } else {
+            if let thumnailURL = toonDataList[indexPath.item].instaThumnailUrl {
+                cell.setImageView(imageURL: thumnailURL)
+            }
         }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
-        if let toonId = toonDataList[indexPath.item].toonID {
-            pushDetailToonViewController(toonID: toonId)
+        if tag == "전체보기" {
+            if let toonId = toonAllList[indexPath.item].toonID {
+                pushDetailToonViewController(toonID: toonId)
+            }
+        } else {
+            if let toonId = toonDataList[indexPath.item].toonID {
+                pushDetailToonViewController(toonID: toonId)
+            }
         }
     }
 }

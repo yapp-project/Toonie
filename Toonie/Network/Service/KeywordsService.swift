@@ -90,5 +90,25 @@ class KeywordToonListService: Requestable {
             }
         }
     }
-    
+}
+
+class KeywordToonAllListService: Requestable {
+    typealias NetworkData = ForYouToonLists
+    static let shared = KeywordToonAllListService()
+
+    func getKeywordToonAllList(keyword: String,
+                               completion: @escaping ([ToonList]?) -> Void) {
+        get(API.toons + "/keyword/\(keyword)") { result in
+            print("APIZZZ \(API.toons + "/keyword/\(keyword)")")
+            switch result {
+            case .networkSuccess(let data):
+                guard let toonList = data.resResult.toonList else { return }
+                completion(toonList)
+            case .networkError(let error):
+                print(error)
+            case .networkFail:
+                print("KeywordToonAllListService Network Fail")
+            }
+        }
+    }
 }
