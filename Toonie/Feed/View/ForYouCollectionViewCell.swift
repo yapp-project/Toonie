@@ -59,8 +59,10 @@ final class ForYouCollectionViewCell: UICollectionViewCell {
         
         DispatchQueue.main.async {
             self.forYouToonImageView.imageFromUrl(toonList.instaThumnailUrl,
-                                                  defaultImgPath: "collectionAddLoading")
+                                                  defaultImgPath: "dum2")
             self.forYouToonImageView.setCorner(cornerRadius: 4)
+            self.forYouToonImageView.image = self.forYouToonImageView.image?
+                .resize(newWidth: UIScreen.main.bounds.width)
             self.forYouToonTitleLabel.text = toonList.toonName
             self.toonIdLabel.text = toonList.toonID
         }

@@ -120,9 +120,10 @@ final class DetailToonViewController: GestureViewController {
     /// 툰 정보 넣기
     private func setDetailToon(_ detailToon: DetailToon) {
         DispatchQueue.main.async {
-            self.detailToonImageView.imageFromUrl(detailToon.instaThumnailUrl, defaultImgPath: "collectionAddLoading")
-            print("pppp\(String(describing: detailToon.instaThumnailUrl!))")
+            self.detailToonImageView.imageFromUrl(detailToon.instaThumnailUrl, defaultImgPath: "dum2")
             self.detailToonImageView.setCorner(cornerRadius: self.detailToonImageView.frame.width / 2)
+            self.detailToonImageView.image = self.detailToonImageView.image?
+                .resize(newWidth: UIScreen.main.bounds.width)
             self.authorIDLabel.text = detailToon.instaID
             self.authorNameLabel.text = detailToon.toonName
             self.descriptionLabel.text = " " //detailToon.instaInfo

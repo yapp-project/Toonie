@@ -54,17 +54,19 @@ final class FavoriteCollectionViewCell: UICollectionViewCell {
     // MARK: - Functions
     
     /// 컬렉션뷰셀 데이터 설정 ((임시))
-    func setFavoriteCollectionViewCellProperties(_ toonInfoList: ToonInfoList) {
+    func setFavoriteCollectionViewCellProperties(_ toonList: ToonList) {
         prepareForReuse()
         DispatchQueue.main.async {
-            self.favoriteToonImageView.imageFromUrl(toonInfoList.instaThumnailUrl,
-                                                    defaultImgPath: "collectionAddLoading")
+            self.favoriteToonImageView.imageFromUrl(toonList.instaThumnailUrl,
+                                                    defaultImgPath: "dum2")
             self.favoriteToonImageView.setCorner(cornerRadius: 4)
-            self.favoriteToonTitleLabel.text = toonInfoList.toonName
-            self.toonIdLabel.text = toonInfoList.toonID
+            self.favoriteToonImageView.image = self.favoriteToonImageView.image?
+                .resize(newWidth: UIScreen.main.bounds.width)
+            self.favoriteToonTitleLabel.text = toonList.toonName
+            self.toonIdLabel.text = toonList.toonID
         }
         var tagList = ""
-        if let toonTagList = toonInfoList.toonTagList {
+        if let toonTagList = toonList.toonTagList {
             for index in 0..<toonTagList.count {
                 tagList += "#" + toonTagList[index] + " "
             }
