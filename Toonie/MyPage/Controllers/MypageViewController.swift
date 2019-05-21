@@ -48,12 +48,12 @@ final class MypageViewController: GestureViewController {
         
         // 초기 화면 - 최근 본 목록
         status = "recent"
-        getToonList(status: status)
         mypageCollectionView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        getToonList(status: status)
 //        goToFirstItem()
     }
     
@@ -138,7 +138,7 @@ final class MypageViewController: GestureViewController {
     private func getToonList(status: String) {
         if status == "recent" {
             LatestService.shared.getLatestToon { (res) in
-                if res == nil {
+                if res != nil {
                     self.dataCheck(status: self.status)
                 }
                 guard let list = res else { return }
@@ -162,6 +162,8 @@ final class MypageViewController: GestureViewController {
     
     @IBAction func recentButtonDidTap(_ sender: UIButton) {
         if status != "recent"{
+            dataList.removeAll()
+            tagList.removeAll()
             tagSettingButton.isHidden = true
             status = "recent"
             getToonList(status: status)
@@ -175,6 +177,8 @@ final class MypageViewController: GestureViewController {
     
     @IBAction func bookMarkButtonDidTap(_ sender: UIButton) {
         if status != "bookMark"{
+            dataList.removeAll()
+            tagList.removeAll()
             tagSettingButton.isHidden = true
             status = "bookMark"
             getToonList(status: status)
@@ -189,6 +193,8 @@ final class MypageViewController: GestureViewController {
     
     @IBAction func tagButtonDidTap(_ sender: UIButton) {
         if status != "tag"{
+            dataList.removeAll()
+            tagList.removeAll()
             tagSettingButton.isHidden = false
             status = "tag"
             getTagList()

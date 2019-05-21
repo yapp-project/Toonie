@@ -55,7 +55,7 @@ final class LookDetailViewController: GestureViewController {
     
     // MARK: - Function
     
-    ///
+    /// 컬렉션뷰 데이터 설정
     private func setCollectionViewData(keyword: String) {
         if tag == "전체보기" {
             KeywordToonAllListService
@@ -79,7 +79,7 @@ final class LookDetailViewController: GestureViewController {
         }
     }
     
-    ///컬렉션 뷰 아이템 크기, 위치조정
+    /// 컬렉션 뷰 아이템 크기, 위치조정
     private func setCollectionViewLayout() {
         lookDetailCollectionViewFlowLayout.scrollDirection = .vertical
         lookDetailCollectionViewFlowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width * 0.322 ,
