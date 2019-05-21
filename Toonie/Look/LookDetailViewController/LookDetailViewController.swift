@@ -58,19 +58,16 @@ final class LookDetailViewController: GestureViewController {
     ///
     private func setCollectionViewData(keyword: String) {
         if tag == "전체보기" {
-            print("hihihihi")
             KeywordToonAllListService
                 .shared
                 .getKeywordToonAllList(keyword: self.selectedKeyword,
                                        completion: { (res) in
-                                        print("reszgzgzg \(res)")
                                         guard let toonData = res else { return }
                                         self.toonAllList = toonData
                                         self.lookDetailCollectionView.reloadData()
                 })
             
         } else {
-            print("byebyebye")
             LookToonOfTagService.shared
                 .getLookToonOfTag(toonTag: tag,
                                   completion: { res in

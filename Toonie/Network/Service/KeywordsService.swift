@@ -99,7 +99,6 @@ class KeywordToonAllListService: Requestable {
     func getKeywordToonAllList(keyword: String,
                                completion: @escaping ([ToonList]?) -> Void) {
         get(API.toons + "/keyword/\(keyword)") { result in
-            print("APIZZZ \(API.toons + "/keyword/\(keyword)")")
             switch result {
             case .networkSuccess(let data):
                 guard let toonList = data.resResult.toonList else { return }
