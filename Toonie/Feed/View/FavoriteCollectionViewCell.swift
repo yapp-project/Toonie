@@ -53,7 +53,7 @@ final class FavoriteCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Functions
     
-    /// 컬렉션뷰셀 데이터 설정 ((임시))
+    /// 컬렉션뷰셀 데이터 설정
     func setFavoriteCollectionViewCellProperties(_ toonList: ToonList) {
         prepareForReuse()
         DispatchQueue.main.async {
@@ -73,6 +73,13 @@ final class FavoriteCollectionViewCell: UICollectionViewCell {
             DispatchQueue.main.async {
                 self.favoriteToonTagLabel.text = tagList
             }
+        }
+    }
+    
+    /// 북마크 버튼 상태 설정
+    func setBookMarkButton(_ isFavorite: Bool) {
+        DispatchQueue.main.async {
+            self.bookMarkButton.isSelected = isFavorite
         }
     }
     

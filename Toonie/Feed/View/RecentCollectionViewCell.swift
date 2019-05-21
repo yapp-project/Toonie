@@ -64,4 +64,11 @@ final class RecentCollectionViewCell: UICollectionViewCell {
             self.toonIdLabel.text = toonList.toonID
         }
     }
+    
+    /// 북마크 버튼 상태 설정
+    func setBookMarkButton(_ isFavorite: Bool) {
+        DispatchQueue.main.async {
+            self.bookMarkButton.isSelected = isFavorite
+        }
+    }
 }

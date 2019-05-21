@@ -42,8 +42,6 @@ final class FeedViewController: GestureViewController {
     private var forYouToonLists: [ToonList]?
     private var latestToonLists: [ToonList]?
     private var favoriteToonLists: [ToonList]?
-    
-    private var toonsOfTag: [ToonInfoList]?
     private var detailToonId = ""
     private var isFavorite = false
     
@@ -143,7 +141,6 @@ final class FeedViewController: GestureViewController {
             .instantiateViewController(withIdentifier: "DetailToonView")
             as? DetailToonViewController {
             viewController.detailToonID = toonID
-            viewController.isFavorite = isFavorite
             CommonUtility.sharedInstance
                 .mainNavigationViewController?
                 .pushViewController(viewController,
@@ -161,10 +158,16 @@ final class FeedViewController: GestureViewController {
                     toonId = forYouToonLists[index].toonID ?? ""
             }
         }
-        if let toonsOfTag = toonsOfTag {
-            for index in 0..<toonsOfTag.count
-                where toonTitle == toonsOfTag[index].toonName {
-                    toonId = toonsOfTag[index].toonID ?? ""
+        if let latestToonLists = latestToonLists {
+            for index in 0..<latestToonLists.count
+                where toonTitle == latestToonLists[index].toonName {
+                    toonId = latestToonLists[index].toonID ?? ""
+            }
+        }
+        if let favoriteToonLists = favoriteToonLists {
+            for index in 0..<favoriteToonLists.count
+                where toonTitle == favoriteToonLists[index].toonName {
+                    toonId = favoriteToonLists[index].toonID ?? ""
             }
         }
         return toonId
@@ -173,6 +176,18 @@ final class FeedViewController: GestureViewController {
     /// 뷰 높이 constant 0으로 해서 없앰
     private func removeView(_ height: NSLayoutConstraint) {
         height.constant = 0
+    }
+    
+    /// 찜한 상태인지 확인
+    private func checkFavoriteStatus(toonId: String) -> Bool {
+        isFavorite = false
+        guard let favoriteToonLists = favoriteToonLists else { return false }
+        for index in 0..<favoriteToonLists.count
+            where toonId == favoriteToonLists[index].toonID {
+                isFavorite = true
+                break
+        }
+        return isFavorite
     }
 }
 
@@ -210,6 +225,8 @@ extension FeedViewController: UICollectionViewDataSource {
                 else { return UICollectionViewCell() }
             if let forYouToonList = forYouToonLists?[indexPath.item] {
                 cell.setForYouCollectionViewCellProperties(forYouToonList)
+                isFavorite = checkFavoriteStatus(toonId: forYouToonList.toonID ?? "")
+                cell.setBookMarkButton(isFavorite)
             }
             return cell
             
@@ -220,6 +237,8 @@ extension FeedViewController: UICollectionViewDataSource {
                 else { return UICollectionViewCell() }
             if let latestToonList = latestToonLists?[indexPath.item] {
                 cell.setRecentCollectionViewCellProperties(latestToonList)
+                isFavorite = checkFavoriteStatus(toonId: latestToonList.toonID ?? "")
+                cell.setBookMarkButton(isFavorite)
             }
             return cell
             
@@ -231,6 +250,8 @@ extension FeedViewController: UICollectionViewDataSource {
             
             if let favoriteToonList = favoriteToonLists?[indexPath.item] {
                 cell.setFavoriteCollectionViewCellProperties(favoriteToonList)
+                isFavorite = checkFavoriteStatus(toonId: favoriteToonList.toonID ?? "")
+                cell.setBookMarkButton(isFavorite)
             }
             return cell
         }
@@ -245,15 +266,12 @@ extension FeedViewController: UICollectionViewDelegate {
         collectionView.deselectItem(at: indexPath, animated: true)
         if let currentCell = collectionView.cellForItem(at: indexPath) as? ForYouCollectionViewCell {
             detailToonId = findToonId(toonTitle: currentCell.forYouToonTitleLabel.text ?? "")
-            isFavorite = currentCell.bookMarkButton.isSelected
         }
         if let currentCell = collectionView.cellForItem(at: indexPath) as? RecentCollectionViewCell {
             detailToonId = findToonId(toonTitle: currentCell.recentToonTitleLabel.text ?? "")
-            isFavorite = currentCell.bookMarkButton.isSelected
         }
         if let currentCell = collectionView.cellForItem(at: indexPath) as? FavoriteCollectionViewCell {
             detailToonId = findToonId(toonTitle: currentCell.favoriteToonTitleLabel.text ?? "")
-            isFavorite = currentCell.bookMarkButton.isSelected
         }
         pushDetailToonViewController(toonID: detailToonId, isFavorite: isFavorite)
     }

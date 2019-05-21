@@ -15,7 +15,8 @@ final class DetailToonViewController: GestureViewController {
     
     var detailToonID: String?
     private var detailToon: DetailToon?
-    var isFavorite: Bool?
+    private var isFavorite = false
+    private var favoriteToon: [ToonList]?
     
     // MARK: - IBOutlets
     
@@ -38,18 +39,18 @@ final class DetailToonViewController: GestureViewController {
     
     /// 공유 액션시트
     @IBAction func moreButtonDidTap(_ sender: UIButton) {
-//        UIAlertController
-//            .alert(title: nil, message: nil, style: .actionSheet)
-//            .action(title: "인스타툰 링크 공유하기", style: .default) { _ in
-                self.shareActivity()
-//            }
-//            .action(title: "이 작품 더이상 추천 받지 않기", style: .destructive) { _ in
-//                print("dd")
-//            }
-//            .action(title: "취소", style: .cancel) { _ in
-//                print("dd")
-//            }
-//            .present(to: self)
+        //        UIAlertController
+        //            .alert(title: nil, message: nil, style: .actionSheet)
+        //            .action(title: "인스타툰 링크 공유하기", style: .default) { _ in
+        self.shareActivity()
+        //            }
+        //            .action(title: "이 작품 더이상 추천 받지 않기", style: .destructive) { _ in
+        //                print("dd")
+        //            }
+        //            .action(title: "취소", style: .cancel) { _ in
+        //                print("dd")
+        //            }
+        //            .present(to: self)
     }
     
     /// 툰 웹뷰 띄우기
@@ -65,7 +66,7 @@ final class DetailToonViewController: GestureViewController {
     
     /// 툰 찜하기 & 취소 기능
     @IBAction func addToMyFavorite(_ sender: UIButton) {
-        isFavorite?.toggle()
+        isFavorite.toggle()
         
         let body = [
             "workListName": "default",
@@ -82,7 +83,7 @@ final class DetailToonViewController: GestureViewController {
                                 } else {
                                     print("Success to delete favorite toon")
                                 }
-                                self.changeFavoriteButton(self.isFavorite ?? false)
+                                self.changeFavoriteButton(self.isFavorite)
             })
     }
     
@@ -90,19 +91,20 @@ final class DetailToonViewController: GestureViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        loadFavoriteToon()
         addLatestToonList()
+        if let detailToonID = detailToonID {
+            loadDetailToon(detailToonID)
+        }
         
-        loadDetailToon(detailToonID ?? "")
         if let detailToon = detailToon {
             setDetailToon(detailToon)
         }
-        changeFavoriteButton(isFavorite ?? false)
+        
     }
     
     // MARK: - Functions
@@ -115,6 +117,27 @@ final class DetailToonViewController: GestureViewController {
                 self.setDetailToon(detailToon)
             }
         }
+    }
+    
+    /// 찜한 툰 목록 요청
+    private func loadFavoriteToon() {
+        FavoriteService.shared.getFavoriteToon { result in
+            self.favoriteToon = result
+            self.isFavorite = self.checkFavoriteStatus(toonId: self.detailToonID ?? "")
+            self.changeFavoriteButton(self.isFavorite)
+        }
+    }
+    
+    /// 찜한 상태인지 확인
+    private func checkFavoriteStatus(toonId: String) -> Bool {
+        isFavorite = false
+        guard let favoriteToon = favoriteToon else { return false }
+        for index in 0..<favoriteToon.count
+            where toonId == favoriteToon[index].toonID {
+                isFavorite = true
+                break
+        }
+        return isFavorite
     }
     
     /// 툰 정보 넣기
@@ -186,12 +209,14 @@ final class DetailToonViewController: GestureViewController {
     
     /// '찜하기' 버튼 상태 변경 기능
     private func changeFavoriteButton(_ isFavorite: Bool) {
-        if isFavorite == true {
-            favoriteButton.backgroundColor = #colorLiteral(red: 0.6078431373, green: 0.6078431373, blue: 0.6078431373, alpha: 1)
-            favoriteButton.setTitle("찜하기 취소", for: .normal)
-        } else {
-            favoriteButton.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.3764705882, blue: 0.2509803922, alpha: 1)
-            favoriteButton.setTitle("찜하기", for: .normal)
+        DispatchQueue.main.async {
+            if isFavorite == true {
+                self.favoriteButton.backgroundColor = #colorLiteral(red: 0.6078431373, green: 0.6078431373, blue: 0.6078431373, alpha: 1)
+                self.favoriteButton.setTitle("찜하기 취소", for: .normal)
+            } else {
+                self.favoriteButton.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.3764705882, blue: 0.2509803922, alpha: 1)
+                self.favoriteButton.setTitle("찜하기", for: .normal)
+            }
         }
     }
     
