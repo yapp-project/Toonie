@@ -14,7 +14,6 @@ final class CommonUtility: NSObject {
     
     static let deviceWidth: CGFloat  = 375
     static let deviceHeight: CGFloat = 812
-    static let userToken = UserDefaults.standard.string(forKey: "token")
     
     var mainNavigationViewController: MainNavigationController?
     var feedNavigationViewController: FeedNavigationController?
@@ -23,6 +22,11 @@ final class CommonUtility: NSObject {
     
     //싱글톤
     static let sharedInstance = CommonUtility()
+    
+    ///userToken 가져옴
+    static func getUserToken() -> String? {
+        return UserDefaults.standard.string(forKey: "token")
+    }
     
     ///아이폰Xs 해상도 기준으로 타 디바이스 비율을 가져오는 메서드
     static func getDeviceRatioWidth() -> CGFloat {
@@ -36,7 +40,7 @@ final class CommonUtility: NSObject {
     }
     
     ///키워드에 쓰일 문자열, 문자열에 대한 이미지 매핑
-    static func tagImage(name: String) -> String {
+    func tagImage(name: String) -> String {
         switch name {
         case "반려동물":
             return "LookCategoryImg_1"
@@ -67,7 +71,7 @@ final class CommonUtility: NSObject {
         }
     }
     
-    static func compareToVersion(newVersion: String) -> Int {
+    func compareToVersion(newVersion: String) -> Int {
         var curVersion = ""
         if let bundleVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
             curVersion = bundleVersion

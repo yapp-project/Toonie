@@ -96,7 +96,8 @@ extension RecommendTableViewCell: UICollectionViewDelegate {
             .instantiateViewController(withIdentifier: "DetailToonView")
             as? DetailToonViewController {
             viewController.detailToonID = curationTagArray?[indexPath.row].toonID
-            CommonUtility.sharedInstance.mainNavigationViewController?
+            CommonUtility.sharedInstance
+                .mainNavigationViewController?
                 .pushViewController(viewController,
                                     animated: true)
         }

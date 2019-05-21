@@ -16,7 +16,8 @@ final class MyPageNavigationController: UINavigationController {
     }
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        CommonUtility.sharedInstance.myPageNavigationViewController = self
+        CommonUtility.sharedInstance
+            .myPageNavigationViewController = self
     }
 }
 
@@ -85,7 +86,8 @@ final class MypageViewController: GestureViewController {
             .instantiateViewController(withIdentifier: "DetailToonView")
             as? DetailToonViewController {
             viewController.detailToonID = toonID
-            CommonUtility.sharedInstance.mainNavigationViewController?
+            CommonUtility.sharedInstance
+                .mainNavigationViewController?
                 .pushViewController(viewController,
                                     animated: true)
         }

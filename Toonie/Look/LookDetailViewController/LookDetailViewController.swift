@@ -78,7 +78,8 @@ final class LookDetailViewController: GestureViewController {
             .instantiateViewController(withIdentifier: "DetailToonView")
             as? DetailToonViewController {
             viewController.detailToonID = toonID
-            CommonUtility.sharedInstance.mainNavigationViewController?
+            CommonUtility.sharedInstance
+                .mainNavigationViewController?
                 .pushViewController(viewController,
                                     animated: true)
         }

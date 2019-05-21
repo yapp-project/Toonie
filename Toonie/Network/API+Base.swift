@@ -20,6 +20,10 @@ class API {
         return jsonDecoder
     }()
     
+//    static let chkToonieUpdate = {
+//        return baseURL + "/version"
+//    }()
+    
     static let chkToonieUpdate = {
         return "http://eunbi6431.cafe24.com/Toonie/chkToonieUpdate.json"
     }()
@@ -44,9 +48,9 @@ class API {
         return baseURL + "/tags"
     }()
     
-    static let forYouToons = {
-        return baseURL + "/tags/token/\(String(describing: CommonUtility.userToken))"
-    }()
+    static let forYouToons = {(token) in
+        return baseURL + "/tags/token/" + token
+    }
     
     static let toons = {
         return baseURL + "/toons"
@@ -67,11 +71,11 @@ class API {
     }()
     
     static let myFavoriteList = {
-        return baseURL + "/worklist/\(String(describing: CommonUtility.userToken))/default"
+        return baseURL + "/worklist/\(String(describing: CommonUtility.getUserToken()))/default"
     }()
     
     static let myLatestList = {
-        return baseURL + "/worklist/\(String(describing: CommonUtility.userToken))/latest"
+        return baseURL + "/worklist/\(String(describing: CommonUtility.getUserToken()))/latest"
     }()
     
 }
