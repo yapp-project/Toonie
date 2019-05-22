@@ -12,6 +12,7 @@ target 'Toonie' do
   pod 'SwiftLint'
   pod 'SnapKit'
   pod 'Alamofire'
+  pod 'Firebase/Core'
 
   target 'ToonieTests' do
     inherit! :search_paths

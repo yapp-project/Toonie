@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import Firebase
 
 ///애플리케이션에 필요한 잡다한 도구 모음
 final class CommonUtility: NSObject {
-    //디자인 가이드 기준 Xs
     
+    //개발, 배포용 구분 true: 개발 false: 배포
+    static let devSwitch: Bool = true
+    
+    //디자인 가이드 기준 Xs
     static let deviceWidth: CGFloat  = 375
     static let deviceHeight: CGFloat = 812
     
@@ -37,6 +41,13 @@ final class CommonUtility: NSObject {
         //        print("-->현재 디바이스 크기 \(UIScreen.main.bounds.height)")
         // XMax : 812 -> 디바이스 크기 Xs 기준으로 나오고 있음
         return (CGFloat)(UIScreen.main.bounds.height / deviceHeight)
+    }
+    
+    static func analytics(eventName: String, param: [String: Any]?) {
+        var replaceEventName = eventName.replacingOccurrences(of: "Toonie.", with: "")
+        replaceEventName = devSwitch ? "dev"+replaceEventName : replaceEventName
+        Analytics.logEvent(replaceEventName,
+                           parameters: nil)
     }
     
     ///키워드에 쓰일 문자열, 문자열에 대한 이미지 매핑
