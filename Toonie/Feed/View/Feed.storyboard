@@ -73,13 +73,13 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLx-xO-elK">
-                                            <rect key="frame" x="0.0" y="32" width="375" height="190"/>
+                                            <rect key="frame" x="0.0" y="32" width="414" height="190"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="lfq-pH-Os0">
-                                                    <rect key="frame" x="-239" y="0.0" width="853" height="190"/>
+                                                    <rect key="frame" x="-129" y="0.0" width="672" height="190"/>
                                                     <subviews>
                                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Z9q-TN-OpQ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="853" height="190"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="672" height="190"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <inset key="scrollIndicatorInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="Oon-Es-8vG" customClass="KTCenterFlowLayout">
@@ -135,7 +135,7 @@
                                                         <constraint firstItem="Z9q-TN-OpQ" firstAttribute="width" secondItem="lfq-pH-Os0" secondAttribute="width" id="2Lh-QT-gKb"/>
                                                         <constraint firstAttribute="bottom" secondItem="Z9q-TN-OpQ" secondAttribute="bottom" id="JQS-Ql-R11"/>
                                                         <constraint firstAttribute="trailing" secondItem="Z9q-TN-OpQ" secondAttribute="trailing" id="JU9-u1-xVJ"/>
-                                                        <constraint firstAttribute="width" constant="853" id="O7y-Un-hMt"/>
+                                                        <constraint firstAttribute="width" constant="672" id="O7y-Un-hMt"/>
                                                         <constraint firstItem="Z9q-TN-OpQ" firstAttribute="leading" secondItem="lfq-pH-Os0" secondAttribute="leading" id="Y8d-2O-rkk"/>
                                                         <constraint firstAttribute="height" constant="190" id="bPW-qx-AHT"/>
                                                         <constraint firstItem="Z9q-TN-OpQ" firstAttribute="centerX" secondItem="lfq-pH-Os0" secondAttribute="centerX" id="gJB-fd-vh3"/>
@@ -156,26 +156,26 @@
                                             </connections>
                                         </scrollView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인스타툰을 읽고싶어요." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Yim-Xf-eJf">
-                                            <rect key="frame" x="75" y="252" width="225" height="29"/>
+                                            <rect key="frame" x="83" y="252" width="248" height="29"/>
                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="24"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NJb-Vp-c0r">
-                                            <rect key="frame" x="0.0" y="289.5" width="375" height="425.5"/>
+                                            <rect key="frame" x="0.0" y="289.5" width="414" height="425.5"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tnv-mq-r24">
-                                                    <rect key="frame" x="97.5" y="130" width="180" height="139.5"/>
+                                                    <rect key="frame" x="107.5" y="124.5" width="199" height="150.5"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="feedDetail_NotInfo" translatesAutoresizingMaskIntoConstraints="NO" id="Y6F-E8-qrx">
-                                                            <rect key="frame" x="0.0" y="0.0" width="180" height="102"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="199" height="113"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="Y6F-E8-qrx" secondAttribute="height" multiplier="174:99" id="Xaa-OK-zK5"/>
                                                             </constraints>
                                                         </imageView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zBt-Ih-S0o">
-                                                            <rect key="frame" x="0.0" y="105.5" width="180" height="34"/>
+                                                            <rect key="frame" x="9.5" y="116.5" width="180" height="34"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="키워드를 선택하시면" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTr-CU-43A" userLabel="키워드를 선택하시면">
                                                                     <rect key="frame" x="33.5" y="0.0" width="113" height="17"/>
