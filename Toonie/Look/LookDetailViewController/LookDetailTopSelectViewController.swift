@@ -27,17 +27,17 @@ final class LookDetailTopSelectViewController: UIViewController {
     
     //state로 on off 진행
     var tags = [TagStructure]()
+    private var toonAllList = [ToonList]()
     
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //맨처음 전체보기 기본세팅
         setTags()
     }
     
     func setTags() {
-        
-        //맨처음 전체보기 기본세팅
         let tagStructure: TagStructure = TagStructure.init(tagName: "전체보기",
                                                            state: true)
         tags.append(tagStructure)

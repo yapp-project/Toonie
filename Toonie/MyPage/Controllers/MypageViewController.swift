@@ -38,7 +38,6 @@ final class MypageViewController: GestureViewController {
     // MARK: - private var
     
     private var status = ""
-    private var toonId = ""
     private var dataList: [ToonList] = []
     private var tagList: [String] = []
     
@@ -49,12 +48,12 @@ final class MypageViewController: GestureViewController {
         
         // 초기 화면 - 최근 본 목록
         status = "recent"
-        getToonList(status: status)
         mypageCollectionView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        getToonList(status: status)
 //        goToFirstItem()
     }
     
@@ -110,27 +109,18 @@ final class MypageViewController: GestureViewController {
     }
     
     /// dataCheckLabel Hidden 함수
-    private func dataCheck(idCheck: String, status: String) {
-        if idCheck == "default" {
-            if status == "recent" {
-                dataCheckLabel.text = "아직 감상한 작품이\n없습니다."
-                dataCheckImageView.isHidden = false
-                dataCheckLabel.isHidden = false
-                mypageCollectionView.isHidden = true
-            } else if status == "bookMark" {
-                dataCheckLabel.text = "아직 찜한 작품이\n없습니다."
-                dataCheckImageView.isHidden = false
-                dataCheckLabel.isHidden = false
-                mypageCollectionView.isHidden = true
-            } else {
-                dataCheckImageView.isHidden = true
-                dataCheckLabel.isHidden = true
-                mypageCollectionView.isHidden = false
-            }
-        } else {
+    private func dataCheck(status: String) {
+        if status == "recent" {
+            dataCheckLabel.text = "아직 감상한 작품이\n없습니다."
+            dataCheckImageView.isHidden = false
+            dataCheckLabel.isHidden = false
+        } else if status == "bookMark" {
+            dataCheckLabel.text = "아직 찜한 작품이\n없습니다."
+            dataCheckImageView.isHidden = false
+            dataCheckLabel.isHidden = false
+        } else if status == "tag" {
             dataCheckImageView.isHidden = true
             dataCheckLabel.isHidden = true
-            mypageCollectionView.isHidden = false
         }
     }
     
@@ -139,8 +129,7 @@ final class MypageViewController: GestureViewController {
         MyKeywordsService.shared.getMyKeywords { (res) in
             guard let list = res else { return }
             self.tagList = list
-            self.dataCheck(idCheck: "",
-                           status: self.status)
+            self.dataCheck(status: self.status)
             self.mypageCollectionView.reloadData()
         }
     }
@@ -149,23 +138,21 @@ final class MypageViewController: GestureViewController {
     private func getToonList(status: String) {
         if status == "recent" {
             LatestService.shared.getLatestToon { (res) in
+                if res != nil {
+                    self.dataCheck(status: self.status)
+                }
                 guard let list = res else { return }
-                guard let toonId = res?[0].toonID else { return }
-                self.toonId = toonId
                 self.dataList = list
-                self.dataCheck(idCheck: toonId,
-                               status: status)
                 self.mypageCollectionView.reloadData()
             }
             
         } else if status == "bookMark" {
             FavoriteService.shared.getFavoriteToon { (res) in
+                if res == nil {
+                    self.dataCheck(status: self.status)
+                }
                 guard let list = res else { return }
-                guard let toonId = res?[0].toonID else { return }
-                self.toonId = toonId
                 self.dataList = list
-                self.dataCheck(idCheck: toonId,
-                               status: status)
                 self.mypageCollectionView.reloadData()
             }
         }
@@ -175,6 +162,8 @@ final class MypageViewController: GestureViewController {
     
     @IBAction func recentButtonDidTap(_ sender: UIButton) {
         if status != "recent"{
+            dataList.removeAll()
+            tagList.removeAll()
             tagSettingButton.isHidden = true
             status = "recent"
             getToonList(status: status)
@@ -188,6 +177,8 @@ final class MypageViewController: GestureViewController {
     
     @IBAction func bookMarkButtonDidTap(_ sender: UIButton) {
         if status != "bookMark"{
+            dataList.removeAll()
+            tagList.removeAll()
             tagSettingButton.isHidden = true
             status = "bookMark"
             getToonList(status: status)
@@ -202,6 +193,8 @@ final class MypageViewController: GestureViewController {
     
     @IBAction func tagButtonDidTap(_ sender: UIButton) {
         if status != "tag"{
+            dataList.removeAll()
+            tagList.removeAll()
             tagSettingButton.isHidden = false
             status = "tag"
             getTagList()
@@ -256,7 +249,7 @@ extension MypageViewController: UICollectionViewDataSource {
             cell.setMypageCollectionViewTagCellProperties(tagName: tagName)
         } else {
             let list = dataList[indexPath.row]
-            if let label = list.instaID,
+            if let label = list.toonName,
                 let url = list.instaThumnailUrl {
                 cell.setMypageCollectionViewToonCellProperties(labelText: label,
                                                                imageViewURL: url)

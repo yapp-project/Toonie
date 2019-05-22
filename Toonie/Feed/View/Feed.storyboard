@@ -79,7 +79,7 @@
                                                     <rect key="frame" x="-219.5" y="0.0" width="853" height="190"/>
                                                     <subviews>
                                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Z9q-TN-OpQ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="853" height="190"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="672" height="190"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <inset key="scrollIndicatorInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="Oon-Es-8vG" customClass="KTCenterFlowLayout">
@@ -135,7 +135,7 @@
                                                         <constraint firstItem="Z9q-TN-OpQ" firstAttribute="width" secondItem="lfq-pH-Os0" secondAttribute="width" id="2Lh-QT-gKb"/>
                                                         <constraint firstAttribute="bottom" secondItem="Z9q-TN-OpQ" secondAttribute="bottom" id="JQS-Ql-R11"/>
                                                         <constraint firstAttribute="trailing" secondItem="Z9q-TN-OpQ" secondAttribute="trailing" id="JU9-u1-xVJ"/>
-                                                        <constraint firstAttribute="width" constant="853" id="O7y-Un-hMt"/>
+                                                        <constraint firstAttribute="width" constant="672" id="O7y-Un-hMt"/>
                                                         <constraint firstItem="Z9q-TN-OpQ" firstAttribute="leading" secondItem="lfq-pH-Os0" secondAttribute="leading" id="Y8d-2O-rkk"/>
                                                         <constraint firstAttribute="height" constant="190" id="bPW-qx-AHT"/>
                                                         <constraint firstItem="Z9q-TN-OpQ" firstAttribute="centerX" secondItem="lfq-pH-Os0" secondAttribute="centerX" id="gJB-fd-vh3"/>

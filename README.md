@@ -67,3 +67,5 @@ excluded:
 - **[Alamofire](https://github.com/Alamofire/Alamofire)** : 설정 변경시 많은 코드가 추가되는 기존 `URLSession`을 편리한 서버 통신 구축과 유지보수를 위해 사용함.
 - **[Lottie](https://github.com/airbnb/lottie-ios)** : 효율적인 애니메이션 효과 제작에 사용함. `svg` 벡터 이미지로 `gif`로 넣을 때보다 선명한 화질을 제공할 수 있음.
 - **[SnapKit](http://snapkit.io/)** : `NSLayoutConstraint`를 사용시 코드의 양이 많고 가독성이 떨어지기 때문에, 짧고 직관적인 코드로 유지보수성를 높이기 위해 사용함.
+- **[Google Analytics](https://analytics.google.com)** : 사용자가 어떤 행동방식을 취하며 어떤 컨텐츠에 관심이 제일 많은지 분석하기 위하여 추가함.
+>>나중에 런칭한 후 분석 사진 올리기<<

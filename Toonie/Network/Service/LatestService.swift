@@ -36,9 +36,6 @@ struct LatestService: Requestable {
         get(API.myLatestList(CommonUtility.getUserToken() ?? "")) { result in
             switch result {
             case .networkSuccess(let data):
-                if data.resResult.success == false {
-                    return
-                }
                 completion(data.resResult.toonList)
             case .networkError(let error):
                 print(error)

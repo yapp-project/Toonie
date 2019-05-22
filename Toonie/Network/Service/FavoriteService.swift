@@ -36,10 +36,7 @@ struct FavoriteService: Requestable {
         get(API.myFavoriteList(CommonUtility.getUserToken() ?? "")) { result in
             switch result {
             case .networkSuccess(let data):
-                guard let toonList = data.resResult.toonList else {
-                    return
-                }
-                completion(toonList)
+                completion(data.resResult.toonList)
             case .networkError(let error):
                 print(error)
             case .networkFail:
