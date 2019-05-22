@@ -62,7 +62,8 @@ final class RecommendViewController: GestureViewController {
     // MARK: - Function
     
     func getCurationTagList() {
-        RecommendService.shared.getRecommends { res in
+        RecommendService.shared.getRecommends { [weak self] res in
+            guard let self = self else { return }
             self.tagList = res
             self.tagCollectionView.reloadData()
         }
@@ -107,7 +108,7 @@ final class RecommendViewController: GestureViewController {
         //        print("tagSelectArray \(tagSelectArray)")
         recommendTableView.reloadData()
     }
-
+    
 }
 
 // MARK: - TableView : 전체를 이루는 뷰

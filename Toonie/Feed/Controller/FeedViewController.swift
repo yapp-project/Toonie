@@ -71,7 +71,8 @@ final class FeedViewController: GestureViewController {
     
     /// 툰 정보 네트워크 요청
     private func loadToon() {
-        ForYouToonListService.shared.getForYouToonList { result in
+        ForYouToonListService.shared.getForYouToonList { [weak self] result in
+                    guard let self = self else { return }
             if let result = result {
                 if result.count <= 10 {
                     self.forYouToonLists = result
@@ -81,7 +82,8 @@ final class FeedViewController: GestureViewController {
             }
             self.forYouCollectionView.reloadData()
         }
-        LatestService.shared.getLatestToon { result in
+        LatestService.shared.getLatestToon { [weak self] result in
+                    guard let self = self else { return }
             if let result = result {
                 if result.count <= 10 {
                     self.latestToonLists = result
@@ -91,7 +93,8 @@ final class FeedViewController: GestureViewController {
             }
             self.recentCollectionView.reloadData()
         }
-        FavoriteService.shared.getFavoriteToon { result in
+        FavoriteService.shared.getFavoriteToon { [weak self] result in
+                    guard let self = self else { return }
             if let result = result {
                 if result.count <= 10 {
                     self.favoriteToonLists = result
