@@ -24,7 +24,7 @@ final class KeywordSelectViewController: GestureViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUserToken()
-    
+        
         if layoutMode == false {
             bigTitleLabel.text = "관심 있는 키워드를\n3개 이상 선택해주세요."
             mainMoveButton.setTitle("시작하기", for: .normal)
@@ -79,7 +79,8 @@ final class KeywordSelectViewController: GestureViewController {
     
     ///keywords 값들 가져옴
     func setKeywordValue() {
-        KeywordsService.shared.getKeywords { (result) in
+        KeywordsService.shared.getKeywords { [weak self] (result) in
+            guard let self = self else { return }
             self.keywords = result ?? [String]()
             self.reloadKeywordCollectionView()
         }
@@ -87,7 +88,8 @@ final class KeywordSelectViewController: GestureViewController {
     
     ///사용자가 선택한 keywords를 가져옴
     func setSelectedKeywordValue() {
-        MyKeywordsService.shared.getMyKeywords { (myKeywords) in
+        MyKeywordsService.shared.getMyKeywords { [weak self] (myKeywords) in
+            guard let self = self else { return }
             self.keywordSelectArray = myKeywords ?? [String]()
             self.reloadKeywordCollectionView()
             self.reloadKeywordView()
@@ -118,9 +120,11 @@ extension KeywordSelectViewController: UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "KeywordCell",
-                                                            for: indexPath) as? KeywordCell else {
-                                                                return UICollectionViewCell()
+        guard let cell = collectionView
+            .dequeueReusableCell(withReuseIdentifier: "KeywordCell",
+                                 for: indexPath) as? KeywordCell
+            else {
+                return UICollectionViewCell()
         }
         
         cell.titleLabel.text = keywords[indexPath.row]
@@ -153,22 +157,23 @@ extension KeywordSelectViewController: UICollectionViewDelegate, UICollectionVie
             ]
             
             MyKeywordsService.shared.postMyKeywords(params: body,
-                                                    completion: {
-                cell.cellStatus = !cell.cellStatus
-                
-                //선택한 키워드 추가 및 삭제
-                if cell.cellStatus == true {
-                    self.keywordSelectArray.append(self.keywords[indexPath.row])
-                } else {
-                    let findIndex = self.keywordSelectArray.firstIndex(of: cell.titleLabel.text ?? "")
+                                                    completion:
+                {
+                    cell.cellStatus = !cell.cellStatus
                     
-                    if let index = findIndex {
-                        self.keywordSelectArray.remove(at: index)
+                    //선택한 키워드 추가 및 삭제
+                    if cell.cellStatus == true {
+                        self.keywordSelectArray.append(self.keywords[indexPath.row])
+                    } else {
+                        let findIndex = self.keywordSelectArray.firstIndex(of: cell.titleLabel.text ?? "")
+                        
+                        if let index = findIndex {
+                            self.keywordSelectArray.remove(at: index)
+                        }
                     }
-                }
-                
-                //카운트레이블, 버튼 리로드
-                self.reloadKeywordView()
+                    
+                    //카운트레이블, 버튼 리로드
+                    self.reloadKeywordView()
             })
             
         }
