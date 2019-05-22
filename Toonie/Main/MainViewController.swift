@@ -32,7 +32,7 @@ final class MainViewController: GestureViewController {
     @IBOutlet private weak var myPageButton: UIButton!
     
     // MARK: - Property
-    private var statusButton: UIButton!
+    private weak var statusButton: UIButton!
     
     private enum TabbarButtonCase {
         case feed, look, myPage

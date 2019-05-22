@@ -19,10 +19,10 @@ final class CommonUtility: NSObject {
     static let deviceWidth: CGFloat  = 375
     static let deviceHeight: CGFloat = 812
     
-    var mainNavigationViewController: MainNavigationController?
-    var feedNavigationViewController: FeedNavigationController?
-    var lookNavigationViewController: LookNavigationController?
-    var myPageNavigationViewController: MyPageNavigationController?
+    weak var mainNavigationViewController: MainNavigationController?
+    weak var feedNavigationViewController: FeedNavigationController?
+    weak var lookNavigationViewController: LookNavigationController?
+    weak var myPageNavigationViewController: MyPageNavigationController?
     
     //싱글톤
     static let sharedInstance = CommonUtility()
