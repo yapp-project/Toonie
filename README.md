@@ -1,4 +1,4 @@
-# Toonie  <img alt="Swift" src="https://img.shields.io/badge/swift-4.2-orange.svg"> <img alt="Platform" src="https://img.shields.io/badge/platform-ios-lightgrey.svg"> <a href="https://travis-ci.org/boostcamp3-iOS/team-c2" target="_blank"><img alt="Build Status" src="https://travis-ci.org/yapp-project/Toonie.svg?branch=master"></a>
+# Toonie  <img alt="Swift" src="https://img.shields.io/badge/swift-4.2-orange.svg"> <img alt="Platform" src="https://img.shields.io/badge/platform-ios-lightgrey.svg"> <a href="https://travis-ci.org/yapp-project/Toonie" target="_blank"><img alt="Build Status" src="https://travis-ci.org/yapp-project/Toonie.svg?branch=master"></a>
 
 
 
@@ -65,7 +65,7 @@ excluded:
 - **[Travis CI](https://travis-ci.org/yapp-project/Toonie)** : 자동 빌드 테스트를 통해 안정성 있는 코드 통합을 함.
 - **[Kingfisher](https://github.com/onevcat/Kingfisher)** : 웹 서버에 있는 이미지를 손쉽게 가져오고, 캐싱 등의 처리를 관리해주기위해 사용함.
 - **[Alamofire](https://github.com/Alamofire/Alamofire)** : 설정 변경시 많은 코드가 추가되는 기존 `URLSession`을 편리한 서버 통신 구축과 유지보수를 위해 사용함.
-- **[Lottie](https://github.com/airbnb/lottie-ios)** : 효율적인 애니메이션 효과 제작에 사용함. `svg` 벡터 이미지로 `gif`로 넣을 때보다 선명한 화질을 제공할 수 있음.
+- **[Lottie](https://airbnb.design/lottie/)** : 효율적인 애니메이션 효과 제작에 사용함. `svg` 벡터 이미지로 `gif`로 넣을 때보다 선명한 화질을 제공할 수 있음.
 - **[SnapKit](http://snapkit.io/)** : `NSLayoutConstraint`를 사용시 코드의 양이 많고 가독성이 떨어지기 때문에, 짧고 직관적인 코드로 유지보수성를 높이기 위해 사용함.
 - **[Google Analytics](https://analytics.google.com)** : 사용자가 어떤 행동방식을 취하며 어떤 컨텐츠에 관심이 제일 많은지 분석하기 위하여 추가함.
 >>나중에 런칭한 후 분석 사진 올리기<<
