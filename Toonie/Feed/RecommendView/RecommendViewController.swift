@@ -12,7 +12,7 @@ import UIKit
 final class RecommendViewController: GestureViewController {
     
     //tagCollectionView 5줄 고정 위한 상수, 변수
-    private let tagScrollContentViewWidthInitValue: CGFloat = 853
+    private let tagScrollContentViewWidthInitValue: CGFloat = 672
     private let maxTagItemWidth = 168
     
     ///item들을 일렬로 쭉 나열했을때의 max길이(간격포함)
