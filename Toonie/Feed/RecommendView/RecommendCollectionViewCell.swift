@@ -33,7 +33,7 @@ final class RecommendCollectionViewCell: UICollectionViewCell {
         toonNameTitle.text = nil
         bookMarkButton.isSelected  = false
         
-        recentToonImageView.setCorner(cornerRadius: 3.0)
+        recentToonImageView.setCorner(cornerRadius: 4.0)
     }
     
     // MARK: - Functions
@@ -44,8 +44,10 @@ final class RecommendCollectionViewCell: UICollectionViewCell {
         
         if let info = curationInfoList { 
             DispatchQueue.main.async {
+                self.recentToonImageView.image = self.recentToonImageView.image?
+                    .resize(newWidth: UIScreen.main.bounds.width / 2)
                 self.recentToonImageView.imageFromUrl(info.instaThumnailUrl,
-                                                      defaultImgPath: "")
+                                                      defaultImgPath: "dum2")
             }
             if let nameString = info.toonName {
                 toonNameTitle.text = nameString

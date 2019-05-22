@@ -52,14 +52,23 @@ final class RecentCollectionViewCell: UICollectionViewCell {
     // MARK: - Functions
     
     /// 컬렉션뷰셀 데이터 설정
-    func setRecentCollectionViewCellProperties(_ toonInfoList: ToonInfoList) {
+    func setRecentCollectionViewCellProperties(_ toonList: ToonList) {
         prepareForReuse()
         DispatchQueue.main.async {
-            self.recentToonImageView.imageFromUrl(toonInfoList.instaThumnailUrl,
-                                                  defaultImgPath: "collectionAddLoading")
+            self.recentToonImageView.imageFromUrl(toonList.instaThumnailUrl,
+                                                  defaultImgPath: "dum2")
             self.recentToonImageView.setCorner(cornerRadius: 4)
-            self.recentToonTitleLabel.text = toonInfoList.toonName
-            self.toonIdLabel.text = toonInfoList.toonID
+            self.recentToonImageView.image = self.recentToonImageView.image?
+                .resize(newWidth: UIScreen.main.bounds.width)
+            self.recentToonTitleLabel.text = toonList.toonName
+            self.toonIdLabel.text = toonList.toonID
+        }
+    }
+    
+    /// 북마크 버튼 상태 설정
+    func setBookMarkButton(_ isFavorite: Bool) {
+        DispatchQueue.main.async {
+            self.bookMarkButton.isSelected = isFavorite
         }
     }
 }

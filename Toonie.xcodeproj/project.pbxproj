@@ -73,6 +73,7 @@
 		012280A5A53D6963330DB1D8B9DC3C68 /* UIAlertController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DA6955EDA11550288B07A43296B653 /* UIAlertController+.swift */; };
 		9CE9942E51F67AA265B6AEEF1EDD1216 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1E3943DF124AA5153C9B0FF572DD13 /* UIButton+.swift */; };
 		BD6A4E5D4CF8929196A01E3D1E55C9F4 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B4E73537A6A1DA88E2A6D9DCCCBB0 /* UIFont+.swift */; };
+		373C742E71CB4C13DEAA8A4C2B2B69C2 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F483F1838FE14F671F0B3320F6C5E00A /* UIImage+.swift */; };
 		BBF3D671ABB1FA62C12A76D6A4CA52CE /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB68F163875F9F1F23D628BB5BB2372 /* UIView+.swift */; };
 		FF0CB358B72DD3162E223F5DEB7D2A94 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858BE106FDE6184D77010506B5097F1A /* UIViewController+.swift */; };
 		670151333E6F80078812ECE61880E12B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5485179E9A27EAB9530294A695C09AD /* WebKit.framework */; };
@@ -182,6 +183,7 @@
 		A6DA6955EDA11550288B07A43296B653 /* UIAlertController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+.swift"; sourceTree = "<group>"; };
 		7F1E3943DF124AA5153C9B0FF572DD13 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		852B4E73537A6A1DA88E2A6D9DCCCBB0 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
+		F483F1838FE14F671F0B3320F6C5E00A /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		3EB68F163875F9F1F23D628BB5BB2372 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		858BE106FDE6184D77010506B5097F1A /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		A5485179E9A27EAB9530294A695C09AD /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -396,6 +398,7 @@
 				A6DA6955EDA11550288B07A43296B653 /* UIAlertController+.swift */,
 				7F1E3943DF124AA5153C9B0FF572DD13 /* UIButton+.swift */,
 				852B4E73537A6A1DA88E2A6D9DCCCBB0 /* UIFont+.swift */,
+				F483F1838FE14F671F0B3320F6C5E00A /* UIImage+.swift */,
 				3EB68F163875F9F1F23D628BB5BB2372 /* UIView+.swift */,
 				858BE106FDE6184D77010506B5097F1A /* UIViewController+.swift */,
 			);
@@ -830,6 +833,7 @@
 				012280A5A53D6963330DB1D8B9DC3C68 /* UIAlertController+.swift in Sources */,
 				9CE9942E51F67AA265B6AEEF1EDD1216 /* UIButton+.swift in Sources */,
 				BD6A4E5D4CF8929196A01E3D1E55C9F4 /* UIFont+.swift in Sources */,
+				373C742E71CB4C13DEAA8A4C2B2B69C2 /* UIImage+.swift in Sources */,
 				BBF3D671ABB1FA62C12A76D6A4CA52CE /* UIView+.swift in Sources */,
 				FF0CB358B72DD3162E223F5DEB7D2A94 /* UIViewController+.swift in Sources */,
 				1911A4B1193B478BEC69B5606C1EE9A5 /* WorkList.swift in Sources */,
