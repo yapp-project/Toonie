@@ -200,12 +200,12 @@ extension FeedViewController: UICollectionViewDataSource {
         if collectionView == forYouCollectionView {
             return forYouToonLists?.count ?? 0
         } else if collectionView == recentCollectionView {
-            if latestToonLists?.count == 0 {
+            if latestToonLists == nil {
                 removeView(recentViewHeightConstraint)
             }
             return latestToonLists?.count ?? 0
         } else if collectionView == favoriteCollectionView {
-            if favoriteToonLists?.count == 0 {
+            if favoriteToonLists == nil {
                 removeView(favoriteViewHeightConstraint)
             }
             return favoriteToonLists?.count ?? 0
