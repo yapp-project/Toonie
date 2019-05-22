@@ -14,6 +14,8 @@ final class RecommendTableViewCell: UITableViewCell {
     // MARK: - Properties
     private var titleString: String? = ""
     private var curationTagArray: [ToonInfoList]?
+    private var isFavorite = false
+    private var favoriteToons: [ToonList]?
     
     // MARK: - IBOutlet
     
@@ -24,7 +26,6 @@ final class RecommendTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setRecommendCollectionView()
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -59,11 +60,27 @@ final class RecommendTableViewCell: UITableViewCell {
                 }
                 
                 self.recommendCollectionView.reloadData()
-                
             }
-            
         }
-        
+    }
+    
+    /// 찜한 툰 목록 요청
+    private func loadFavoriteToon() {
+        FavoriteService.shared.getFavoriteToon { result in
+            self.favoriteToons = result
+        }
+    }
+    
+    /// 찜한 상태인지 확인
+    func checkFavoriteStatus(toonId: String) -> Bool {
+        isFavorite = false
+        guard let favoriteToons = favoriteToons else { return false }
+        for index in 0..<favoriteToons.count
+            where toonId == favoriteToons[index].toonID {
+                isFavorite = true
+                break
+        }
+        return isFavorite
     }
 }
 
@@ -81,7 +98,8 @@ extension RecommendTableViewCell: UICollectionViewDataSource {
                                                                 return UICollectionViewCell()
         }
         cell.setRecommendCollectionViewCellProperties(curationInfoList: curationTagArray?[indexPath.row])
-        
+                   self.isFavorite = checkFavoriteStatus(toonId: self.curationTagArray?[indexPath.row].toonID ?? "")
+        cell.setBookMarkButton(isSelected)
         return cell
     }
 }

@@ -26,6 +26,8 @@ final class RecommendViewController: GestureViewController {
     private var tagList = [String]()
     private var tagSelectArray = [String]()
     
+    private var isFavorite = false
+    
     // MARK: - IBOutlets
     
     @IBOutlet private weak var recommendTableView: UITableView!
@@ -54,7 +56,7 @@ final class RecommendViewController: GestureViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
+        reloadTagTableView()
     }
     
     // MARK: - Function
@@ -105,10 +107,7 @@ final class RecommendViewController: GestureViewController {
         //        print("tagSelectArray \(tagSelectArray)")
         recommendTableView.reloadData()
     }
-    
-    @IBAction func closeButtonDidTap(_ sender: Any) { 
-        self.navigationController?.popViewController(animated: true)
-    }
+
 }
 
 // MARK: - TableView : 전체를 이루는 뷰

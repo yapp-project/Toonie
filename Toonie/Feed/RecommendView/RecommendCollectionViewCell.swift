@@ -36,6 +36,29 @@ final class RecommendCollectionViewCell: UICollectionViewCell {
         recentToonImageView.setCorner(cornerRadius: 4.0)
     }
     
+    // MARK: - IBAction
+    
+    /// 찜한 작품 등록 & 취소 기능
+    @IBAction func addFavoriteToon(_ sender: UIButton) {
+        sender.isSelected.toggle()
+        
+        let body = [
+            "workListName": "default",
+            "workListInfo": "찜한 목록",
+            "toonId": toonID
+        ]
+        
+        FavoriteService.shared
+            .postFavoriteToon(params: body as [String: Any],
+                              completion: {
+                                if sender.isSelected == true {
+                                    print("Success to add favorite toon")
+                                } else {
+                                    print("Success to delete favorite toon")
+                                }
+            })
+    }
+    
     // MARK: - Functions
     
     /// 컬렉션뷰셀 데이터 설정
@@ -70,4 +93,13 @@ final class RecommendCollectionViewCell: UICollectionViewCell {
             
         }
     }
+    
+    /// 북마크 버튼 상태 설정
+    func setBookMarkButton(_ isFavorite: Bool) {
+//        prepareForReuse()
+        DispatchQueue.main.async {
+            self.bookMarkButton.isSelected = isFavorite
+        }
+    }
+
 }
