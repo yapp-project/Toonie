@@ -6,7 +6,7 @@
 //  Copyright © 2019 Yapp. All rights reserved.
 //
 
-import UIKit
+import UIKit 
 
 // 인스타툰 상세 화면
 final class DetailToonViewController: GestureViewController {
@@ -93,7 +93,7 @@ final class DetailToonViewController: GestureViewController {
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad() 
     }
     
     override func viewWillAppear(_ animated: Bool) {
