@@ -140,7 +140,7 @@ final class MypageViewController: GestureViewController {
         if status == "recent" {
             LatestService.shared.getLatestToon { [weak self] (res) in
                 guard let self = self else { return }
-                if res != nil {
+                if res == nil {
                     self.dataCheck(status: self.status)
                 }
                 guard let list = res else { return }
@@ -164,6 +164,7 @@ final class MypageViewController: GestureViewController {
     // MARK: - IBAction
     
     @IBAction func recentButtonDidTap(_ sender: UIButton) {
+        mypageCollectionView.reloadData()
         if status != "recent"{
             dataList.removeAll()
             tagList.removeAll()
@@ -171,14 +172,15 @@ final class MypageViewController: GestureViewController {
             status = "recent"
             getToonList(status: status)
             setButtonInit()
-            recentButton.setImage(UIImage(named: "RecentOn"), for: .normal)
+            recentButton.setImage(UIImage(named: "RecentOn"),
+                                  for: .normal)
             recentButton.setTitleColor(#colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1), for: .normal)
         }
-        mypageCollectionView.reloadData()
-        //        goToFirstItem()
+//        goToFirstItem()
     }
     
     @IBAction func bookMarkButtonDidTap(_ sender: UIButton) {
+        mypageCollectionView.reloadData()
         if status != "bookMark"{
             dataList.removeAll()
             tagList.removeAll()
@@ -190,11 +192,11 @@ final class MypageViewController: GestureViewController {
                                     for: .normal)
             bookMarkButton.setTitleColor(#colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1), for: .normal)
         }
-        mypageCollectionView.reloadData()
-        //        goToFirstItem()
+//        goToFirstItem()
     }
     
     @IBAction func tagButtonDidTap(_ sender: UIButton) {
+        mypageCollectionView.reloadData()
         if status != "tag"{
             dataList.removeAll()
             tagList.removeAll()
@@ -204,8 +206,7 @@ final class MypageViewController: GestureViewController {
             setButtonInit()
             tagButton.setTitleColor(#colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1), for: .normal)
         }
-        mypageCollectionView.reloadData()
-        //        goToFirstItem()
+//        goToFirstItem()
     }
     
     @IBAction func tagSettingButtonDidTap(_ sender: UIButton) {
