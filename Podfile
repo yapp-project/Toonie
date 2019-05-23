@@ -10,7 +10,7 @@ target 'Toonie' do
   pod 'Kingfisher', '~> 4.2'
   pod 'lottie-ios'
   pod 'SwiftLint'
-  pod 'SnapKit'
+  pod 'SnapKit', '~> 4.2'
   pod 'Alamofire'
   pod 'Firebase/Core'
 
