@@ -47,6 +47,9 @@
                                 </constraints>
                                 <state key="normal" image="Bookmark"/>
                                 <state key="selected" image="BookmarkOn"/>
+                                <connections>
+                                    <action selector="addFavoriteToon:" destination="tqV-aI-ZZq" eventType="touchUpInside" id="gCk-1L-50b"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="0.89000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

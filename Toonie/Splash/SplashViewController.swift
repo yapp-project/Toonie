@@ -20,18 +20,20 @@ final class SplashViewController: GestureViewController {
         super.viewDidLoad()
         
         setLogoAnimationView()
-
-            //사용자 상태 체크 후 애니메이션 실행.
-            self.getUserSelectedKeyword { (mode) in
-                self.logoAnimationView?.play { (finished) in
-                    if finished {
-                        if mode == true {
-                            self.moveKeywordView()
-                        } else {
-                            self.moveMainView()
-                        }
+        
+        //사용자 상태 체크 후 애니메이션 실행.
+        self.getUserSelectedKeyword { [weak self] (mode) in
+            guard let self = self else { return }
+            self.logoAnimationView?.play { [weak self](finished) in
+                guard let self = self else { return }
+                if finished {
+                    if mode == true {
+                        self.moveKeywordView()
+                    } else {
+                        self.moveMainView()
                     }
                 }
+            }
         }
     }
     

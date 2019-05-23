@@ -37,8 +37,9 @@ final class LookDetailViewController: GestureViewController {
         if segue.identifier == "topSetting" {
             if let viewController = segue.destination as? LookDetailTopSelectViewController {
                 viewController.selectedKeyword = self.selectedKeyword
-                viewController.tagDidTapClosure = {
+                viewController.tagDidTapClosure = { [weak self]
                     (tagString) -> Void in
+                    guard let self = self else { return }
                     self.tag = tagString
                     print("self.selectedKeyword : \(self.selectedKeyword)")
                     self.setCollectionViewData(keyword: self.selectedKeyword)
@@ -61,7 +62,8 @@ final class LookDetailViewController: GestureViewController {
             KeywordToonAllListService
                 .shared
                 .getKeywordToonAllList(keyword: self.selectedKeyword,
-                                       completion: { (res) in
+                                       completion: { [weak self] (res) in
+                                        guard let self = self else { return }
                                         guard let toonData = res else { return }
                                         self.toonAllList = toonData
                                         self.lookDetailCollectionView.reloadData()
@@ -70,7 +72,8 @@ final class LookDetailViewController: GestureViewController {
         } else {
             LookToonOfTagService.shared
                 .getLookToonOfTag(toonTag: tag,
-                                  completion: { res in
+                                  completion: { [weak self] res in
+                                    guard let self = self else { return }
                                     self.toonList = [res]
                                     guard let toonData = res.toonInfoList else { return }
                                     self.toonDataList = toonData
@@ -82,13 +85,16 @@ final class LookDetailViewController: GestureViewController {
     /// 컬렉션 뷰 아이템 크기, 위치조정
     private func setCollectionViewLayout() {
         lookDetailCollectionViewFlowLayout.scrollDirection = .vertical
-        lookDetailCollectionViewFlowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width * 0.322 ,
-                                                               height: UIScreen.main.bounds.width * 0.322)
-        lookDetailCollectionViewFlowLayout.sectionInset = UIEdgeInsets(top: 0,
-                                                                       left: 5 * CommonUtility.getDeviceRatioWidth(),
-                                                                       bottom: 0,
-                                                                       right: 5 * CommonUtility.getDeviceRatioWidth())
-        lookDetailCollectionViewFlowLayout.minimumLineSpacing = 1.0 * CommonUtility.getDeviceRatioWidth()
+        lookDetailCollectionViewFlowLayout.itemSize =
+            CGSize(width: UIScreen.main.bounds.width * 0.322,
+                   height: UIScreen.main.bounds.width * 0.322)
+        lookDetailCollectionViewFlowLayout.sectionInset =
+            UIEdgeInsets(top: 0,
+                         left: 5 * CommonUtility.getDeviceRatioWidth(),
+                         bottom: 0,
+                         right: 5 * CommonUtility.getDeviceRatioWidth())
+        lookDetailCollectionViewFlowLayout.minimumLineSpacing =
+            1.0 * CommonUtility.getDeviceRatioWidth()
     } 
     
     /// 인스타툰 상세정보 화면으로 이동
@@ -131,7 +137,7 @@ extension LookDetailViewController: UICollectionViewDataSource {
             .dequeueReusableCell(withReuseIdentifier: "LookDetailCell",
                                  for: indexPath) as? LookDetailCell
             else { return UICollectionViewCell() }
-
+        
         if tag == "전체보기" {
             if let thumnailURL = toonAllList[indexPath.item].instaThumnailUrl {
                 cell.setImageView(imageURL: thumnailURL)
@@ -144,6 +150,11 @@ extension LookDetailViewController: UICollectionViewDataSource {
         return cell
     }
     
+}
+
+// MARK: - UICollectionViewDelegate
+
+extension LookDetailViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
         if tag == "전체보기" {
@@ -156,10 +167,4 @@ extension LookDetailViewController: UICollectionViewDataSource {
             }
         }
     }
-}
-
-// MARK: - UICollectionViewDelegate
-
-extension LookDetailViewController: UICollectionViewDelegate {
-    
 }

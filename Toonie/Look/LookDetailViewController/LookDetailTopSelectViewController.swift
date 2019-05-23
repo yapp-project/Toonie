@@ -14,7 +14,7 @@ struct TagStructure {
 }
 
 final class LookDetailTopSelectViewController: UIViewController {
-  
+    
     // MARK: - IBOutlets
     
     @IBOutlet weak var lookDetailTopSelectCollectionView: UICollectionView!
@@ -44,7 +44,8 @@ final class LookDetailTopSelectViewController: UIViewController {
         
         KeywordToonListService
             .shared
-            .getKeywords(keyword: selectedKeyword) {(tags) in
+            .getKeywords(keyword: selectedKeyword) { [weak self] (tags) in
+                guard let self = self else { return }
                 for tag in tags ?? [String]() {
                     self.tags.append(TagStructure.init(tagName: "#"+tag,
                                                        state: false))
@@ -70,7 +71,7 @@ extension LookDetailTopSelectViewController: UICollectionViewDataSource {
             .dequeueReusableCell(withReuseIdentifier: "LookDetailTopSelectCell",
                                  for: indexPath) as? LookDetailTopSelectCell
             else { return UICollectionViewCell() }
-  
+        
         cell.setTitleLabel(text: tags[indexPath.row].tagName)
         cell.setCellStatus(bool: tags[indexPath.row].state)
         
@@ -79,7 +80,7 @@ extension LookDetailTopSelectViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
-
+        
         if let closure = self.tagDidTapClosure {
             closure(tags[indexPath.row]
                 .tagName
@@ -126,7 +127,7 @@ extension LookDetailTopSelectViewController: UICollectionViewDelegateFlowLayout 
     private func collectionView(collectionView: UICollectionView,
                                 layout collectionViewLayout: UICollectionViewLayout,
                                 sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
-
+        
         let keyword = tags[indexPath.row].tagName
         let font = UIFont.getAppleSDGothicNeo(option: .medium,
                                               size: 14)

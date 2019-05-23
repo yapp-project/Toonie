@@ -71,7 +71,8 @@ final class FeedViewController: GestureViewController {
     
     /// 툰 정보 네트워크 요청
     private func loadToon() {
-        ForYouToonListService.shared.getForYouToonList { result in
+        ForYouToonListService.shared.getForYouToonList { [weak self] result in
+                    guard let self = self else { return }
             if let result = result {
                 if result.count <= 10 {
                     self.forYouToonLists = result
@@ -81,7 +82,8 @@ final class FeedViewController: GestureViewController {
             }
             self.forYouCollectionView.reloadData()
         }
-        LatestService.shared.getLatestToon { result in
+        LatestService.shared.getLatestToon { [weak self] result in
+                    guard let self = self else { return }
             if let result = result {
                 if result.count <= 10 {
                     self.latestToonLists = result
@@ -91,7 +93,8 @@ final class FeedViewController: GestureViewController {
             }
             self.recentCollectionView.reloadData()
         }
-        FavoriteService.shared.getFavoriteToon { result in
+        FavoriteService.shared.getFavoriteToon { [weak self] result in
+                    guard let self = self else { return }
             if let result = result {
                 if result.count <= 10 {
                     self.favoriteToonLists = result
@@ -200,12 +203,12 @@ extension FeedViewController: UICollectionViewDataSource {
         if collectionView == forYouCollectionView {
             return forYouToonLists?.count ?? 0
         } else if collectionView == recentCollectionView {
-            if latestToonLists?.count == 0 {
+            if latestToonLists == nil {
                 removeView(recentViewHeightConstraint)
             }
             return latestToonLists?.count ?? 0
         } else if collectionView == favoriteCollectionView {
-            if favoriteToonLists?.count == 0 {
+            if favoriteToonLists == nil {
                 removeView(favoriteViewHeightConstraint)
             }
             return favoriteToonLists?.count ?? 0
