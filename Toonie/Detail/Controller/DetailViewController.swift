@@ -62,6 +62,9 @@ final class DetailToonViewController: GestureViewController {
             viewController.toonUrl = detailToon?.instaUrl
             self.present(viewController, animated: true, completion: nil)
         }
+        
+        CommonUtility.analytics(eventName: "button_event",
+                                param: ["instaUrl": detailToon?.instaUrl ?? "instaUrl"])
     }
     
     /// 툰 찜하기 & 취소 기능
@@ -104,6 +107,9 @@ final class DetailToonViewController: GestureViewController {
         if let detailToon = detailToon {
             setDetailToon(detailToon)
         }
+        
+        CommonUtility.analytics(eventName: "DetailViewController",
+                                param: ["toonId": detailToonID ?? "toonId"])
         
     }
     
