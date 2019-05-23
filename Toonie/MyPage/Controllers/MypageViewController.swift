@@ -118,7 +118,7 @@ final class MypageViewController: GestureViewController {
             dataCheckLabel.text = "아직 찜한 작품이\n없습니다."
             dataCheckImageView.isHidden = false
             dataCheckLabel.isHidden = false
-        } else if status == "tag" {
+        } else {
             dataCheckImageView.isHidden = true
             dataCheckLabel.isHidden = true
         }
@@ -142,6 +142,8 @@ final class MypageViewController: GestureViewController {
                 guard let self = self else { return }
                 if res == nil {
                     self.dataCheck(status: self.status)
+                } else {
+                    self.dataCheck(status: " ")
                 }
                 guard let list = res else { return }
                 self.dataList = list
@@ -153,6 +155,8 @@ final class MypageViewController: GestureViewController {
                 guard let self = self else { return }
                 if res == nil {
                     self.dataCheck(status: self.status)
+                } else {
+                    self.dataCheck(status: " ")
                 }
                 guard let list = res else { return }
                 self.dataList = list
