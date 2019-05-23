@@ -47,7 +47,7 @@ final class CommonUtility: NSObject {
         var replaceEventName = eventName.replacingOccurrences(of: "Toonie.", with: "")
         replaceEventName = devSwitch ? "dev"+replaceEventName : replaceEventName
         Analytics.logEvent(replaceEventName,
-                           parameters: nil)
+                           parameters: param)
     }
     
     ///키워드에 쓰일 문자열, 문자열에 대한 이미지 매핑
