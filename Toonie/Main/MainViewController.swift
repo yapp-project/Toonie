@@ -32,7 +32,7 @@ final class MainViewController: GestureViewController {
     @IBOutlet private weak var myPageButton: UIButton!
     
     // MARK: - Property
-    private var statusButton: UIButton!
+    private weak var statusButton: UIButton!
     
     private enum TabbarButtonCase {
         case feed, look, myPage
@@ -61,7 +61,7 @@ final class MainViewController: GestureViewController {
         super.viewDidLoad()
         setButtonTextCenter()
         tabBarButtonDidTap(feedButton)
-    
+        
         //버전 체크
         chkToonieUpdate()
         
@@ -70,7 +70,7 @@ final class MainViewController: GestureViewController {
                    message: "일부 오류 수정\n추천받지 않기 기능 없앰\n둘러보기 UI 수정\nAPI describing 제거\n마이페이지 데이터 없음 표시",
                    style: .alert)
             .action(title: "확인", style: .default) { _ in
-                }
+            }
             .present(to: self)
     }
     
@@ -88,16 +88,16 @@ final class MainViewController: GestureViewController {
         switch sender {
         case feedButton:
             TabbarButtonCase.feed.showStatusView(view: &feedContainerView,
-                                           button: &feedButton)
+                                                 button: &feedButton)
         case lookButton:
             TabbarButtonCase.look.showStatusView(view: &lookContainerView,
-                                           button: &lookButton)
+                                                 button: &lookButton)
         case myPageButton:
             TabbarButtonCase.myPage.showStatusView(view: &myPageContainerView,
-                                             button: &myPageButton)
+                                                   button: &myPageButton)
         default:
             TabbarButtonCase.feed.showStatusView(view: &feedContainerView,
-                                           button: &feedButton)
+                                                 button: &feedButton)
         }
         
         statusButton = sender
@@ -155,12 +155,13 @@ final class MainViewController: GestureViewController {
     
     ///업데이트 체크
     func chkToonieUpdate() {
-        ChkToonieUpdateService.shared.getUpdateInfo { result in
+        ChkToonieUpdateService.shared.getUpdateInfo { [weak self] result in
+            guard let self = self else { return }
             if result.forcedUpdate == true {
                 if let forcedVersion = result.forceInfo?.forcedVersion {
                     if CommonUtility.sharedInstance
                         .compareToVersion(newVersion: forcedVersion) < 0 {
-                    
+                        
                         self.chkToonieUpdateAlertShow(message: result
                             .forceInfo?
                             .forcedString ?? "최신 버전이 나왔어요! 업데이트하고 즐거운 투니 되세요!",
@@ -177,7 +178,7 @@ final class MainViewController: GestureViewController {
                 if let targetVersion = result.targetInfo?.targetVersion {
                     if CommonUtility.sharedInstance
                         .compareToVersion(newVersion: targetVersion) == 0 {
-                       
+                        
                         self.chkToonieUpdateAlertShow(message: result
                             .targetInfo?
                             .targetString ?? "최신 버전이 나왔어요! 업데이트하고 즐거운 투니 되세요!",

@@ -54,7 +54,7 @@ final class MypageViewController: GestureViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getToonList(status: status)
-//        goToFirstItem()
+        //        goToFirstItem()
     }
     
     // MARK: - 함수
@@ -126,7 +126,8 @@ final class MypageViewController: GestureViewController {
     
     /// Tag리스트를 불러오는 통신 함수
     private func getTagList() {
-        MyKeywordsService.shared.getMyKeywords { (res) in
+        MyKeywordsService.shared.getMyKeywords { [weak self] (res) in
+            guard let self = self else { return }
             guard let list = res else { return }
             self.tagList = list
             self.dataCheck(status: self.status)
@@ -137,7 +138,8 @@ final class MypageViewController: GestureViewController {
     /// 툰 리스트를 status에 따라 통신하는 함수
     private func getToonList(status: String) {
         if status == "recent" {
-            LatestService.shared.getLatestToon { (res) in
+            LatestService.shared.getLatestToon { [weak self] (res) in
+                guard let self = self else { return }
                 if res != nil {
                     self.dataCheck(status: self.status)
                 }
@@ -147,7 +149,8 @@ final class MypageViewController: GestureViewController {
             }
             
         } else if status == "bookMark" {
-            FavoriteService.shared.getFavoriteToon { (res) in
+            FavoriteService.shared.getFavoriteToon { [weak self] (res) in
+                guard let self = self else { return }
                 if res == nil {
                     self.dataCheck(status: self.status)
                 }
@@ -172,7 +175,7 @@ final class MypageViewController: GestureViewController {
             recentButton.setTitleColor(#colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1), for: .normal)
         }
         mypageCollectionView.reloadData()
-//        goToFirstItem()
+        //        goToFirstItem()
     }
     
     @IBAction func bookMarkButtonDidTap(_ sender: UIButton) {
@@ -188,7 +191,7 @@ final class MypageViewController: GestureViewController {
             bookMarkButton.setTitleColor(#colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1), for: .normal)
         }
         mypageCollectionView.reloadData()
-//        goToFirstItem()
+        //        goToFirstItem()
     }
     
     @IBAction func tagButtonDidTap(_ sender: UIButton) {
@@ -202,7 +205,7 @@ final class MypageViewController: GestureViewController {
             tagButton.setTitleColor(#colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1), for: .normal)
         }
         mypageCollectionView.reloadData()
-//        goToFirstItem()
+        //        goToFirstItem()
     }
     
     @IBAction func tagSettingButtonDidTap(_ sender: UIButton) {
@@ -259,6 +262,11 @@ extension MypageViewController: UICollectionViewDataSource {
         return cell
     }
     
+}
+
+// MARK: - UICollectionViewDelegate
+
+extension MypageViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
         if status == "tag" {
@@ -269,10 +277,4 @@ extension MypageViewController: UICollectionViewDataSource {
             }
         }
     }
-}
-
-// MARK: - UICollectionViewDelegate
-
-extension MypageViewController: UICollectionViewDelegate {
-    
 }

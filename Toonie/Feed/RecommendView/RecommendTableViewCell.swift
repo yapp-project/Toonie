@@ -14,6 +14,8 @@ final class RecommendTableViewCell: UITableViewCell {
     // MARK: - Properties
     private var titleString: String? = ""
     private var curationTagArray: [ToonInfoList]?
+    private var isFavorite = false
+    private var favoriteToons: [ToonList]?
     
     // MARK: - IBOutlet
     
@@ -24,9 +26,8 @@ final class RecommendTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setRecommendCollectionView()
-        
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
@@ -45,7 +46,7 @@ final class RecommendTableViewCell: UITableViewCell {
     
     func setRecommentTitleLabel(titleString: String?) {
         if let title = titleString {
-                recommentTitleLabel.text = "#\(title)"
+            recommentTitleLabel.text = "#\(title)"
         }
         self.titleString = titleString
         setCurationTag()
@@ -53,17 +54,35 @@ final class RecommendTableViewCell: UITableViewCell {
     
     private func setCurationTag() {
         if let string = titleString {
-            CurationTagService.shared.getCurationTagList(tagName: string) { (result) in
+            CurationTagService.shared.getCurationTagList(tagName: string) { [weak self] result in
+                guard let self = self else { return }
                 if let curationTagArray = result {
                     self.curationTagArray = curationTagArray
                 }
                 
                 self.recommendCollectionView.reloadData()
-                
             }
-            
         }
-        
+    }
+    
+    /// 찜한 툰 목록 요청
+    private func loadFavoriteToon() {
+        FavoriteService.shared.getFavoriteToon { [weak self] result in
+            guard let self = self else { return }
+            self.favoriteToons = result
+        }
+    }
+    
+    /// 찜한 상태인지 확인
+    func checkFavoriteStatus(toonId: String) -> Bool {
+        isFavorite = false
+        guard let favoriteToons = favoriteToons else { return false }
+        for index in 0..<favoriteToons.count
+            where toonId == favoriteToons[index].toonID {
+                isFavorite = true
+                break
+        }
+        return isFavorite
     }
 }
 
@@ -76,12 +95,15 @@ extension RecommendTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecommendCollectionViewCell",
-                                                            for: indexPath) as? RecommendCollectionViewCell else {
-                                                                return UICollectionViewCell()
+        guard let cell = collectionView
+            .dequeueReusableCell(withReuseIdentifier: "RecommendCollectionViewCell",
+                                 for: indexPath) as? RecommendCollectionViewCell
+            else {
+                return UICollectionViewCell()
         }
         cell.setRecommendCollectionViewCellProperties(curationInfoList: curationTagArray?[indexPath.row])
-        
+        self.isFavorite = checkFavoriteStatus(toonId: self.curationTagArray?[indexPath.row].toonID ?? "")
+        cell.setBookMarkButton(isSelected)
         return cell
     }
 }

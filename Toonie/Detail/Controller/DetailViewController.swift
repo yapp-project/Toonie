@@ -111,7 +111,8 @@ final class DetailToonViewController: GestureViewController {
     
     /// 상세화면 툰 정보 네트워크 요청
     private func loadDetailToon(_ toonID: String) {
-        DetailToonService.shared.getDetailToon(toonId: toonID) { result in
+        DetailToonService.shared.getDetailToon(toonId: toonID) { [weak self] result in
+            guard let self = self else { return }
             self.detailToon = result
             if let detailToon = self.detailToon {
                 self.setDetailToon(detailToon)
@@ -121,7 +122,8 @@ final class DetailToonViewController: GestureViewController {
     
     /// 찜한 툰 목록 요청
     private func loadFavoriteToon() {
-        FavoriteService.shared.getFavoriteToon { result in
+        FavoriteService.shared.getFavoriteToon { [weak self] result in
+            guard let self = self else { return }
             self.favoriteToon = result
             self.isFavorite = self.checkFavoriteStatus(toonId: self.detailToonID ?? "")
             self.changeFavoriteButton(self.isFavorite)
