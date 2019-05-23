@@ -96,7 +96,6 @@ final class RecommendCollectionViewCell: UICollectionViewCell {
     
     /// 북마크 버튼 상태 설정
     func setBookMarkButton(_ isFavorite: Bool) {
-//        prepareForReuse()
         DispatchQueue.main.async {
             self.bookMarkButton.isSelected = isFavorite
         }
