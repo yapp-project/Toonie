@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import StoreKit
 
 ///애플리케이션에 필요한 잡다한 도구 모음
 final class CommonUtility: NSObject {
@@ -124,5 +125,14 @@ final class CommonUtility: NSObject {
         }
         return 0 
     }
-    
+  
+    ///앱 3번 실행마다 앱리뷰 요청
+    func showStoreReview() {
+        let detailEnterCnt = UserDefaults.standard.integer(forKey: "appStartCount")
+        
+            if 3 <= detailEnterCnt {
+                SKStoreReviewController.requestReview()
+                UserDefaults.standard.set(0, forKey: "appStartCount")
+            }
+    }
 }

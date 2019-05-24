@@ -27,7 +27,7 @@
                         </constraints>
                     </view>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jeJ-Zu-TGA">
-                        <rect key="frame" x="24.5" y="70" width="350.5" height="228"/>
+                        <rect key="frame" x="0.0" y="70" width="375" height="228"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="228" id="GMP-A8-yqf"/>
@@ -36,11 +36,11 @@
                             <size key="itemSize" width="220" height="228"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
+                            <inset key="sectionInset" minX="24.5" minY="0.0" maxX="20" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="BQa-m5-oRu">
-                                <rect key="frame" x="0.0" y="0.0" width="220" height="228"/>
+                                <rect key="frame" x="24.5" y="0.0" width="220" height="228"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="220" height="228"/>
@@ -48,7 +48,7 @@
                                 </view>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gok-zH-ufh">
-                                <rect key="frame" x="238" y="0.0" width="220" height="228"/>
+                                <rect key="frame" x="262.5" y="0.0" width="220" height="228"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="220" height="228"/>
@@ -69,9 +69,10 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="o1x-dp-omx" firstAttribute="width" secondItem="uID-d1-nYh" secondAttribute="width" multiplier="0.87" id="3aZ-3k-Bk7"/>
                     <constraint firstAttribute="bottomMargin" secondItem="jeJ-Zu-TGA" secondAttribute="bottom" constant="33" id="EME-mu-Iih"/>
-                    <constraint firstItem="jeJ-Zu-TGA" firstAttribute="leading" secondItem="o1x-dp-omx" secondAttribute="leading" id="IlL-xX-8s5"/>
+                    <constraint firstItem="jeJ-Zu-TGA" firstAttribute="width" secondItem="uID-d1-nYh" secondAttribute="width" id="LFm-Gg-InA"/>
+                    <constraint firstAttribute="trailing" secondItem="o1x-dp-omx" secondAttribute="trailing" constant="24.5" id="Mrd-Ix-DPu"/>
+                    <constraint firstItem="o1x-dp-omx" firstAttribute="leading" secondItem="uID-d1-nYh" secondAttribute="leading" constant="24.5" id="VUi-Y9-ICR"/>
                     <constraint firstItem="AhC-vW-eRP" firstAttribute="leading" secondItem="o1x-dp-omx" secondAttribute="leading" id="YJx-VZ-ybD"/>
                     <constraint firstItem="AhC-vW-eRP" firstAttribute="top" secondItem="o1x-dp-omx" secondAttribute="bottom" constant="26" id="qSr-Ip-yAD"/>
                     <constraint firstItem="jeJ-Zu-TGA" firstAttribute="top" secondItem="AhC-vW-eRP" secondAttribute="bottom" constant="16.333333333333329" id="s3d-dW-FFI"/>
@@ -86,6 +87,7 @@
                 <outlet property="recommendCollectionView" destination="jeJ-Zu-TGA" id="W0a-q4-xiv"/>
                 <outlet property="recommentTitleLabel" destination="AhC-vW-eRP" id="6gg-Jb-PYR"/>
             </connections>
+            <point key="canvasLocation" x="132" y="154.72263868065968"/>
         </tableViewCell>
     </objects>
     <resources>

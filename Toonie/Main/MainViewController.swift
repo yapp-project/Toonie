@@ -65,9 +65,12 @@ final class MainViewController: GestureViewController {
         //버전 체크
         chkToonieUpdate()
         
+        //앱리뷰요청
+        CommonUtility.sharedInstance.showStoreReview()
+        
         UIAlertController
-            .alert(title: "1.0.0(3)",
-                   message: "일부 오류 수정\n추천받지 않기 기능 없앰\n둘러보기 UI 수정\nAPI describing 제거\n마이페이지 데이터 없음 표시",
+            .alert(title: "1.0.0(5)",
+                   message: "앱리뷰기능추가\n찜기능 추가\n일부오류수정\n마이페이지 네트워킹부분 수정\n전체보기 기능",
                    style: .alert)
             .action(title: "확인", style: .default) { _ in
             }
