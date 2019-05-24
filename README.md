@@ -59,6 +59,7 @@ error: 120
 excluded:
 - Toonie/Supporting Files/AppDelegate.swift
 - Pods
+- Toonie/Common/CommonUtility.swift
 ```
 
 - **[xUnique](https://github.com/truebit/xUnique)** : `project.pbxproj` 파일의 충돌을 최소화하고 해결을 도움.
