@@ -45,7 +45,7 @@
                                         </constraints>
                                         <state key="normal" image="back"/>
                                         <connections>
-                                            <action selector="closeButtonDidTap:" destination="HVp-oW-7f2" eventType="touchUpInside" id="nPh-J7-YvE"/>
+                                            <action selector="backButtionDidTap:" destination="HVp-oW-7f2" eventType="touchUpInside" id="Rud-hc-RKK"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지금 나는" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r3v-Zk-dzR">
@@ -76,7 +76,7 @@
                                             <rect key="frame" x="0.0" y="32" width="414" height="190"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="lfq-pH-Os0">
-                                                    <rect key="frame" x="-219.5" y="0.0" width="853" height="190"/>
+                                                    <rect key="frame" x="-129" y="0.0" width="672" height="190"/>
                                                     <subviews>
                                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Z9q-TN-OpQ">
                                                             <rect key="frame" x="0.0" y="0.0" width="672" height="190"/>

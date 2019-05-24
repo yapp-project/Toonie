@@ -51,12 +51,17 @@ final class RecommendViewController: GestureViewController {
         setTagScrollContent()
         
         // test
-        getToonOfTagList(tag: "알콩달콩 결혼 생활")
+//        getToonOfTagList(tag: "알콩달콩 결혼 생활")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         reloadTagTableView()
+    }
+    
+    // MARK: - IBActions
+    @IBAction func backButtionDidTap(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Function
@@ -69,13 +74,13 @@ final class RecommendViewController: GestureViewController {
         }
     }
     
-    func getToonOfTagList(tag: String) {
-        CurationTagService.shared.getCurationTagList(tagName: tag) { res in
-            // test
-            print("res : ", res!)
-        }
-    }
-    
+//    func getToonOfTagList(tag: String) {
+//        CurationTagService.shared.getCurationTagList(tagName: tag) { res in
+//            // test
+//            print("res : ", res!)
+//        }
+//    }
+//    
     ///cell xib 이용
     func setTableViewXib() {
         let nibName = UINib(nibName: "RecommendTableViewCell",
