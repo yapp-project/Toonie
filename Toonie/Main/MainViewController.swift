@@ -89,7 +89,7 @@ final class MainViewController: GestureViewController {
             if let feedNavigationController = segue.destination as? FeedNavigationController {
                 if let feedViewController = feedNavigationController.rootViewController as? FeedViewController {
                     self.feedDidTapClosure = {
-//                        feedViewController.viewWillAppear(true)
+                        feedViewController.viewWillAppear(true)
 //                         feedViewController.loadToon()
                     }
                 }
