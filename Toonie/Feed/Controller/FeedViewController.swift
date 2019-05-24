@@ -52,8 +52,6 @@ final class FeedViewController: GestureViewController {
     private var favoriteToon: [ToonList]?
     private var detailToonId = ""
     private var isFavorite = false
-    var favoriteStatus: Bool?
-    var cellToonID: String?
     
     // MARK: - Life Cycle
     
@@ -87,7 +85,7 @@ final class FeedViewController: GestureViewController {
         latestToonLists = [ToonList]()
         favoriteToonLists = [ToonList]()
     }
-
+    
     /// 당신을 위한 툰 정보 네트워크 요청
     private func loadForYouToonList() {
         ForYouToonListService.shared.getForYouToonList { [weak self] result in
@@ -97,7 +95,7 @@ final class FeedViewController: GestureViewController {
                     self.forYouToonLists = result
                 } else {
                     self.forYouToonLists = self.makeRandomList(result)
-
+                    
                 }
                 self.forYouCollectionView.reloadData()
             }
@@ -115,6 +113,12 @@ final class FeedViewController: GestureViewController {
                     self.latestToonLists = self.makeRandomList(result)
                 }
             }
+            if self.latestToonLists  == nil
+                || self.latestToonLists?.count == 0 {
+                self.updateView(&self.recentViewHeightConstraint, 0)
+            } else {
+                self.updateView(&self.recentViewHeightConstraint, self.recentViewHeight)
+            }
             self.recentCollectionView.reloadData()
         }
     }
@@ -130,6 +134,12 @@ final class FeedViewController: GestureViewController {
                 } else {
                     self.favoriteToonLists = self.makeRandomList(result)
                 }
+            }
+            if result == nil
+                || result?.count == 0 {
+                self.updateView(&self.favoriteViewHeightConstraint, 0)
+            } else {
+                self.updateView(&self.favoriteViewHeightConstraint, self.favoriteViewHeight)
             }
             self.favoriteCollectionView.reloadData()
         }
@@ -253,20 +263,8 @@ extension FeedViewController: UICollectionViewDataSource {
         if collectionView == forYouCollectionView {
             return forYouToonLists?.count ?? 0
         } else if collectionView == recentCollectionView {
-            if latestToonLists  == nil
-               || latestToonLists?.count == 0 {
-                updateView(&recentViewHeightConstraint, 0)
-            } else {
-                updateView(&recentViewHeightConstraint, recentViewHeight)
-            }
             return latestToonLists?.count ?? 0
         } else if collectionView == favoriteCollectionView {
-            if favoriteToonLists == nil
-                || favoriteToonLists?.count == 0 {
-                    updateView(&favoriteViewHeightConstraint, 0)
-            } else {
-                updateView(&favoriteViewHeightConstraint, favoriteViewHeight)
-            }
             return favoriteToonLists?.count ?? 0
         } else {
             return 0
