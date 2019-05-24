@@ -34,6 +34,9 @@ final class MainViewController: GestureViewController {
     // MARK: - Property
     private weak var statusButton: UIButton!
     
+    //탭바 이벤트 발생시 수행할 클로저
+    var tabDidTapClosure: (() -> Void)?
+    
     private enum TabbarButtonCase {
         case feed, look, myPage
         
@@ -77,6 +80,18 @@ final class MainViewController: GestureViewController {
             .present(to: self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "myPage" {
+            if let myPageNavigationController = segue.destination as? MyPageNavigationController {
+                if let myPageViewController = myPageNavigationController.rootViewController as? MypageViewController {
+                    self.tabDidTapClosure = {
+                        myPageViewController.viewWillAppear(true)
+                    }
+                }
+            }
+        }
+    }
+    
     // MARK: - Action
     
     @IBAction func tabBarButtonDidTap(_ sender: UIButton) {
@@ -98,6 +113,9 @@ final class MainViewController: GestureViewController {
         case myPageButton:
             TabbarButtonCase.myPage.showStatusView(view: &myPageContainerView,
                                                    button: &myPageButton)
+            if let closure = self.tabDidTapClosure {
+                closure()
+            }
         default:
             TabbarButtonCase.feed.showStatusView(view: &feedContainerView,
                                                  button: &feedButton)

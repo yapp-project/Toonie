@@ -11,6 +11,10 @@ import UIKit
 //MyPage의 MyPageNavigationController
 
 final class MyPageNavigationController: UINavigationController {
+    var rootViewController : UIViewController? {
+        return viewControllers.first
+    }
+    
     override init(rootViewController: UIViewController) {
         super.init(rootViewController: rootViewController)
     }
