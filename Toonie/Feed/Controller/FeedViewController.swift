@@ -101,7 +101,6 @@ final class FeedViewController: GestureViewController {
                 }
                 self.forYouCollectionView.reloadData()
             }
-            isFirst = false
         }
     }
     
