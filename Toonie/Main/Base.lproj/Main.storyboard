@@ -22,7 +22,7 @@
                             <containerView opaque="NO" tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VPX-yU-680" userLabel="Feed">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="513"/>
                                 <connections>
-                                    <segue destination="4Sn-vr-sqf" kind="embed" id="RAI-bM-9H2"/>
+                                    <segue destination="4Sn-vr-sqf" kind="embed" identifier="Feed" id="RAI-bM-9H2"/>
                                 </connections>
                             </containerView>
                             <containerView hidden="YES" opaque="NO" tag="101" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFH-zw-qKE" userLabel="Look">

@@ -12,6 +12,10 @@ import SnapKit
 
 // Feed의 NavigationController
 final class FeedNavigationController: UINavigationController {
+    var rootViewController: UIViewController? {
+        return viewControllers.first
+    } 
+    
     override init(rootViewController: UIViewController) {
         super.init(rootViewController: rootViewController)
     }
@@ -37,6 +41,9 @@ final class FeedViewController: GestureViewController {
     @IBOutlet private weak var favoriteViewHeightConstraint: NSLayoutConstraint!
     
     // MARK: - Property
+    
+    private let recentViewHeight: CGFloat = 296
+    private let favoriteViewHeight: CGFloat = 429
     
     private var tagAnimationView: AnimationView?
     private var forYouToonLists: [ToonList]?
@@ -75,6 +82,12 @@ final class FeedViewController: GestureViewController {
     
     // MARK: - Function
     
+    ///초기화
+    func resetArray() {
+        latestToonLists = [ToonList]()
+        favoriteToonLists = [ToonList]()
+    }
+
     /// 당신을 위한 툰 정보 네트워크 요청
     private func loadForYouToonList() {
         ForYouToonListService.shared.getForYouToonList { [weak self] result in
@@ -84,9 +97,10 @@ final class FeedViewController: GestureViewController {
                     self.forYouToonLists = result
                 } else {
                     self.forYouToonLists = self.makeRandomList(result)
+
                 }
+                self.forYouCollectionView.reloadData()
             }
-            self.forYouCollectionView.reloadData()
         }
     }
     
@@ -210,10 +224,10 @@ final class FeedViewController: GestureViewController {
         return toonId
     }
     
-    /// 뷰 높이 변경
-    private func changeHeightConstraint(_ height: NSLayoutConstraint,
-                                        value: CGFloat ) {
-        height.constant = value
+    /// 뷰 높이 constant 0으로 해서 없앰
+    private func updateView(_ constraint: inout NSLayoutConstraint,
+                            _ hegiht: CGFloat) {
+        constraint.constant = hegiht
     }
     
     /// 찜한 상태인지 확인
@@ -239,23 +253,24 @@ extension FeedViewController: UICollectionViewDataSource {
         if collectionView == forYouCollectionView {
             return forYouToonLists?.count ?? 0
         } else if collectionView == recentCollectionView {
-            if latestToonLists == nil {
-                changeHeightConstraint(recentViewHeightConstraint, value: 1)
+            if latestToonLists  == nil
+               || latestToonLists?.count == 0 {
+                updateView(&recentViewHeightConstraint, 0)
             } else {
-                //                changeHeightConstraint(recentViewHeightConstraint, value: 234)
+                updateView(&recentViewHeightConstraint, recentViewHeight)
             }
             return latestToonLists?.count ?? 0
         } else if collectionView == favoriteCollectionView {
-            if favoriteToonLists == nil {
-                changeHeightConstraint(favoriteViewHeightConstraint, value: 1)
+            if favoriteToonLists == nil
+                || favoriteToonLists?.count == 0 {
+                    updateView(&favoriteViewHeightConstraint, 0)
             } else {
-                //                changeHeightConstraint(favoriteViewHeightConstraint, value: 336)
+                updateView(&favoriteViewHeightConstraint, favoriteViewHeight)
             }
             return favoriteToonLists?.count ?? 0
         } else {
             return 0
         }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView,
