@@ -67,17 +67,17 @@ final class CommonUtility: NSObject {
         case "페미니즘":
             return storyboardName == "Look" ? "LookCategoryImg_6" : "tagFeminism"
         case "심리 감정":
-            return storyboardName == "Look" ? "LookCategoryImg_7" : "dum2"
+            return storyboardName == "Look" ? "LookCategoryImg_7" : "tagPsychology"
         case "여행":
-            return storyboardName == "Look" ? "LookCategoryImg_8" : "dum2"
+            return storyboardName == "Look" ? "LookCategoryImg_8" : "tagTrip"
         case "학교생활":
             return storyboardName == "Look" ? "LookCategoryImg_9" : "tagCampus"
         case "가족":
             return storyboardName == "Look" ? "LookCategoryImg_10" : "tagFamily"
         case "자기계발":
-            return storyboardName == "Look" ? "LookCategoryImg_11" : "dum2"
+            return storyboardName == "Look" ? "LookCategoryImg_11" : "tagSelfDevelopment"
         case "사랑 연애":
-            return storyboardName == "Look" ? "LookCategoryImg_12" : "dum2"
+            return storyboardName == "Look" ? "LookCategoryImg_12" : "tagLove"
         default:
             return "dum2"
         }
