@@ -34,7 +34,7 @@
                             <containerView hidden="YES" opaque="NO" tag="102" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DXN-qf-VAA" userLabel="MyPage">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="513"/>
                                 <connections>
-                                    <segue destination="TCj-SB-KC3" kind="embed" id="Brm-xG-l3N"/>
+                                    <segue destination="TCj-SB-KC3" kind="embed" identifier="MyPage" id="Brm-xG-l3N"/>
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ylA-pd-KbW" userLabel="TabBarView">

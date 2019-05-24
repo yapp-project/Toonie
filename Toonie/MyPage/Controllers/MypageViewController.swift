@@ -11,7 +11,7 @@ import UIKit
 //MyPage의 MyPageNavigationController
 
 final class MyPageNavigationController: UINavigationController {
-    var rootViewController : UIViewController? {
+    var rootViewController: UIViewController? {
         return viewControllers.first
     }
     
@@ -58,6 +58,7 @@ final class MypageViewController: GestureViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getToonList(status: status)
+        print("뷰윌어피어 함수 안입니덩")
     }
     
     // MARK: - 함수
@@ -113,6 +114,7 @@ final class MypageViewController: GestureViewController {
     
     /// dataCheckLabel Hidden 함수
     private func dataCheck(status: String) {
+        mypageCollectionView.reloadData()
         if status == "recent" {
             dataCheckLabel.text = "아직 감상한 작품이\n없습니다."
             dataCheckImageView.isHidden = false
@@ -131,10 +133,11 @@ final class MypageViewController: GestureViewController {
     private func getTagList() {
         MyKeywordsService.shared.getMyKeywords { [weak self] (res) in
             guard let self = self else { return }
+            self.dataList.removeAll()
+            self.tagList.removeAll()
             guard let list = res else { return }
             self.tagList = list
             self.dataCheck(status: self.status)
-            self.mypageCollectionView.reloadData()
         }
     }
     
@@ -148,9 +151,10 @@ final class MypageViewController: GestureViewController {
                 } else {
                     self.dataCheck(status: " ")
                 }
+                self.dataList.removeAll()
+                self.tagList.removeAll()
                 guard let list = res else { return }
                 self.dataList = list
-                self.mypageCollectionView.reloadData()
             }
             
         } else if status == "bookMark" {
@@ -161,9 +165,10 @@ final class MypageViewController: GestureViewController {
                 } else {
                     self.dataCheck(status: " ")
                 }
+                self.dataList.removeAll()
+                self.tagList.removeAll()
                 guard let list = res else { return }
                 self.dataList = list
-                self.mypageCollectionView.reloadData()
             }
         }
     }
@@ -173,8 +178,6 @@ final class MypageViewController: GestureViewController {
     @IBAction func recentButtonDidTap(_ sender: UIButton) {
         mypageCollectionView.reloadData()
         if status != "recent"{
-            dataList.removeAll()
-            tagList.removeAll()
             tagSettingButton.isHidden = true
             status = "recent"
             getToonList(status: status)
@@ -188,8 +191,6 @@ final class MypageViewController: GestureViewController {
     @IBAction func bookMarkButtonDidTap(_ sender: UIButton) {
         mypageCollectionView.reloadData()
         if status != "bookMark"{
-            dataList.removeAll()
-            tagList.removeAll()
             tagSettingButton.isHidden = true
             status = "bookMark"
             getToonList(status: status)
@@ -203,8 +204,6 @@ final class MypageViewController: GestureViewController {
     @IBAction func tagButtonDidTap(_ sender: UIButton) {
         mypageCollectionView.reloadData()
         if status != "tag"{
-            dataList.removeAll()
-            tagList.removeAll()
             tagSettingButton.isHidden = false
             status = "tag"
             getTagList()
