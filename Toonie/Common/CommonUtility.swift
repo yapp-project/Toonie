@@ -51,34 +51,34 @@ final class CommonUtility: NSObject {
     }
     
     ///키워드에 쓰일 문자열, 문자열에 대한 이미지 매핑
-    func tagImage(name: String) -> String {
+    func tagImage(name: String, storyboardName: String) -> String {
         switch name {
         case "반려동물":
-            return "LookCategoryImg_1"
+            return storyboardName == "Look" ? "LookCategoryImg_1" : "tagPet"
         case "직업":
-            return "LookCategoryImg_2"
+            return storyboardName == "Look" ? "LookCategoryImg_2" : "tagCareer"
         case "음식":
-            return "LookCategoryImg_3"
+            return storyboardName == "Look" ? "LookCategoryImg_3" : "tagFood"
         case "자취생활":
-            return "LookCategoryImg_4"
+            return storyboardName == "Look" ? "LookCategoryImg_4" : "tagLivealone"
         case "해외":
-            return "LookCategoryImg_5"
+            return storyboardName == "Look" ? "LookCategoryImg_5" : "tagAbroad"
         case "페미니즘":
-            return "LookCategoryImg_6"
+            return storyboardName == "Look" ? "LookCategoryImg_6" : "tagFeminism"
         case "심리 감정":
-            return "LookCategoryImg_7"
+            return storyboardName == "Look" ? "LookCategoryImg_7" : "dum2"
         case "여행":
-            return "LookCategoryImg_8"
+            return storyboardName == "Look" ? "LookCategoryImg_8" : "dum2"
         case "학교생활":
-            return "LookCategoryImg_9"
+            return storyboardName == "Look" ? "LookCategoryImg_9" : "tagCampus"
         case "가족":
-            return "LookCategoryImg_10"
+            return storyboardName == "Look" ? "LookCategoryImg_10" : "tagFamily"
         case "자기계발":
-            return "LookCategoryImg_11"
+            return storyboardName == "Look" ? "LookCategoryImg_11" : "dum2"
         case "사랑 연애":
-            return "LookCategoryImg_12"
+            return storyboardName == "Look" ? "LookCategoryImg_12" : "dum2"
         default:
-            return ""
+            return "dum2"
         }
     }
     
