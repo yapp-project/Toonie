@@ -69,7 +69,8 @@ final class ToonWebViewController: UIViewController, WKNavigationDelegate {
     private func setLabel() {
         let javascript = "document.title\n"
         
-        instagramWebView.evaluateJavaScript(javascript) { (result, error) -> Void in
+        instagramWebView.evaluateJavaScript(javascript) { [weak self] (result, error) -> Void in
+            guard let self = self else { return }
             if error == nil {
                 self.idLabel.text = result as? String
             }
@@ -79,8 +80,8 @@ final class ToonWebViewController: UIViewController, WKNavigationDelegate {
     
     /// 웹뷰 버튼, 레이블 설정
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
-        backButton.isEnabled = instagramWebView.canGoBack
-        forwardButton.isEnabled = instagramWebView.canGoForward
+        //        backButton.isEnabled = instagramWebView.canGoBack
+        //        forwardButton.isEnabled = instagramWebView.canGoForward
         setLabel()
     }
     

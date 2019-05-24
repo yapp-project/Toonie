@@ -6,7 +6,7 @@
 //  Copyright © 2019 Yapp. All rights reserved.
 //
 
-import UIKit
+import UIKit 
 
 // 인스타툰 상세 화면
 final class DetailToonViewController: GestureViewController {
@@ -15,13 +15,14 @@ final class DetailToonViewController: GestureViewController {
     
     var detailToonID: String?
     private var detailToon: DetailToon?
-    private var isFavorite: Bool?
+    private var isFavorite = false
+    private var favoriteToon: [ToonList]?
     
     // MARK: - IBOutlets
     
     @IBOutlet private weak var detailToonImageView: UIImageView!
-    @IBOutlet private weak var detailToonIdLabel: UILabel!
-    @IBOutlet private weak var authorLabel: UILabel!
+    @IBOutlet private weak var authorIDLabel: UILabel!
+    @IBOutlet private weak var authorNameLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var postCountLabel: UILabel!
     @IBOutlet private weak var followerNumberLabel: UILabel!
@@ -38,18 +39,18 @@ final class DetailToonViewController: GestureViewController {
     
     /// 공유 액션시트
     @IBAction func moreButtonDidTap(_ sender: UIButton) {
-        UIAlertController
-            .alert(title: nil, message: nil, style: .actionSheet)
-            .action(title: "인스타툰 링크 공유하기", style: .default) { _ in
-                self.shareActivity()
-            }
-            .action(title: "이 작품 더이상 추천 받지 않기", style: .destructive) { _ in
-                print("dd")
-            }
-            .action(title: "취소", style: .cancel) { _ in
-                print("dd")
-            }
-            .present(to: self)
+        //        UIAlertController
+        //            .alert(title: nil, message: nil, style: .actionSheet)
+        //            .action(title: "인스타툰 링크 공유하기", style: .default) { _ in
+        self.shareActivity()
+        //            }
+        //            .action(title: "이 작품 더이상 추천 받지 않기", style: .destructive) { _ in
+        //                print("dd")
+        //            }
+        //            .action(title: "취소", style: .cancel) { _ in
+        //                print("dd")
+        //            }
+        //            .present(to: self)
     }
     
     /// 툰 웹뷰 띄우기
@@ -61,11 +62,14 @@ final class DetailToonViewController: GestureViewController {
             viewController.toonUrl = detailToon?.instaUrl
             self.present(viewController, animated: true, completion: nil)
         }
+        
+        CommonUtility.analytics(eventName: "button_event",
+                                param: ["instaUrl": detailToon?.instaUrl ?? "instaUrl"])
     }
     
     /// 툰 찜하기 & 취소 기능
     @IBAction func addToMyFavorite(_ sender: UIButton) {
-        isFavorite?.toggle()
+        isFavorite.toggle()
         
         let body = [
             "workListName": "default",
@@ -82,31 +86,30 @@ final class DetailToonViewController: GestureViewController {
                                 } else {
                                     print("Success to delete favorite toon")
                                 }
-                                self.changeFavoriteButton(self.favoriteButton)
+                                self.changeFavoriteButton(self.isFavorite)
             })
     }
     
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        super.viewDidLoad() 
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("did\(String(describing: detailToonID))")
-        loadDetailToon(detailToonID ?? "")
+        loadFavoriteToon()
+        addLatestToonList()
+        if let detailToonID = detailToonID {
+            loadDetailToon(detailToonID)
+        }
+        
         if let detailToon = detailToon {
             setDetailToon(detailToon)
         }
-        isFavorite = false
-        changeFavoriteButton(self.favoriteButton)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        subKeywordLabel?.text = ""
+        
+        CommonUtility.analytics(eventName: "DetailViewController",
+                                param: ["toonId": detailToonID ?? "toonId"])
         
     }
     
@@ -114,7 +117,8 @@ final class DetailToonViewController: GestureViewController {
     
     /// 상세화면 툰 정보 네트워크 요청
     private func loadDetailToon(_ toonID: String) {
-        DetailToonService.shared.getDetailToon(toonId: toonID) { result in
+        DetailToonService.shared.getDetailToon(toonId: toonID) { [weak self] result in
+            guard let self = self else { return }
             self.detailToon = result
             if let detailToon = self.detailToon {
                 self.setDetailToon(detailToon)
@@ -122,41 +126,63 @@ final class DetailToonViewController: GestureViewController {
         }
     }
     
+    /// 찜한 툰 목록 요청
+    private func loadFavoriteToon() {
+        FavoriteService.shared.getFavoriteToon { [weak self] result in
+            guard let self = self else { return }
+            self.favoriteToon = result
+            self.isFavorite = self.checkFavoriteStatus(toonId: self.detailToonID ?? "")
+            self.changeFavoriteButton(self.isFavorite)
+        }
+    }
+    
+    /// 찜한 상태인지 확인
+    private func checkFavoriteStatus(toonId: String) -> Bool {
+        isFavorite = false
+        guard let favoriteToon = favoriteToon else { return false }
+        for index in 0..<favoriteToon.count
+            where toonId == favoriteToon[index].toonID {
+                isFavorite = true
+                break
+        }
+        return isFavorite
+    }
+    
     /// 툰 정보 넣기
     private func setDetailToon(_ detailToon: DetailToon) {
         DispatchQueue.main.async {
-            if let url = URL(string: detailToon.instaThumnailUrl ?? "") {
-                do {
-                    let data = try Data(contentsOf: url)
-                    self.detailToonImageView.image = UIImage(data: data)
-                    self.detailToonImageView.setCorner(cornerRadius: self.detailToonImageView.frame.width / 2)
-                } catch let error {
-                    print("Error : \(error.localizedDescription)")
-                }
-            }
+            self.detailToonImageView.imageFromUrl(detailToon.instaThumnailUrl, defaultImgPath: "dum2")
+            self.detailToonImageView.setCorner(cornerRadius: self.detailToonImageView.frame.width / 2)
+            self.detailToonImageView.image = self.detailToonImageView.image?
+                .resize(newWidth: UIScreen.main.bounds.width)
+            self.authorIDLabel.text = detailToon.instaID
+            self.authorNameLabel.text = detailToon.toonName
+            self.descriptionLabel.text = " " //detailToon.instaInfo
+            self.postCountLabel.text = detailToon.instaPostCount
+            self.followerNumberLabel.text = detailToon.instaFollowerCount
         }
-        detailToonIdLabel.text = detailToon.toonID
-        authorLabel.text = detailToon.instaID
-        descriptionLabel.text = detailToon.instaInfo
-        postCountLabel.text = detailToon.instaPostCount
-        followerNumberLabel.text = detailToon.instaFollowerCount
+        
         var tagList = ""
         if let toonTagList = detailToon.toonTagList {
             for index in 0..<toonTagList.count {
                 tagList += "#" + toonTagList[index] + " "
             }
-            mainKeywordLabel.text = tagList
+            DispatchQueue.main.async {
+                self.mainKeywordLabel.text = tagList
+            }
         }
         if let toonTagList = detailToon.curationTagList {
             for index in 0..<toonTagList.count {
                 tagList += "#" + toonTagList[index] + " "
             }
-            subKeywordLabel.text = tagList
+            DispatchQueue.main.async {
+                self.subKeywordLabel.text = tagList
+            }
         }
     }
     
     /// '찜하기' 했을 때 뜨는 토스트
-    func showAddFavoriteToast() {
+    private func showAddFavoriteToast() {
         let bookmarkImage = UIImage(named: "bookmark")
         let bookmarkImageView = UIImageView(image: bookmarkImage)
         bookmarkImageView.frame = CGRect(x: 0, y: 0, width: 15, height: 18)
@@ -179,7 +205,7 @@ final class DetailToonViewController: GestureViewController {
     }
     
     /// 토스트 아래로 사라지는 애니메이션 기능
-    func toastDown(view: UIView) {
+    private func toastDown(view: UIView) {
         let window = UIApplication.shared.keyWindow
         UIView.animate(withDuration: 0.3, delay: 0.8, options: .curveLinear, animations: {
             view.center.y += 40 - (window?.safeAreaInsets.bottom)!
@@ -190,13 +216,15 @@ final class DetailToonViewController: GestureViewController {
     }
     
     /// '찜하기' 버튼 상태 변경 기능
-    private func changeFavoriteButton(_ button: UIButton) {
-        if isFavorite == true {
-            button.backgroundColor = #colorLiteral(red: 0.6078431373, green: 0.6078431373, blue: 0.6078431373, alpha: 1)
-            button.setTitle("찜하기 취소", for: .normal)
-        } else {
-            button.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.3764705882, blue: 0.2509803922, alpha: 1)
-            button.setTitle("찜하기", for: .normal)
+    private func changeFavoriteButton(_ isFavorite: Bool) {
+        DispatchQueue.main.async {
+            if isFavorite == true {
+                self.favoriteButton.backgroundColor = #colorLiteral(red: 0.6078431373, green: 0.6078431373, blue: 0.6078431373, alpha: 1)
+                self.favoriteButton.setTitle("찜하기 취소", for: .normal)
+            } else {
+                self.favoriteButton.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.3764705882, blue: 0.2509803922, alpha: 1)
+                self.favoriteButton.setTitle("찜하기", for: .normal)
+            }
         }
     }
     
@@ -206,6 +234,21 @@ final class DetailToonViewController: GestureViewController {
         let activityVC = UIActivityViewController(activityItems: textToShare as [Any],
                                                   applicationActivities: nil)
         self.present(activityVC, animated: true, completion: nil)
+    }
+    
+    /// 최근 조회한 툰 등록하기
+    private func addLatestToonList() {
+        let body = [
+            "workListName": "latest",
+            "workListInfo": "최근 본 목록",
+            "toonId": detailToon?.toonID
+        ]
+        
+        LatestService.shared
+            .postLatestToon(params: body as [String: Any],
+                            completion: {
+                                print("Success to add latest toon")
+            })
     }
     
 }

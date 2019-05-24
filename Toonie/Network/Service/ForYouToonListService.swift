@@ -14,7 +14,7 @@ struct ForYouToonListService: Requestable {
     
     /// '당신을 위한 공감툰' 정보 조회
     func getForYouToonList(completion: @escaping ([ToonList]?) -> Void) {
-        get(API.tags+"/token/\(CommonUtility.userToken)") { result in
+        get(API.forYouToons(CommonUtility.getUserToken() ?? "")) { result in
             switch result {
             case .networkSuccess(let data):
                 guard let toonList = data.resResult.toonList else { return }

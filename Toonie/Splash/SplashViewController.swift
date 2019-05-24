@@ -9,8 +9,6 @@
 import UIKit
 import Lottie
 
-let tag = 100
-
 final class SplashViewController: GestureViewController {
     
     @IBOutlet weak var logoFrameView: UIView!
@@ -24,8 +22,10 @@ final class SplashViewController: GestureViewController {
         setLogoAnimationView()
         
         //사용자 상태 체크 후 애니메이션 실행.
-        getUserSelectedKeyword { (mode) in
-            self.logoAnimationView?.play { (finished) in
+        self.getUserSelectedKeyword { [weak self] (mode) in
+            guard let self = self else { return }
+            self.logoAnimationView?.play { [weak self](finished) in
+                guard let self = self else { return }
                 if finished {
                     if mode == true {
                         self.moveKeywordView()
@@ -34,9 +34,7 @@ final class SplashViewController: GestureViewController {
                     }
                 }
             }
-            
         }
-        
     }
     
     ///애니메이션 후 메인화면으로 이동
@@ -71,7 +69,7 @@ final class SplashViewController: GestureViewController {
         
         //userToken이 없거나 키워드 선택을 하지 않은 유저인 경우 - true
         //나머지의 경우 - false
-        if CommonUtility.userToken == ""{
+        if CommonUtility.getUserToken() == ""{
             mode(true)
         } else {
             MyKeywordsService.shared.getMyKeywords { (myKeywords) in

@@ -17,6 +17,10 @@ class GestureViewController: UIViewController {
         
         //스와이프제스쳐로 뒤로가기 허용
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
+ 
+//        CommonUtility.analytics(eventName: NSStringFromClass(type(of: self)),
+//                                param: nil)
+        
     }
     
 }

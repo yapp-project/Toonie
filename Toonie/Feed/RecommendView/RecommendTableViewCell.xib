@@ -20,14 +20,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o1x-dp-omx" userLabel="line">
-                        <rect key="frame" x="39" y="0.0" width="297" height="0.5"/>
+                        <rect key="frame" x="24.5" y="0.0" width="326" height="0.5"/>
                         <color key="backgroundColor" name="line"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="0.5" id="6hI-9L-Bix"/>
                         </constraints>
                     </view>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jeJ-Zu-TGA">
-                        <rect key="frame" x="16" y="70" width="343" height="228"/>
+                        <rect key="frame" x="0.0" y="70" width="375" height="228"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="228" id="GMP-A8-yqf"/>
@@ -36,11 +36,11 @@
                             <size key="itemSize" width="220" height="228"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                            <inset key="sectionInset" minX="24.5" minY="0.0" maxX="20" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="BQa-m5-oRu">
-                                <rect key="frame" x="20" y="0.0" width="220" height="228"/>
+                                <rect key="frame" x="24.5" y="0.0" width="220" height="228"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="220" height="228"/>
@@ -48,7 +48,7 @@
                                 </view>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gok-zH-ufh">
-                                <rect key="frame" x="258" y="0.0" width="220" height="228"/>
+                                <rect key="frame" x="262.5" y="0.0" width="220" height="228"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="220" height="228"/>
@@ -61,32 +61,33 @@
                             <outlet property="delegate" destination="-1" id="YPG-AM-ZU2"/>
                         </connections>
                     </collectionView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="#귀여운 고양이가 나오는 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AhC-vW-eRP">
-                        <rect key="frame" x="16" y="26" width="220" height="27"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#귀여운 고양이가 나오는 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AhC-vW-eRP">
+                        <rect key="frame" x="24.5" y="26.5" width="220" height="27"/>
                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="22"/>
                         <color key="textColor" name="main"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="o1x-dp-omx" firstAttribute="leading" secondItem="uID-d1-nYh" secondAttribute="leadingMargin" constant="23" id="3IG-73-zS8"/>
                     <constraint firstAttribute="bottomMargin" secondItem="jeJ-Zu-TGA" secondAttribute="bottom" constant="33" id="EME-mu-Iih"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="o1x-dp-omx" secondAttribute="trailing" constant="23" id="GdX-jD-pkU"/>
-                    <constraint firstItem="jeJ-Zu-TGA" firstAttribute="leading" secondItem="uID-d1-nYh" secondAttribute="leadingMargin" id="MJw-Q5-agx"/>
-                    <constraint firstItem="AhC-vW-eRP" firstAttribute="leading" secondItem="uID-d1-nYh" secondAttribute="leading" constant="20" id="bIj-j2-iHX"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="jeJ-Zu-TGA" secondAttribute="trailing" id="dC9-B3-sp7"/>
+                    <constraint firstItem="jeJ-Zu-TGA" firstAttribute="width" secondItem="uID-d1-nYh" secondAttribute="width" id="LFm-Gg-InA"/>
+                    <constraint firstAttribute="trailing" secondItem="o1x-dp-omx" secondAttribute="trailing" constant="24.5" id="Mrd-Ix-DPu"/>
+                    <constraint firstItem="o1x-dp-omx" firstAttribute="leading" secondItem="uID-d1-nYh" secondAttribute="leading" constant="24.5" id="VUi-Y9-ICR"/>
+                    <constraint firstItem="AhC-vW-eRP" firstAttribute="leading" secondItem="o1x-dp-omx" secondAttribute="leading" id="YJx-VZ-ybD"/>
                     <constraint firstItem="AhC-vW-eRP" firstAttribute="top" secondItem="o1x-dp-omx" secondAttribute="bottom" constant="26" id="qSr-Ip-yAD"/>
                     <constraint firstItem="jeJ-Zu-TGA" firstAttribute="top" secondItem="AhC-vW-eRP" secondAttribute="bottom" constant="16.333333333333329" id="s3d-dW-FFI"/>
                     <constraint firstItem="o1x-dp-omx" firstAttribute="top" secondItem="uID-d1-nYh" secondAttribute="top" id="vTM-GW-AS7"/>
                 </constraints>
             </tableViewCellContentView>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="jeJ-Zu-TGA" secondAttribute="trailing" id="eMP-Kg-kaw"/>
                 <constraint firstItem="o1x-dp-omx" firstAttribute="centerX" secondItem="k2N-mI-ec8" secondAttribute="centerX" id="uq4-Vj-Yl2"/>
             </constraints>
             <connections>
                 <outlet property="recommendCollectionView" destination="jeJ-Zu-TGA" id="W0a-q4-xiv"/>
                 <outlet property="recommentTitleLabel" destination="AhC-vW-eRP" id="6gg-Jb-PYR"/>
             </connections>
+            <point key="canvasLocation" x="132" y="154.72263868065968"/>
         </tableViewCell>
     </objects>
     <resources>

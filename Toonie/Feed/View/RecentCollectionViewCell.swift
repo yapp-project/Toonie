@@ -15,35 +15,60 @@ final class RecentCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet private weak var recentToonImageView: UIImageView!
     @IBOutlet weak var recentToonTitleLabel: UILabel!
-    @IBOutlet private weak var bookMarkButton: UIButton!
+    @IBOutlet weak var bookMarkButton: UIButton!
+    @IBOutlet private weak var toonIdLabel: UILabel!
+    
+    // MARK: - IBAction
+    
+    /// 찜한 작품 등록 & 취소 기능
+    @IBAction func addFavoriteToon(_ sender: UIButton) {
+        sender.isSelected.toggle()
+        
+        let body = [
+            "workListName": "default",
+            "workListInfo": "찜한 목록",
+            "toonId": toonIdLabel.text
+        ]
+        
+        FavoriteService.shared
+            .postFavoriteToon(params: body as [String: Any],
+                              completion: {
+                                if sender.isSelected == true {
+                                    print("Success to add favorite toon")
+                                } else {
+                                    print("Success to delete favorite toon")
+                                }
+            })
+    }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         recentToonImageView.image = nil
         recentToonTitleLabel.text = nil
+        toonIdLabel.text = nil
         bookMarkButton.isSelected  = false
     }
     
     // MARK: - Functions
     
     /// 컬렉션뷰셀 데이터 설정
-    func setRecentCollectionViewCellProperties(_ toonInfoList: ToonInfoList) {
+    func setRecentCollectionViewCellProperties(_ toonList: ToonList) {
         prepareForReuse()
-        
-        if let url = URL(string: toonInfoList.instaThumnailUrl ?? "") {
-            do {
-                let data = try Data(contentsOf: url)
-                
-                DispatchQueue.main.async {
-                    self.recentToonImageView.image = UIImage(data: data)
-                }
-            } catch let error {
-                print("Error : \(error.localizedDescription)")
-            }
-        }
         DispatchQueue.main.async {
-            self.recentToonTitleLabel.text = toonInfoList.toonName
+            self.recentToonImageView.imageFromUrl(toonList.instaThumnailUrl,
+                                                  defaultImgPath: "dum2")
+            self.recentToonImageView.setCorner(cornerRadius: 4)
+            self.recentToonImageView.image = self.recentToonImageView.image?
+                .resize(newWidth: UIScreen.main.bounds.width)
+            self.recentToonTitleLabel.text = toonList.toonName
+            self.toonIdLabel.text = toonList.toonID
+        }
+    }
+    
+    /// 북마크 버튼 상태 설정
+    func setBookMarkButton(_ isFavorite: Bool) {
+        DispatchQueue.main.async {
+            self.bookMarkButton.isSelected = isFavorite
         }
     }
 }
-

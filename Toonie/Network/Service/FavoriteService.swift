@@ -9,14 +9,13 @@
 import Foundation
 
 struct FavoriteService: Requestable {
-    typealias NetworkData = FavoriteToon
+    typealias NetworkData = WorkList
     static let shared = FavoriteService()
     
     ///선택한 툰 즐겨찾기 post 통신
     func postFavoriteToon(params: [String: Any],
                           completion: @escaping () -> Void) {
-        post((API.myWorklist),
-             params: params) { result in
+        post((API.myFavoriteList(CommonUtility.getUserToken() ?? "")), params: params) { result in
                 switch result {
                 case .networkSuccess(let data):
                     if data.resResult.success == false {
@@ -29,6 +28,20 @@ struct FavoriteService: Requestable {
                 case .networkFail:
                     print("FavoriteToon post fail")
                 }
+        }
+    }
+    
+    /// 찜한 작품 내역 get 통신
+    func getFavoriteToon(completion: @escaping ([ToonList]?) -> Void) {
+        get(API.myFavoriteList(CommonUtility.getUserToken() ?? "")) { result in
+            switch result {
+            case .networkSuccess(let data):
+                completion(data.resResult.toonList)
+            case .networkError(let error):
+                print(error)
+            case .networkFail:
+                print("FavoriteToon get fail")
+            }
         }
     }
 }

@@ -17,7 +17,9 @@ final class LookDetailCell: UICollectionViewCell {
     
     // MARK: - Function
     
-    func setImageView(image: UIImage) {
-        imageView.image = image
+    func setImageView(imageURL: String) {
+        imageView.imageFromUrl(imageURL, defaultImgPath: "dum2")
+        imageView.image = imageView.image?
+            .resize(newWidth: UIScreen.main.bounds.width / 3)
     }
 }

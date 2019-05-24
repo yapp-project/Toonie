@@ -11,6 +11,23 @@ import UIKit
 // '지금 나는' 태그에 따른 인스타툰 추천 화면
 final class RecommendViewController: GestureViewController {
     
+    //tagCollectionView 5줄 고정 위한 상수, 변수
+    private let tagScrollContentViewWidthInitValue: CGFloat = 672
+    private let maxTagItemWidth = 168
+    
+    ///item들을 일렬로 쭉 나열했을때의 max길이(간격포함)
+    private let maxTagAllItemWidth = 4256
+    
+    private let maxTagCount = 31
+    private let maxLine = 5
+    
+    /// tagAllWidth - 현재 뿌려질 태그 아이템들을 일렬로 늘어왔을때의 총 길이 (간격포함)
+    private var tagAllWidth: Int = 0
+    private var tagList = [String]()
+    private var tagSelectArray = [String]()
+    
+    private var isFavorite = false
+    
     // MARK: - IBOutlets
     
     @IBOutlet private weak var recommendTableView: UITableView!
@@ -25,23 +42,6 @@ final class RecommendViewController: GestureViewController {
     @IBOutlet private weak var tagCollectionViewFlowLayout: UICollectionViewFlowLayout!
     @IBOutlet private weak var tagSelectedNotInfoView: UIView!
     
-    // MARK: - Property
-    
-    //tagCollectionView 5줄 고정 위한 상수, 변수
-    private let tagScrollContentViewWidthInitValue: CGFloat = 853
-    private let maxTagItemWidth = 168
-    
-    ///item들을 일렬로 쭉 나열했을때의 max길이(간격포함)
-    private let maxTagAllItemWidth = 4256
-    
-    private let maxTagCount = 31
-    private let maxLine = 5
-    
-    /// tagAllWidth - 현재 뿌려질 태그 아이템들을 일렬로 늘어왔을때의 총 길이 (간격포함)
-    private var tagAllWidth: Int = 0
-    private var tagList = [String]()
-    private var tagSelectArray = [String]()
-    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,30 +51,36 @@ final class RecommendViewController: GestureViewController {
         setTagScrollContent()
         
         // test
-        getToonOfTagList(tag: "알콩달콩 결혼 생활")
+//        getToonOfTagList(tag: "알콩달콩 결혼 생활")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
+        reloadTagTableView()
+    }
+    
+    // MARK: - IBActions
+    @IBAction func backButtionDidTap(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Function
     
     func getCurationTagList() {
-        RecommendService.shared.getRecommends { res in
+        RecommendService.shared.getRecommends { [weak self] res in
+            guard let self = self else { return }
             self.tagList = res
             self.tagCollectionView.reloadData()
         }
     }
     
-    func getToonOfTagList(tag: String) {
-        CurationTagService.shared.getCurationTagList(tagName: tag) { res in
-            // test
-            print("res : ", res!)
-        }
-    }
-    
+//    func getToonOfTagList(tag: String) {
+//        CurationTagService.shared.getCurationTagList(tagName: tag) { res in
+//            // test
+//            print("res : ", res!)
+//        }
+//    }
+//    
     ///cell xib 이용
     func setTableViewXib() {
         let nibName = UINib(nibName: "RecommendTableViewCell",
@@ -108,9 +114,6 @@ final class RecommendViewController: GestureViewController {
         recommendTableView.reloadData()
     }
     
-    @IBAction func backButtonDidTap(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-    }
 }
 
 // MARK: - TableView : 전체를 이루는 뷰
@@ -179,7 +182,7 @@ extension RecommendViewController: UICollectionViewDataSource {
         
         let keyword = tagList[indexPath.row]
         let font = UIFont.getAppleSDGothicNeo(option: .regular,
-                                                     size: 14)
+                                              size: 14)
         var width = Int(keyword.widthWithConstrainedHeight(height: 17,
                                                            font: font))
         width += 22
@@ -243,7 +246,7 @@ extension RecommendViewController: UICollectionViewDelegateFlowLayout {
                                 sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
         let keyword = tagList[indexPath.row]
         let font = UIFont.getAppleSDGothicNeo(option: .regular,
-                                                     size: 14)
+                                              size: 14)
         var width = Int(keyword.widthWithConstrainedHeight(height: 17,
                                                            font: font))
         width += 22
