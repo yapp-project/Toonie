@@ -24,7 +24,8 @@ final class MypageCollectionViewCell: UICollectionViewCell {
         
         mypageToonLabel.isHidden = false
         mypageToonLabel.text = labelText
-        mypageToonImageView.imageFromUrl(imageViewURL, defaultImgPath: "")
+        mypageToonImageView.imageFromUrl(imageViewURL,
+                                         defaultImgPath: "dum2")
         mypageToonImageView.setCorner(cornerRadius: mypageToonImageView.frame.size.height/2)
     }
     
@@ -33,8 +34,9 @@ final class MypageCollectionViewCell: UICollectionViewCell {
         
         mypageToonLabel.isHidden = false
         mypageToonLabel.text = "#" + tagName
-        mypageToonImageView.image = UIImage(named: CommonUtility.sharedInstance
-            .tagImage(name: tagName))
+        mypageToonImageView.image = UIImage(named: CommonUtility
+            .sharedInstance
+            .tagImage(name: tagName, storyboardName: "Mypage"))
         
         mypageToonImageView.setCorner(cornerRadius: 5)
     }

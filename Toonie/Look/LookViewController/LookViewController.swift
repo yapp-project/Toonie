@@ -81,7 +81,7 @@ extension LookViewController: UICollectionViewDelegate {
             else { return UICollectionViewCell() }
         
         let image: UIImage? = UIImage.init(named: CommonUtility.sharedInstance
-            .tagImage(name: keywords[indexPath.row]))
+            .tagImage(name: keywords[indexPath.row], storyboardName: "Look"))
         
         cell.setBackgroundImageView(image: image)
         

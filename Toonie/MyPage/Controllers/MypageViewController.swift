@@ -58,7 +58,6 @@ final class MypageViewController: GestureViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getToonList(status: status)
-        //        goToFirstItem()
     }
     
     // MARK: - 함수
@@ -122,7 +121,7 @@ final class MypageViewController: GestureViewController {
             dataCheckLabel.text = "아직 찜한 작품이\n없습니다."
             dataCheckImageView.isHidden = false
             dataCheckLabel.isHidden = false
-        } else if status == "tag" {
+        } else {
             dataCheckImageView.isHidden = true
             dataCheckLabel.isHidden = true
         }
@@ -144,8 +143,10 @@ final class MypageViewController: GestureViewController {
         if status == "recent" {
             LatestService.shared.getLatestToon { [weak self] (res) in
                 guard let self = self else { return }
-                if res != nil {
+                if res == nil {
                     self.dataCheck(status: self.status)
+                } else {
+                    self.dataCheck(status: " ")
                 }
                 guard let list = res else { return }
                 self.dataList = list
@@ -157,6 +158,8 @@ final class MypageViewController: GestureViewController {
                 guard let self = self else { return }
                 if res == nil {
                     self.dataCheck(status: self.status)
+                } else {
+                    self.dataCheck(status: " ")
                 }
                 guard let list = res else { return }
                 self.dataList = list
@@ -168,6 +171,7 @@ final class MypageViewController: GestureViewController {
     // MARK: - IBAction
     
     @IBAction func recentButtonDidTap(_ sender: UIButton) {
+        mypageCollectionView.reloadData()
         if status != "recent"{
             dataList.removeAll()
             tagList.removeAll()
@@ -175,14 +179,14 @@ final class MypageViewController: GestureViewController {
             status = "recent"
             getToonList(status: status)
             setButtonInit()
-            recentButton.setImage(UIImage(named: "RecentOn"), for: .normal)
+            recentButton.setImage(UIImage(named: "RecentOn"),
+                                  for: .normal)
             recentButton.setTitleColor(#colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1), for: .normal)
         }
-        mypageCollectionView.reloadData()
-        //        goToFirstItem()
     }
     
     @IBAction func bookMarkButtonDidTap(_ sender: UIButton) {
+        mypageCollectionView.reloadData()
         if status != "bookMark"{
             dataList.removeAll()
             tagList.removeAll()
@@ -194,11 +198,10 @@ final class MypageViewController: GestureViewController {
                                     for: .normal)
             bookMarkButton.setTitleColor(#colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1), for: .normal)
         }
-        mypageCollectionView.reloadData()
-        //        goToFirstItem()
     }
     
     @IBAction func tagButtonDidTap(_ sender: UIButton) {
+        mypageCollectionView.reloadData()
         if status != "tag"{
             dataList.removeAll()
             tagList.removeAll()
@@ -208,8 +211,6 @@ final class MypageViewController: GestureViewController {
             setButtonInit()
             tagButton.setTitleColor(#colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1), for: .normal)
         }
-        mypageCollectionView.reloadData()
-        //        goToFirstItem()
     }
     
     @IBAction func tagSettingButtonDidTap(_ sender: UIButton) {
