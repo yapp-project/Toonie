@@ -44,28 +44,31 @@ final class FeedViewController: GestureViewController {
     
     private let recentViewHeight: CGFloat = 296
     private let favoriteViewHeight: CGFloat = 429
-    private var isFirst: Bool = true
     
     private var tagAnimationView: AnimationView?
     private var forYouToonLists: [ToonList]?
     private var latestToonLists: [ToonList]?
     private var favoriteToonLists: [ToonList]?
+    private var favoriteToon: [ToonList]?
     private var detailToonId = ""
     private var isFavorite = false
+    var favoriteStatus: Bool?
+    var cellToonID: String?
     
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setTagAnimationView()
-        
+        loadForYouToonList()
+        loadLatestToonList()
+        loadFavoriteToonList()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         playTagAnimationView()
-        
-        loadToon()
+        loadFavoriteToon()
     }
     
     // MARK: - IBAction
@@ -84,28 +87,28 @@ final class FeedViewController: GestureViewController {
         latestToonLists = [ToonList]()
         favoriteToonLists = [ToonList]()
     }
-    /// 툰 정보 네트워크 요청
-    func loadToon() {
-        resetArray()
-        
-        //foryoutoon은 최초 한번만.
-        if isFirst == true {
-            ForYouToonListService.shared.getForYouToonList { [weak self] result in
-                guard let self = self else { return }
-                if let result = result {
-                    if result.count <= 10 {
-                        self.forYouToonLists = result
-                    } else {
-                        self.forYouToonLists = self.makeRandomList(result)
-                    }
+
+    /// 당신을 위한 툰 정보 네트워크 요청
+    private func loadForYouToonList() {
+        ForYouToonListService.shared.getForYouToonList { [weak self] result in
+            guard let self = self else { return }
+            if let result = result {
+                if result.count <= 10 {
+                    self.forYouToonLists = result
+                } else {
+                    self.forYouToonLists = self.makeRandomList(result)
+
                 }
                 self.forYouCollectionView.reloadData()
             }
             isFirst = false
         }
-        
+    }
+    
+    /// 최신 툰 정보 네트워크 요청
+    private func loadLatestToonList() {
         LatestService.shared.getLatestToon { [weak self] result in
-                    guard let self = self else { return }
+            guard let self = self else { return }
             if let result = result {
                 if result.count <= 10 {
                     self.latestToonLists = result
@@ -115,8 +118,13 @@ final class FeedViewController: GestureViewController {
             }
             self.recentCollectionView.reloadData()
         }
+    }
+    
+    /// 찜한 툰 목록 정보 네트워크 요청
+    private func loadFavoriteToonList() {
         FavoriteService.shared.getFavoriteToon { [weak self] result in
-                    guard let self = self else { return }
+            guard let self = self else { return }
+            
             if let result = result {
                 if result.count <= 10 {
                     self.favoriteToonLists = result
@@ -126,6 +134,25 @@ final class FeedViewController: GestureViewController {
             }
             self.favoriteCollectionView.reloadData()
         }
+    }
+    
+    /// 찜한 툰 정보 네트워크 요청
+    func loadFavoriteToon() {
+        FavoriteService.shared.getFavoriteToon { [weak self] result in
+            guard let self = self else { return }
+            
+            if let result = result {
+                self.favoriteToon = result
+            }
+            self.reloadCollectionView()
+        }
+    }
+    
+    /// 컬렉션뷰 리로드
+    private func reloadCollectionView() {
+        self.forYouCollectionView.reloadData()
+        self.recentCollectionView.reloadData()
+        self.favoriteCollectionView.reloadData()
     }
     
     /// 툰 랜덤 10개 목록 만들기
@@ -151,10 +178,10 @@ final class FeedViewController: GestureViewController {
                 make.height.equalTo(tagView.bounds.height)
                 make.center.equalTo(tagView)
             }
-            playTagAnimationView()
         }
     }
     
+    // 태그 애니메이션 재생
     private func playTagAnimationView() {
         tagAnimationView?.play()
     }
@@ -207,14 +234,15 @@ final class FeedViewController: GestureViewController {
     /// 찜한 상태인지 확인
     private func checkFavoriteStatus(toonId: String) -> Bool {
         isFavorite = false
-        guard let favoriteToonLists = favoriteToonLists else { return false }
-        for index in 0..<favoriteToonLists.count
-            where toonId == favoriteToonLists[index].toonID {
+        guard let favoriteToon = favoriteToon else { return false }
+        for index in 0..<favoriteToon.count
+            where toonId == favoriteToon[index].toonID {
                 isFavorite = true
                 break
         }
         return isFavorite
     }
+    
 }
 
 // MARK: - UICollectionViewDataSource
@@ -244,7 +272,6 @@ extension FeedViewController: UICollectionViewDataSource {
         } else {
             return 0
         }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -279,7 +306,6 @@ extension FeedViewController: UICollectionViewDataSource {
                 .dequeueReusableCell(withReuseIdentifier: "favoriteCell",
                                      for: indexPath) as? FavoriteCollectionViewCell
                 else { return UICollectionViewCell() }
-            
             if let favoriteToonList = favoriteToonLists?[indexPath.item] {
                 cell.setFavoriteCollectionViewCellProperties(favoriteToonList)
                 isFavorite = checkFavoriteStatus(toonId: favoriteToonList.toonID ?? "")
