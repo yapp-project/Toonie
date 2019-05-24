@@ -54,7 +54,6 @@ final class MypageViewController: GestureViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getToonList(status: status)
-        //        goToFirstItem()
     }
     
     // MARK: - 함수
@@ -180,7 +179,6 @@ final class MypageViewController: GestureViewController {
                                   for: .normal)
             recentButton.setTitleColor(#colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1), for: .normal)
         }
-//        goToFirstItem()
     }
     
     @IBAction func bookMarkButtonDidTap(_ sender: UIButton) {
@@ -196,7 +194,6 @@ final class MypageViewController: GestureViewController {
                                     for: .normal)
             bookMarkButton.setTitleColor(#colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1), for: .normal)
         }
-//        goToFirstItem()
     }
     
     @IBAction func tagButtonDidTap(_ sender: UIButton) {
@@ -210,7 +207,6 @@ final class MypageViewController: GestureViewController {
             setButtonInit()
             tagButton.setTitleColor(#colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1), for: .normal)
         }
-//        goToFirstItem()
     }
     
     @IBAction func tagSettingButtonDidTap(_ sender: UIButton) {
