@@ -33,12 +33,10 @@ final class MainViewController: GestureViewController {
     
     //탭바 이벤트 발생시 수행할 클로저
     var feedDidTapClosure: (() -> Void)?
+    var tabDidTapClosure: (() -> Void)?
     
     // MARK: - Property
     private weak var statusButton: UIButton!
-    
-    //탭바 이벤트 발생시 수행할 클로저
-    var tabDidTapClosure: (() -> Void)?
     
     private enum TabbarButtonCase {
         case feed, look, myPage
@@ -96,12 +94,11 @@ final class MainViewController: GestureViewController {
             }
         }
 
-        if segue.identifier == "myPage" {
+        if segue.identifier == "MyPage" {
             if let myPageNavigationController = segue.destination as? MyPageNavigationController {
                 if let myPageViewController = myPageNavigationController.rootViewController as? MypageViewController {
                     self.tabDidTapClosure = {
                         myPageViewController.viewWillAppear(true)
-
                     }
                 }
             }
