@@ -12,6 +12,10 @@ import SnapKit
 
 // Feed의 NavigationController
 final class FeedNavigationController: UINavigationController {
+    var rootViewController: UIViewController? {
+        return viewControllers.first
+    } 
+    
     override init(rootViewController: UIViewController) {
         super.init(rootViewController: rootViewController)
     }
@@ -38,6 +42,10 @@ final class FeedViewController: GestureViewController {
     
     // MARK: - Property
     
+    private let recentViewHeight: CGFloat = 296
+    private let favoriteViewHeight: CGFloat = 429
+    private var isFirst: Bool = true
+    
     private var tagAnimationView: AnimationView?
     private var forYouToonLists: [ToonList]?
     private var latestToonLists: [ToonList]?
@@ -50,12 +58,14 @@ final class FeedViewController: GestureViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setTagAnimationView()
-        loadToon()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         playTagAnimationView()
+        
+        loadToon()
     }
     
     // MARK: - IBAction
@@ -69,19 +79,31 @@ final class FeedViewController: GestureViewController {
     
     // MARK: - Function
     
+    ///초기화
+    func resetArray() {
+        latestToonLists = [ToonList]()
+        favoriteToonLists = [ToonList]()
+    }
     /// 툰 정보 네트워크 요청
-    private func loadToon() {
-        ForYouToonListService.shared.getForYouToonList { [weak self] result in
-                    guard let self = self else { return }
-            if let result = result {
-                if result.count <= 10 {
-                    self.forYouToonLists = result
-                } else {
-                    self.forYouToonLists = self.makeRandomList(result)
+    func loadToon() {
+        resetArray()
+        
+        //foryoutoon은 최초 한번만.
+        if isFirst == true {
+            ForYouToonListService.shared.getForYouToonList { [weak self] result in
+                guard let self = self else { return }
+                if let result = result {
+                    if result.count <= 10 {
+                        self.forYouToonLists = result
+                    } else {
+                        self.forYouToonLists = self.makeRandomList(result)
+                    }
                 }
+                self.forYouCollectionView.reloadData()
             }
-            self.forYouCollectionView.reloadData()
+            isFirst = false
         }
+        
         LatestService.shared.getLatestToon { [weak self] result in
                     guard let self = self else { return }
             if let result = result {
@@ -177,8 +199,9 @@ final class FeedViewController: GestureViewController {
     }
     
     /// 뷰 높이 constant 0으로 해서 없앰
-    private func removeView(_ height: NSLayoutConstraint) {
-        height.constant = 0
+    private func updateView(_ constraint: inout NSLayoutConstraint,
+                            _ hegiht: CGFloat) {
+        constraint.constant = hegiht
     }
     
     /// 찜한 상태인지 확인
@@ -203,13 +226,19 @@ extension FeedViewController: UICollectionViewDataSource {
         if collectionView == forYouCollectionView {
             return forYouToonLists?.count ?? 0
         } else if collectionView == recentCollectionView {
-            if latestToonLists == nil {
-                removeView(recentViewHeightConstraint)
+            if latestToonLists  == nil
+               || latestToonLists?.count == 0 {
+                updateView(&recentViewHeightConstraint, 0)
+            } else {
+                updateView(&recentViewHeightConstraint, recentViewHeight)
             }
             return latestToonLists?.count ?? 0
         } else if collectionView == favoriteCollectionView {
-            if favoriteToonLists == nil {
-                removeView(favoriteViewHeightConstraint)
+            if favoriteToonLists == nil
+                || favoriteToonLists?.count == 0 {
+                    updateView(&favoriteViewHeightConstraint, 0)
+            } else {
+                updateView(&favoriteViewHeightConstraint, favoriteViewHeight)
             }
             return favoriteToonLists?.count ?? 0
         } else {

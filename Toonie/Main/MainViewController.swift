@@ -31,6 +31,9 @@ final class MainViewController: GestureViewController {
     @IBOutlet private weak var lookButton: UIButton!
     @IBOutlet private weak var myPageButton: UIButton!
     
+    //탭바 이벤트 발생시 수행할 클로저
+    var feedDidTapClosure: (() -> Void)?
+    
     // MARK: - Property
     private weak var statusButton: UIButton!
     
@@ -77,6 +80,19 @@ final class MainViewController: GestureViewController {
             .present(to: self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Feed" {
+            if let feedNavigationController = segue.destination as? FeedNavigationController {
+                if let feedViewController = feedNavigationController.rootViewController as? FeedViewController {
+                    self.feedDidTapClosure = {
+//                        feedViewController.viewWillAppear(true)
+                        feedViewController.loadToon()
+                    }
+                }
+            }
+        }
+    }
+    
     // MARK: - Action
     
     @IBAction func tabBarButtonDidTap(_ sender: UIButton) {
@@ -92,6 +108,9 @@ final class MainViewController: GestureViewController {
         case feedButton:
             TabbarButtonCase.feed.showStatusView(view: &feedContainerView,
                                                  button: &feedButton)
+            if let closure = self.feedDidTapClosure {
+                closure()
+            }
         case lookButton:
             TabbarButtonCase.look.showStatusView(view: &lookContainerView,
                                                  button: &lookButton)
