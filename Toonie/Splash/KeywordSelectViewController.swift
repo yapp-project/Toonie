@@ -157,8 +157,7 @@ extension KeywordSelectViewController: UICollectionViewDelegate, UICollectionVie
             ]
             
             MyKeywordsService.shared.postMyKeywords(params: body,
-                                                    completion:
-                {
+                                                    completion: {
                     cell.cellStatus = !cell.cellStatus
                     
                     //선택한 키워드 추가 및 삭제
