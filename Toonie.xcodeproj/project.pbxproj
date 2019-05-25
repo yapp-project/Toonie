@@ -582,9 +582,10 @@
 				0A03A8E701D8806A7558B618CCC2B0D5 /* [CP] Check Pods Manifest.lock */,
 				7B171198A32EB3EFBC3D890069B09B16 /* Sources */,
 				CE5F455DCBC4B8425D238EF8FF886C7F /* Frameworks */,
-				CF120053B284775B4869DE30ACAECF1F /* [CP] Embed Pods Frameworks */,
+				F6B7743005D9067ED5559530A50CE69C /* [CP] Embed Pods Frameworks */,
 				177D19B0706A07426A4F6DC7872AF528 /* Resources */,
 				130436991E1155E6C5F84FFA8B34B848 /* ShellScript */,
+				E3FD9A369F6F2BDED02CF8C41034A4E5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -699,6 +700,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		E3FD9A369F6F2BDED02CF8C41034A4E5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 2930b75a1fc5ef7b545e8b1cd650c5ffbbdeb39a dd398cf8d7aa4bcacd21cfd6ab35a158a0ebe458a5af8a2917fa1033064bd14d\n";
+		};
 		0A03A8E701D8806A7558B618CCC2B0D5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -760,7 +778,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CF120053B284775B4869DE30ACAECF1F /* [CP] Embed Pods Frameworks */ = {
+		F6B7743005D9067ED5559530A50CE69C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -768,7 +786,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Toonie/Pods-Toonie-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Toonie/Pods-Toonie-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/KTCenterFlowLayout/KTCenterFlowLayout.framework",
@@ -791,7 +809,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Toonie/Pods-Toonie-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Toonie/Pods-Toonie-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

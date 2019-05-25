@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (4.8.2)
+  - Crashlytics (3.13.1):
+    - Fabric (~> 1.10.1)
+  - Fabric (1.10.1)
   - Firebase/Core (6.0.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 6.0.0)
@@ -53,21 +56,25 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
-  - SnapKit (5.0.0)
+  - SnapKit (4.2.0)
   - SwiftLint (0.32.0)
 
 DEPENDENCIES:
   - Alamofire
+  - Crashlytics
+  - Fabric
   - Firebase/Core
   - Kingfisher (~> 4.2)
   - KTCenterFlowLayout
   - lottie-ios
-  - SnapKit
+  - SnapKit (~> 4.2)
   - SwiftLint
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - Crashlytics
+    - Fabric
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -83,6 +90,8 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  Crashlytics: 5aa8e90dcbf2f34898b4f5a0037787531246cca0
+  Fabric: f6f21452846788bb44595d73e9909d79d328e617
   Firebase: fa80b9d987ca014a1ba9357496ef2a0178b28b12
   FirebaseAnalytics: 1743c5f4de3687d0745709dfdc4b1dea1484f44c
   FirebaseCore: e38f025287b413255a53acc1945d048a112047f7
@@ -93,9 +102,9 @@ SPEC CHECKSUMS:
   KTCenterFlowLayout: 6e02b50ab2bd865025ae82fe266ed13b6d9eaf97
   lottie-ios: d030b6cda141cfd8bbaa3db89264785e6fdf675a
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
-  SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SwiftLint: 009a898ef2a1c851f45e1b59349bf6ff2ddc990d
 
-PODFILE CHECKSUM: 9f085b6f343e851844d408891fd4aa33d6495e04
+PODFILE CHECKSUM: 4847d5263c714f8aac7d771ef37e48459ee484fb
 
 COCOAPODS: 1.6.1
