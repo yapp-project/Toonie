@@ -93,7 +93,7 @@ class KeywordToonListService: Requestable {
 }
 
 class KeywordToonAllListService: Requestable {
-    typealias NetworkData = ForYouToonLists
+    typealias NetworkData = ToonLists
     static let shared = KeywordToonAllListService()
 
     func getKeywordToonAllList(keyword: String,
