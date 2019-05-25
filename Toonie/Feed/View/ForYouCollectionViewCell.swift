@@ -14,10 +14,10 @@ final class ForYouCollectionViewCell: UICollectionViewCell {
     // MARK: - IBOutlets
     
     @IBOutlet private weak var forYouToonImageView: UIImageView!
-    @IBOutlet weak var forYouToonTitleLabel: UILabel!
+    @IBOutlet private weak var forYouToonTitleLabel: UILabel!
     @IBOutlet private weak var forYouToonTagLabel: UILabel!
     @IBOutlet weak var bookMarkButton: UIButton!
-    @IBOutlet private weak var toonIdLabel: UILabel!
+    @IBOutlet weak var toonIdLabel: UILabel!
     
     // MARK: - IBAction
     

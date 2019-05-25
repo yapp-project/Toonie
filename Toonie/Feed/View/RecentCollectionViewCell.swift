@@ -14,9 +14,9 @@ final class RecentCollectionViewCell: UICollectionViewCell {
     // MARK: - IBOutlets
     
     @IBOutlet private weak var recentToonImageView: UIImageView!
-    @IBOutlet weak var recentToonTitleLabel: UILabel!
+    @IBOutlet private weak var recentToonTitleLabel: UILabel!
     @IBOutlet weak var bookMarkButton: UIButton!
-    @IBOutlet private weak var toonIdLabel: UILabel!
+    @IBOutlet weak var toonIdLabel: UILabel!
     
     // MARK: - IBAction
     
