@@ -8,9 +8,16 @@
 
 import Foundation
 
-///userToken 가져옴
-func getUserToken() -> String? {
-    return UserDefaults.standard.string(forKey: "token")
+/// 배열 랜덤 n개 목록 만들기
+func makeRandomList<T>(_ list: [T], number: Int) -> [T] {
+    var temporaryList = list
+    var randomList: [T] = []
+    for _ in 0..<10 {
+        let index = Int(arc4random_uniform(UInt32((temporaryList.count - 1))))
+        randomList.append(temporaryList[index])
+        temporaryList.remove(at: index)
+    }
+    return randomList
 }
 
 ///키워드에 쓰일 문자열, 문자열에 대한 이미지 매핑

@@ -94,7 +94,8 @@ final class FeedViewController: GestureViewController {
                 if result.count <= 10 {
                     self.forYouToonLists = result
                 } else {
-                    self.forYouToonLists = self.makeRandomList(result)
+                    self.forYouToonLists = makeRandomList(result,
+                                                          number: 10)
                     
                 }
                 self.forYouCollectionView.reloadData()
@@ -110,7 +111,8 @@ final class FeedViewController: GestureViewController {
                 if result.count <= 10 {
                     self.latestToonLists = result
                 } else {
-                    self.latestToonLists = self.makeRandomList(result)
+                    self.latestToonLists = makeRandomList(result,
+                                                          number: 10)
                 }
             }
             if self.latestToonLists  == nil
@@ -132,7 +134,8 @@ final class FeedViewController: GestureViewController {
                 if result.count <= 10 {
                     self.favoriteToonLists = result
                 } else {
-                    self.favoriteToonLists = self.makeRandomList(result)
+                    self.favoriteToonLists = makeRandomList(result,
+                                                            number: 10)
                 }
             }
             if result == nil
@@ -162,18 +165,6 @@ final class FeedViewController: GestureViewController {
         self.forYouCollectionView.reloadData()
         self.recentCollectionView.reloadData()
         self.favoriteCollectionView.reloadData()
-    }
-    
-    /// 툰 랜덤 10개 목록 만들기
-    private func makeRandomList<T>(_ list: [T]) -> [T] {
-        var temporaryList = list
-        var randomList: [T] = []
-        for _ in 0..<10 {
-            let index = Int(arc4random_uniform(UInt32((temporaryList.count - 1))))
-            randomList.append(temporaryList[index])
-            temporaryList.remove(at: index)
-        }
-        return randomList
     }
     
     /// tagAnimationView 세팅

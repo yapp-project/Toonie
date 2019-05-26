@@ -23,20 +23,8 @@ final class TodayViewController: UIViewController, NCWidgetProviding {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        tagList = makeRandomList(tagArray)
+        tagList = makeRandomList(tagArray, number: 5)
         widgetCollecionView.reloadData()
-    }
-    
-    /// 태그 랜덤 5개 목록 만들기
-    private func makeRandomList<T>(_ list: [T]) -> [T] {
-        var temporaryList = list
-        var randomList: [T] = []
-        for _ in 0..<5 {
-            let index = Int(arc4random_uniform(UInt32((temporaryList.count - 1))))
-            randomList.append(temporaryList[index])
-            temporaryList.remove(at: index)
-        }
-        return randomList
     }
     
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
