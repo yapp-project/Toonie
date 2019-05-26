@@ -23,6 +23,9 @@ final class LookDetailViewController: GestureViewController {
     private var toonDataList = [ToonInfoList]()
     private var toonList = [ToonOfTag]()
     private var toonAllList = [ToonList]()
+    private var selectedToonID: String?
+    private var favoriteToon: [ToonList]?
+    private var isFavorite = false
     
     // MARK: - Life Cycle
     
@@ -31,6 +34,12 @@ final class LookDetailViewController: GestureViewController {
         lookDetailTitleLabel.text = selectedKeyword
         setCollectionViewData(keyword: selectedKeyword)
         setCollectionViewLayout()
+        registerForPreviewing(with: self, sourceView: lookDetailCollectionView)
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadFavoriteToon()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -116,6 +125,29 @@ final class LookDetailViewController: GestureViewController {
     func setLookDetailTitleLabel(titleString: String) {
         self.lookDetailTitleLabel.text = titleString
     }
+    
+    /// 찜한 툰 정보 네트워크 요청
+    func loadFavoriteToon() {
+        FavoriteService.shared.getFavoriteToon { [weak self] result in
+            guard let self = self else { return }
+            
+            if let result = result {
+                self.favoriteToon = result
+            }
+        }
+    }
+    
+    /// 찜한 상태인지 확인
+    private func checkFavoriteStatus(toonId: String) -> Bool {
+        isFavorite = false
+        guard let favoriteToon = favoriteToon else { return false }
+        for index in 0..<favoriteToon.count
+            where toonId == favoriteToon[index].toonID {
+                isFavorite = true
+                break
+        }
+        return isFavorite
+    }
 }
 
 // MARK: - UICollectionViewDataSource
@@ -167,4 +199,40 @@ extension LookDetailViewController: UICollectionViewDelegate {
             }
         }
     }
+}
+
+// MARK: - UIViewControllerPreviewingDelegate
+
+extension LookDetailViewController: UIViewControllerPreviewingDelegate {
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing,
+                           viewControllerForLocation location: CGPoint) -> UIViewController? {
+        
+        let storyboard = UIStoryboard.init(name: "Preview", bundle: nil)
+        
+        guard let previewVC = storyboard
+            .instantiateViewController(withIdentifier: "PreviewVC") as? PreviewViewController
+            else {
+                preconditionFailure("Expected a PreviewViewController")
+        }
+        
+        if let selectedIndexPath = lookDetailCollectionView
+            .indexPathForItem(at: location) {
+            previewVC.preferredContentSize = CGSize
+                .init(width: UIScreen.main.bounds.width,
+                      height: UIScreen.main.bounds.width)
+            selectedToonID = toonAllList[selectedIndexPath.item].toonID
+            previewVC.toonID = selectedToonID
+            previewVC.imageUrl = toonAllList[selectedIndexPath.item].instaThumnailUrl
+            previewVC.isFavorite = checkFavoriteStatus(toonId: selectedToonID ?? "")
+        }
+        
+        return previewVC
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing,
+                           commit viewControllerToCommit: UIViewController) {
+        
+        pushDetailToonViewController(toonID: selectedToonID ?? "")
+    }
+    
 }

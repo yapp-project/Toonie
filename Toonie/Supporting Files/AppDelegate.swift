@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -30,7 +32,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UserDefaults.standard.set(UserDefaults.standard.integer(forKey: "appStartCount") + 1,
                                   forKey: "appStartCount")
-        
+
+        print("현재 횟수 \(UserDefaults.standard.integer(forKey: "appStartCount"))")
+        Fabric.with([Crashlytics.self])
+
         return true
     }
     
