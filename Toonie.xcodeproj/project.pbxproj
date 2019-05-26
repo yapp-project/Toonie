@@ -28,8 +28,6 @@
 		461C3F46EE79F602B9C6DC249B3A419C /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 482A114E8A6A879454C3CB47C1BA9443 /* Feed.storyboard */; };
 		C9355A5FA67D262F35C7B8B185D2CA62 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BD45CDB0C7E1A8A0FE2DB9C0C25B75 /* FeedViewController.swift */; };
 		6931E65B235D9EF98AF252FC0326C078 /* ForYouCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C59DFBC67BAFC0446C4ACC3CD30166 /* ForYouCollectionViewCell.swift */; };
-		EB475B47E259D7432C73537026F9FF8D /* ForYouToonListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CB7352060E4267D23B8B6D5169BEC /* ForYouToonListService.swift */; };
-		1AE79A241C352B6EC8D6DEBC0EC6F658 /* ForYouToonLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92086364F206D590B0D7FF7BD726FD80 /* ForYouToonLists.swift */; };
 		F3C2F02E93DEA64FA0001CEEBCEFE7A1 /* GestureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDCAA09CFF5C8C7AA1BC8E5B1E86DE0 /* GestureViewController.swift */; };
 		8421FF396A13C148E0226E951560D9BD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E8DDDD5E831B4176019BF5ED646CF0A9 /* GoogleService-Info.plist */; };
 		B8CD77E704B84AC69F36C250FB3FA1EC /* KeywordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EDEEDFB2A92FFAA9328EB4B2086305 /* KeywordCell.swift */; };
@@ -59,6 +57,8 @@
 		9E1130891C97D8F4786070CA5F865527 /* Pods_Toonie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 117585FB9F8E77DCB04082EAF82AE342 /* Pods_Toonie.framework */; };
 		A328A80E54A3A417D3EA56767B1FDFDA /* Pods_ToonieTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82AF128897992796FF6ED25B199B0530 /* Pods_ToonieTests.framework */; };
 		E916559FD1FF3D52899190B762F9555C /* Pods_ToonieWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD555FC9ECBE84C48C3CE837BB6A9F53 /* Pods_ToonieWidget.framework */; };
+		E08F2E27BD8F0DD604FCE3CF61F80C8F /* Preview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C505AB374D89DF431BDECECC3E8F573 /* Preview.storyboard */; };
+		86FAAAE28B7D5D867EEF0897BD40E1EE /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0001835AAF88D4613D827A87EA3583A /* PreviewViewController.swift */; };
 		FB45278EDB2A30D96C6A86FE7615DB1C /* RecentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE103DAB3F381AA2D9D28295093EC833 /* RecentCollectionViewCell.swift */; };
 		B854DBCEF4394512A8FDCA7112E02449 /* RecommendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2735F9AA478C996EA53B9BDD885BA872 /* RecommendCollectionViewCell.swift */; };
 		9DB4FBA4627CB67F03A18B9E44D17331 /* RecommendCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4800017F5B8EB3DC084B9A3BB6696FA6 /* RecommendCollectionViewCell.xib */; };
@@ -75,6 +75,8 @@
 		F57EDB00538821C89A0497742A6F2B14 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05FF2AD238FECB950A261C5B8CA41D6 /* TodayViewController.swift */; };
 		3034A2E2BB683EEC325651DE0640531F /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D7B3C93924E717E972244714BBC3C6 /* Token.swift */; };
 		13393926F1DE0AB7625417BC7C321DE1 /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C9CA18533D81A5A073A0EB43B6AA4 /* TokenService.swift */; };
+		8E054D502505DD4C352EBE089DEAAB99 /* ToonListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B3A5B59385F4AFAE3CC051454EBFE5 /* ToonListService.swift */; };
+		F746EE0B90C2F0405E816DE870AAEBD4 /* ToonLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A6CD6E8F9153FBED52D95503624BA8 /* ToonLists.swift */; };
 		1D5BB303025367E486BC778468D1906D /* ToonOfTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46CA5CAF52713A5F0497239013E4ABA /* ToonOfTag.swift */; };
 		B6E0696924E424884A5626099200D098 /* ToonOfTagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED42905ADAEABD1D80B0CA4894DECCE /* ToonOfTagService.swift */; };
 		CDD94A58C361838A6501853F54312E0A /* ToonWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28B02ED5A86318713752322D6A15E13 /* ToonWebViewController.swift */; };
@@ -87,6 +89,7 @@
 		9C591C4C20BCF27D5D1EDB6B546AC9CE /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB68F163875F9F1F23D628BB5BB2372 /* UIView+.swift */; };
 		BBF3D671ABB1FA62C12A76D6A4CA52CE /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB68F163875F9F1F23D628BB5BB2372 /* UIView+.swift */; };
 		FF0CB358B72DD3162E223F5DEB7D2A94 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858BE106FDE6184D77010506B5097F1A /* UIViewController+.swift */; };
+		7456B62D71CD3486FC6E328A56268FC1 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569787EF9C530828FB6FF45FEE5FEDB6 /* UserNotifications.framework */; };
 		670151333E6F80078812ECE61880E12B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5485179E9A27EAB9530294A695C09AD /* WebKit.framework */; };
 		6C7C8CC02FCEC5968B4661E23795EAEE /* WidgetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52197ABEB7C46D573E009BC3CEF342D7 /* WidgetCollectionViewCell.swift */; };
 		D9AAE829587851B093898E29B2BC0390 /* WidgetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52197ABEB7C46D573E009BC3CEF342D7 /* WidgetCollectionViewCell.swift */; };
@@ -164,8 +167,6 @@
 		482A114E8A6A879454C3CB47C1BA9443 /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
 		D7BD45CDB0C7E1A8A0FE2DB9C0C25B75 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		C3C59DFBC67BAFC0446C4ACC3CD30166 /* ForYouCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouCollectionViewCell.swift; sourceTree = "<group>"; };
-		919CB7352060E4267D23B8B6D5169BEC /* ForYouToonListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouToonListService.swift; sourceTree = "<group>"; };
-		92086364F206D590B0D7FF7BD726FD80 /* ForYouToonLists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouToonLists.swift; sourceTree = "<group>"; };
 		1FDCAA09CFF5C8C7AA1BC8E5B1E86DE0 /* GestureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureViewController.swift; sourceTree = "<group>"; };
 		E8DDDD5E831B4176019BF5ED646CF0A9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		09195DD5048FE2E3522B466F376ACA70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -201,6 +202,8 @@
 		117585FB9F8E77DCB04082EAF82AE342 /* Pods_Toonie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Toonie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82AF128897992796FF6ED25B199B0530 /* Pods_ToonieTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToonieTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD555FC9ECBE84C48C3CE837BB6A9F53 /* Pods_ToonieWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToonieWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C505AB374D89DF431BDECECC3E8F573 /* Preview.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Preview.storyboard; sourceTree = "<group>"; };
+		D0001835AAF88D4613D827A87EA3583A /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		AE103DAB3F381AA2D9D28295093EC833 /* RecentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCollectionViewCell.swift; sourceTree = "<group>"; };
 		2735F9AA478C996EA53B9BDD885BA872 /* RecommendCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendCollectionViewCell.swift; sourceTree = "<group>"; };
 		4800017F5B8EB3DC084B9A3BB6696FA6 /* RecommendCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -217,10 +220,13 @@
 		D05FF2AD238FECB950A261C5B8CA41D6 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		54D7B3C93924E717E972244714BBC3C6 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		FA3C9CA18533D81A5A073A0EB43B6AA4 /* TokenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = "<group>"; };
+		86B3A5B59385F4AFAE3CC051454EBFE5 /* ToonListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonListService.swift; sourceTree = "<group>"; };
+		22A6CD6E8F9153FBED52D95503624BA8 /* ToonLists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonLists.swift; sourceTree = "<group>"; };
 		A46CA5CAF52713A5F0497239013E4ABA /* ToonOfTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonOfTag.swift; sourceTree = "<group>"; };
 		BED42905ADAEABD1D80B0CA4894DECCE /* ToonOfTagService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonOfTagService.swift; sourceTree = "<group>"; };
 		A28B02ED5A86318713752322D6A15E13 /* ToonWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonWebViewController.swift; sourceTree = "<group>"; };
 		E5B5664A67B748CC79409D5ABB761F80 /* Toonie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Toonie.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		60FBBACC4982D7721E27E3CD6F1CE97C /* Toonie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Toonie.entitlements; sourceTree = "<group>"; };
 		E8BEF0670CA0E9737AC0D8BB4C759F3D /* ToonieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonieTests.swift; sourceTree = "<group>"; };
 		D32B5ACD1A82F7A257245C24D4210ADC /* ToonieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToonieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B1654A3BAD166BC9042985E427D6184 /* ToonieWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ToonieWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -231,6 +237,8 @@
 		F483F1838FE14F671F0B3320F6C5E00A /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		3EB68F163875F9F1F23D628BB5BB2372 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		858BE106FDE6184D77010506B5097F1A /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		569787EF9C530828FB6FF45FEE5FEDB6 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		DDDA9D2251DF24A727D5FF7D19B5D3B6 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
 		A5485179E9A27EAB9530294A695C09AD /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		52197ABEB7C46D573E009BC3CEF342D7 /* WidgetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCollectionViewCell.swift; sourceTree = "<group>"; };
 		43128E74A6D1202061817F9BAC629185 /* WorkList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkList.swift; sourceTree = "<group>"; };
@@ -267,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E1130891C97D8F4786070CA5F865527 /* Pods_Toonie.framework in Frameworks */,
+				7456B62D71CD3486FC6E328A56268FC1 /* UserNotifications.framework in Frameworks */,
 				670151333E6F80078812ECE61880E12B /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,6 +292,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1660683D4C25D2716614E96F649C80EB /* Preview */ = {
+			isa = PBXGroup;
+			children = (
+				7C505AB374D89DF431BDECECC3E8F573 /* Preview.storyboard */,
+				D0001835AAF88D4613D827A87EA3583A /* PreviewViewController.swift */,
+			);
+			path = Preview;
+			sourceTree = "<group>";
+		};
 		1B2372F1A689B45DBFF61F1D6FBC45BE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -349,6 +367,8 @@
 				82AF128897992796FF6ED25B199B0530 /* Pods_ToonieTests.framework */,
 				FD555FC9ECBE84C48C3CE837BB6A9F53 /* Pods_ToonieWidget.framework */,
 				56FB8671F0C5C49322A715FF3E58045A /* StoreKit.framework */,
+				569787EF9C530828FB6FF45FEE5FEDB6 /* UserNotifications.framework */,
+				DDDA9D2251DF24A727D5FF7D19B5D3B6 /* UserNotificationsUI.framework */,
 				A5485179E9A27EAB9530294A695C09AD /* WebKit.framework */,
 			);
 			name = Frameworks;
@@ -376,9 +396,11 @@
 				D8D2A1521954015D498AF0547AAA624C /* Main */,
 				1E5EEACC73F0B2067BEA386D942B1580 /* MyPage */,
 				EC299C6919C75B87B4DFEFC50617687E /* Network */,
+				1660683D4C25D2716614E96F649C80EB /* Preview */,
 				9E6F725ABBD0B87936DB74FB0EFBAEEE /* Splash */,
 				E9E1A4A921F35FE4AF2DC69238B3FBED /* Supporting Files */,
 				EA8D35008BD513F538F5DE5377E835EF /* Info.plist */,
+				60FBBACC4982D7721E27E3CD6F1CE97C /* Toonie.entitlements */,
 			);
 			path = Toonie;
 			sourceTree = "<group>";
@@ -432,10 +454,10 @@
 			children = (
 				8675F866B2CC5FC1DDB18021BE67EABF /* ChkToonieUpdate.swift */,
 				5C0F9FDA6D7EDBB6CC18F7B48E4304F5 /* DetailToon.swift */,
-				92086364F206D590B0D7FF7BD726FD80 /* ForYouToonLists.swift */,
 				9222FD8324DC3A507BC365062CF19A15 /* Keywords.swift */,
 				7ACAA8940643DB9FC71B7E231C435FD6 /* Recommends.swift */,
 				54D7B3C93924E717E972244714BBC3C6 /* Token.swift */,
+				22A6CD6E8F9153FBED52D95503624BA8 /* ToonLists.swift */,
 				A46CA5CAF52713A5F0497239013E4ABA /* ToonOfTag.swift */,
 				43128E74A6D1202061817F9BAC629185 /* WorkList.swift */,
 			);
@@ -492,12 +514,12 @@
 				F0DFADE2E74674626C62C5847756D7C3 /* CurationTagService.swift */,
 				2E371E0D955FBC2867AD25C4BD72ABF4 /* DetailToonService.swift */,
 				384EC31B5698BBD32C8427B4D3D3FA9E /* FavoriteService.swift */,
-				919CB7352060E4267D23B8B6D5169BEC /* ForYouToonListService.swift */,
 				BF827ADC08C996D3C51D60BE675C7641 /* KeywordsService.swift */,
 				7CF3B3437C5C4EE63DDBF69594FC82C8 /* LatestService.swift */,
 				037E6B4E432C7D955CAB4DE2ED92D11C /* LookToonOfTagService.swift */,
 				FBB7847F6E2C082500A180183EDA27D6 /* RecommendService.swift */,
 				FA3C9CA18533D81A5A073A0EB43B6AA4 /* TokenService.swift */,
+				86B3A5B59385F4AFAE3CC051454EBFE5 /* ToonListService.swift */,
 				BED42905ADAEABD1D80B0CA4894DECCE /* ToonOfTagService.swift */,
 			);
 			path = Service;
@@ -660,8 +682,8 @@
 				CE5F455DCBC4B8425D238EF8FF886C7F /* Frameworks */,
 				F6B7743005D9067ED5559530A50CE69C /* [CP] Embed Pods Frameworks */,
 				177D19B0706A07426A4F6DC7872AF528 /* Resources */,
-				130436991E1155E6C5F84FFA8B34B848 /* ShellScript */,
 				3AD66BFD83011719AD41735D9EBCBFF0 /* Embed App Extensions */,
+				E3FD9A369F6F2BDED02CF8C41034A4E5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -712,6 +734,11 @@
 					};
 					95BDF1BEF5288564E511594C77D7AF38 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					A1C72FBDC68A91A4C52524BBDF2FBCF6 = {
 						CreatedOnToolsVersion = 10.1;
@@ -753,6 +780,7 @@
 				A1EEA867D16DF76FCAA9521EE5DEA370 /* Look.storyboard in Resources */,
 				4FFEF2D3318AC791E3F9C6ECC7710F1B /* Main.storyboard in Resources */,
 				DD198E2FFCBF428D3BB0345A1CB1F292 /* MyPage.storyboard in Resources */,
+				E08F2E27BD8F0DD604FCE3CF61F80C8F /* Preview.storyboard in Resources */,
 				9DB4FBA4627CB67F03A18B9E44D17331 /* RecommendCollectionViewCell.xib in Resources */,
 				20F97B5303210BE76821322E74DB2E06 /* RecommendTableViewCell.xib in Resources */,
 				2BBA96003DD132C44B1C6FACA2174DDF /* arrow.png in Resources */,
@@ -794,6 +822,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		E3FD9A369F6F2BDED02CF8C41034A4E5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 2930b75a1fc5ef7b545e8b1cd650c5ffbbdeb39a dd398cf8d7aa4bcacd21cfd6ab35a158a0ebe458a5af8a2917fa1033064bd14d\n";
+		};
 		0A03A8E701D8806A7558B618CCC2B0D5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -890,6 +935,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/KTCenterFlowLayout/KTCenterFlowLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -902,6 +948,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KTCenterFlowLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -933,8 +980,6 @@
 				1FDC495E51E4103A48DBE746A3B5742F /* FavoriteService.swift in Sources */,
 				C9355A5FA67D262F35C7B8B185D2CA62 /* FeedViewController.swift in Sources */,
 				6931E65B235D9EF98AF252FC0326C078 /* ForYouCollectionViewCell.swift in Sources */,
-				EB475B47E259D7432C73537026F9FF8D /* ForYouToonListService.swift in Sources */,
-				1AE79A241C352B6EC8D6DEBC0EC6F658 /* ForYouToonLists.swift in Sources */,
 				F3C2F02E93DEA64FA0001CEEBCEFE7A1 /* GestureViewController.swift in Sources */,
 				B8CD77E704B84AC69F36C250FB3FA1EC /* KeywordCell.swift in Sources */,
 				841F43351B84CE479CB40DF8E83FA09B /* KeywordSelectViewController.swift in Sources */,
@@ -954,6 +999,7 @@
 				4A484BBF5FE067D98BFB7093168E7C90 /* MypageDetailCollectionViewCell.swift in Sources */,
 				09E62ABF5EFB2AD2310CD9D548C8018B /* MypageViewController.swift in Sources */,
 				5CE1E4B98BF9BACC42C6DF600734DB28 /* NetworkResult.swift in Sources */,
+				86FAAAE28B7D5D867EEF0897BD40E1EE /* PreviewViewController.swift in Sources */,
 				FB45278EDB2A30D96C6A86FE7615DB1C /* RecentCollectionViewCell.swift in Sources */,
 				B854DBCEF4394512A8FDCA7112E02449 /* RecommendCollectionViewCell.swift in Sources */,
 				12A35D4BFE1F4FCDAFA3AFECA065F90C /* RecommendService.swift in Sources */,
@@ -967,6 +1013,8 @@
 				F57EDB00538821C89A0497742A6F2B14 /* TodayViewController.swift in Sources */,
 				3034A2E2BB683EEC325651DE0640531F /* Token.swift in Sources */,
 				13393926F1DE0AB7625417BC7C321DE1 /* TokenService.swift in Sources */,
+				8E054D502505DD4C352EBE089DEAAB99 /* ToonListService.swift in Sources */,
+				F746EE0B90C2F0405E816DE870AAEBD4 /* ToonLists.swift in Sources */,
 				1D5BB303025367E486BC778468D1906D /* ToonOfTag.swift in Sources */,
 				B6E0696924E424884A5626099200D098 /* ToonOfTagService.swift in Sources */,
 				CDD94A58C361838A6501853F54312E0A /* ToonWebViewController.swift in Sources */,
@@ -1093,6 +1141,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Toonie/Toonie.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9RVFJQPN7Q;
 				INFOPLIST_FILE = Toonie/Info.plist;
@@ -1114,6 +1163,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Toonie/Toonie.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9RVFJQPN7Q;
 				INFOPLIST_FILE = Toonie/Info.plist;

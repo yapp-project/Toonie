@@ -13,6 +13,9 @@ target 'Toonie' do
   pod 'SnapKit', '~> 4.2'
   pod 'Alamofire'
   pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
+  pod 'Fabric'
+  pod 'Crashlytics'
 
   target 'ToonieTests' do
     inherit! :search_paths

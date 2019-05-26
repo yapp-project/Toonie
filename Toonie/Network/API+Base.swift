@@ -74,4 +74,12 @@ class API {
         return baseURL + "/worklist/" + token + "/latest"
     }
     
+    static let tagFavoriteList = { (token) in
+        return baseURL + "/tags/worklist/" + token + "/default"
+    }
+    
+    static let tagLatestList = { (token) in
+        return baseURL + "/tags/worklist/" + token + "/latest"
+    }
+    
 }
