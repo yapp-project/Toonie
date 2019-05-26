@@ -8,6 +8,11 @@
 
 import Foundation
 
+///userToken 가져옴
+func getUserToken() -> String? {
+    return UserDefaults.standard.string(forKey: "token")
+}
+
 ///키워드에 쓰일 문자열, 문자열에 대한 이미지 매핑
 func tagImage(name: String, storyboardName: String) -> String {
     switch name {

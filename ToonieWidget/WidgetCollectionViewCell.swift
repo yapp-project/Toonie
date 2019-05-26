@@ -11,9 +11,15 @@ import UIKit
 final class WidgetCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var widgetImageView: UIImageView!
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        widgetImageView.image = nil
+    }
+    
     /// widget 컬렉션뷰셀 데이터 설정
     func setWidgetCollectionViewCellProperties(tagName: String) {
 
+        widgetImageView.setCorner(cornerRadius: 5)
         widgetImageView.image = UIImage(named: tagImage(name: tagName,
                                                         storyboardName: "Look"))
     }

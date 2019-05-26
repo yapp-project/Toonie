@@ -11,20 +11,35 @@ import NotificationCenter
 
 final class TodayViewController: UIViewController, NCWidgetProviding {
     
-    private let defaults = UserDefaults(suiteName: "group.com.yapp.toonie.ToonieWidget")
     @IBOutlet private weak var widgetCollecionView: UICollectionView!
+    
+    private let tagArray = ["가족", "반려동물", "사랑 연애", "심리 감정", "여행", "음식", "자기계발", "자취생활", "직업", "페미니즘", "학교생활", "해외"]
+    private var tagList: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        tagList = makeRandomList(tagArray)
         widgetCollecionView.reloadData()
     }
-        
+    
+    /// 태그 랜덤 5개 목록 만들기
+    private func makeRandomList<T>(_ list: [T]) -> [T] {
+        var temporaryList = list
+        var randomList: [T] = []
+        for _ in 0..<5 {
+            let index = Int(arc4random_uniform(UInt32((temporaryList.count - 1))))
+            randomList.append(temporaryList[index])
+            temporaryList.remove(at: index)
+        }
+        return randomList
+    }
+    
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
-        // Perform any setup necessary in order to update the view.
-        
-        // If an error is encountered, use NCUpdateResult.Failed
-        // If there's no update required, use NCUpdateResult.NoData
-        // If there's an update, use NCUpdateResult.NewData
         
         completionHandler(NCUpdateResult.newData)
     }
@@ -34,7 +49,7 @@ final class TodayViewController: UIViewController, NCWidgetProviding {
 extension TodayViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 4
+        return tagList.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -46,7 +61,8 @@ extension TodayViewController: UICollectionViewDataSource {
                 return UICollectionViewCell()
         }
         
-        cell.setWidgetCollectionViewCellProperties(tagName: "반려동물")
+        let tag = tagList[indexPath.row]
+        cell.setWidgetCollectionViewCellProperties(tagName: tag)
         
         return cell
     }
