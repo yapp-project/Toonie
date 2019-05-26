@@ -187,6 +187,8 @@ final class FeedViewController: GestureViewController {
                 make.center.equalTo(tagView)
             }
         }
+         
+        playTagAnimationView()
     }
     
     // 태그 애니메이션 재생
