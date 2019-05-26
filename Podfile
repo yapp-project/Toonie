@@ -13,7 +13,8 @@ target 'Toonie' do
   pod 'SnapKit', '~> 4.2'
   pod 'Alamofire'
   pod 'Firebase/Core'
-
+  pod 'Firebase/Messaging'
+  
   target 'ToonieTests' do
     inherit! :search_paths
     # Pods for testing
