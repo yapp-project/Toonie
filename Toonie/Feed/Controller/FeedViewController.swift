@@ -209,30 +209,6 @@ final class FeedViewController: GestureViewController {
         
     }
     
-    /// 선택한 툰 타이틀로 툰 id 찾기
-    private func findToonId(toonTitle: String) -> String {
-        var toonId = ""
-        if let forYouToonLists = forYouToonLists {
-            for index in 0..<forYouToonLists.count
-                where toonTitle == forYouToonLists[index].toonName {
-                    toonId = forYouToonLists[index].toonID ?? ""
-            }
-        }
-        if let latestToonLists = latestToonLists {
-            for index in 0..<latestToonLists.count
-                where toonTitle == latestToonLists[index].toonName {
-                    toonId = latestToonLists[index].toonID ?? ""
-            }
-        }
-        if let favoriteToonLists = favoriteToonLists {
-            for index in 0..<favoriteToonLists.count
-                where toonTitle == favoriteToonLists[index].toonName {
-                    toonId = favoriteToonLists[index].toonID ?? ""
-            }
-        }
-        return toonId
-    }
-    
     /// 뷰 높이 constant 0으로 해서 없앰
     private func updateView(_ constraint: inout NSLayoutConstraint,
                             _ hegiht: CGFloat) {
@@ -319,13 +295,13 @@ extension FeedViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         if let currentCell = collectionView.cellForItem(at: indexPath) as? ForYouCollectionViewCell {
-            detailToonId = findToonId(toonTitle: currentCell.forYouToonTitleLabel.text ?? "")
+            detailToonId = currentCell.toonIdLabel.text ?? ""
         }
         if let currentCell = collectionView.cellForItem(at: indexPath) as? RecentCollectionViewCell {
-            detailToonId = findToonId(toonTitle: currentCell.recentToonTitleLabel.text ?? "")
+            detailToonId = currentCell.toonIdLabel.text ?? ""
         }
         if let currentCell = collectionView.cellForItem(at: indexPath) as? FavoriteCollectionViewCell {
-            detailToonId = findToonId(toonTitle: currentCell.favoriteToonTitleLabel.text ?? "")
+            detailToonId = currentCell.toonIdLabel.text ?? ""
         }
         pushDetailToonViewController(toonID: detailToonId, isFavorite: isFavorite)
     }
