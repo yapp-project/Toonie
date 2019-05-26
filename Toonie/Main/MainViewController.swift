@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 //Main의 NavigationController
 final class MainNavigationController: UINavigationController {
@@ -71,21 +72,24 @@ final class MainViewController: GestureViewController {
         
         //앱리뷰요청
         CommonUtility.sharedInstance.showStoreReview()
+        
+        setLocalNotification()
+        inputNotification()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+        
         if segue.identifier == "Feed" {
             if let feedNavigationController = segue.destination as? FeedNavigationController {
                 if let feedViewController = feedNavigationController.rootViewController as? FeedViewController {
                     self.feedDidTapClosure = {
                         feedViewController.viewWillAppear(true)
-//                         feedViewController.loadToon()
+                        //                         feedViewController.loadToon()
                     }
                 }
             }
         }
-
+        
         if segue.identifier == "MyPage" {
             if let myPageNavigationController = segue.destination as? MyPageNavigationController {
                 if let myPageViewController = myPageNavigationController.rootViewController as? MypageViewController {
@@ -250,4 +254,49 @@ final class MainViewController: GestureViewController {
                 .present(to: self)
         }
     }
+    
+    /// 로컬 노티피케이션 설정
+    private func setLocalNotification() {
+        // MARK: - 여기 options에 원하는 option넣기.
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert], completionHandler: { (_, _) in
+            
+        })
+        UNUserNotificationCenter.current().delegate = self
+    }
+    
+    private func inputNotification() {
+        
+        let content = UNMutableNotificationContent()
+        content.body = "오늘은 어떤 툰을 볼까요? 투니가 추천해줄게요!"
+        
+        var dateComponents = DateComponents()
+        dateComponents.hour = 21
+        dateComponents.minute = 07
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        let request = UNNotificationRequest(identifier: "DailyNoti", content: content, trigger: trigger)
+        let center = UNUserNotificationCenter.current()
+        center.add(request) { (error) in
+            print(error?.localizedDescription ?? "")
+            
+        }
+    }
+}
+
+extension MainViewController: UNUserNotificationCenterDelegate {
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler:
+        @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .sound, .badge])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                openSettingsFor notification: UNNotification?) {
+        let settingsViewController = UIViewController()
+        settingsViewController.view.backgroundColor = .white
+        self.present(settingsViewController, animated: true, completion: nil)
+    }
+    
 }
