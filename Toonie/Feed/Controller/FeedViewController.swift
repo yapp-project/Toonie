@@ -88,7 +88,7 @@ final class FeedViewController: GestureViewController {
     
     /// 당신을 위한 툰 정보 네트워크 요청
     private func loadForYouToonList() {
-        ForYouToonListService.shared.getForYouToonList { [weak self] result in
+        ToonListService.shared.getForYouToonList { [weak self] result in
             guard let self = self else { return }
             if let result = result {
                 if result.count <= 10 {
@@ -102,9 +102,9 @@ final class FeedViewController: GestureViewController {
         }
     }
     
-    /// 최신 툰 정보 네트워크 요청
+    /// 최신 본 작품과 연관된 정보 네트워크 요청
     private func loadLatestToonList() {
-        LatestService.shared.getLatestToon { [weak self] result in
+        ToonListService.shared.getLatestToonList { [weak self] result in
             guard let self = self else { return }
             if let result = result {
                 if result.count <= 10 {
@@ -123,11 +123,10 @@ final class FeedViewController: GestureViewController {
         }
     }
     
-    /// 찜한 툰 목록 정보 네트워크 요청
+    /// 찜한 툰과 연관된 목록 정보 네트워크 요청
     private func loadFavoriteToonList() {
-        FavoriteService.shared.getFavoriteToon { [weak self] result in
+        ToonListService.shared.getFavoriteToonList { [weak self] result in
             guard let self = self else { return }
-            
             if let result = result {
                 if result.count <= 10 {
                     self.favoriteToonLists = result

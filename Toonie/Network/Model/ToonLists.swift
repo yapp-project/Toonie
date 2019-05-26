@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ForYouToonLists: Codable {
+struct ToonLists: Codable {
     let toonList: [ToonList]?
 }
 
