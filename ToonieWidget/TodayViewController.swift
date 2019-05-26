@@ -9,11 +9,14 @@
 import UIKit
 import NotificationCenter
 
-class TodayViewController: UIViewController, NCWidgetProviding {
-        
+final class TodayViewController: UIViewController, NCWidgetProviding {
+    
+    private let defaults = UserDefaults(suiteName: "group.com.yapp.toonie.ToonieWidget")
+    @IBOutlet private weak var widgetCollecionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        widgetCollecionView.reloadData()
     }
         
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
@@ -25,5 +28,30 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
         completionHandler(NCUpdateResult.newData)
     }
+    
+}
+
+extension TodayViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return 4
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView
+            .dequeueReusableCell(withReuseIdentifier: "WidgetCollectionViewCell",
+                                 for: indexPath) as? WidgetCollectionViewCell
+            else {
+                return UICollectionViewCell()
+        }
+        
+        cell.setWidgetCollectionViewCellProperties(tagName: "반려동물")
+        
+        return cell
+    }
+}
+
+extension TodayViewController: UICollectionViewDelegate {
     
 }

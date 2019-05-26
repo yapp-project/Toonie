@@ -53,7 +53,7 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
-  - SnapKit (5.0.0)
+  - SnapKit (4.2.0)
   - SwiftLint (0.32.0)
 
 DEPENDENCIES:
@@ -62,7 +62,7 @@ DEPENDENCIES:
   - Kingfisher (~> 4.2)
   - KTCenterFlowLayout
   - lottie-ios
-  - SnapKit
+  - SnapKit (~> 4.2)
   - SwiftLint
 
 SPEC REPOS:
@@ -93,9 +93,9 @@ SPEC CHECKSUMS:
   KTCenterFlowLayout: 6e02b50ab2bd865025ae82fe266ed13b6d9eaf97
   lottie-ios: d030b6cda141cfd8bbaa3db89264785e6fdf675a
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
-  SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SwiftLint: 009a898ef2a1c851f45e1b59349bf6ff2ddc990d
 
-PODFILE CHECKSUM: 9f085b6f343e851844d408891fd4aa33d6495e04
+PODFILE CHECKSUM: 75a845dfa1f1bf87e75a2834610cf689ca7f2be1
 
 COCOAPODS: 1.6.1
