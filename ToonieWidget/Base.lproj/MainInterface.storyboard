@@ -23,13 +23,13 @@
                                 <rect key="frame" x="0.0" y="44" width="320" height="107"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toonie의 태그" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Skf-f1-6bl">
-                                        <rect key="frame" x="14" y="14" width="72" height="13"/>
+                                        <rect key="frame" x="14" y="17" width="72" height="14.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" name="defaultText"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="E1f-Ob-qJg">
-                                        <rect key="frame" x="10" y="37" width="300" height="60"/>
+                                        <rect key="frame" x="10" y="46.5" width="300" height="60"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="E1f-Ob-qJg" secondAttribute="height" multiplier="5:1" id="hVb-p3-nEL"/>
@@ -77,12 +77,12 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="E1f-Ob-qJg" secondAttribute="bottom" constant="0.5" id="4up-y8-ulU"/>
                                     <constraint firstItem="Skf-f1-6bl" firstAttribute="leading" secondItem="6vo-eU-vjR" secondAttribute="leading" constant="14" id="FWK-xG-xqg"/>
-                                    <constraint firstItem="Skf-f1-6bl" firstAttribute="top" secondItem="6vo-eU-vjR" secondAttribute="top" constant="14" id="INQ-PM-1xf"/>
+                                    <constraint firstItem="Skf-f1-6bl" firstAttribute="top" secondItem="6vo-eU-vjR" secondAttribute="top" constant="17" id="INQ-PM-1xf"/>
                                     <constraint firstItem="E1f-Ob-qJg" firstAttribute="leading" secondItem="6vo-eU-vjR" secondAttribute="leading" constant="10" id="KAR-ks-Jhs"/>
-                                    <constraint firstAttribute="bottom" secondItem="E1f-Ob-qJg" secondAttribute="bottom" constant="10" id="Qnd-JA-zal"/>
                                     <constraint firstAttribute="trailing" secondItem="E1f-Ob-qJg" secondAttribute="trailing" constant="10" id="gHh-pB-exX"/>
-                                    <constraint firstItem="E1f-Ob-qJg" firstAttribute="top" secondItem="Skf-f1-6bl" secondAttribute="bottom" constant="10" id="wGa-5x-ppw"/>
+                                    <constraint firstItem="E1f-Ob-qJg" firstAttribute="top" secondItem="Skf-f1-6bl" secondAttribute="bottom" constant="15" id="wGa-5x-ppw"/>
                                 </constraints>
                             </view>
                         </subviews>

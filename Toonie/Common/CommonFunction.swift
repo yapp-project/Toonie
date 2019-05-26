@@ -12,7 +12,7 @@ import Foundation
 func makeRandomList<T>(_ list: [T], number: Int) -> [T] {
     var temporaryList = list
     var randomList: [T] = []
-    for _ in 0..<10 {
+    for _ in 0..<number {
         let index = Int(arc4random_uniform(UInt32((temporaryList.count - 1))))
         randomList.append(temporaryList[index])
         temporaryList.remove(at: index)
