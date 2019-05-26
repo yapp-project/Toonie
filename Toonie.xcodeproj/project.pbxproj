@@ -10,10 +10,13 @@
 		3329D16EACF533982CBE706AE5A72FB7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 9C85D8F090D4E9C332080D997CFF19EE /* .swiftlint.yml */; };
 		CD3B71BFA9A4A0A122FD68E070D94845 /* API+Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A6C0BF687FEF975FCB0157ADE62331 /* API+Base.swift */; };
 		2356B514E09193A5CBF1127EB3E77AB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0983BCBA1C869D8FA91A7719C7D244E3 /* AppDelegate.swift */; };
+		1369B4CD8057302BAB402E78319A16F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80C2C41933AFF35CEA1787DF94DFAF18 /* Assets.xcassets */; };
 		BB57D379599E229DE86C9F3A93FCBB0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80C2C41933AFF35CEA1787DF94DFAF18 /* Assets.xcassets */; };
 		CE58BDE4B385906F80FB4510F44E5C7B /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A77C9F89A069C22EF59EBA5C5E17A8 /* CALayer+.swift */; };
 		BCDEA1EC37D4D5343EE8EB89C50EC320 /* ChkToonieUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8675F866B2CC5FC1DDB18021BE67EABF /* ChkToonieUpdate.swift */; };
 		C51E480B0D1262D5020AF02E2B26CF37 /* ChkToonieUpdateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383FC02752E41DED4201FA814927EC4C /* ChkToonieUpdateService.swift */; };
+		434A751FC6257879A9477C336CD3CBBA /* CommonFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9323F2A30BC1D6B5A75290A78E5EFF /* CommonFunction.swift */; };
+		7492E1465D238893178431F29181DE22 /* CommonFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9323F2A30BC1D6B5A75290A78E5EFF /* CommonFunction.swift */; };
 		AB9BF389A4D6A9A12F45BDE69A35B72E /* CommonUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391E18129E3FD4CA97AD73AFBEA5D5A5 /* CommonUtility.swift */; };
 		FDC116E19C09047E762A2BFF96608026 /* CurationTagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DFADE2E74674626C62C5847756D7C3 /* CurationTagService.swift */; };
 		5D7C2A319945FF57226321B488D96614 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 013B051389A91973028316A3E576E272 /* Detail.storyboard */; };
@@ -42,6 +45,7 @@
 		F75646CDB61475B72C0BBBFB3842D0E9 /* LookToonOfTagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037E6B4E432C7D955CAB4DE2ED92D11C /* LookToonOfTagService.swift */; };
 		2F487FFA72B9B1CA1B571558775F065E /* LookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F86D8B1CA39FC8055C8747A6AFC2D06 /* LookViewController.swift */; };
 		4FFEF2D3318AC791E3F9C6ECC7710F1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA5DF823B0E683B7C42B1DAFAC7C1D6E /* Main.storyboard */; };
+		F1DC604B33B068B8BD61C96ABAE6EADA /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E00CC3EC00DB314B0CDD92C767A37487 /* MainInterface.storyboard */; };
 		A31F7D42C07575D642B19CEE561AAD2A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856BC1EDA73CD692E351511F4D51271A /* MainViewController.swift */; };
 		DD198E2FFCBF428D3BB0345A1CB1F292 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3410CCB8DC07905AB283969582125522 /* MyPage.storyboard */; };
 		3D7829A51FE8C5A1D54342BA93D42FE8 /* MyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520E0A35F56B2B546835C7C60E855EEE /* MyPage.swift */; };
@@ -49,8 +53,10 @@
 		4A484BBF5FE067D98BFB7093168E7C90 /* MypageDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B82C2D21CD592476C6DAF09221B684 /* MypageDetailCollectionViewCell.swift */; };
 		09E62ABF5EFB2AD2310CD9D548C8018B /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5347DA29C97A840A7ACA03D8A5719C2 /* MypageViewController.swift */; };
 		5CE1E4B98BF9BACC42C6DF600734DB28 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBD6D273655812FFB3B33EFD338F0C2 /* NetworkResult.swift */; };
+		40A5CD7838004D7615C3E46CDC1D9F8F /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D790C9FD3F0F7400B468DFA34CFE7D /* NotificationCenter.framework */; };
 		9E1130891C97D8F4786070CA5F865527 /* Pods_Toonie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 117585FB9F8E77DCB04082EAF82AE342 /* Pods_Toonie.framework */; };
 		A328A80E54A3A417D3EA56767B1FDFDA /* Pods_ToonieTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82AF128897992796FF6ED25B199B0530 /* Pods_ToonieTests.framework */; };
+		E916559FD1FF3D52899190B762F9555C /* Pods_ToonieWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD555FC9ECBE84C48C3CE837BB6A9F53 /* Pods_ToonieWidget.framework */; };
 		E08F2E27BD8F0DD604FCE3CF61F80C8F /* Preview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C505AB374D89DF431BDECECC3E8F573 /* Preview.storyboard */; };
 		86FAAAE28B7D5D867EEF0897BD40E1EE /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0001835AAF88D4613D827A87EA3583A /* PreviewViewController.swift */; };
 		FB45278EDB2A30D96C6A86FE7615DB1C /* RecentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE103DAB3F381AA2D9D28295093EC833 /* RecentCollectionViewCell.swift */; };
@@ -65,6 +71,8 @@
 		EA3F62E1C0F071466575AAE9D9B1A47D /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D181587B82E1BF344A7F8A87649CE2A5 /* SplashViewController.swift */; };
 		DAC921890617B9E247AE4070E1856EE9 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DC0E80B292187D81A2395BE3B5153F /* String+.swift */; };
 		4AE025D2C380F51BB508CE678B09CB78 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3671FD5527EB6A77347C274B14DB174B /* TagCollectionViewCell.swift */; };
+		5B5A91FF17C85623166C3C785AA24108 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05FF2AD238FECB950A261C5B8CA41D6 /* TodayViewController.swift */; };
+		F57EDB00538821C89A0497742A6F2B14 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05FF2AD238FECB950A261C5B8CA41D6 /* TodayViewController.swift */; };
 		3034A2E2BB683EEC325651DE0640531F /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D7B3C93924E717E972244714BBC3C6 /* Token.swift */; };
 		13393926F1DE0AB7625417BC7C321DE1 /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C9CA18533D81A5A073A0EB43B6AA4 /* TokenService.swift */; };
 		8E054D502505DD4C352EBE089DEAAB99 /* ToonListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B3A5B59385F4AFAE3CC051454EBFE5 /* ToonListService.swift */; };
@@ -73,14 +81,18 @@
 		B6E0696924E424884A5626099200D098 /* ToonOfTagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED42905ADAEABD1D80B0CA4894DECCE /* ToonOfTagService.swift */; };
 		CDD94A58C361838A6501853F54312E0A /* ToonWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28B02ED5A86318713752322D6A15E13 /* ToonWebViewController.swift */; };
 		0957B41AD138D0A49135F214132A015A /* ToonieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BEF0670CA0E9737AC0D8BB4C759F3D /* ToonieTests.swift */; };
+		10F313ABA278DEE3B49DE4923B3913F1 /* ToonieWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6B1654A3BAD166BC9042985E427D6184 /* ToonieWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		012280A5A53D6963330DB1D8B9DC3C68 /* UIAlertController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DA6955EDA11550288B07A43296B653 /* UIAlertController+.swift */; };
 		9CE9942E51F67AA265B6AEEF1EDD1216 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1E3943DF124AA5153C9B0FF572DD13 /* UIButton+.swift */; };
 		BD6A4E5D4CF8929196A01E3D1E55C9F4 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B4E73537A6A1DA88E2A6D9DCCCBB0 /* UIFont+.swift */; };
 		373C742E71CB4C13DEAA8A4C2B2B69C2 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F483F1838FE14F671F0B3320F6C5E00A /* UIImage+.swift */; };
+		9C591C4C20BCF27D5D1EDB6B546AC9CE /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB68F163875F9F1F23D628BB5BB2372 /* UIView+.swift */; };
 		BBF3D671ABB1FA62C12A76D6A4CA52CE /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB68F163875F9F1F23D628BB5BB2372 /* UIView+.swift */; };
 		FF0CB358B72DD3162E223F5DEB7D2A94 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858BE106FDE6184D77010506B5097F1A /* UIViewController+.swift */; };
 		7456B62D71CD3486FC6E328A56268FC1 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569787EF9C530828FB6FF45FEE5FEDB6 /* UserNotifications.framework */; };
 		670151333E6F80078812ECE61880E12B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5485179E9A27EAB9530294A695C09AD /* WebKit.framework */; };
+		6C7C8CC02FCEC5968B4661E23795EAEE /* WidgetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52197ABEB7C46D573E009BC3CEF342D7 /* WidgetCollectionViewCell.swift */; };
+		D9AAE829587851B093898E29B2BC0390 /* WidgetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52197ABEB7C46D573E009BC3CEF342D7 /* WidgetCollectionViewCell.swift */; };
 		1911A4B1193B478BEC69B5606C1EE9A5 /* WorkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43128E74A6D1202061817F9BAC629185 /* WorkList.swift */; };
 		2BBA96003DD132C44B1C6FACA2174DDF /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = E6886B6230EC73C8544C25D7D99BA354 /* arrow.png */; };
 		1FE5F0F3F7EADD85E0CC08BB48032894 /* feed_background.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C57CC33A83D4DAC545777AF8998EDE /* feed_background.png */; };
@@ -109,18 +121,41 @@
 			remoteGlobalIDString = 95BDF1BEF5288564E511594C77D7AF38;
 			remoteInfo = Toonie;
 		};
+		D32916237FB72298A86BD0064F85B39D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6F584EBA5C29F3C756C4DEE7B94A2FA7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1E000DB5FC552B8CFC8457534BDC4FB0;
+			remoteInfo = ToonieWidget;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3AD66BFD83011719AD41735D9EBCBFF0 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				10F313ABA278DEE3B49DE4923B3913F1 /* ToonieWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		9C85D8F090D4E9C332080D997CFF19EE /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		91A6C0BF687FEF975FCB0157ADE62331 /* API+Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "API+Base.swift"; sourceTree = "<group>"; };
 		0983BCBA1C869D8FA91A7719C7D244E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80C2C41933AFF35CEA1787DF94DFAF18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CAF6B7670C36C9C5C56ABC7A5702B8D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		CB66083F3ABEA7C967799226FCA1E83F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D96ADF5E22F9048B9EE1FA43C04A076F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		02A77C9F89A069C22EF59EBA5C5E17A8 /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
 		8675F866B2CC5FC1DDB18021BE67EABF /* ChkToonieUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChkToonieUpdate.swift; sourceTree = "<group>"; };
 		383FC02752E41DED4201FA814927EC4C /* ChkToonieUpdateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChkToonieUpdateService.swift; sourceTree = "<group>"; };
+		7F9323F2A30BC1D6B5A75290A78E5EFF /* CommonFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunction.swift; sourceTree = "<group>"; };
 		391E18129E3FD4CA97AD73AFBEA5D5A5 /* CommonUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtility.swift; sourceTree = "<group>"; };
 		F0DFADE2E74674626C62C5847756D7C3 /* CurationTagService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurationTagService.swift; sourceTree = "<group>"; };
 		013B051389A91973028316A3E576E272 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
@@ -134,6 +169,7 @@
 		C3C59DFBC67BAFC0446C4ACC3CD30166 /* ForYouCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouCollectionViewCell.swift; sourceTree = "<group>"; };
 		1FDCAA09CFF5C8C7AA1BC8E5B1E86DE0 /* GestureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureViewController.swift; sourceTree = "<group>"; };
 		E8DDDD5E831B4176019BF5ED646CF0A9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		09195DD5048FE2E3522B466F376ACA70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D67243EE4C5277CA9E639E1FD1E0E03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA8D35008BD513F538F5DE5377E835EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		20EDEEDFB2A92FFAA9328EB4B2086305 /* KeywordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordCell.swift; sourceTree = "<group>"; };
@@ -156,12 +192,16 @@
 		A1B82C2D21CD592476C6DAF09221B684 /* MypageDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		D5347DA29C97A840A7ACA03D8A5719C2 /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
 		5BBD6D273655812FFB3B33EFD338F0C2 /* NetworkResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		B1D790C9FD3F0F7400B468DFA34CFE7D /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		46461D78EB2754C9A17D4352D5F97AC7 /* Pods-Toonie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toonie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Toonie/Pods-Toonie.debug.xcconfig"; sourceTree = "<group>"; };
 		300FB960FFEE2976C603D16E5DC4B10B /* Pods-Toonie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toonie.release.xcconfig"; path = "Pods/Target Support Files/Pods-Toonie/Pods-Toonie.release.xcconfig"; sourceTree = "<group>"; };
 		F9FED2BB74D689EF6B88421CC1B8579D /* Pods-ToonieTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToonieTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToonieTests/Pods-ToonieTests.debug.xcconfig"; sourceTree = "<group>"; };
 		630481886041EA402305CF71D731B02B /* Pods-ToonieTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToonieTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToonieTests/Pods-ToonieTests.release.xcconfig"; sourceTree = "<group>"; };
+		8AFEFE4CBE574CB4EC9D40CB2C33B674 /* Pods-ToonieWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToonieWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToonieWidget/Pods-ToonieWidget.debug.xcconfig"; sourceTree = "<group>"; };
+		647D3371521DDB35BF9F6896BA9AB234 /* Pods-ToonieWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToonieWidget.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToonieWidget/Pods-ToonieWidget.release.xcconfig"; sourceTree = "<group>"; };
 		117585FB9F8E77DCB04082EAF82AE342 /* Pods_Toonie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Toonie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82AF128897992796FF6ED25B199B0530 /* Pods_ToonieTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToonieTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD555FC9ECBE84C48C3CE837BB6A9F53 /* Pods_ToonieWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToonieWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C505AB374D89DF431BDECECC3E8F573 /* Preview.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Preview.storyboard; sourceTree = "<group>"; };
 		D0001835AAF88D4613D827A87EA3583A /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		AE103DAB3F381AA2D9D28295093EC833 /* RecentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -177,6 +217,7 @@
 		56FB8671F0C5C49322A715FF3E58045A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C5DC0E80B292187D81A2395BE3B5153F /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		3671FD5527EB6A77347C274B14DB174B /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
+		D05FF2AD238FECB950A261C5B8CA41D6 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		54D7B3C93924E717E972244714BBC3C6 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		FA3C9CA18533D81A5A073A0EB43B6AA4 /* TokenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = "<group>"; };
 		86B3A5B59385F4AFAE3CC051454EBFE5 /* ToonListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonListService.swift; sourceTree = "<group>"; };
@@ -188,6 +229,8 @@
 		60FBBACC4982D7721E27E3CD6F1CE97C /* Toonie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Toonie.entitlements; sourceTree = "<group>"; };
 		E8BEF0670CA0E9737AC0D8BB4C759F3D /* ToonieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonieTests.swift; sourceTree = "<group>"; };
 		D32B5ACD1A82F7A257245C24D4210ADC /* ToonieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToonieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B1654A3BAD166BC9042985E427D6184 /* ToonieWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ToonieWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD12BD11611E9B87F84CB00CB1078D96 /* ToonieWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ToonieWidget.entitlements; sourceTree = "<group>"; };
 		A6DA6955EDA11550288B07A43296B653 /* UIAlertController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+.swift"; sourceTree = "<group>"; };
 		7F1E3943DF124AA5153C9B0FF572DD13 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		852B4E73537A6A1DA88E2A6D9DCCCBB0 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
@@ -197,6 +240,7 @@
 		569787EF9C530828FB6FF45FEE5FEDB6 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		DDDA9D2251DF24A727D5FF7D19B5D3B6 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
 		A5485179E9A27EAB9530294A695C09AD /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		52197ABEB7C46D573E009BC3CEF342D7 /* WidgetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCollectionViewCell.swift; sourceTree = "<group>"; };
 		43128E74A6D1202061817F9BAC629185 /* WorkList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkList.swift; sourceTree = "<group>"; };
 		E6886B6230EC73C8544C25D7D99BA354 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		D6C57CC33A83D4DAC545777AF8998EDE /* feed_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feed_background.png; sourceTree = "<group>"; };
@@ -233,6 +277,15 @@
 				9E1130891C97D8F4786070CA5F865527 /* Pods_Toonie.framework in Frameworks */,
 				7456B62D71CD3486FC6E328A56268FC1 /* UserNotifications.framework in Frameworks */,
 				670151333E6F80078812ECE61880E12B /* WebKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EED5F55F9F223AD10074F423BA6DE2A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40A5CD7838004D7615C3E46CDC1D9F8F /* NotificationCenter.framework in Frameworks */,
+				E916559FD1FF3D52899190B762F9555C /* Pods_ToonieWidget.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +345,7 @@
 				86B4A08A75551E8A7BBF979B5EAB3D51 /* Products */,
 				50DD12AB546601FDF26E6690643AA25F /* Toonie */,
 				D7EB0356146547BFA7F3C37A1D559F26 /* ToonieTests */,
+				CD0D95DE2FB4EAFDE9CEDC06747C092D /* ToonieWidget */,
 				9C85D8F090D4E9C332080D997CFF19EE /* .swiftlint.yml */,
 			);
 			sourceTree = "<group>";
@@ -308,8 +362,10 @@
 		2A7D018F4F821AC997F707D66FF1AAE8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B1D790C9FD3F0F7400B468DFA34CFE7D /* NotificationCenter.framework */,
 				117585FB9F8E77DCB04082EAF82AE342 /* Pods_Toonie.framework */,
 				82AF128897992796FF6ED25B199B0530 /* Pods_ToonieTests.framework */,
+				FD555FC9ECBE84C48C3CE837BB6A9F53 /* Pods_ToonieWidget.framework */,
 				56FB8671F0C5C49322A715FF3E58045A /* StoreKit.framework */,
 				569787EF9C530828FB6FF45FEE5FEDB6 /* UserNotifications.framework */,
 				DDDA9D2251DF24A727D5FF7D19B5D3B6 /* UserNotificationsUI.framework */,
@@ -356,6 +412,8 @@
 				300FB960FFEE2976C603D16E5DC4B10B /* Pods-Toonie.release.xcconfig */,
 				F9FED2BB74D689EF6B88421CC1B8579D /* Pods-ToonieTests.debug.xcconfig */,
 				630481886041EA402305CF71D731B02B /* Pods-ToonieTests.release.xcconfig */,
+				8AFEFE4CBE574CB4EC9D40CB2C33B674 /* Pods-ToonieWidget.debug.xcconfig */,
+				647D3371521DDB35BF9F6896BA9AB234 /* Pods-ToonieWidget.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -444,6 +502,7 @@
 			children = (
 				E5B5664A67B748CC79409D5ABB761F80 /* Toonie.app */,
 				D32B5ACD1A82F7A257245C24D4210ADC /* ToonieTests.xctest */,
+				6B1654A3BAD166BC9042985E427D6184 /* ToonieWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -509,6 +568,7 @@
 		C7DFDA89338BAF088BD7F2A52AD01E07 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				7F9323F2A30BC1D6B5A75290A78E5EFF /* CommonFunction.swift */,
 				391E18129E3FD4CA97AD73AFBEA5D5A5 /* CommonUtility.swift */,
 				1FDCAA09CFF5C8C7AA1BC8E5B1E86DE0 /* GestureViewController.swift */,
 			);
@@ -526,6 +586,18 @@
 				3671FD5527EB6A77347C274B14DB174B /* TagCollectionViewCell.swift */,
 			);
 			path = RecommendView;
+			sourceTree = "<group>";
+		};
+		CD0D95DE2FB4EAFDE9CEDC06747C092D /* ToonieWidget */ = {
+			isa = PBXGroup;
+			children = (
+				09195DD5048FE2E3522B466F376ACA70 /* Info.plist */,
+				E00CC3EC00DB314B0CDD92C767A37487 /* MainInterface.storyboard */,
+				D05FF2AD238FECB950A261C5B8CA41D6 /* TodayViewController.swift */,
+				FD12BD11611E9B87F84CB00CB1078D96 /* ToonieWidget.entitlements */,
+				52197ABEB7C46D573E009BC3CEF342D7 /* WidgetCollectionViewCell.swift */,
+			);
+			path = ToonieWidget;
 			sourceTree = "<group>";
 		};
 		CE755C93F8532B0D791746C8B676D28B /* View */ = {
@@ -583,6 +655,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1E000DB5FC552B8CFC8457534BDC4FB0 /* ToonieWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7EC5019BBD0C0DD6640901DA9D3DB505 /* Build configuration list for PBXNativeTarget "ToonieWidget" */;
+			buildPhases = (
+				2FC97DFA743912EDF459972618878A0E /* [CP] Check Pods Manifest.lock */,
+				7B1A95FF0FE03C960C26524E57FB3319 /* Sources */,
+				EED5F55F9F223AD10074F423BA6DE2A3 /* Frameworks */,
+				A39D6BE31D2CA15C9754DFCC81F93952 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ToonieWidget;
+			productName = ToonieWidget;
+			productReference = 6B1654A3BAD166BC9042985E427D6184 /* ToonieWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		95BDF1BEF5288564E511594C77D7AF38 /* Toonie */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1005CD2EABD7B937DC316161518995F5 /* Build configuration list for PBXNativeTarget "Toonie" */;
@@ -592,12 +682,13 @@
 				CE5F455DCBC4B8425D238EF8FF886C7F /* Frameworks */,
 				F6B7743005D9067ED5559530A50CE69C /* [CP] Embed Pods Frameworks */,
 				177D19B0706A07426A4F6DC7872AF528 /* Resources */,
-				130436991E1155E6C5F84FFA8B34B848 /* ShellScript */,
+				3AD66BFD83011719AD41735D9EBCBFF0 /* Embed App Extensions */,
 				E3FD9A369F6F2BDED02CF8C41034A4E5 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				BC5EAAF4A36060532F5034EA04E5F229 /* PBXTargetDependency */,
 			);
 			name = Toonie;
 			productName = Toonie;
@@ -629,10 +720,18 @@
 		6F584EBA5C29F3C756C4DEE7B94A2FA7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1010;
+				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Yapp;
 				TargetAttributes = {
+					1E000DB5FC552B8CFC8457534BDC4FB0 = {
+						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					95BDF1BEF5288564E511594C77D7AF38 = {
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
@@ -662,6 +761,7 @@
 			targets = (
 				95BDF1BEF5288564E511594C77D7AF38 /* Toonie */,
 				A1C72FBDC68A91A4C52524BBDF2FBCF6 /* ToonieTests */,
+				1E000DB5FC552B8CFC8457534BDC4FB0 /* ToonieWidget */,
 			);
 		};
 /* End PBXProject section */
@@ -710,6 +810,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A39D6BE31D2CA15C9754DFCC81F93952 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1369B4CD8057302BAB402E78319A16F0 /* Assets.xcassets in Resources */,
+				F1DC604B33B068B8BD61C96ABAE6EADA /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -746,6 +855,28 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Toonie-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2FC97DFA743912EDF459972618878A0E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ToonieWidget-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -839,6 +970,7 @@
 				CE58BDE4B385906F80FB4510F44E5C7B /* CALayer+.swift in Sources */,
 				BCDEA1EC37D4D5343EE8EB89C50EC320 /* ChkToonieUpdate.swift in Sources */,
 				C51E480B0D1262D5020AF02E2B26CF37 /* ChkToonieUpdateService.swift in Sources */,
+				7492E1465D238893178431F29181DE22 /* CommonFunction.swift in Sources */,
 				AB9BF389A4D6A9A12F45BDE69A35B72E /* CommonUtility.swift in Sources */,
 				FDC116E19C09047E762A2BFF96608026 /* CurationTagService.swift in Sources */,
 				8BFC98E4C41B9F358D61ED8AB127CB30 /* DetailToon.swift in Sources */,
@@ -878,6 +1010,7 @@
 				EA3F62E1C0F071466575AAE9D9B1A47D /* SplashViewController.swift in Sources */,
 				DAC921890617B9E247AE4070E1856EE9 /* String+.swift in Sources */,
 				4AE025D2C380F51BB508CE678B09CB78 /* TagCollectionViewCell.swift in Sources */,
+				F57EDB00538821C89A0497742A6F2B14 /* TodayViewController.swift in Sources */,
 				3034A2E2BB683EEC325651DE0640531F /* Token.swift in Sources */,
 				13393926F1DE0AB7625417BC7C321DE1 /* TokenService.swift in Sources */,
 				8E054D502505DD4C352EBE089DEAAB99 /* ToonListService.swift in Sources */,
@@ -891,7 +1024,19 @@
 				373C742E71CB4C13DEAA8A4C2B2B69C2 /* UIImage+.swift in Sources */,
 				BBF3D671ABB1FA62C12A76D6A4CA52CE /* UIView+.swift in Sources */,
 				FF0CB358B72DD3162E223F5DEB7D2A94 /* UIViewController+.swift in Sources */,
+				D9AAE829587851B093898E29B2BC0390 /* WidgetCollectionViewCell.swift in Sources */,
 				1911A4B1193B478BEC69B5606C1EE9A5 /* WorkList.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B1A95FF0FE03C960C26524E57FB3319 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				434A751FC6257879A9477C336CD3CBBA /* CommonFunction.swift in Sources */,
+				5B5A91FF17C85623166C3C785AA24108 /* TodayViewController.swift in Sources */,
+				9C591C4C20BCF27D5D1EDB6B546AC9CE /* UIView+.swift in Sources */,
+				6C7C8CC02FCEC5968B4661E23795EAEE /* WidgetCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -911,6 +1056,11 @@
 			target = 95BDF1BEF5288564E511594C77D7AF38 /* Toonie */;
 			targetProxy = A7A7E1C4E7B4E70621F251BC0926A728 /* PBXContainerItemProxy */;
 		};
+		BC5EAAF4A36060532F5034EA04E5F229 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1E000DB5FC552B8CFC8457534BDC4FB0 /* ToonieWidget */;
+			targetProxy = D32916237FB72298A86BD0064F85B39D /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -920,6 +1070,14 @@
 				D96ADF5E22F9048B9EE1FA43C04A076F /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		E00CC3EC00DB314B0CDD92C767A37487 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CAF6B7670C36C9C5C56ABC7A5702B8D4 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 		EA5DF823B0E683B7C42B1DAFAC7C1D6E /* Main.storyboard */ = {
@@ -933,6 +1091,28 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0E3961BB0F164790939C473923ECD41A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 647D3371521DDB35BF9F6896BA9AB234 /* Pods-ToonieWidget.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ToonieWidget/ToonieWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9RVFJQPN7Q;
+				INFOPLIST_FILE = ToonieWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yapp.toonie.ToonieWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		0F9CC5923CD86EC0AECE581401432844 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 630481886041EA402305CF71D731B02B /* Pods-ToonieTests.release.xcconfig */;
@@ -959,6 +1139,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46461D78EB2754C9A17D4352D5F97AC7 /* Pods-Toonie.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Toonie/Toonie.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -980,6 +1161,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 300FB960FFEE2976C603D16E5DC4B10B /* Pods-Toonie.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Toonie/Toonie.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -1135,6 +1317,28 @@
 			};
 			name = Debug;
 		};
+		E80759B9068A1AA9ADD4F79F9EA7ED0D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8AFEFE4CBE574CB4EC9D40CB2C33B674 /* Pods-ToonieWidget.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ToonieWidget/ToonieWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9RVFJQPN7Q;
+				INFOPLIST_FILE = ToonieWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yapp.toonie.ToonieWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1143,6 +1347,15 @@
 			buildConfigurations = (
 				749A984054BDCD116106516BF98FEE0B /* Debug */,
 				771EE3F1C570BD69A7E466EA5F3CDF0A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7EC5019BBD0C0DD6640901DA9D3DB505 /* Build configuration list for PBXNativeTarget "ToonieWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E80759B9068A1AA9ADD4F79F9EA7ED0D /* Debug */,
+				0E3961BB0F164790939C473923ECD41A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

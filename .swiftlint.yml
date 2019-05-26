@@ -14,4 +14,4 @@ error: 120
 excluded:
 - Toonie/Supporting Files/AppDelegate.swift
 - Pods
-- Toonie/Common/CommonUtility.swift
+- Toonie/Common/CommonFunction.swift

@@ -34,9 +34,7 @@ final class MypageCollectionViewCell: UICollectionViewCell {
         
         mypageToonLabel.isHidden = false
         mypageToonLabel.text = "#" + tagName
-        mypageToonImageView.image = UIImage(named: CommonUtility
-            .sharedInstance
-            .tagImage(name: tagName, storyboardName: "Mypage"))
+        mypageToonImageView.image = UIImage(named: tagImage(name: tagName, storyboardName: "Mypage"))
         
         mypageToonImageView.setCorner(cornerRadius: 5)
     }

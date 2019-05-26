@@ -22,4 +22,8 @@ target 'Toonie' do
     # Pods for testing
   end
 
+  target 'ToonieWidget' do
+    inherit! :search_paths
+  end
+
 end
