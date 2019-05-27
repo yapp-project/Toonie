@@ -61,6 +61,8 @@ final class FeedViewController: GestureViewController {
         loadForYouToonList()
         loadLatestToonList()
         loadFavoriteToonList()
+        updateView(&recentViewHeightConstraint, 0)
+        updateView(&favoriteViewHeightConstraint, 0)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -88,13 +90,14 @@ final class FeedViewController: GestureViewController {
     
     /// 당신을 위한 툰 정보 네트워크 요청
     private func loadForYouToonList() {
-        ForYouToonListService.shared.getForYouToonList { [weak self] result in
+        ToonListService.shared.getForYouToonList { [weak self] result in
             guard let self = self else { return }
             if let result = result {
                 if result.count <= 10 {
                     self.forYouToonLists = result
                 } else {
-                    self.forYouToonLists = self.makeRandomList(result)
+                    self.forYouToonLists = makeRandomList(result,
+                                                          number: 10)
                     
                 }
                 self.forYouCollectionView.reloadData()
@@ -102,43 +105,38 @@ final class FeedViewController: GestureViewController {
         }
     }
     
-    /// 최신 툰 정보 네트워크 요청
+    /// 최신 본 작품과 연관된 정보 네트워크 요청
     private func loadLatestToonList() {
-        LatestService.shared.getLatestToon { [weak self] result in
+        ToonListService.shared.getLatestToonList { [weak self] result in
             guard let self = self else { return }
             if let result = result {
                 if result.count <= 10 {
                     self.latestToonLists = result
                 } else {
-                    self.latestToonLists = self.makeRandomList(result)
+                    self.latestToonLists = makeRandomList(result,
+                                                          number: 10)
                 }
             }
-            if self.latestToonLists  == nil
-                || self.latestToonLists?.count == 0 {
-                self.updateView(&self.recentViewHeightConstraint, 0)
-            } else {
+            if self.latestToonLists?.count ?? 0 > 0 {
                 self.updateView(&self.recentViewHeightConstraint, self.recentViewHeight)
             }
             self.recentCollectionView.reloadData()
         }
     }
     
-    /// 찜한 툰 목록 정보 네트워크 요청
+    /// 찜한 툰과 연관된 목록 정보 네트워크 요청
     private func loadFavoriteToonList() {
-        FavoriteService.shared.getFavoriteToon { [weak self] result in
+        ToonListService.shared.getFavoriteToonList { [weak self] result in
             guard let self = self else { return }
-            
             if let result = result {
                 if result.count <= 10 {
                     self.favoriteToonLists = result
                 } else {
-                    self.favoriteToonLists = self.makeRandomList(result)
+                    self.favoriteToonLists = makeRandomList(result,
+                                                            number: 10)
                 }
             }
-            if result == nil
-                || result?.count == 0 {
-                self.updateView(&self.favoriteViewHeightConstraint, 0)
-            } else {
+            if self.favoriteToonLists?.count ?? 0 > 0 {
                 self.updateView(&self.favoriteViewHeightConstraint, self.favoriteViewHeight)
             }
             self.favoriteCollectionView.reloadData()
@@ -164,18 +162,6 @@ final class FeedViewController: GestureViewController {
         self.favoriteCollectionView.reloadData()
     }
     
-    /// 툰 랜덤 10개 목록 만들기
-    private func makeRandomList<T>(_ list: [T]) -> [T] {
-        var temporaryList = list
-        var randomList: [T] = []
-        for _ in 0..<10 {
-            let index = Int(arc4random_uniform(UInt32((temporaryList.count - 1))))
-            randomList.append(temporaryList[index])
-            temporaryList.remove(at: index)
-        }
-        return randomList
-    }
-    
     /// tagAnimationView 세팅
     private func setTagAnimationView() {
         tagAnimationView = AnimationView(name: "newTag")
@@ -188,6 +174,8 @@ final class FeedViewController: GestureViewController {
                 make.center.equalTo(tagView)
             }
         }
+         
+        playTagAnimationView()
     }
     
     // 태그 애니메이션 재생
@@ -208,30 +196,6 @@ final class FeedViewController: GestureViewController {
                                     animated: true)
         }
         
-    }
-    
-    /// 선택한 툰 타이틀로 툰 id 찾기
-    private func findToonId(toonTitle: String) -> String {
-        var toonId = ""
-        if let forYouToonLists = forYouToonLists {
-            for index in 0..<forYouToonLists.count
-                where toonTitle == forYouToonLists[index].toonName {
-                    toonId = forYouToonLists[index].toonID ?? ""
-            }
-        }
-        if let latestToonLists = latestToonLists {
-            for index in 0..<latestToonLists.count
-                where toonTitle == latestToonLists[index].toonName {
-                    toonId = latestToonLists[index].toonID ?? ""
-            }
-        }
-        if let favoriteToonLists = favoriteToonLists {
-            for index in 0..<favoriteToonLists.count
-                where toonTitle == favoriteToonLists[index].toonName {
-                    toonId = favoriteToonLists[index].toonID ?? ""
-            }
-        }
-        return toonId
     }
     
     /// 뷰 높이 constant 0으로 해서 없앰
@@ -320,13 +284,13 @@ extension FeedViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         if let currentCell = collectionView.cellForItem(at: indexPath) as? ForYouCollectionViewCell {
-            detailToonId = findToonId(toonTitle: currentCell.forYouToonTitleLabel.text ?? "")
+            detailToonId = currentCell.toonIdLabel.text ?? ""
         }
         if let currentCell = collectionView.cellForItem(at: indexPath) as? RecentCollectionViewCell {
-            detailToonId = findToonId(toonTitle: currentCell.recentToonTitleLabel.text ?? "")
+            detailToonId = currentCell.toonIdLabel.text ?? ""
         }
         if let currentCell = collectionView.cellForItem(at: indexPath) as? FavoriteCollectionViewCell {
-            detailToonId = findToonId(toonTitle: currentCell.favoriteToonTitleLabel.text ?? "")
+            detailToonId = currentCell.toonIdLabel.text ?? ""
         }
         pushDetailToonViewController(toonID: detailToonId, isFavorite: isFavorite)
     }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 //Main의 NavigationController
 final class MainNavigationController: UINavigationController {
@@ -72,28 +73,23 @@ final class MainViewController: GestureViewController {
         //앱리뷰요청
         CommonUtility.sharedInstance.showStoreReview()
         
-        UIAlertController
-            .alert(title: "1.0.0(5)",
-                   message: "앱리뷰기능추가\n찜기능 추가\n일부오류수정\n마이페이지 네트워킹부분 수정\n전체보기 기능",
-                   style: .alert)
-            .action(title: "확인", style: .default) { _ in
-            }
-            .present(to: self)
+        setLocalNotification()
+        inputNotification()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-        if segue.identifier == "Feed" {
-            if let feedNavigationController = segue.destination as? FeedNavigationController {
-                if let feedViewController = feedNavigationController.rootViewController as? FeedViewController {
-                    self.feedDidTapClosure = {
-                        feedViewController.viewWillAppear(true)
-//                         feedViewController.loadToon()
-                    }
-                }
-            }
-        }
-
+        
+//        if segue.identifier == "Feed" {
+//            if let feedNavigationController = segue.destination as? FeedNavigationController {
+//                if let feedViewController = feedNavigationController.rootViewController as? FeedViewController {
+//                    self.feedDidTapClosure = {
+//                        feedViewController.viewWillAppear(true)
+//                        //                         feedViewController.loadToon()
+//                    }
+//                }
+//            }
+//        }
+        
         if segue.identifier == "MyPage" {
             if let myPageNavigationController = segue.destination as? MyPageNavigationController {
                 if let myPageViewController = myPageNavigationController.rootViewController as? MypageViewController {
@@ -258,4 +254,49 @@ final class MainViewController: GestureViewController {
                 .present(to: self)
         }
     }
+    
+    /// 로컬 노티피케이션 설정
+    private func setLocalNotification() {
+        // MARK: - 여기 options에 원하는 option넣기.
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert], completionHandler: { (_, _) in
+            
+        })
+        UNUserNotificationCenter.current().delegate = self
+    }
+    
+    private func inputNotification() {
+        
+        let content = UNMutableNotificationContent()
+        content.body = "오늘은 어떤 툰을 볼까요? 투니가 추천해줄게요!"
+        
+        var dateComponents = DateComponents()
+        dateComponents.hour = 21
+        dateComponents.minute = 07
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        let request = UNNotificationRequest(identifier: "DailyNoti", content: content, trigger: trigger)
+        let center = UNUserNotificationCenter.current()
+        center.add(request) { (error) in
+            print(error?.localizedDescription ?? "")
+            
+        }
+    }
+}
+
+extension MainViewController: UNUserNotificationCenterDelegate {
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler:
+        @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .sound, .badge])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                openSettingsFor notification: UNNotification?) {
+        let settingsViewController = UIViewController()
+        settingsViewController.view.backgroundColor = .white
+        self.present(settingsViewController, animated: true, completion: nil)
+    }
+    
 }
