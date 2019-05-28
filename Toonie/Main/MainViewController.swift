@@ -75,21 +75,43 @@ final class MainViewController: GestureViewController {
         
         setLocalNotification()
         inputNotification()
+        
+        popupPresent()
+        
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    func popupPresent() {
+        //오늘하루 체크
+        let lastCloseTime = UserDefaults.standard.object(forKey: "PopupCloseTime") as? Date
+        
+        if CommonUtility.sharedInstance
+            .isDateCompare(lastCloseTime: lastCloseTime) == false {
+            
+            getCurationTagList { (tagList) in
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                if let viewController = storyboard
+                    .instantiateViewController(withIdentifier: "PopupViewController")
+                    as? PopupViewController {
+                    viewController.modalPresentationStyle = .overCurrentContext
+                    viewController.setTagList(tagList: tagList)
+                    
+                    CommonUtility.sharedInstance
+                        .mainNavigationViewController?
+                        .present(viewController,
+                                 animated: false,
+                                 completion:nil)
+                }
+            }
+        }
+        
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-//        if segue.identifier == "Feed" {
-//            if let feedNavigationController = segue.destination as? FeedNavigationController {
-//                if let feedViewController = feedNavigationController.rootViewController as? FeedViewController {
-//                    self.feedDidTapClosure = {
-//                        feedViewController.viewWillAppear(true)
-//                        //                         feedViewController.loadToon()
-//                    }
-//                }
-//            }
-//        }
-        
         if segue.identifier == "MyPage" {
             if let myPageNavigationController = segue.destination as? MyPageNavigationController {
                 if let myPageViewController = myPageNavigationController.rootViewController as? MypageViewController {
@@ -279,6 +301,21 @@ final class MainViewController: GestureViewController {
         center.add(request) { (error) in
             print(error?.localizedDescription ?? "")
             
+        }
+    }
+    
+    //오늘의 추천 태그
+    private func getCurationTagList(completion: @escaping ([String]) -> Void) {
+        RecommendService.shared.getRecommends {  res in
+            let tagCount: UInt32 = UInt32(res.count)
+            var randArray = [String]()
+            for _ in 0..<4 {
+                let randNum: Int = Int(arc4random_uniform(tagCount))
+                
+                randArray.append(res[randNum])
+            }
+            
+            completion(randArray)
         }
     }
 }
