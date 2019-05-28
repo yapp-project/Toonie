@@ -16,25 +16,23 @@
             <objects>
                 <viewController id="M4Y-Lb-cyx" customClass="TodayViewController" customModule="ToonieWidget" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="185"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6vo-eU-vjR">
-                                <rect key="frame" x="0.0" y="44" width="320" height="107"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="82"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toonie의 태그들" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Skf-f1-6bl">
-                                        <rect key="frame" x="14" y="17" width="82.5" height="14.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="textColor" name="defaultText"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="E1f-Ob-qJg">
-                                        <rect key="frame" x="10" y="46.5" width="300" height="60"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h3e-En-Hda">
+                                        <rect key="frame" x="276" y="8.5" width="1" height="65"/>
+                                        <color key="backgroundColor" name="disabledButton"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="E1f-Ob-qJg" secondAttribute="height" multiplier="5:1" id="hVb-p3-nEL"/>
+                                            <constraint firstAttribute="width" constant="1" id="a5d-N6-pFr"/>
                                         </constraints>
-                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="mZl-bo-H0u">
+                                    </view>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="E1f-Ob-qJg">
+                                        <rect key="frame" x="15" y="12" width="253" height="58"/>
+                                        <color key="backgroundColor" name="line"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="5" id="mZl-bo-H0u">
                                             <size key="itemSize" width="60" height="60"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -74,15 +72,30 @@
                                             <outlet property="delegate" destination="M4Y-Lb-cyx" id="Gk5-cQ-6HG"/>
                                         </connections>
                                     </collectionView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sod-nI-plU">
+                                        <rect key="frame" x="285" y="12" width="26" height="58"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="26" id="bbk-2i-nX8"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <state key="normal" title="추천">
+                                            <color key="titleColor" red="0.25490196078431371" green="0.25490196078431371" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="E1f-Ob-qJg" secondAttribute="bottom" constant="0.5" id="4up-y8-ulU"/>
-                                    <constraint firstItem="Skf-f1-6bl" firstAttribute="leading" secondItem="6vo-eU-vjR" secondAttribute="leading" constant="14" id="FWK-xG-xqg"/>
-                                    <constraint firstItem="Skf-f1-6bl" firstAttribute="top" secondItem="6vo-eU-vjR" secondAttribute="top" constant="17" id="INQ-PM-1xf"/>
-                                    <constraint firstItem="E1f-Ob-qJg" firstAttribute="leading" secondItem="6vo-eU-vjR" secondAttribute="leading" constant="10" id="KAR-ks-Jhs"/>
-                                    <constraint firstAttribute="trailing" secondItem="E1f-Ob-qJg" secondAttribute="trailing" constant="10" id="gHh-pB-exX"/>
-                                    <constraint firstItem="E1f-Ob-qJg" firstAttribute="top" secondItem="Skf-f1-6bl" secondAttribute="bottom" constant="15" id="wGa-5x-ppw"/>
+                                    <constraint firstItem="Sod-nI-plU" firstAttribute="leading" secondItem="6vo-eU-vjR" secondAttribute="leading" constant="285" id="3jK-01-EOv"/>
+                                    <constraint firstItem="Sod-nI-plU" firstAttribute="leading" secondItem="h3e-En-Hda" secondAttribute="trailing" constant="8" id="5FY-Hv-AQN"/>
+                                    <constraint firstItem="h3e-En-Hda" firstAttribute="leading" secondItem="E1f-Ob-qJg" secondAttribute="trailing" constant="8" id="78H-sO-f6f"/>
+                                    <constraint firstItem="Sod-nI-plU" firstAttribute="centerY" secondItem="h3e-En-Hda" secondAttribute="centerY" id="Bhi-b4-1CD"/>
+                                    <constraint firstItem="Sod-nI-plU" firstAttribute="height" secondItem="E1f-Ob-qJg" secondAttribute="height" id="DLx-rg-CVo"/>
+                                    <constraint firstItem="E1f-Ob-qJg" firstAttribute="leading" secondItem="6vo-eU-vjR" secondAttribute="leading" constant="15" id="KAR-ks-Jhs"/>
+                                    <constraint firstItem="E1f-Ob-qJg" firstAttribute="centerY" secondItem="6vo-eU-vjR" secondAttribute="centerY" id="TsJ-Iz-ZYA"/>
+                                    <constraint firstAttribute="trailing" secondItem="Sod-nI-plU" secondAttribute="trailing" constant="9" id="iQ8-O7-6WT"/>
+                                    <constraint firstAttribute="bottom" secondItem="E1f-Ob-qJg" secondAttribute="bottom" constant="12" id="mEY-1p-q8X"/>
+                                    <constraint firstItem="h3e-En-Hda" firstAttribute="centerY" secondItem="E1f-Ob-qJg" secondAttribute="centerY" id="r6z-3v-fqe"/>
+                                    <constraint firstItem="h3e-En-Hda" firstAttribute="height" secondItem="E1f-Ob-qJg" secondAttribute="height" multiplier="65:58" id="wxq-jw-fi5"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -96,7 +109,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="185"/>
+                    <size key="freeformSize" width="320" height="160"/>
                     <connections>
                         <outlet property="widgetCollecionView" destination="E1f-Ob-qJg" id="c8G-gB-9Qw"/>
                     </connections>
@@ -108,8 +121,11 @@
     </scenes>
     <resources>
         <image name="dum2" width="164" height="164"/>
-        <namedColor name="defaultText">
-            <color red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="disabledButton">
+            <color red="0.60799998044967651" green="0.60799998044967651" blue="0.60799998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="line">
+            <color red="0.76470588235294112" green="0.76470588235294112" blue="0.76470588235294112" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
