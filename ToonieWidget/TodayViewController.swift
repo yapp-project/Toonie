@@ -12,18 +12,24 @@ import NotificationCenter
 final class TodayViewController: UIViewController, NCWidgetProviding {
     
     @IBOutlet private weak var widgetCollecionView: UICollectionView!
+    @IBOutlet private weak var curtionButton: UIButton!
+    
     
     private let tagArray = ["가족", "반려동물", "사랑 연애", "심리 감정", "여행", "음식", "자기계발", "자취생활", "직업", "페미니즘", "학교생활", "해외"]
     private var tagList: [String] = []
     
+    @IBAction func curationButton(_ sender: Any) {
+        print("hihihi")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        curtionButton.setTitle("추천\n받기", for: .normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        tagList = makeRandomList(tagArray, number: 5)
+        tagList = makeRandomList(tagArray, number: 4)
         widgetCollecionView.reloadData()
     }
     

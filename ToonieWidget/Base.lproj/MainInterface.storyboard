@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,22 +15,25 @@
             <objects>
                 <viewController id="M4Y-Lb-cyx" customClass="TodayViewController" customModule="ToonieWidget" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6vo-eU-vjR">
-                                <rect key="frame" x="0.0" y="44" width="320" height="82"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="72"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h3e-En-Hda">
-                                        <rect key="frame" x="276" y="8.5" width="1" height="65"/>
-                                        <color key="backgroundColor" name="disabledButton"/>
+                                        <rect key="frame" x="277" y="9" width="1" height="54"/>
+                                        <color key="backgroundColor" red="0.42352941176470588" green="0.42352941176470588" blue="0.42352941176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="1" id="a5d-N6-pFr"/>
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="E1f-Ob-qJg">
-                                        <rect key="frame" x="15" y="12" width="253" height="58"/>
-                                        <color key="backgroundColor" name="line"/>
+                                        <rect key="frame" x="10" y="6" width="260" height="60"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="E1f-Ob-qJg" secondAttribute="height" multiplier="13:3" id="HZm-yk-WkG"/>
+                                        </constraints>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="5" id="mZl-bo-H0u">
                                             <size key="itemSize" width="60" height="60"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -73,29 +75,29 @@
                                         </connections>
                                     </collectionView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sod-nI-plU">
-                                        <rect key="frame" x="285" y="12" width="26" height="58"/>
+                                        <rect key="frame" x="282" y="6" width="30" height="60"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="26" id="bbk-2i-nX8"/>
+                                            <constraint firstAttribute="width" secondItem="Sod-nI-plU" secondAttribute="height" multiplier="1:2" id="LsT-mY-rUF"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <state key="normal" title="추천">
                                             <color key="titleColor" red="0.25490196078431371" green="0.25490196078431371" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="curationButton:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="08T-ic-xva"/>
+                                        </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="Sod-nI-plU" firstAttribute="leading" secondItem="6vo-eU-vjR" secondAttribute="leading" constant="285" id="3jK-01-EOv"/>
-                                    <constraint firstItem="Sod-nI-plU" firstAttribute="leading" secondItem="h3e-En-Hda" secondAttribute="trailing" constant="8" id="5FY-Hv-AQN"/>
-                                    <constraint firstItem="h3e-En-Hda" firstAttribute="leading" secondItem="E1f-Ob-qJg" secondAttribute="trailing" constant="8" id="78H-sO-f6f"/>
-                                    <constraint firstItem="Sod-nI-plU" firstAttribute="centerY" secondItem="h3e-En-Hda" secondAttribute="centerY" id="Bhi-b4-1CD"/>
-                                    <constraint firstItem="Sod-nI-plU" firstAttribute="height" secondItem="E1f-Ob-qJg" secondAttribute="height" id="DLx-rg-CVo"/>
-                                    <constraint firstItem="E1f-Ob-qJg" firstAttribute="leading" secondItem="6vo-eU-vjR" secondAttribute="leading" constant="15" id="KAR-ks-Jhs"/>
-                                    <constraint firstItem="E1f-Ob-qJg" firstAttribute="centerY" secondItem="6vo-eU-vjR" secondAttribute="centerY" id="TsJ-Iz-ZYA"/>
-                                    <constraint firstAttribute="trailing" secondItem="Sod-nI-plU" secondAttribute="trailing" constant="9" id="iQ8-O7-6WT"/>
-                                    <constraint firstAttribute="bottom" secondItem="E1f-Ob-qJg" secondAttribute="bottom" constant="12" id="mEY-1p-q8X"/>
-                                    <constraint firstItem="h3e-En-Hda" firstAttribute="centerY" secondItem="E1f-Ob-qJg" secondAttribute="centerY" id="r6z-3v-fqe"/>
-                                    <constraint firstItem="h3e-En-Hda" firstAttribute="height" secondItem="E1f-Ob-qJg" secondAttribute="height" multiplier="65:58" id="wxq-jw-fi5"/>
+                                    <constraint firstItem="h3e-En-Hda" firstAttribute="height" secondItem="6vo-eU-vjR" secondAttribute="height" multiplier="82:110" id="2D1-Jd-y35"/>
+                                    <constraint firstItem="E1f-Ob-qJg" firstAttribute="width" secondItem="6vo-eU-vjR" secondAttribute="width" multiplier="260:320" id="7a6-oE-44N"/>
+                                    <constraint firstItem="E1f-Ob-qJg" firstAttribute="leading" secondItem="6vo-eU-vjR" secondAttribute="leading" constant="10" id="K5T-yy-Zmy"/>
+                                    <constraint firstItem="h3e-En-Hda" firstAttribute="centerY" secondItem="6vo-eU-vjR" secondAttribute="centerY" id="Yp3-3J-mqK"/>
+                                    <constraint firstAttribute="trailing" secondItem="Sod-nI-plU" secondAttribute="trailing" constant="8" id="Z08-R5-uOS"/>
+                                    <constraint firstItem="Sod-nI-plU" firstAttribute="centerY" secondItem="E1f-Ob-qJg" secondAttribute="centerY" id="pJ2-8v-Gzf"/>
+                                    <constraint firstItem="Sod-nI-plU" firstAttribute="leading" secondItem="h3e-En-Hda" secondAttribute="trailing" constant="4" id="qPf-Ou-qop"/>
+                                    <constraint firstItem="E1f-Ob-qJg" firstAttribute="centerY" secondItem="6vo-eU-vjR" secondAttribute="centerY" id="wY9-Mx-Hm7"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -109,8 +111,9 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="160"/>
+                    <size key="freeformSize" width="320" height="150"/>
                     <connections>
+                        <outlet property="curtionButton" destination="Sod-nI-plU" id="Q6J-6q-P1J"/>
                         <outlet property="widgetCollecionView" destination="E1f-Ob-qJg" id="c8G-gB-9Qw"/>
                     </connections>
                 </viewController>
@@ -121,11 +124,5 @@
     </scenes>
     <resources>
         <image name="dum2" width="164" height="164"/>
-        <namedColor name="disabledButton">
-            <color red="0.60799998044967651" green="0.60799998044967651" blue="0.60799998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="line">
-            <color red="0.76470588235294112" green="0.76470588235294112" blue="0.76470588235294112" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
     </resources>
 </document>
