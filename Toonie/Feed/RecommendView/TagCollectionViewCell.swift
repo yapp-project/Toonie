@@ -45,7 +45,9 @@ final class TagCollectionViewCell: UICollectionViewCell {
     }
     
     func setTitleLabel(titleString: String?) {
-        titleLabel.text = titleString
+        if let titleString = titleString {
+            titleLabel.text = "#\(titleString)"
+        }
     }
     func getTitleLabel() -> UILabel {
         return titleLabel

@@ -103,4 +103,33 @@ final class CommonUtility: NSObject {
                 UserDefaults.standard.set(0, forKey: "appStartCount")
             }
     }
+    
+    ///오늘나는 인스타툰을 읽고 싶어요: 하루에 한번인데 오늘 하루 지났는지 체크함
+    func isDateCompare(lastCloseTime: Date?) -> Bool{
+        //true: 안지남 -> 팝업뜨면안됨, false: 지남 -> 팝업떠야함
+
+        guard lastCloseTime != nil else {
+            return false
+        }
+        
+        if let lastCloseTime = lastCloseTime {
+            do {
+                let formatter = DateComponentsFormatter()
+                formatter.allowedUnits = [.hour]
+                formatter.unitsStyle = .full
+                if let hourString = formatter.string(from: lastCloseTime.addingTimeInterval(86400)
+                    , to: Date.init()) {
+                    print("\(hourString)만큼 차이납니다.")
+                    
+                    let hour = hourString.replacingOccurrences(of: " hours", with: "")
+                    
+                    if 0 <= Int(hour) ?? 0 {
+                        return false
+                    }
+                }
+            }
+        }
+        return true
+    }
+    
 }

@@ -110,8 +110,14 @@ final class RecommendViewController: GestureViewController {
     
     ///태그 선택할때
     func reloadTagTableView() {
-        //        print("tagSelectArray \(tagSelectArray)")
+        print("tagSelectArray \(tagSelectArray)")
         recommendTableView.reloadData()
+    }
+    
+    func setTagSelectArray(selectArr: [String]?) {
+        if let selectArr = selectArr {
+            tagSelectArray = selectArr
+        }
     }
     
 }
@@ -148,7 +154,7 @@ extension RecommendViewController: UITableViewDataSource {
         //역순 노출
         let reverseIndex = tagSelectArray.count - (indexPath.row + 1)
         cell.setRecommentTitleLabel(titleString: tagSelectArray[reverseIndex])
-        
+      
         return cell
     }
 }
@@ -171,7 +177,15 @@ extension RecommendViewController: UICollectionViewDataSource {
             else { return UICollectionViewCell() }
         let titleName = tagList[indexPath.row]
         cell.setTitleLabel(titleString: titleName)
+        
         cell.setCellStatus(bool: false)
+        
+        for arr in tagSelectArray {
+            if arr == titleName {
+                cell.setCellStatus(bool: true)
+            }
+        }
+        
         
         return cell
     }
@@ -185,7 +199,7 @@ extension RecommendViewController: UICollectionViewDataSource {
                                               size: 14)
         var width = Int(keyword.widthWithConstrainedHeight(height: 17,
                                                            font: font))
-        width += 22
+        width += 28
         
         //최대길이제약 - 157
         if maxTagItemWidth < width {
@@ -249,7 +263,7 @@ extension RecommendViewController: UICollectionViewDelegateFlowLayout {
                                               size: 14)
         var width = Int(keyword.widthWithConstrainedHeight(height: 17,
                                                            font: font))
-        width += 22
+        width += 28
         
         //최대길이제약 - 157
         if maxTagItemWidth < width {
