@@ -58,5 +58,16 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.toonie</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>Toonie</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>
