@@ -680,7 +680,7 @@
 				0A03A8E701D8806A7558B618CCC2B0D5 /* [CP] Check Pods Manifest.lock */,
 				7B171198A32EB3EFBC3D890069B09B16 /* Sources */,
 				CE5F455DCBC4B8425D238EF8FF886C7F /* Frameworks */,
-				F6B7743005D9067ED5559530A50CE69C /* [CP] Embed Pods Frameworks */,
+				CF120053B284775B4869DE30ACAECF1F /* [CP] Embed Pods Frameworks */,
 				177D19B0706A07426A4F6DC7872AF528 /* Resources */,
 				3AD66BFD83011719AD41735D9EBCBFF0 /* Embed App Extensions */,
 				E3FD9A369F6F2BDED02CF8C41034A4E5 /* ShellScript */,
@@ -905,7 +905,7 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" 2930b75a1fc5ef7b545e8b1cd650c5ffbbdeb39a dd398cf8d7aa4bcacd21cfd6ab35a158a0ebe458a5af8a2917fa1033064bd14d\n";
 		};
-		F6B7743005D9067ED5559530A50CE69C /* [CP] Embed Pods Frameworks */ = {
+		CF120053B284775B4869DE30ACAECF1F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -913,7 +913,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Toonie/Pods-Toonie-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Toonie/Pods-Toonie-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/KTCenterFlowLayout/KTCenterFlowLayout.framework",
@@ -938,7 +938,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Toonie/Pods-Toonie-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Toonie/Pods-Toonie-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1088,7 +1088,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yapp.toonie.ToonieWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toonie.ToonieWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
@@ -1133,7 +1133,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yapp.toonie;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toonie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1155,7 +1155,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yapp.toonie;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toonie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1314,7 +1314,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yapp.toonie.ToonieWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toonie.ToonieWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
