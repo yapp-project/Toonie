@@ -61,6 +61,8 @@ final class FeedViewController: GestureViewController {
         loadForYouToonList()
         loadLatestToonList()
         loadFavoriteToonList()
+        updateView(&recentViewHeightConstraint, 0)
+        updateView(&favoriteViewHeightConstraint, 0)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -115,10 +117,7 @@ final class FeedViewController: GestureViewController {
                                                           number: 10)
                 }
             }
-            if self.latestToonLists  == nil
-                || self.latestToonLists?.count == 0 {
-                self.updateView(&self.recentViewHeightConstraint, 0)
-            } else {
+            if self.latestToonLists?.count ?? 0 > 0 {
                 self.updateView(&self.recentViewHeightConstraint, self.recentViewHeight)
             }
             self.recentCollectionView.reloadData()
@@ -137,10 +136,7 @@ final class FeedViewController: GestureViewController {
                                                             number: 10)
                 }
             }
-            if result == nil
-                || result?.count == 0 {
-                self.updateView(&self.favoriteViewHeightConstraint, 0)
-            } else {
+            if self.favoriteToonLists?.count ?? 0 > 0 {
                 self.updateView(&self.favoriteViewHeightConstraint, self.favoriteViewHeight)
             }
             self.favoriteCollectionView.reloadData()

@@ -79,16 +79,16 @@ final class MainViewController: GestureViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "Feed" {
-            if let feedNavigationController = segue.destination as? FeedNavigationController {
-                if let feedViewController = feedNavigationController.rootViewController as? FeedViewController {
-                    self.feedDidTapClosure = {
-                        feedViewController.viewWillAppear(true)
-                        //                         feedViewController.loadToon()
-                    }
-                }
-            }
-        }
+//        if segue.identifier == "Feed" {
+//            if let feedNavigationController = segue.destination as? FeedNavigationController {
+//                if let feedViewController = feedNavigationController.rootViewController as? FeedViewController {
+//                    self.feedDidTapClosure = {
+//                        feedViewController.viewWillAppear(true)
+//                        //                         feedViewController.loadToon()
+//                    }
+//                }
+//            }
+//        }
         
         if segue.identifier == "MyPage" {
             if let myPageNavigationController = segue.destination as? MyPageNavigationController {
