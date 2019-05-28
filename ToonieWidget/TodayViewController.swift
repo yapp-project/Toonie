@@ -19,7 +19,14 @@ final class TodayViewController: UIViewController, NCWidgetProviding {
     private var tagList: [String] = []
     
     @IBAction func curationButton(_ sender: Any) {
-        print("hihihi")
+        
+        let url = URL(string: "Toonie://")!
+        self.extensionContext?.open(url, completionHandler: { (success) in
+            if (!success) {
+                print("error: failed to open app from Today Extension")
+            }
+        })
+        
     }
     
     override func viewDidLoad() {
