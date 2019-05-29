@@ -24,6 +24,7 @@ final class CommonUtility: NSObject {
     weak var feedNavigationViewController: FeedNavigationController?
     weak var lookNavigationViewController: LookNavigationController?
     weak var myPageNavigationViewController: MyPageNavigationController?
+    var myTagDic = [String: String]()
     
     //싱글톤
     static let sharedInstance = CommonUtility()

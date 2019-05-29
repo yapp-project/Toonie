@@ -9,7 +9,7 @@
 import UIKit 
 
 // 인스타툰 상세 화면
-final class DetailToonViewController: GestureViewController {
+final class DetailToonViewController: GestureViewController, UITextFieldDelegate {
     
     // MARK: - Properties
     
@@ -29,6 +29,10 @@ final class DetailToonViewController: GestureViewController {
     @IBOutlet private weak var mainKeywordLabel: UILabel!
     @IBOutlet private weak var subKeywordLabel: UILabel!
     @IBOutlet private weak var favoriteButton: UIButton!
+    
+    @IBOutlet private weak var myTagLabel: UILabel!
+    @IBOutlet private weak var tagTextField: UITextField!
+    @IBOutlet weak var detailScrollView: UIScrollView!
     
     // MARK: - IBActions
     
@@ -93,7 +97,18 @@ final class DetailToonViewController: GestureViewController {
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
-        super.viewDidLoad() 
+        super.viewDidLoad()
+        
+        tagTextField.delegate = self
+        tagTextField.returnKeyType = .done
+        hideKeyboard()
+        guard let detailToonID = detailToonID else { return }
+        myTagLabel.text = CommonUtility.sharedInstance.myTagDic[detailToonID] ?? ""
+        //        if CommonUtility.sharedInstance.myTagDic[detailToonID] != nil {
+        //            myTagLabel.text = CommonUtility.sharedInstance.myTagDic[detailToonID]
+        //        } else {
+        //            myTagLabel.text = ""
+        //        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -114,6 +129,24 @@ final class DetailToonViewController: GestureViewController {
     }
     
     // MARK: - Functions
+    
+    private func hideKeyboard() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        myTagLabel.text = tagTextField.text
+        CommonUtility.sharedInstance.myTagDic.updateValue(myTagLabel.text ?? "", forKey: detailToonID ?? "")
+        tagTextField.resignFirstResponder()
+        return true
+    }
     
     /// 상세화면 툰 정보 네트워크 요청
     private func loadDetailToon(_ toonID: String) {
@@ -158,8 +191,8 @@ final class DetailToonViewController: GestureViewController {
             self.authorIDLabel.text = detailToon.instaID
             self.authorNameLabel.text = detailToon.toonName
             self.descriptionLabel.text = " " //detailToon.instaInfo
-            self.postCountLabel.text = detailToon.instaPostCount
-            self.followerNumberLabel.text = detailToon.instaFollowerCount
+            //            self.postCountLabel.text = detailToon.instaPostCount
+            //            self.followerNumberLabel.text = detailToon.instaFollowerCount
         }
         
         var tagList = ""
