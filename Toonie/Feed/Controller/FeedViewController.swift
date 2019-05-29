@@ -315,7 +315,7 @@ extension FeedViewController {
         }
         
         // 2. Set ChartDataSet
-        let pieChartDataSet = PieChartDataSet(entries: dataEntries, label: nil)
+        let pieChartDataSet = PieChartDataSet(values: dataEntries, label: nil)
         pieChartDataSet.colors = colorsOfCharts(numbersOfColor: dataPoints.count)
         
         // 3. Set ChartData
