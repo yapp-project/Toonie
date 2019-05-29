@@ -78,7 +78,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
-  - Charts
+  - Charts (~> 3.2)
   - Crashlytics
   - Fabric
   - Firebase/Core
@@ -132,6 +132,6 @@ SPEC CHECKSUMS:
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SwiftLint: 009a898ef2a1c851f45e1b59349bf6ff2ddc990d
 
-PODFILE CHECKSUM: e58317a660a40678d47d4b7caa82769c9badc869
+PODFILE CHECKSUM: 9cb6ab32c2770ac920697f905b28e4e1edb8044d
 
 COCOAPODS: 1.7.0
