@@ -286,6 +286,64 @@
             </objects>
             <point key="canvasLocation" x="1058.4000000000001" y="1092.8571428571429"/>
         </scene>
+        <!--Swipe Card View Controller-->
+        <scene sceneID="vll-9f-W1K">
+            <objects>
+                <viewController restorationIdentifier="SwipeCardViewController" storyboardIdentifier="SwipeCardViewController" id="au5-x9-hbk" customClass="SwipeCardViewController" customModule="Toonie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rUX-bU-KZL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BnX-qO-UhG">
+                                <rect key="frame" x="41.333333333333343" y="241.99999999999997" width="331.33333333333326" height="331.33333333333326"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="BnX-qO-UhG" secondAttribute="height" multiplier="1:1" id="dh1-Qc-Bpu"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xkb-6q-l7J">
+                                <rect key="frame" x="0.0" y="802" width="414" height="60"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Vr3-bK-bUc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="15"/>
+                                <state key="normal" title="그만하기">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeButtonDidTap:" destination="au5-x9-hbk" eventType="touchUpInside" id="Gj8-IA-Bf3"/>
+                                    <action selector="recommendMoveDidTap:" destination="u6u-ke-kPC" eventType="touchUpInside" id="rXE-uo-hAY"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0oX-gR-ZuK">
+                                <rect key="frame" x="0.0" y="862" width="414" height="34"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="xkb-6q-l7J" firstAttribute="leading" secondItem="8VE-1X-TMt" secondAttribute="leading" id="4Mm-Ph-mGK"/>
+                            <constraint firstItem="8VE-1X-TMt" firstAttribute="bottom" secondItem="0oX-gR-ZuK" secondAttribute="top" id="Ibf-b0-VEx"/>
+                            <constraint firstItem="BnX-qO-UhG" firstAttribute="centerY" secondItem="8VE-1X-TMt" secondAttribute="centerY" multiplier="0.9" id="OSb-Zr-Z3E"/>
+                            <constraint firstItem="BnX-qO-UhG" firstAttribute="width" secondItem="rUX-bU-KZL" secondAttribute="width" multiplier="0.8" id="g1M-O6-uod"/>
+                            <constraint firstAttribute="bottom" secondItem="0oX-gR-ZuK" secondAttribute="bottom" id="h6F-g7-MdD"/>
+                            <constraint firstItem="8VE-1X-TMt" firstAttribute="trailing" secondItem="xkb-6q-l7J" secondAttribute="trailing" id="mHW-wr-ETB"/>
+                            <constraint firstItem="BnX-qO-UhG" firstAttribute="centerX" secondItem="8VE-1X-TMt" secondAttribute="centerX" id="mub-ft-fuI"/>
+                            <constraint firstItem="0oX-gR-ZuK" firstAttribute="leading" secondItem="8VE-1X-TMt" secondAttribute="leading" id="q7j-9M-a6t"/>
+                            <constraint firstItem="xkb-6q-l7J" firstAttribute="bottom" secondItem="8VE-1X-TMt" secondAttribute="bottom" id="sbO-BG-aW5"/>
+                            <constraint firstItem="8VE-1X-TMt" firstAttribute="trailing" secondItem="0oX-gR-ZuK" secondAttribute="trailing" id="yAQ-dB-dxC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8VE-1X-TMt"/>
+                    </view>
+                    <connections>
+                        <outlet property="cardBackgroundView" destination="BnX-qO-UhG" id="mbd-eD-Kw2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cfa-uA-RY7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1784" y="1093"/>
+        </scene>
         <!--Feed-->
         <scene sceneID="tuS-8R-LT0">
             <objects>

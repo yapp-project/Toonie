@@ -110,4 +110,22 @@ class KeywordToonAllListService: Requestable {
             }
         }
     }
+    
+    func getKeywordToonAllList(keyword: String,
+                               completion: @escaping ([ToonList]?) -> Void,
+                               failer: @escaping () -> Void)  {
+        get(API.toons + "/keyword/\(keyword)") { result in
+            switch result {
+            case .networkSuccess(let data):
+                guard let toonList = data.resResult.toonList else { return }
+                completion(toonList)
+            case .networkError(let error):
+                print(error)
+                failer()
+            case .networkFail:
+                print("KeywordToonAllListService Network Fail")
+                failer()
+            }
+        }
+    }
 }

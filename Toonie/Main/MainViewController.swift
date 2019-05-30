@@ -11,6 +11,11 @@ import UserNotifications
 
 //Main의 NavigationController
 final class MainNavigationController: UINavigationController {
+    var rootViewController: UIViewController? {
+        return viewControllers.first
+    }
+    
+    
     override init(rootViewController: UIViewController) {
         super.init(rootViewController: rootViewController)
     }
@@ -76,7 +81,13 @@ final class MainViewController: GestureViewController {
         setLocalNotification()
         inputNotification()
         
-        popupPresent()
+        //심사용
+        swipeCardPresent { [weak self] in
+            guard let self = self else { return }
+            self.popupPresent()
+        }
+        
+        //일반용
         
     }
     
@@ -84,13 +95,75 @@ final class MainViewController: GestureViewController {
         super.viewWillAppear(animated)
     }
     
+    func swipeCardPresent(completion: @escaping () -> Void) {
+        let lastCloseTime = UserDefaults.standard.object(forKey: "SwipeCloseTime") as? Date
+        
+        if CommonUtility.sharedInstance
+            .isDateCompare(lastCloseTime: lastCloseTime,
+                           hideDay: 7) == false {
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let viewController = storyboard
+                .instantiateViewController(withIdentifier: "SwipeCardViewController")
+                as? SwipeCardViewController {
+                viewController.modalPresentationStyle = .overCurrentContext
+                
+                let tagArray = ["가족", "반려동물", "사랑 연애", "심리 감정", "여행", "음식", "자기계발", "자취생활", "직업", "페미니즘", "학교생활", "해외"]
+                let index = Int(arc4random_uniform(UInt32((tagArray.count - 1))))
+                
+                KeywordToonAllListService
+                    .shared
+                    .getKeywordToonAllList(keyword: tagArray[index],
+                                           completion: { [weak self]  (res) in
+                                            guard let self = self else { return }
+                                            guard let toonData = res else { return }
+                                            
+                                            var card = [Card]()
+                                            //10개제한
+                                            var index = 10
+                                            for item in toonData {
+                                                let cardItem = Card.init(name: item.instaID ?? "instaId",
+                                                                         imageUrl: item.instaThumnailUrl ?? "")
+                                                card.append(cardItem)
+                                                index -= 1
+                                                if index == 0 {
+                                                    break
+                                                }
+                                            }
+                                            
+                                            let cardItem = Card.init(name: "swipeInfo",
+                                                                     imageUrl: "swipeInfo")
+                                            
+                                            card.append(cardItem)
+                                            
+                                            viewController.card = card
+                                            
+                                            viewController.dismissClosure = {
+                                                self.popupPresent()
+                                            }
+                                            
+                                            CommonUtility.sharedInstance
+                                                .mainNavigationViewController?
+                                                .present(viewController,
+                                                         animated: false,
+                                                         completion:nil)
+                        }, failer: {
+                            completion()
+                    })
+            }
+        } else {
+            completion()
+        }
+    }
+    
     func popupPresent() {
         //오늘하루 체크
         let lastCloseTime = UserDefaults.standard.object(forKey: "PopupCloseTime") as? Date
         
         if CommonUtility.sharedInstance
-            .isDateCompare(lastCloseTime: lastCloseTime) == false {
-            
+            .isDateCompare(lastCloseTime: lastCloseTime,
+                           hideDay: 1) == false {
+        
             getCurationTagList { (tagList) in
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 if let viewController = storyboard
@@ -317,6 +390,18 @@ final class MainViewController: GestureViewController {
             
             completion(randArray)
         }
+    }
+    
+    func swipeCardComplete() {
+        UIAlertController
+            .alert(title: nil,
+                   message: "취향분석에 반영됐어요!\n오늘도 즐거운 투니 되세요!",
+                   style: .alert)
+            .action(title: "확인", style: .default) { _ in
+                UserDefaults.standard.set(Date.init(), forKey: "SwipeCloseTime")
+                self.popupPresent()
+            }
+            .present(to: self)
     }
 }
 
