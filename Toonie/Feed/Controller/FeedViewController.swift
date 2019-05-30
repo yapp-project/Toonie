@@ -40,6 +40,7 @@ final class FeedViewController: GestureViewController {
     @IBOutlet private weak var favoriteCollectionView: UICollectionView!
     @IBOutlet private weak var recentViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var favoriteViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var pieChartViewHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet private weak var pieChartView: PieChartView!
     
@@ -71,7 +72,10 @@ final class FeedViewController: GestureViewController {
         
         ReviewerService.shared.getIsReviewer { [weak self] (res) in
             guard let self = self else { return }
-            print("res : \(res ?? true)")
+            guard let isReview = res else { return }
+            if (isReview == false) {
+                self.updateView(&self.pieChartViewHeightConstraint, 0)
+            }
         }
         
         customizeChart(dataPoints: items, values: itemCount.map{ Double($0) })
