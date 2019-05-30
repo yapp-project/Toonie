@@ -56,8 +56,11 @@ final class FeedViewController: GestureViewController {
     private var favoriteToon: [ToonList]?
     private var detailToonId = ""
     private var isFavorite = false
-    let items = ["인스타툰", "취향 태그"]
-    let itemCount = [187, 58]
+    private let items = ["인스타툰", "취향 태그"]
+    private let itemCount = [187, 58]
+    
+    private var dataEntries: [ChartDataEntry] = []
+    private var dataEntry = PieChartDataEntry()
     
     // MARK: - Life Cycle
     
@@ -190,7 +193,7 @@ final class FeedViewController: GestureViewController {
                 make.center.equalTo(tagView)
             }
         }
-         
+        
         playTagAnimationView()
     }
     
@@ -317,9 +320,8 @@ extension FeedViewController {
     func customizeChart(dataPoints: [String], values: [Double]) {
         
         // 1. Set ChartDataEntry
-        var dataEntries: [ChartDataEntry] = []
         for i in 0..<dataPoints.count {
-            let dataEntry = PieChartDataEntry(value: values[i], label: dataPoints[i], data:  dataPoints[i] as AnyObject)
+            dataEntry = PieChartDataEntry(value: values[i], label: dataPoints[i], data: dataPoints[i] as AnyObject)
             dataEntries.append(dataEntry)
         }
         
@@ -340,11 +342,10 @@ extension FeedViewController {
     
     private func colorsOfCharts(numbersOfColor: Int) -> [UIColor] {
         var colors: [UIColor] = []
-                colors.append(#colorLiteral(red: 0.9960784314, green: 0.2, blue: 0.003921568627, alpha: 1))
-                colors.append(#colorLiteral(red: 1, green: 0.4666666667, blue: 0.007843137255, alpha: 1))
+        colors.append(#colorLiteral(red: 0.9960784314, green: 0.2, blue: 0.003921568627, alpha: 1))
+        colors.append(#colorLiteral(red: 1, green: 0.4666666667, blue: 0.007843137255, alpha: 1))
         colors.append(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
-
-
+        
         return colors
     }
 }
