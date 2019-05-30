@@ -81,13 +81,19 @@ final class MainViewController: GestureViewController {
         setLocalNotification()
         inputNotification()
         
-        //심사용
-        swipeCardPresent { [weak self] in
-            guard let self = self else { return }
-            self.popupPresent()
-        }
         
-        //일반용
+        ReviewerService.shared.getIsReviewer { [weak self] (res) in
+            guard let self = self else { return }
+            guard let isReview = res else { return }
+            if (isReview == true) {
+                
+                //심사용
+                self.swipeCardPresent { [weak self] in
+                    guard let self = self else { return }
+                    self.popupPresent()
+                }
+            }
+        }
         
     }
     
