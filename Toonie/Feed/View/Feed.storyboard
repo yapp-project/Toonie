@@ -367,7 +367,7 @@
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jZL-Lj-rak">
-                                        <rect key="frame" x="0.0" y="848" width="375" height="336"/>
+                                        <rect key="frame" x="0.0" y="839.5" width="375" height="336"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="336" id="igM-49-XBG"/>
@@ -467,13 +467,13 @@
                                         </connections>
                                     </collectionView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="당신을 위한 공감툰" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQx-iZ-RYS">
-                                        <rect key="frame" x="20" y="810" width="164" height="27"/>
+                                        <rect key="frame" x="20" y="801.5" width="164" height="27"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="22"/>
                                         <color key="textColor" name="main"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4pC-y0-sbe" userLabel="Last View">
-                                        <rect key="frame" x="0.0" y="1480" width="375" height="429"/>
+                                        <rect key="frame" x="0.0" y="1471.5" width="375" height="429"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="찜한 작품과 연관된" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOy-oF-xgZ">
                                                 <rect key="frame" x="20" y="30" width="164" height="25"/>
@@ -595,7 +595,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7hg-u3-Kli" userLabel="Third View">
-                                        <rect key="frame" x="0.0" y="1184" width="375" height="296"/>
+                                        <rect key="frame" x="0.0" y="1175.5" width="375" height="296"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최근 본 작품과 연관된" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wuy-86-xtS">
                                                 <rect key="frame" x="20" y="24" width="189" height="27"/>
@@ -696,47 +696,60 @@
                                             <constraint firstAttribute="bottom" secondItem="OFi-Vh-XOk" secondAttribute="bottom" id="zRg-4u-2xN"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fq0-S0-FNM" customClass="PieChartView" customModule="Charts">
-                                        <rect key="frame" x="37.5" y="460" width="300" height="300"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fh9-94-LX8">
+                                        <rect key="frame" x="0.0" y="402.5" width="375" height="391"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fq0-S0-FNM" customClass="PieChartView" customModule="Charts">
+                                                <rect key="frame" x="37" y="71" width="300" height="300"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Fq0-S0-FNM" secondAttribute="height" multiplier="1:1" id="n2k-Yk-BW1"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="투니의 컨텐츠" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qCE-nC-dcV">
+                                                <rect key="frame" x="20" y="20" width="120" height="41"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="22"/>
+                                                <color key="textColor" name="main"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="Fq0-S0-FNM" secondAttribute="height" multiplier="1:1" id="n2k-Yk-BW1"/>
+                                            <constraint firstItem="qCE-nC-dcV" firstAttribute="leading" secondItem="Fh9-94-LX8" secondAttribute="leading" constant="20" id="JmR-ZV-JQb"/>
+                                            <constraint firstItem="qCE-nC-dcV" firstAttribute="top" secondItem="Fh9-94-LX8" secondAttribute="top" constant="20" id="K27-lw-YnT"/>
+                                            <constraint firstAttribute="trailing" secondItem="Fq0-S0-FNM" secondAttribute="trailing" constant="38" id="MCU-35-gmH"/>
+                                            <constraint firstItem="Fq0-S0-FNM" firstAttribute="top" secondItem="qCE-nC-dcV" secondAttribute="bottom" constant="10" id="Uvz-7Z-TP0"/>
+                                            <constraint firstItem="Fq0-S0-FNM" firstAttribute="leading" secondItem="Fh9-94-LX8" secondAttribute="leading" constant="37" id="aYI-9i-pjC"/>
+                                            <constraint firstAttribute="bottom" secondItem="Fq0-S0-FNM" secondAttribute="bottom" constant="20" id="bhx-iM-iSk"/>
+                                            <constraint firstAttribute="height" constant="391" id="yj0-Vu-108"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="투니의 컨텐츠" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qCE-nC-dcV">
-                                        <rect key="frame" x="20" y="427" width="120" height="27"/>
-                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="22"/>
-                                        <color key="textColor" name="main"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="jZL-Lj-rak" firstAttribute="leading" secondItem="OA3-Iu-Gjr" secondAttribute="leading" id="3fJ-ha-B1n"/>
+                                    <constraint firstItem="Fh9-94-LX8" firstAttribute="leading" secondItem="OA3-Iu-Gjr" secondAttribute="leading" id="4za-15-Tkm"/>
                                     <constraint firstAttribute="trailing" secondItem="4pC-y0-sbe" secondAttribute="trailing" id="6gT-S4-Rvq"/>
                                     <constraint firstItem="4pC-y0-sbe" firstAttribute="top" secondItem="7hg-u3-Kli" secondAttribute="bottom" id="A2i-uB-tms"/>
-                                    <constraint firstItem="qCE-nC-dcV" firstAttribute="top" secondItem="gbZ-iu-tg0" secondAttribute="bottom" constant="25" id="AeB-OE-fxn"/>
                                     <constraint firstAttribute="trailing" secondItem="jZL-Lj-rak" secondAttribute="trailing" id="AeQ-ZV-Sz6"/>
                                     <constraint firstItem="jZL-Lj-rak" firstAttribute="centerX" secondItem="OA3-Iu-Gjr" secondAttribute="centerX" id="DQj-fe-mES"/>
                                     <constraint firstItem="7hg-u3-Kli" firstAttribute="leading" secondItem="OA3-Iu-Gjr" secondAttribute="leading" id="FNM-TN-xYL"/>
                                     <constraint firstAttribute="trailing" secondItem="Tzd-NU-1Ph" secondAttribute="trailing" constant="20" id="FvG-2t-aK2"/>
                                     <constraint firstAttribute="trailing" secondItem="nfS-IX-F1T" secondAttribute="trailing" id="HYN-cF-Vd7"/>
+                                    <constraint firstItem="Fh9-94-LX8" firstAttribute="top" secondItem="Tzd-NU-1Ph" secondAttribute="bottom" id="Hgy-mB-LQT"/>
                                     <constraint firstItem="nfS-IX-F1T" firstAttribute="top" secondItem="OA3-Iu-Gjr" secondAttribute="top" id="KIt-9V-jS0"/>
                                     <constraint firstItem="BQx-iZ-RYS" firstAttribute="leading" secondItem="OA3-Iu-Gjr" secondAttribute="leading" constant="20" id="MFl-oj-wdr"/>
                                     <constraint firstItem="Tzd-NU-1Ph" firstAttribute="top" secondItem="nfS-IX-F1T" secondAttribute="bottom" id="Me2-Ff-ZdP"/>
                                     <constraint firstItem="Tzd-NU-1Ph" firstAttribute="centerX" secondItem="OA3-Iu-Gjr" secondAttribute="centerX" id="OWy-72-qk1"/>
-                                    <constraint firstItem="Fq0-S0-FNM" firstAttribute="bottom" secondItem="BQx-iZ-RYS" secondAttribute="top" constant="-50" id="QTU-mW-v1y"/>
                                     <constraint firstItem="4pC-y0-sbe" firstAttribute="leading" secondItem="OA3-Iu-Gjr" secondAttribute="leading" id="RiW-l0-mRj"/>
                                     <constraint firstItem="nfS-IX-F1T" firstAttribute="leading" secondItem="OA3-Iu-Gjr" secondAttribute="leading" id="SqT-GM-Fl3"/>
                                     <constraint firstItem="Tzd-NU-1Ph" firstAttribute="leading" secondItem="OA3-Iu-Gjr" secondAttribute="leading" constant="20" id="Y7V-bS-qQ7"/>
-                                    <constraint firstItem="qCE-nC-dcV" firstAttribute="leading" secondItem="BQx-iZ-RYS" secondAttribute="leading" id="ZM9-x9-mFu"/>
-                                    <constraint firstItem="Fq0-S0-FNM" firstAttribute="width" secondItem="OA3-Iu-Gjr" secondAttribute="width" multiplier="0.8" id="bKv-sX-Fxh"/>
-                                    <constraint firstItem="Fq0-S0-FNM" firstAttribute="top" secondItem="qCE-nC-dcV" secondAttribute="bottom" constant="6" id="c38-01-ZrI"/>
+                                    <constraint firstAttribute="trailing" secondItem="Fh9-94-LX8" secondAttribute="trailing" id="agd-bl-riJ"/>
                                     <constraint firstAttribute="trailing" secondItem="7hg-u3-Kli" secondAttribute="trailing" id="cyI-Uh-uOx"/>
                                     <constraint firstAttribute="bottom" secondItem="4pC-y0-sbe" secondAttribute="bottom" id="lDj-aL-8wA"/>
                                     <constraint firstItem="7hg-u3-Kli" firstAttribute="top" secondItem="jZL-Lj-rak" secondAttribute="bottom" id="lM0-s4-fS0"/>
+                                    <constraint firstItem="BQx-iZ-RYS" firstAttribute="top" secondItem="Fh9-94-LX8" secondAttribute="bottom" constant="8" id="pbL-hp-Uv1"/>
                                     <constraint firstItem="jZL-Lj-rak" firstAttribute="top" secondItem="BQx-iZ-RYS" secondAttribute="bottom" constant="11" id="qq5-cT-W0Z"/>
-                                    <constraint firstItem="Fq0-S0-FNM" firstAttribute="centerX" secondItem="OA3-Iu-Gjr" secondAttribute="centerX" id="rDx-63-lt0"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -763,6 +776,7 @@
                         <outlet property="feedScrollView" destination="OA3-Iu-Gjr" id="q7S-Va-Hgu"/>
                         <outlet property="forYouCollectionView" destination="jZL-Lj-rak" id="KiF-8G-5eK"/>
                         <outlet property="pieChartView" destination="Fq0-S0-FNM" id="xYG-vZ-CbJ"/>
+                        <outlet property="pieChartViewHeightConstraint" destination="yj0-Vu-108" id="skk-Z4-q3h"/>
                         <outlet property="recentCollectionView" destination="OFi-Vh-XOk" id="HhF-Fd-Er0"/>
                         <outlet property="recentViewHeightConstraint" destination="4qh-rs-9b3" id="CzS-Gp-BUi"/>
                         <outlet property="recommendContainerView" destination="06O-cL-tXY" id="RJj-Jt-KHZ"/>

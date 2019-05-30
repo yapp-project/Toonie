@@ -81,13 +81,19 @@ final class MainViewController: GestureViewController {
         setLocalNotification()
         inputNotification()
         
-        //심사용
-        swipeCardPresent { [weak self] in
-            guard let self = self else { return }
-            self.popupPresent()
-        }
         
-        //일반용
+        ReviewerService.shared.getIsReviewer { [weak self] (res) in
+            guard let self = self else { return }
+            guard let isReview = res else { return }
+            if (isReview == true) {
+                
+                //심사용
+                self.swipeCardPresent { [weak self] in
+                    guard let self = self else { return }
+                    self.popupPresent()
+                }
+            }
+        }
         
     }
     
@@ -365,8 +371,8 @@ final class MainViewController: GestureViewController {
         content.body = "오늘은 어떤 툰을 볼까요? 투니가 추천해줄게요!"
         
         var dateComponents = DateComponents()
-        dateComponents.hour = 21
-        dateComponents.minute = 07
+        dateComponents.hour = 22
+        dateComponents.minute = 00
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         let request = UNNotificationRequest(identifier: "DailyNoti", content: content, trigger: trigger)
