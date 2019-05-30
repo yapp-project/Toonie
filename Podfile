@@ -16,7 +16,7 @@ target 'Toonie' do
   pod 'Firebase/Messaging'
   pod 'Fabric'
   pod 'Crashlytics'
-  pod 'Charts'
+  pod 'Charts', '~> 3.2.0'
 
   target 'ToonieTests' do
     inherit! :search_paths
