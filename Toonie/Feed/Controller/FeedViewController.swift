@@ -40,7 +40,7 @@ final class FeedViewController: GestureViewController {
     @IBOutlet private weak var favoriteCollectionView: UICollectionView!
     @IBOutlet private weak var recentViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var favoriteViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var pieChartViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var pieChartViewHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet private weak var pieChartView: PieChartView!
     
