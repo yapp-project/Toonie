@@ -57,13 +57,13 @@ class SwipeView: UIView {
         let view = panGestureRecognizer.view!
         
         switch (panGestureRecognizer.state) {
-        case UIGestureRecognizerState.began:
+        case UIGestureRecognizer.State.began:
             if (panGestureRecognizer.location(in: view).y < view.center.y) {
                 self.viewState.rotationDirection = .rotationAwayFromCenter
             } else {
                 self.viewState.rotationDirection = .rotationTowardsCenter
             }
-        case UIGestureRecognizerState.ended:
+        case UIGestureRecognizer.State.ended:
             self.finalizePosition()
         default:
             let translation : CGPoint = panGestureRecognizer.translation(in: view)
