@@ -24,6 +24,7 @@ final class CommonUtility: NSObject {
     weak var feedNavigationViewController: FeedNavigationController?
     weak var lookNavigationViewController: LookNavigationController?
     weak var myPageNavigationViewController: MyPageNavigationController?
+    var myTagDic = [String: String]()
     
     //싱글톤
     static let sharedInstance = CommonUtility()
@@ -105,7 +106,8 @@ final class CommonUtility: NSObject {
     }
     
     ///오늘나는 인스타툰을 읽고 싶어요: 하루에 한번인데 오늘 하루 지났는지 체크함
-    func isDateCompare(lastCloseTime: Date?) -> Bool{
+    func isDateCompare(lastCloseTime: Date?,
+                       hideDay: Int) -> Bool{
         //true: 안지남 -> 팝업뜨면안됨, false: 지남 -> 팝업떠야함
 
         guard lastCloseTime != nil else {
@@ -117,7 +119,7 @@ final class CommonUtility: NSObject {
                 let formatter = DateComponentsFormatter()
                 formatter.allowedUnits = [.hour]
                 formatter.unitsStyle = .full
-                if let hourString = formatter.string(from: lastCloseTime.addingTimeInterval(86400)
+                if let hourString = formatter.string(from: lastCloseTime.addingTimeInterval(TimeInterval(86400 * hideDay))
                     , to: Date.init()) {
                     print("\(hourString)만큼 차이납니다.")
                     
