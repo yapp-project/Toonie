@@ -69,6 +69,11 @@ final class FeedViewController: GestureViewController {
         updateView(&recentViewHeightConstraint, 0)
         updateView(&favoriteViewHeightConstraint, 0)
         
+        ReviewerService.shared.getIsReviewer { [weak self] (res) in
+            guard let self = self else { return }
+            print("res : \(res ?? true)")
+        }
+        
         customizeChart(dataPoints: items, values: itemCount.map{ Double($0) })
     }
     
