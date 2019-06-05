@@ -40,9 +40,6 @@ final class FeedViewController: GestureViewController {
     @IBOutlet private weak var favoriteCollectionView: UICollectionView!
     @IBOutlet private weak var recentViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var favoriteViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var pieChartViewHeightConstraint: NSLayoutConstraint!
-    
-    @IBOutlet private weak var pieChartView: PieChartView!
     
     // MARK: - Property
     
@@ -56,11 +53,6 @@ final class FeedViewController: GestureViewController {
     private var favoriteToon: [ToonList]?
     private var detailToonId = ""
     private var isFavorite = false
-    private let items = ["인스타툰", "취향 태그"]
-    private let itemCount = [187, 58]
-    
-    private var dataEntries: [ChartDataEntry] = []
-    private var dataEntry = PieChartDataEntry()
     
     // MARK: - Life Cycle
     
@@ -72,16 +64,6 @@ final class FeedViewController: GestureViewController {
         loadFavoriteToonList()
         updateView(&recentViewHeightConstraint, 0)
         updateView(&favoriteViewHeightConstraint, 0)
-        
-        ReviewerService.shared.getIsReviewer { [weak self] (res) in
-            guard let self = self else { return }
-            guard let isReview = res else { return }
-            if (isReview == false) {
-                self.updateView(&self.pieChartViewHeightConstraint, 0)
-            }
-        }
-        
-        customizeChart(dataPoints: items, values: itemCount.map{ Double($0) })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -312,40 +294,5 @@ extension FeedViewController: UICollectionViewDelegate {
             detailToonId = currentCell.toonIdLabel.text ?? ""
         }
         pushDetailToonViewController(toonID: detailToonId, isFavorite: isFavorite)
-    }
-}
-
-extension FeedViewController {
-    
-    func customizeChart(dataPoints: [String], values: [Double]) {
-        
-        // 1. Set ChartDataEntry
-        for i in 0..<dataPoints.count {
-            dataEntry = PieChartDataEntry(value: values[i], label: dataPoints[i], data: dataPoints[i] as AnyObject)
-            dataEntries.append(dataEntry)
-        }
-        
-        // 2. Set ChartDataSet
-        let pieChartDataSet = PieChartDataSet(values: dataEntries, label: nil)
-        pieChartDataSet.colors = colorsOfCharts(numbersOfColor: dataPoints.count)
-        
-        // 3. Set ChartData
-        let pieChartData = PieChartData(dataSet: pieChartDataSet)
-        let format = NumberFormatter()
-        format.numberStyle = .none
-        let formatter = DefaultValueFormatter(formatter: format)
-        pieChartData.setValueFormatter(formatter)
-        
-        // 4. Assign it to the chart's data
-        pieChartView.data = pieChartData
-    }
-    
-    private func colorsOfCharts(numbersOfColor: Int) -> [UIColor] {
-        var colors: [UIColor] = []
-        colors.append(#colorLiteral(red: 0.9960784314, green: 0.2, blue: 0.003921568627, alpha: 1))
-        colors.append(#colorLiteral(red: 1, green: 0.4666666667, blue: 0.007843137255, alpha: 1))
-        colors.append(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
-        
-        return colors
     }
 }
