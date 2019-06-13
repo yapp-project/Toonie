@@ -240,7 +240,7 @@ extension RecommendViewController: UICollectionViewDelegate {
                 tagSelectArray.append(tagList[indexPath.row])
                 
             } else {
-                let findIndex = tagSelectArray.firstIndex(of: cell.getTitleLabel().text ?? "")
+                let findIndex = tagSelectArray.firstIndex(of: cell.getTitleString())
                 
                 if let index = findIndex {
                     tagSelectArray.remove(at: index)
