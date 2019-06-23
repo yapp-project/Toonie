@@ -13,6 +13,8 @@ final class TagCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var backView: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
     
+    private var titleString: String?
+    
     private var cellStatus: Bool = false {
         didSet {
             setBorderViewLayout(status: cellStatus)
@@ -47,9 +49,13 @@ final class TagCollectionViewCell: UICollectionViewCell {
     func setTitleLabel(titleString: String?) {
         if let titleString = titleString {
             titleLabel.text = "#\(titleString)"
+            self.titleString = titleString
         }
     }
-    func getTitleLabel() -> UILabel {
-        return titleLabel
+    func getTitleString() -> String {
+        if let titleString = self.titleString {
+            return titleString
+        }
+        return ""
     }
 }
