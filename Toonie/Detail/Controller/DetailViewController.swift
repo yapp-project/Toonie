@@ -32,7 +32,7 @@ final class DetailToonViewController: GestureViewController, UITextFieldDelegate
     
     @IBOutlet private weak var myTagLabel: UILabel!
     @IBOutlet private weak var tagTextField: UITextField!
-    @IBOutlet weak var detailScrollView: UIScrollView!
+    @IBOutlet private weak var detailScrollView: UIScrollView!
     
     // MARK: - IBActions
     
@@ -59,13 +59,7 @@ final class DetailToonViewController: GestureViewController, UITextFieldDelegate
     
     /// 툰 웹뷰 띄우기
     @IBAction func moveToonButtonDidTap(_ sender: UIButton) {
-        if let viewController = self.storyboard?
-            .instantiateViewController(withIdentifier: "ToonWebView")
-            as? ToonWebViewController {
-            viewController.modalTransitionStyle = UIModalTransitionStyle.coverVertical
-            viewController.toonUrl = detailToon?.instaUrl
-            self.present(viewController, animated: true, completion: nil)
-        }
+        openInstaApp()
         
         CommonUtility.analytics(eventName: "button_event",
                                 param: ["instaUrl": detailToon?.instaUrl ?? "instaUrl"])
@@ -105,7 +99,7 @@ final class DetailToonViewController: GestureViewController, UITextFieldDelegate
         guard let detailToonID = detailToonID else { return }
         myTagLabel.text = CommonUtility.sharedInstance.myTagDic[detailToonID] ?? ""
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
- 
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
@@ -288,6 +282,21 @@ final class DetailToonViewController: GestureViewController, UITextFieldDelegate
                             completion: {
                                 print("Success to add latest toon")
             })
+    }
+    
+    // 인스타그램 앱 실행
+    private func openInstaApp() {
+        let urlStr = "instagram://user?username=" + (detailToon?.instaID ?? "")
+        guard let url = URL(string: urlStr) else { return }
+        guard let itunesUrl = URL(string: "https://itunes.apple.com/kr/app/instagram/id389801252?mt=8")
+            else { return }
+        
+        if UIApplication.shared.canOpenURL(url) {
+            print("can open")
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.open(itunesUrl)
+        }
     }
     
 }

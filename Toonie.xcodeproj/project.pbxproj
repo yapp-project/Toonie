@@ -93,7 +93,6 @@
 		F746EE0B90C2F0405E816DE870AAEBD4 /* ToonLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A6CD6E8F9153FBED52D95503624BA8 /* ToonLists.swift */; };
 		1D5BB303025367E486BC778468D1906D /* ToonOfTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46CA5CAF52713A5F0497239013E4ABA /* ToonOfTag.swift */; };
 		B6E0696924E424884A5626099200D098 /* ToonOfTagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED42905ADAEABD1D80B0CA4894DECCE /* ToonOfTagService.swift */; };
-		CDD94A58C361838A6501853F54312E0A /* ToonWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28B02ED5A86318713752322D6A15E13 /* ToonWebViewController.swift */; };
 		0957B41AD138D0A49135F214132A015A /* ToonieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BEF0670CA0E9737AC0D8BB4C759F3D /* ToonieTests.swift */; };
 		10F313ABA278DEE3B49DE4923B3913F1 /* ToonieWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6B1654A3BAD166BC9042985E427D6184 /* ToonieWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		012280A5A53D6963330DB1D8B9DC3C68 /* UIAlertController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DA6955EDA11550288B07A43296B653 /* UIAlertController+.swift */; };
@@ -252,7 +251,6 @@
 		22A6CD6E8F9153FBED52D95503624BA8 /* ToonLists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonLists.swift; sourceTree = "<group>"; };
 		A46CA5CAF52713A5F0497239013E4ABA /* ToonOfTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonOfTag.swift; sourceTree = "<group>"; };
 		BED42905ADAEABD1D80B0CA4894DECCE /* ToonOfTagService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonOfTagService.swift; sourceTree = "<group>"; };
-		A28B02ED5A86318713752322D6A15E13 /* ToonWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonWebViewController.swift; sourceTree = "<group>"; };
 		E5B5664A67B748CC79409D5ABB761F80 /* Toonie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Toonie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60FBBACC4982D7721E27E3CD6F1CE97C /* Toonie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Toonie.entitlements; sourceTree = "<group>"; };
 		E8BEF0670CA0E9737AC0D8BB4C759F3D /* ToonieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonieTests.swift; sourceTree = "<group>"; };
@@ -333,7 +331,6 @@
 			isa = PBXGroup;
 			children = (
 				E4C42DB5B38C27C2E993254790693BDF /* DetailViewController.swift */,
-				A28B02ED5A86318713752322D6A15E13 /* ToonWebViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -479,6 +476,15 @@
 			path = logoAnimation.json;
 			sourceTree = "<group>";
 		};
+		6FEF7C46DAE59D3B44036090D9DDA7F4 /* Reviewer */ = {
+			isa = PBXGroup;
+			children = (
+				0B166CE6BAC16D243A30F5299CDFF21F /* Reviewer.swift */,
+				DC3FC10845A715F9921DD2A80E531D9D /* ReviewerService.swift */,
+			);
+			path = Reviewer;
+			sourceTree = "<group>";
+		};
 		732C7D1EFCE62ECA3841AD774047133C /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -523,15 +529,6 @@
 				DEE06ADB26F13BD40E939199325DE1A5 /* SwipeCard */,
 			);
 			path = Library;
-			sourceTree = "<group>";
-		};
-		6FEF7C46DAE59D3B44036090D9DDA7F4 /* Reviewer */ = {
-			isa = PBXGroup;
-			children = (
-				0B166CE6BAC16D243A30F5299CDFF21F /* Reviewer.swift */,
-				DC3FC10845A715F9921DD2A80E531D9D /* ReviewerService.swift */,
-			);
-			path = Reviewer;
 			sourceTree = "<group>";
 		};
 		83207B8742C5908C6F0FFB837A6B7ABC /* Views */ = {
@@ -1061,7 +1058,6 @@
 				F746EE0B90C2F0405E816DE870AAEBD4 /* ToonLists.swift in Sources */,
 				1D5BB303025367E486BC778468D1906D /* ToonOfTag.swift in Sources */,
 				B6E0696924E424884A5626099200D098 /* ToonOfTagService.swift in Sources */,
-				CDD94A58C361838A6501853F54312E0A /* ToonWebViewController.swift in Sources */,
 				012280A5A53D6963330DB1D8B9DC3C68 /* UIAlertController+.swift in Sources */,
 				9CE9942E51F67AA265B6AEEF1EDD1216 /* UIButton+.swift in Sources */,
 				BD6A4E5D4CF8929196A01E3D1E55C9F4 /* UIFont+.swift in Sources */,
