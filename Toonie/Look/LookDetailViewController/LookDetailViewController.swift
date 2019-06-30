@@ -40,6 +40,9 @@ final class LookDetailViewController: GestureViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         loadFavoriteToon()
+        
+        CommonUtility.analytics(eventName: "LookDetailViewController",
+                                param: ["token": (CommonUtility.getUserToken() ?? "toonie") + selectedKeyword ])
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -32,6 +32,13 @@ final class PreviewViewController: UIViewController {
         setImage()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        CommonUtility.analytics(eventName: "PreviewViewController",
+                                param: ["token": (CommonUtility.getUserToken() ?? "toonie") + (toonID ?? "") ])
+    }
+    
     // MARK: - Functions
     
     private func previewActions() -> [UIPreviewActionItem] {
