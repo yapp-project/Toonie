@@ -70,6 +70,9 @@ final class FeedViewController: GestureViewController {
         super.viewWillAppear(animated)
         playTagAnimationView()
         loadFavoriteToon()
+        
+        CommonUtility.analytics(eventName: "FeedViewController",
+                                param: ["token": CommonUtility.getUserToken() ?? "toonie"])
     }
     
     // MARK: - IBAction

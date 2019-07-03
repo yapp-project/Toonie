@@ -202,16 +202,17 @@ final class DetailToonViewController: GestureViewController, UITextFieldDelegate
             }
             DispatchQueue.main.async {
                 self.mainKeywordLabel.text = tagList
-            }
-        }
-        if let toonTagList = detailToon.curationTagList {
-            for index in 0..<toonTagList.count {
-                tagList += "#" + toonTagList[index] + " "
-            }
-            DispatchQueue.main.async {
                 self.subKeywordLabel.text = tagList
             }
         }
+//        if let toonTagList = detailToon.toonTagList {
+//            for index in 0..<toonTagList.count {
+//                tagList += "#" + toonTagList[index] + " "
+//            }
+//            DispatchQueue.main.async {
+//                self.subKeywordLabel.text = tagList
+//            }
+//        }
     }
     
     /// '찜하기' 했을 때 뜨는 토스트

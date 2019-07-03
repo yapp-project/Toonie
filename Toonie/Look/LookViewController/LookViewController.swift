@@ -40,6 +40,13 @@ final class LookViewController: GestureViewController {
         setKeywordValue()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        CommonUtility.analytics(eventName: "LookViewController",
+                                param: ["token": CommonUtility.getUserToken() ?? "toonie"])
+    }
+    
     // MARK: - Functions
     
     ///컬렉션 뷰 아이템 크기, 위치조정

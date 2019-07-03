@@ -57,6 +57,9 @@ final class RecommendViewController: GestureViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         reloadTagTableView()
+        
+        CommonUtility.analytics(eventName: "RecommendViewController",
+                                param: ["token": CommonUtility.getUserToken() ?? "toonie"])
     }
     
     // MARK: - IBActions

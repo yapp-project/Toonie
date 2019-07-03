@@ -39,6 +39,9 @@ final class KeywordSelectViewController: GestureViewController {
         super.viewWillAppear(animated)
         setKeywordValue()
         setSelectedKeywordValue()
+        
+        CommonUtility.analytics(eventName: "KeywordViewController",
+                                param: ["token": CommonUtility.getUserToken() ?? "toonie"])
     }
     
     ///시작하기 버튼-메인으로 이동

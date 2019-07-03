@@ -58,7 +58,9 @@ final class MypageViewController: GestureViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getToonList(status: status)
-        print("뷰윌어피어 함수 안입니덩")
+        
+        CommonUtility.analytics(eventName: "MypageViewController",
+                                param: ["token": CommonUtility.getUserToken() ?? "toonie"])
     }
     
     // MARK: - 함수
