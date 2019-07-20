@@ -20,7 +20,7 @@ final class MainNavigationController: UINavigationController {
         super.init(rootViewController: rootViewController)
     }
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder) 
+        super.init(coder: aDecoder)
         CommonUtility.sharedInstance
             .mainNavigationViewController = self
     }
@@ -32,9 +32,11 @@ final class MainViewController: GestureViewController {
     
     @IBOutlet private weak var feedContainerView: UIView!
     @IBOutlet private weak var lookContainerView: UIView!
+    @IBOutlet private weak var communityContainerView: UIView!
     @IBOutlet private weak var myPageContainerView: UIView!
     @IBOutlet private weak var feedButton: UIButton!
     @IBOutlet private weak var lookButton: UIButton!
+    @IBOutlet private weak var communityButton: UIButton!
     @IBOutlet private weak var myPageButton: UIButton!
     
     //탭바 이벤트 발생시 수행할 클로저
@@ -45,13 +47,15 @@ final class MainViewController: GestureViewController {
     private weak var statusButton: UIButton!
     
     private enum TabbarButtonCase {
-        case feed, look, myPage
+        case feed, look, community, myPage
         
         var isStatusBool: Bool {
             switch self {
             case .feed:
                 return true
             case .look:
+                return true
+            case .community:
                 return true
             case .myPage:
                 return true
@@ -81,19 +85,13 @@ final class MainViewController: GestureViewController {
         setLocalNotification()
         inputNotification()
         
-        
-        ReviewerService.shared.getIsReviewer { [weak self] (res) in
+        //심사용
+        swipeCardPresent { [weak self] in
             guard let self = self else { return }
-            guard let isReview = res else { return }
-            if (isReview == true) {
-                
-                //심사용
-                self.swipeCardPresent { [weak self] in
-                    guard let self = self else { return }
-                    self.popupPresent()
-                }
-            }
+            self.popupPresent()
         }
+        
+        //일반용
         
     }
     
@@ -169,7 +167,7 @@ final class MainViewController: GestureViewController {
         if CommonUtility.sharedInstance
             .isDateCompare(lastCloseTime: lastCloseTime,
                            hideDay: 1) == false {
-        
+            
             getCurationTagList { (tagList) in
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 if let viewController = storyboard
@@ -223,6 +221,9 @@ final class MainViewController: GestureViewController {
         case lookButton:
             TabbarButtonCase.look.showStatusView(view: &lookContainerView,
                                                  button: &lookButton)
+        case communityButton:
+            TabbarButtonCase.community.showStatusView(view: &communityContainerView,
+                                                      button: &communityButton)
         case myPageButton:
             TabbarButtonCase.myPage.showStatusView(view: &myPageContainerView,
                                                    button: &myPageButton)
@@ -270,6 +271,7 @@ final class MainViewController: GestureViewController {
     func hideAllContainerView() {
         feedContainerView.isHidden = true
         lookContainerView.isHidden = true
+        communityContainerView.isHidden = true
         myPageContainerView.isHidden = true
     }
     
@@ -277,6 +279,7 @@ final class MainViewController: GestureViewController {
     func offTabbarButtonState() {
         feedButton.isSelected = false
         lookButton.isSelected = false
+        communityButton.isSelected = false
         myPageButton.isSelected = false
         
     }
@@ -284,6 +287,7 @@ final class MainViewController: GestureViewController {
     func setButtonTextCenter() {
         feedButton.centerImageAndButton(5, imageOnTop: true)
         lookButton.centerImageAndButton(5, imageOnTop: true)
+        communityButton.centerImageAndButton(5, imageOnTop: true)
         myPageButton.centerImageAndButton(5, imageOnTop: true)
     }
     
@@ -371,8 +375,8 @@ final class MainViewController: GestureViewController {
         content.body = "오늘은 어떤 툰을 볼까요? 투니가 추천해줄게요!"
         
         var dateComponents = DateComponents()
-        dateComponents.hour = 22
-        dateComponents.minute = 00
+        dateComponents.hour = 21
+        dateComponents.minute = 07
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         let request = UNNotificationRequest(identifier: "DailyNoti", content: content, trigger: trigger)
