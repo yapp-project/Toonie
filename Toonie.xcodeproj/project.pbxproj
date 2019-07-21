@@ -20,6 +20,9 @@
 		7492E1465D238893178431F29181DE22 /* CommonFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9323F2A30BC1D6B5A75290A78E5EFF /* CommonFunction.swift */; };
 		AB9BF389A4D6A9A12F45BDE69A35B72E /* CommonUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391E18129E3FD4CA97AD73AFBEA5D5A5 /* CommonUtility.swift */; };
 		C4210877051A6D083D442AB7EB747A7B /* Community.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8C5A6B8642607AAE616DD40C82B4EB3 /* Community.storyboard */; };
+		288B65C7E9AB5D884264BB052CAF6EBE /* CommunityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9987DD9D123052FB49AF6FBE4233CC69 /* CommunityCollectionViewCell.swift */; };
+		9CA18E9C00854CBAD391FE87D6B9B1A3 /* CommunityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C9936A4CBE811764315F5DEC85C05D /* CommunityTableViewCell.swift */; };
+		60B37CFEAA4448F4F1D5C4F6394B3C59 /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28BE7059C6D82FDD62DDB488886633C /* CommunityViewController.swift */; };
 		FDC116E19C09047E762A2BFF96608026 /* CurationTagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DFADE2E74674626C62C5847756D7C3 /* CurationTagService.swift */; };
 		5D7C2A319945FF57226321B488D96614 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 013B051389A91973028316A3E576E272 /* Detail.storyboard */; };
 		8BFC98E4C41B9F358D61ED8AB127CB30 /* DetailToon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0F9FDA6D7EDBB6CC18F7B48E4304F5 /* DetailToon.swift */; };
@@ -173,6 +176,9 @@
 		7F9323F2A30BC1D6B5A75290A78E5EFF /* CommonFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunction.swift; sourceTree = "<group>"; };
 		391E18129E3FD4CA97AD73AFBEA5D5A5 /* CommonUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtility.swift; sourceTree = "<group>"; };
 		F8C5A6B8642607AAE616DD40C82B4EB3 /* Community.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Community.storyboard; sourceTree = "<group>"; };
+		9987DD9D123052FB49AF6FBE4233CC69 /* CommunityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityCollectionViewCell.swift; sourceTree = "<group>"; };
+		A8C9936A4CBE811764315F5DEC85C05D /* CommunityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityTableViewCell.swift; sourceTree = "<group>"; };
+		E28BE7059C6D82FDD62DDB488886633C /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
 		F0DFADE2E74674626C62C5847756D7C3 /* CurationTagService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurationTagService.swift; sourceTree = "<group>"; };
 		013B051389A91973028316A3E576E272 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
 		5C0F9FDA6D7EDBB6CC18F7B48E4304F5 /* DetailToon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailToon.swift; sourceTree = "<group>"; };
@@ -337,14 +343,6 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		57EE88FD2A2AE25905F1BBA9889DD2BC /* Community */ = {
-			isa = PBXGroup;
-			children = (
-				F8C5A6B8642607AAE616DD40C82B4EB3 /* Community.storyboard */,
-			);
-			path = Community;
-			sourceTree = "<group>";
-		};
 		1E5EEACC73F0B2067BEA386D942B1580 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -469,6 +467,17 @@
 				8C9C64111E9C65991F378F4EB5747470 /* sentence_3.png */,
 			);
 			path = "newTag,json";
+			sourceTree = "<group>";
+		};
+		57EE88FD2A2AE25905F1BBA9889DD2BC /* Community */ = {
+			isa = PBXGroup;
+			children = (
+				F8C5A6B8642607AAE616DD40C82B4EB3 /* Community.storyboard */,
+				9987DD9D123052FB49AF6FBE4233CC69 /* CommunityCollectionViewCell.swift */,
+				A8C9936A4CBE811764315F5DEC85C05D /* CommunityTableViewCell.swift */,
+				E28BE7059C6D82FDD62DDB488886633C /* CommunityViewController.swift */,
+			);
+			path = Community;
 			sourceTree = "<group>";
 		};
 		6D0496EB9B90DA93F3F2DA608E9FEFC1 /* logoAnimation.json */ = {
@@ -1012,6 +1021,9 @@
 				C51E480B0D1262D5020AF02E2B26CF37 /* ChkToonieUpdateService.swift in Sources */,
 				7492E1465D238893178431F29181DE22 /* CommonFunction.swift in Sources */,
 				AB9BF389A4D6A9A12F45BDE69A35B72E /* CommonUtility.swift in Sources */,
+				288B65C7E9AB5D884264BB052CAF6EBE /* CommunityCollectionViewCell.swift in Sources */,
+				9CA18E9C00854CBAD391FE87D6B9B1A3 /* CommunityTableViewCell.swift in Sources */,
+				60B37CFEAA4448F4F1D5C4F6394B3C59 /* CommunityViewController.swift in Sources */,
 				FDC116E19C09047E762A2BFF96608026 /* CurationTagService.swift in Sources */,
 				8BFC98E4C41B9F358D61ED8AB127CB30 /* DetailToon.swift in Sources */,
 				92D88D4D5D1ACC0BB983D7797079C87C /* DetailToonService.swift in Sources */,
