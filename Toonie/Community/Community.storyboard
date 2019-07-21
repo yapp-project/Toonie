@@ -105,7 +105,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cja-7k-8kY">
-                                                    <rect key="frame" x="20" y="76" width="335" height="50.333333333333343"/>
+                                                    <rect key="frame" x="20" y="76" width="335" height="50.666666666666657"/>
                                                     <string key="text">요즘 직장상사 때문에 많이 힘든데
 힘낼 수 있는 인스타툰 추천 받을 수 있을까요?
 제가 LA에 살때가 생각나는데요. </string>
@@ -114,19 +114,22 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c3B-WW-806">
-                                                    <rect key="frame" x="0.0" y="150.33333333333334" width="375" height="2"/>
+                                                    <rect key="frame" x="0.0" y="150.66666666666666" width="375" height="2"/>
                                                     <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="2" id="7QA-zs-3uW"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="abI-gS-PGe">
-                                                    <rect key="frame" x="0.0" y="152.33333333333334" width="375" height="105.33333333333334"/>
+                                                    <rect key="frame" x="0.0" y="152.66666666666666" width="375" height="104.99999999999997"/>
                                                     <subviews>
                                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4HF-dI-JV1">
-                                                            <rect key="frame" x="0.0" y="16" width="375" height="73.333333333333329"/>
+                                                            <rect key="frame" x="0.0" y="16" width="375" height="73"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DAj-YL-OXc">
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="4HF-dI-JV1" secondAttribute="height" multiplier="375:73" id="8ee-AZ-VXK"/>
+                                                            </constraints>
+                                                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="17" minimumInteritemSpacing="17" id="DAj-YL-OXc">
                                                                 <size key="itemSize" width="70" height="70"/>
                                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -134,14 +137,15 @@
                                                             </collectionViewFlowLayout>
                                                             <cells>
                                                                 <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CommunityCollectionViewCell" id="674-VS-vvu" customClass="CommunityCollectionViewCell" customModule="Toonie" customModuleProvider="target">
-                                                                    <rect key="frame" x="17" y="0.0" width="70" height="70"/>
+                                                                    <rect key="frame" x="17" y="1.6666666666666667" width="70" height="70"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                                         <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <subviews>
-                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vW5-vP-54Y">
+                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dum1" translatesAutoresizingMaskIntoConstraints="NO" id="vW5-vP-54Y">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                                                <color key="backgroundColor" name="addButton"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="70" id="L9k-G6-2XR"/>
                                                                                     <constraint firstAttribute="height" constant="70" id="qor-Th-4hN"/>
@@ -149,20 +153,22 @@
                                                                             </imageView>
                                                                         </subviews>
                                                                     </view>
-                                                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
-                                                                        <constraint firstItem="vW5-vP-54Y" firstAttribute="leading" secondItem="674-VS-vvu" secondAttribute="leading" id="Csb-cG-Y3Q"/>
-                                                                        <constraint firstItem="vW5-vP-54Y" firstAttribute="top" secondItem="674-VS-vvu" secondAttribute="top" id="G64-Xk-n04"/>
-                                                                        <constraint firstItem="vW5-vP-54Y" firstAttribute="centerX" secondItem="674-VS-vvu" secondAttribute="centerX" id="HiR-jW-W4M"/>
-                                                                        <constraint firstAttribute="trailing" secondItem="vW5-vP-54Y" secondAttribute="trailing" id="HsG-Il-Vrd"/>
-                                                                        <constraint firstItem="vW5-vP-54Y" firstAttribute="centerY" secondItem="674-VS-vvu" secondAttribute="centerY" id="U8K-ng-9UB"/>
-                                                                        <constraint firstAttribute="bottom" secondItem="vW5-vP-54Y" secondAttribute="bottom" id="k2X-uG-Bxx"/>
+                                                                        <constraint firstItem="vW5-vP-54Y" firstAttribute="centerX" secondItem="674-VS-vvu" secondAttribute="centerX" id="Nye-GJ-snv"/>
+                                                                        <constraint firstItem="vW5-vP-54Y" firstAttribute="leading" secondItem="674-VS-vvu" secondAttribute="leading" id="SHy-BN-dOp"/>
+                                                                        <constraint firstItem="vW5-vP-54Y" firstAttribute="top" secondItem="674-VS-vvu" secondAttribute="top" id="hLP-Sy-MoB"/>
+                                                                        <constraint firstItem="vW5-vP-54Y" firstAttribute="centerY" secondItem="674-VS-vvu" secondAttribute="centerY" id="uhk-oR-ENN"/>
                                                                     </constraints>
                                                                     <connections>
                                                                         <outlet property="recommendImageView" destination="vW5-vP-54Y" id="ug7-ZO-Z75"/>
                                                                     </connections>
                                                                 </collectionViewCell>
                                                             </cells>
+                                                            <connections>
+                                                                <outlet property="dataSource" destination="Zr9-pw-Z46" id="XJ9-Is-EiP"/>
+                                                                <outlet property="delegate" destination="Zr9-pw-Z46" id="R48-Ho-aOd"/>
+                                                            </connections>
                                                         </collectionView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wos-IN-7Y5">
                                                             <rect key="frame" x="149" y="25" width="77" height="29"/>
@@ -172,7 +178,7 @@
                                                             </state>
                                                         </button>
                                                     </subviews>
-                                                    <color key="backgroundColor" name="unselectedText"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="4HF-dI-JV1" firstAttribute="top" secondItem="abI-gS-PGe" secondAttribute="top" constant="16" id="1uw-Ee-Wjp"/>
                                                         <constraint firstItem="wos-IN-7Y5" firstAttribute="centerX" secondItem="abI-gS-PGe" secondAttribute="centerX" id="99q-oX-gbN"/>
@@ -245,6 +251,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="dum1" width="164" height="164"/>
+        <namedColor name="addButton">
+            <color red="0.98799997568130493" green="0.68599998950958252" blue="0.27099999785423279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="unselectedText">
             <color red="0.56862745098039214" green="0.56862745098039214" blue="0.56862745098039214" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

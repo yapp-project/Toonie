@@ -11,4 +11,10 @@ import UIKit
 final class CommunityCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var recommendImageView: UIImageView!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        recommendImageView
+            .setCorner(cornerRadius: recommendImageView.frame.width / 2)
+    }
 }

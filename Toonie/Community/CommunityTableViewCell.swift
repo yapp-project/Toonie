@@ -23,6 +23,8 @@ final class CommunityTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        recommendCollectionView.dataSource = self
+        recommendCollectionView.delegate = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -31,4 +33,28 @@ final class CommunityTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+}
+
+extension CommunityTableViewCell: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CommunityCollectionViewCell",
+                                                            for: indexPath) as? CommunityCollectionViewCell
+            else {
+                return UICollectionViewCell()
+        }
+        
+        return cell
+    }
+    
+    
+}
+
+extension CommunityTableViewCell: UICollectionViewDelegate {
+    
 }
