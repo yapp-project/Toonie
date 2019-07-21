@@ -13,11 +13,12 @@ final class CommunityTableViewCell: UITableViewCell {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var modifyButton: UIButton!
     @IBOutlet private weak var dayAndTimeButton: UILabel!
-    @IBOutlet private weak var contentsLabel: UILabel!
-    @IBOutlet private weak var recommendView: UIView!
-    @IBOutlet private weak var recommendCollectionView: UICollectionView!
-    @IBOutlet private weak var recommendButton: UIButton!
+    @IBOutlet weak var contentsLabel: UILabel!
+    @IBOutlet weak var recommendView: UIView!
+    @IBOutlet weak var recommendCollectionView: UICollectionView!
+    @IBOutlet weak var recommendButton: UIButton!
     
+    @IBOutlet weak var recommendViewHeightConstraint: NSLayoutConstraint!
     
     
     override func awakeFromNib() {
@@ -31,6 +32,14 @@ final class CommunityTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        let padding = UIEdgeInsets(top: 8, left: 0, bottom: 0, right: 0)
+        
+        bounds = bounds.inset(by: padding)
     }
 
 }
