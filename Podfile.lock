@@ -85,7 +85,7 @@ DEPENDENCIES:
   - Firebase/Messaging
   - Kingfisher (~> 4.2)
   - KTCenterFlowLayout
-  - lottie-ios
+  - lottie-ios (~> 3.1.0)
   - SnapKit (~> 4.2)
   - SwiftLint
 
@@ -132,6 +132,6 @@ SPEC CHECKSUMS:
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SwiftLint: 009a898ef2a1c851f45e1b59349bf6ff2ddc990d
 
-PODFILE CHECKSUM: cda6e0f31a4a1e6bf1ba7de6b70cefc802039487
+PODFILE CHECKSUM: c388aaf1062b83710ab8d3b2aecea92ff8d3dd97
 
 COCOAPODS: 1.7.0
