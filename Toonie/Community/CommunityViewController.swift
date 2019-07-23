@@ -11,6 +11,8 @@ import UIKit
 final class CommunityViewController: UIViewController {
 
     @IBOutlet private weak var communityTableView: UITableView!
+    @IBOutlet private weak var topButton: UIButton!
+    @IBOutlet private weak var writeButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +20,14 @@ final class CommunityViewController: UIViewController {
     
     }
 
+    @IBAction func topButtonDidTap(_ sender: UIButton) {
+        print("topbutton")
+    }
+    
+    @IBAction func writeButtonDidTap(_ sender: UIButton) {
+        print("writebutton")
+    }
+    
 }
 
 extension CommunityViewController: UITableViewDataSource {
