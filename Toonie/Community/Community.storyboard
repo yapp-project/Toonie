@@ -72,8 +72,8 @@
                                                     <color key="textColor" red="0.9882352941176471" green="0.68627450980392157" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="3E9-b6-vl3">
-                                                    <rect key="frame" x="263.66666666666669" y="20" width="91.333333333333314" height="27"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="3E9-b6-vl3">
+                                                    <rect key="frame" x="265.66666666666669" y="20" width="89.333333333333314" height="27"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wxq-VG-UkC">
                                                             <rect key="frame" x="0.0" y="0.0" width="37" height="27"/>
@@ -87,7 +87,7 @@
                                                             </state>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12월 31일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Dn-cm-qtH">
-                                                            <rect key="frame" x="41" y="0.0" width="50.333333333333343" height="27"/>
+                                                            <rect key="frame" x="39" y="0.0" width="50.333333333333343" height="27"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="27" id="eAP-bq-SAf"/>
                                                             </constraints>
@@ -243,7 +243,7 @@
                                                     <constraint firstAttribute="width" secondItem="Prw-5A-cax" secondAttribute="height" multiplier="1:1" id="P2O-nt-Da1"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                <state key="normal" backgroundImage="image">
+                                                <state key="normal" backgroundImage="buttonTop">
                                                     <color key="titleColor" red="1" green="0.94901960780000005" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -257,7 +257,7 @@
                                                     <constraint firstAttribute="width" secondItem="ePt-Bw-hzH" secondAttribute="height" multiplier="1:1" id="0hx-ek-oBG"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                <state key="normal" backgroundImage="image">
+                                                <state key="normal" backgroundImage="buttonWrite">
                                                     <color key="titleColor" red="1" green="0.94901960780000005" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -306,8 +306,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="buttonTop" width="56" height="56"/>
+        <image name="buttonWrite" width="56" height="56"/>
         <image name="dum1" width="164" height="164"/>
-        <image name="image" width="70" height="71"/>
         <namedColor name="addButton">
             <color red="0.98799997568130493" green="0.68599998950958252" blue="0.27099999785423279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

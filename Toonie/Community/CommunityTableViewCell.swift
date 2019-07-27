@@ -58,6 +58,9 @@ extension CommunityTableViewCell: UICollectionViewDataSource {
                 return UICollectionViewCell()
         }
         
+        cell.setCommunityCollectionViewCellProperties(url: "url",
+                                                      indexPath: indexPath.row)
+        
         return cell
     }
     

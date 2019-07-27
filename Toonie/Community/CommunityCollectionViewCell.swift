@@ -17,4 +17,17 @@ final class CommunityCollectionViewCell: UICollectionViewCell {
         recommendImageView
             .setCorner(cornerRadius: recommendImageView.frame.width / 2)
     }
+    
+    override func prepareForReuse() {
+        recommendImageView.image = nil
+    }
+    
+    func setCommunityCollectionViewCellProperties(url: String,
+                                                  indexPath: Int) {
+        if indexPath == 0 {
+            recommendImageView.image = UIImage(named: "image")
+        } else {
+            recommendImageView.imageFromUrl(url, defaultImgPath: "dum1")
+        }
+    }
 }
