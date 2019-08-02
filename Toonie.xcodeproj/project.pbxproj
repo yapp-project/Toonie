@@ -28,6 +28,10 @@
 		8BFC98E4C41B9F358D61ED8AB127CB30 /* DetailToon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0F9FDA6D7EDBB6CC18F7B48E4304F5 /* DetailToon.swift */; };
 		92D88D4D5D1ACC0BB983D7797079C87C /* DetailToonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E371E0D955FBC2867AD25C4BD72ABF4 /* DetailToonService.swift */; };
 		687C00FF78A900251B747635F98172EC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C42DB5B38C27C2E993254790693BDF /* DetailViewController.swift */; };
+		44DD70871B5B77B09C9B834A4C529E42 /* EditorPickCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B246ACD9141DE9E5091B1F7E6197F655 /* EditorPickCollectionViewCell.swift */; };
+		D3D66ADC6515038B08E41E18D17D5879 /* EditorPickCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4080F5A437FF80929469C8C64500B3A2 /* EditorPickCollectionViewCell.xib */; };
+		828DADD44E8A3F6BD9D1D5BAAEED880A /* EditorPickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E796F660920E839DDD04B4A77B8050 /* EditorPickView.swift */; };
+		4D05C08A38662CC9C902B9B3D77E0F45 /* EditorPickView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA749DCB75683855BA6E0A7FCEA32986 /* EditorPickView.xib */; };
 		6BC7ADBD3D2854F0F96A60193BFEAE9F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4D514D14C872A08B6D4B3DFECF54F /* Extensions.swift */; };
 		558FAE24BC1D46AEE96A7839D2EECDF9 /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6181A5BE3CAF62901728B8DEC5745044 /* FavoriteCollectionViewCell.swift */; };
 		1FDC495E51E4103A48DBE746A3B5742F /* FavoriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384EC31B5698BBD32C8427B4D3D3FA9E /* FavoriteService.swift */; };
@@ -98,6 +102,8 @@
 		1D5BB303025367E486BC778468D1906D /* ToonOfTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46CA5CAF52713A5F0497239013E4ABA /* ToonOfTag.swift */; };
 		B6E0696924E424884A5626099200D098 /* ToonOfTagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED42905ADAEABD1D80B0CA4894DECCE /* ToonOfTagService.swift */; };
 		0957B41AD138D0A49135F214132A015A /* ToonieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BEF0670CA0E9737AC0D8BB4C759F3D /* ToonieTests.swift */; };
+		EE82D5040192B2B4B219D2E016DDF0C2 /* ToonieUseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FDE8A3F033FCF6C865074919640A03 /* ToonieUseView.swift */; };
+		C39FA8557528A7E6D5ABE9993C9DA41F /* ToonieUseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F8597DE10D18D8157550A99D579DC4 /* ToonieUseView.xib */; };
 		10F313ABA278DEE3B49DE4923B3913F1 /* ToonieWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6B1654A3BAD166BC9042985E427D6184 /* ToonieWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		012280A5A53D6963330DB1D8B9DC3C68 /* UIAlertController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DA6955EDA11550288B07A43296B653 /* UIAlertController+.swift */; };
 		9CE9942E51F67AA265B6AEEF1EDD1216 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1E3943DF124AA5153C9B0FF572DD13 /* UIButton+.swift */; };
@@ -176,6 +182,10 @@
 		5C0F9FDA6D7EDBB6CC18F7B48E4304F5 /* DetailToon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailToon.swift; sourceTree = "<group>"; };
 		2E371E0D955FBC2867AD25C4BD72ABF4 /* DetailToonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailToonService.swift; sourceTree = "<group>"; };
 		E4C42DB5B38C27C2E993254790693BDF /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		B246ACD9141DE9E5091B1F7E6197F655 /* EditorPickCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorPickCollectionViewCell.swift; sourceTree = "<group>"; };
+		4080F5A437FF80929469C8C64500B3A2 /* EditorPickCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditorPickCollectionViewCell.xib; sourceTree = "<group>"; };
+		99E796F660920E839DDD04B4A77B8050 /* EditorPickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorPickView.swift; sourceTree = "<group>"; };
+		FA749DCB75683855BA6E0A7FCEA32986 /* EditorPickView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditorPickView.xib; sourceTree = "<group>"; };
 		1FF4D514D14C872A08B6D4B3DFECF54F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		6181A5BE3CAF62901728B8DEC5745044 /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
 		384EC31B5698BBD32C8427B4D3D3FA9E /* FavoriteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteService.swift; sourceTree = "<group>"; };
@@ -255,6 +265,8 @@
 		60FBBACC4982D7721E27E3CD6F1CE97C /* Toonie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Toonie.entitlements; sourceTree = "<group>"; };
 		E8BEF0670CA0E9737AC0D8BB4C759F3D /* ToonieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonieTests.swift; sourceTree = "<group>"; };
 		D32B5ACD1A82F7A257245C24D4210ADC /* ToonieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToonieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		05FDE8A3F033FCF6C865074919640A03 /* ToonieUseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonieUseView.swift; sourceTree = "<group>"; };
+		B1F8597DE10D18D8157550A99D579DC4 /* ToonieUseView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToonieUseView.xib; sourceTree = "<group>"; };
 		6B1654A3BAD166BC9042985E427D6184 /* ToonieWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ToonieWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD12BD11611E9B87F84CB00CB1078D96 /* ToonieWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ToonieWidget.entitlements; sourceTree = "<group>"; };
 		A6DA6955EDA11550288B07A43296B653 /* UIAlertController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+.swift"; sourceTree = "<group>"; };
@@ -325,6 +337,27 @@
 				E4C42DB5B38C27C2E993254790693BDF /* DetailViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		9FB518EE39BAE2044443E5D3B0C91959 /* EditorPick&ToonieUse */ = {
+			isa = PBXGroup;
+			children = (
+				9A7641C1EDADC07ED6E33F9EE9B0D585 /* EditorPick */,
+				05FDE8A3F033FCF6C865074919640A03 /* ToonieUseView.swift */,
+				B1F8597DE10D18D8157550A99D579DC4 /* ToonieUseView.xib */,
+			);
+			path = "EditorPick&ToonieUse";
+			sourceTree = "<group>";
+		};
+		9A7641C1EDADC07ED6E33F9EE9B0D585 /* EditorPick */ = {
+			isa = PBXGroup;
+			children = (
+				B246ACD9141DE9E5091B1F7E6197F655 /* EditorPickCollectionViewCell.swift */,
+				4080F5A437FF80929469C8C64500B3A2 /* EditorPickCollectionViewCell.xib */,
+				99E796F660920E839DDD04B4A77B8050 /* EditorPickView.swift */,
+				FA749DCB75683855BA6E0A7FCEA32986 /* EditorPickView.xib */,
+			);
+			path = EditorPick;
 			sourceTree = "<group>";
 		};
 		1E5EEACC73F0B2067BEA386D942B1580 /* MyPage */ = {
@@ -592,6 +625,7 @@
 		C1D0C39FE48765A946888D2E109E9C40 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9FB518EE39BAE2044443E5D3B0C91959 /* EditorPick&ToonieUse */,
 				D7BD45CDB0C7E1A8A0FE2DB9C0C25B75 /* FeedViewController.swift */,
 			);
 			path = Controller;
@@ -826,6 +860,8 @@
 				BB57D379599E229DE86C9F3A93FCBB0F /* Assets.xcassets in Resources */,
 				C4210877051A6D083D442AB7EB747A7B /* Community.storyboard in Resources */,
 				5D7C2A319945FF57226321B488D96614 /* Detail.storyboard in Resources */,
+				D3D66ADC6515038B08E41E18D17D5879 /* EditorPickCollectionViewCell.xib in Resources */,
+				4D05C08A38662CC9C902B9B3D77E0F45 /* EditorPickView.xib in Resources */,
 				461C3F46EE79F602B9C6DC249B3A419C /* Feed.storyboard in Resources */,
 				8421FF396A13C148E0226E951560D9BD /* GoogleService-Info.plist in Resources */,
 				F6181CB59A1A2DF3317424DA3BADFE9F /* LaunchScreen.storyboard in Resources */,
@@ -835,6 +871,7 @@
 				E08F2E27BD8F0DD604FCE3CF61F80C8F /* Preview.storyboard in Resources */,
 				9DB4FBA4627CB67F03A18B9E44D17331 /* RecommendCollectionViewCell.xib in Resources */,
 				20F97B5303210BE76821322E74DB2E06 /* RecommendTableViewCell.xib in Resources */,
+				C39FA8557528A7E6D5ABE9993C9DA41F /* ToonieUseView.xib in Resources */,
 				FA6A0300E24AEEA193156198DE17CAD1 /* logoAnimation.json in Resources */,
 				2E7EAAD475E98814E7AFE2629614E5F5 /* logoAnimation_0.png in Resources */,
 				30B1E31C70F6D6D2CE6A3676CAD5801C /* logoAnimation_1.png in Resources */,
@@ -988,6 +1025,8 @@
 				8BFC98E4C41B9F358D61ED8AB127CB30 /* DetailToon.swift in Sources */,
 				92D88D4D5D1ACC0BB983D7797079C87C /* DetailToonService.swift in Sources */,
 				687C00FF78A900251B747635F98172EC /* DetailViewController.swift in Sources */,
+				44DD70871B5B77B09C9B834A4C529E42 /* EditorPickCollectionViewCell.swift in Sources */,
+				828DADD44E8A3F6BD9D1D5BAAEED880A /* EditorPickView.swift in Sources */,
 				6BC7ADBD3D2854F0F96A60193BFEAE9F /* Extensions.swift in Sources */,
 				558FAE24BC1D46AEE96A7839D2EECDF9 /* FavoriteCollectionViewCell.swift in Sources */,
 				1FDC495E51E4103A48DBE746A3B5742F /* FavoriteService.swift in Sources */,
@@ -1042,6 +1081,7 @@
 				F746EE0B90C2F0405E816DE870AAEBD4 /* ToonLists.swift in Sources */,
 				1D5BB303025367E486BC778468D1906D /* ToonOfTag.swift in Sources */,
 				B6E0696924E424884A5626099200D098 /* ToonOfTagService.swift in Sources */,
+				EE82D5040192B2B4B219D2E016DDF0C2 /* ToonieUseView.swift in Sources */,
 				012280A5A53D6963330DB1D8B9DC3C68 /* UIAlertController+.swift in Sources */,
 				9CE9942E51F67AA265B6AEEF1EDD1216 /* UIButton+.swift in Sources */,
 				BD6A4E5D4CF8929196A01E3D1E55C9F4 /* UIFont+.swift in Sources */,

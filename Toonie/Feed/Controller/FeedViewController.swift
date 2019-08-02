@@ -41,6 +41,18 @@ final class FeedViewController: GestureViewController {
     @IBOutlet private weak var recentViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var favoriteViewHeightConstraint: NSLayoutConstraint!
     
+    //최상단 renew
+    @IBOutlet weak var recmdCardView: UIView!
+    @IBOutlet weak var recmdCardRepresentLabel: UILabel!
+    @IBOutlet weak var recmdCardTitleLabel: UILabel!
+    @IBOutlet weak var recmdCardImageView: UIImageView!
+    @IBOutlet weak var recmdCardIdLabel: UILabel!
+    @IBOutlet weak var recmdCardTagLabel: UILabel!
+    
+    @IBOutlet weak var editorPickView: UIView!
+    
+    @IBOutlet weak var guideView: UIView!
+    
     // MARK: - Property
     
     private let recentViewHeight: CGFloat = 296
@@ -59,6 +71,10 @@ final class FeedViewController: GestureViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        setTagAnimationView()
+        setRecmdCardLayout()
+        setEditorPickLayout()
+        setToonieUseLayout()
+        
         loadForYouToonList()
         loadLatestToonList()
         loadFavoriteToonList()
@@ -85,6 +101,32 @@ final class FeedViewController: GestureViewController {
     }
     
     // MARK: - Function
+    func setEditorPickLayout() {
+        if let view = Bundle.main
+            .loadNibNamed("EditorPickView",
+                          owner: self,
+                          options: nil)?.first as? UIView {
+            self.editorPickView.addSubview(view)
+        } else {
+            //없으면 해당 뷰의 height길이 0으로
+        }
+    }
+    
+    func setToonieUseLayout() {
+        if let view = Bundle.main
+            .loadNibNamed("ToonieUseView",
+                          owner: self,
+                          options: nil)?.first as? UIView {
+            self.guideView.addSubview(view)
+        } else {
+            //없으면 해당 뷰의 height길이 0으로
+        }
+    }
+
+    func setRecmdCardLayout() {
+        self.recmdCardView.setCorner(cornerRadius:10)
+        self.recmdCardImageView.setCorner(cornerRadius: self.recmdCardImageView.frame.width / 1.8)
+    }
     
     ///초기화
     func resetArray() {
