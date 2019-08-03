@@ -8,14 +8,16 @@
 
 import UIKit
 
-class ToonieUseView: UIView {
- 
-    @IBOutlet weak var toonieUseCollectionView: UICollectionView!
-    @IBOutlet weak var toonieUseCollectionFlowview: UICollectionViewFlowLayout!
-    @IBOutlet weak var toonieUsePageControl: UIPageControl!
+final class ToonieUseView: UIView {
+    // MARK: - Properties
+    private var itemCount = 3
     
-    var itemCount = 3
+    // MARK: - IBOutlets
+    @IBOutlet private weak var toonieUseCollectionView: UICollectionView!
+    @IBOutlet private weak var toonieUseCollectionFlowview: UICollectionViewFlowLayout!
+    @IBOutlet private weak var toonieUsePageControl: UIPageControl!
     
+    // MARK: - Life Cycle
     override func awakeFromNib() {
         self.toonieUseCollectionView.delegate = self
         self.toonieUseCollectionView.dataSource = self
@@ -35,6 +37,7 @@ class ToonieUseView: UIView {
     
 }
 
+// MARK: - UICollectionViewDataSource, UICollectionViewDelegate
 extension ToonieUseView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
@@ -59,6 +62,7 @@ extension ToonieUseView: UICollectionViewDelegate {
     
 }
 
+// MARK: - UIScrollViewDelegate
 extension ToonieUseView: UIScrollViewDelegate{
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         toonieUsePageControl.currentPage = Int(floor(scrollView.contentOffset.x / UIScreen.main.bounds.width))

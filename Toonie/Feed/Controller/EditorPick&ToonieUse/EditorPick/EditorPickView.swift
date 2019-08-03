@@ -8,10 +8,14 @@
 
 import UIKit
 
-class EditorPickView: UIView {
+final class EditorPickView: UIView {
  
-    @IBOutlet weak var editorCollectionView: UICollectionView!
+    // MARK: - Properties
     
+    // MARK: - IBOutlets
+    @IBOutlet private weak var editorCollectionView: UICollectionView!
+    
+    // MARK: - Life Cycle
     override func awakeFromNib() {
         self.editorCollectionView.delegate = self
         self.editorCollectionView.dataSource = self
@@ -24,6 +28,7 @@ class EditorPickView: UIView {
 
 }
 
+// MARK: - UICollectionViewDataSource, UICollectionViewDelegate
 extension EditorPickView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {

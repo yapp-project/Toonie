@@ -34,7 +34,6 @@ final class FeedViewController: GestureViewController {
     
     @IBOutlet private weak var recommendContainerView: UIView!
     @IBOutlet private weak var feedScrollView: UIScrollView!
-    @IBOutlet private weak var tagView: UIView!
     @IBOutlet private weak var forYouCollectionView: UICollectionView!
     @IBOutlet private weak var recentCollectionView: UICollectionView!
     @IBOutlet private weak var favoriteCollectionView: UICollectionView!
@@ -42,16 +41,18 @@ final class FeedViewController: GestureViewController {
     @IBOutlet private weak var favoriteViewHeightConstraint: NSLayoutConstraint!
     
     //최상단 renew
-    @IBOutlet weak var recmdCardView: UIView!
-    @IBOutlet weak var recmdCardRepresentLabel: UILabel!
-    @IBOutlet weak var recmdCardTitleLabel: UILabel!
-    @IBOutlet weak var recmdCardImageView: UIImageView!
-    @IBOutlet weak var recmdCardIdLabel: UILabel!
-    @IBOutlet weak var recmdCardTagLabel: UILabel!
+    @IBOutlet private weak var recmdCardView: UIView!
+    @IBOutlet private weak var recmdCardRepresentLabel: UILabel!
+    @IBOutlet private weak var recmdCardTitleLabel: UILabel!
+    @IBOutlet private weak var recmdCardImageView: UIImageView!
+    @IBOutlet private weak var recmdCardIdLabel: UILabel!
+    @IBOutlet private weak var recmdCardTagLabel: UILabel!
     
-    @IBOutlet weak var editorPickView: UIView!
+    @IBOutlet private weak var editorPickView: UIView!
+    @IBOutlet private weak var editorPickViewHeight: NSLayoutConstraint!
     
-    @IBOutlet weak var guideView: UIView!
+    @IBOutlet private weak var guideView: UIView!
+    @IBOutlet private weak var guideViewHeight: NSLayoutConstraint!
     
     // MARK: - Property
     
@@ -115,7 +116,7 @@ final class FeedViewController: GestureViewController {
         }
     }
     // MARK: - Function
-    func setEditorPickLayout() {
+    private func setEditorPickLayout() {
         if let view = Bundle.main
             .loadNibNamed("EditorPickView",
                           owner: self,
@@ -123,10 +124,11 @@ final class FeedViewController: GestureViewController {
             self.editorPickView.addSubview(view)
         } else {
             //없으면 해당 뷰의 height길이 0으로
+            editorPickViewHeight.constant = 0
         }
     }
     
-    func setToonieUseLayout() {
+    private func setToonieUseLayout() {
         if let view = Bundle.main
             .loadNibNamed("ToonieUseView",
                           owner: self,
@@ -134,10 +136,11 @@ final class FeedViewController: GestureViewController {
             self.guideView.addSubview(view)
         } else {
             //없으면 해당 뷰의 height길이 0으로
+            guideViewHeight.constant = 0
         }
     }
 
-    func setRecmdCardLayout() {
+    private func setRecmdCardLayout() {
         self.recmdCardView.setCorner(cornerRadius:10)
         self.recmdCardImageView.setCorner(cornerRadius: self.recmdCardImageView.frame.width / 1.8)
     }

@@ -8,6 +8,9 @@
 
 import UIKit
 
-class EditorPickCollectionViewCell: UICollectionViewCell {
-    
+final class EditorPickCollectionViewCell: UICollectionViewCell { 
+    // MARK: - Properties
+    // MARK: - IBOutlets
+    // MARK: - Life Cycle
+    // MARK: - IBAction
 }

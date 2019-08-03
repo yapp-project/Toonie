@@ -8,6 +8,10 @@
 
 import UIKit
 
-class ToonieUseCell: UICollectionViewCell {
+final class ToonieUseCell: UICollectionViewCell {
     
+    // MARK: - Properties
+    // MARK: - IBOutlets
+    // MARK: - Life Cycle
+    // MARK: - IBAction
 }

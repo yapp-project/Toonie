@@ -1204,11 +1204,13 @@
                     <size key="freeformSize" width="375" height="2000"/>
                     <connections>
                         <outlet property="editorPickView" destination="7E2-ae-ZoK" id="PXk-Hk-bOs"/>
+                        <outlet property="editorPickViewHeight" destination="mZm-yz-whX" id="NR5-iT-iJq"/>
                         <outlet property="favoriteCollectionView" destination="vJq-TG-75g" id="4aD-Gh-N4H"/>
                         <outlet property="favoriteViewHeightConstraint" destination="gwh-Xv-oxw" id="Z3Z-tR-iVs"/>
                         <outlet property="feedScrollView" destination="3Oy-Ne-1lk" id="Y0N-I8-XCc"/>
                         <outlet property="forYouCollectionView" destination="xnM-j2-Ozo" id="lya-6w-56V"/>
                         <outlet property="guideView" destination="hez-er-eGv" id="av8-fJ-7x4"/>
+                        <outlet property="guideViewHeight" destination="hk1-fT-xLy" id="7WB-Cg-Wmp"/>
                         <outlet property="recentCollectionView" destination="2Kv-4E-jhR" id="2B4-Bt-bbs"/>
                         <outlet property="recentViewHeightConstraint" destination="eYB-jf-7Qh" id="uKb-fi-73y"/>
                         <outlet property="recmdCardIdLabel" destination="KE8-aN-FzP" id="cBM-qp-Fx7"/>
