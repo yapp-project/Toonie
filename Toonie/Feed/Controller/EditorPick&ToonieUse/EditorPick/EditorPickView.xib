@@ -13,17 +13,17 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="aQ4-H7-UzC" customClass="EditorPickView" customModule="Toonie" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="203"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="238"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="bc5-Yk-BlC">
                     <rect key="frame" x="0.0" y="53" width="414" height="150"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7VS-05-fEW">
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="18" id="7VS-05-fEW">
                         <size key="itemSize" width="225" height="150"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <inset key="sectionInset" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="GRb-Vn-ggV"/>
@@ -41,7 +41,7 @@
             <constraints>
                 <constraint firstItem="Aoi-bz-Owh" firstAttribute="top" secondItem="aQ4-H7-UzC" secondAttribute="top" constant="17" id="8XO-Z5-Ygw"/>
                 <constraint firstItem="nPU-ur-b4M" firstAttribute="trailing" secondItem="bc5-Yk-BlC" secondAttribute="trailing" id="8o0-gU-qCl"/>
-                <constraint firstAttribute="bottom" secondItem="bc5-Yk-BlC" secondAttribute="bottom" id="CT5-vL-29s"/>
+                <constraint firstAttribute="bottom" secondItem="bc5-Yk-BlC" secondAttribute="bottom" constant="35" id="CT5-vL-29s"/>
                 <constraint firstItem="Aoi-bz-Owh" firstAttribute="leading" secondItem="aQ4-H7-UzC" secondAttribute="leading" constant="20" id="MUa-69-ape"/>
                 <constraint firstItem="bc5-Yk-BlC" firstAttribute="top" secondItem="Aoi-bz-Owh" secondAttribute="bottom" constant="12" id="c1K-V5-VXt"/>
                 <constraint firstItem="bc5-Yk-BlC" firstAttribute="leading" secondItem="nPU-ur-b4M" secondAttribute="leading" id="pgI-zj-HVr"/>
@@ -51,7 +51,7 @@
             <connections>
                 <outlet property="editorCollectionView" destination="bc5-Yk-BlC" id="dGj-3R-WrI"/>
             </connections>
-            <point key="canvasLocation" x="153.62318840579712" y="-198.21428571428569"/>
+            <point key="canvasLocation" x="153.62318840579712" y="-198.54910714285714"/>
         </view>
     </objects>
 </document>

@@ -100,6 +100,20 @@ final class FeedViewController: GestureViewController {
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
+    @IBAction func moveRecommendDidTap(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Feed", bundle: nil)
+        if let viewController = storyboard
+            .instantiateViewController(withIdentifier: "RecommendPopupViewConroller")
+            as? RecommendPopupViewConroller {
+            viewController.modalPresentationStyle = .overCurrentContext
+            
+            CommonUtility.sharedInstance
+                .mainNavigationViewController?
+                .present(viewController,
+                         animated: false,
+                         completion:nil)
+        }
+    }
     // MARK: - Function
     func setEditorPickLayout() {
         if let view = Bundle.main
@@ -207,27 +221,6 @@ final class FeedViewController: GestureViewController {
         self.recentCollectionView.reloadData()
         self.favoriteCollectionView.reloadData()
     }
-    
-    /// tagAnimationView 세팅
-//    private func setTagAnimationView() {
-//        tagAnimationView = AnimationView(name: "newTag")
-//        if let tagAnimationView = tagAnimationView {
-//            tagAnimationView.contentMode = .scaleAspectFit
-//            tagView.addSubview(tagAnimationView)
-//            tagAnimationView.snp.makeConstraints { (make) -> Void in
-//                make.width.equalTo(tagView.bounds.width)
-//                make.height.equalTo(tagView.bounds.height)
-//                make.center.equalTo(tagView)
-//            }
-//        }
-//
-//        playTagAnimationView()
-//    }
-//
-//    // 태그 애니메이션 재생
-//    private func playTagAnimationView() {
-//        tagAnimationView?.play()
-//    }
     
     /// 인스타툰 상세정보 화면으로 이동
     private func pushDetailToonViewController(toonID: String, isFavorite: Bool) {
