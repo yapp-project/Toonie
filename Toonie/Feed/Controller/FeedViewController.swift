@@ -34,12 +34,25 @@ final class FeedViewController: GestureViewController {
     
     @IBOutlet private weak var recommendContainerView: UIView!
     @IBOutlet private weak var feedScrollView: UIScrollView!
-    @IBOutlet private weak var tagView: UIView!
     @IBOutlet private weak var forYouCollectionView: UICollectionView!
     @IBOutlet private weak var recentCollectionView: UICollectionView!
     @IBOutlet private weak var favoriteCollectionView: UICollectionView!
     @IBOutlet private weak var recentViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var favoriteViewHeightConstraint: NSLayoutConstraint!
+    
+    //최상단 renew
+    @IBOutlet private weak var recmdCardView: UIView!
+    @IBOutlet private weak var recmdCardRepresentLabel: UILabel!
+    @IBOutlet private weak var recmdCardTitleLabel: UILabel!
+    @IBOutlet private weak var recmdCardImageView: UIImageView!
+    @IBOutlet private weak var recmdCardIdLabel: UILabel!
+    @IBOutlet private weak var recmdCardTagLabel: UILabel!
+    
+    @IBOutlet private weak var editorPickView: UIView!
+    @IBOutlet private weak var editorPickViewHeight: NSLayoutConstraint!
+    
+    @IBOutlet private weak var guideView: UIView!
+    @IBOutlet private weak var guideViewHeight: NSLayoutConstraint!
     
     // MARK: - Property
     
@@ -58,7 +71,11 @@ final class FeedViewController: GestureViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setTagAnimationView()
+//        setTagAnimationView()
+        setRecmdCardLayout()
+        setEditorPickLayout()
+        setToonieUseLayout()
+        
         loadForYouToonList()
         loadLatestToonList()
         loadFavoriteToonList()
@@ -68,7 +85,7 @@ final class FeedViewController: GestureViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        playTagAnimationView()
+//        playTagAnimationView()
         loadFavoriteToon()
         
         CommonUtility.analytics(eventName: "FeedViewController",
@@ -84,7 +101,49 @@ final class FeedViewController: GestureViewController {
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
+    @IBAction func moveRecommendDidTap(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Feed", bundle: nil)
+        if let viewController = storyboard
+            .instantiateViewController(withIdentifier: "RecommendPopupViewConroller")
+            as? RecommendPopupViewConroller {
+            viewController.modalPresentationStyle = .overCurrentContext
+            
+            CommonUtility.sharedInstance
+                .mainNavigationViewController?
+                .present(viewController,
+                         animated: false,
+                         completion:nil)
+        }
+    }
     // MARK: - Function
+    private func setEditorPickLayout() {
+        if let view = Bundle.main
+            .loadNibNamed("EditorPickView",
+                          owner: self,
+                          options: nil)?.first as? UIView {
+            self.editorPickView.addSubview(view)
+        } else {
+            //없으면 해당 뷰의 height길이 0으로
+            editorPickViewHeight.constant = 0
+        }
+    }
+    
+    private func setToonieUseLayout() {
+        if let view = Bundle.main
+            .loadNibNamed("ToonieUseView",
+                          owner: self,
+                          options: nil)?.first as? UIView {
+            self.guideView.addSubview(view)
+        } else {
+            //없으면 해당 뷰의 height길이 0으로
+            guideViewHeight.constant = 0
+        }
+    }
+
+    private func setRecmdCardLayout() {
+        self.recmdCardView.setCorner(cornerRadius:10)
+        self.recmdCardImageView.setCorner(cornerRadius: self.recmdCardImageView.frame.width / 1.8)
+    }
     
     ///초기화
     func resetArray() {
@@ -164,27 +223,6 @@ final class FeedViewController: GestureViewController {
         self.forYouCollectionView.reloadData()
         self.recentCollectionView.reloadData()
         self.favoriteCollectionView.reloadData()
-    }
-    
-    /// tagAnimationView 세팅
-    private func setTagAnimationView() {
-        tagAnimationView = AnimationView(name: "newTag")
-        if let tagAnimationView = tagAnimationView {
-            tagAnimationView.contentMode = .scaleAspectFit
-            tagView.addSubview(tagAnimationView)
-            tagAnimationView.snp.makeConstraints { (make) -> Void in
-                make.width.equalTo(tagView.bounds.width)
-                make.height.equalTo(tagView.bounds.height)
-                make.center.equalTo(tagView)
-            }
-        }
-        
-        playTagAnimationView()
-    }
-    
-    // 태그 애니메이션 재생
-    private func playTagAnimationView() {
-        tagAnimationView?.play()
     }
     
     /// 인스타툰 상세정보 화면으로 이동

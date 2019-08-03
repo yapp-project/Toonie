@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="aQ4-H7-UzC" customClass="EditorPickView" customModule="Toonie" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="203"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="bc5-Yk-BlC">
+                    <rect key="frame" x="0.0" y="53" width="414" height="150"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7VS-05-fEW">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="에디터 PICK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aoi-bz-Owh">
+                    <rect key="frame" x="20" y="17" width="100" height="24"/>
+                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="20"/>
+                    <color key="textColor" red="1" green="0.56470588235294117" blue="0.34509803921568627" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Aoi-bz-Owh" firstAttribute="top" secondItem="aQ4-H7-UzC" secondAttribute="top" constant="17" id="8XO-Z5-Ygw"/>
+                <constraint firstItem="nPU-ur-b4M" firstAttribute="trailing" secondItem="bc5-Yk-BlC" secondAttribute="trailing" id="8o0-gU-qCl"/>
+                <constraint firstAttribute="bottom" secondItem="bc5-Yk-BlC" secondAttribute="bottom" id="CT5-vL-29s"/>
+                <constraint firstItem="Aoi-bz-Owh" firstAttribute="leading" secondItem="aQ4-H7-UzC" secondAttribute="leading" constant="20" id="MUa-69-ape"/>
+                <constraint firstItem="bc5-Yk-BlC" firstAttribute="top" secondItem="Aoi-bz-Owh" secondAttribute="bottom" constant="12" id="c1K-V5-VXt"/>
+                <constraint firstItem="bc5-Yk-BlC" firstAttribute="leading" secondItem="nPU-ur-b4M" secondAttribute="leading" id="pgI-zj-HVr"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="nPU-ur-b4M"/>
+            <point key="canvasLocation" x="153.62318840579712" y="-198.21428571428569"/>
+        </view>
+    </objects>
+</document>
