@@ -17,7 +17,7 @@ protocol Requestable {
              completion: @escaping (NetworkResult<NetworkSuccessResult>) -> Void)
     
     func post(_ URL: String,
-              params: [String: Any],
+              params: Parameters?,
               completion: @escaping (NetworkResult<NetworkSuccessResult>) -> Void) 
 }
 
@@ -58,8 +58,35 @@ extension Requestable {
         }
     }
     
+    func unprocessedGet(_ URL: String,
+                        params: Parameters? = nil,
+                        completion: @escaping (NetworkResult<Data>) -> Void) {
+        guard let encodedUrl = URL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+            print("networking - invalid url")
+            return
+        }
+        
+        Alamofire.request(encodedUrl,
+                          method: .get,
+                          parameters: nil).responseData { (res) in
+                            switch res.result {
+                            case .success:
+                                if let value = res.result.value { 
+                                    completion(.networkSuccess(value))
+                                }
+                            case .failure(let err):
+                                if let error = err as NSError?, error.code == -1009 {
+                                    completion(.networkFail)
+                                } else {
+                                    let resCode = res.response?.statusCode ?? 0
+                                    completion(.networkError((resCode, err.localizedDescription)))
+                                }
+                            }
+        }
+    }
+    
     func post(_ URL: String,
-              params: [String: Any],
+              params: Parameters? = nil,
               completion: @escaping (NetworkResult<NetworkSuccessResult>) -> Void) {
         guard let encodedUrl = URL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
             print("networking - invalid url")
@@ -92,7 +119,35 @@ extension Requestable {
                                 }
                             }
         }
-        
     }
-    
+        
+        func unprocessedPost(_ URL: String,
+                             params: Parameters? = nil,
+                             completion: @escaping (NetworkResult<Data>) -> Void) {
+            guard let encodedUrl = URL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+                print("networking - invalid url")
+                return
+            }
+            
+            Alamofire.request(encodedUrl,
+                              method: .post,
+                              parameters: params,
+                              encoding: JSONEncoding.default).responseData { (res) in
+                                switch res.result {
+                                case .success:
+                                    if let value = res.result.value {
+                                        completion(.networkSuccess(value))
+                                    }
+                                case .failure(let err):
+                                    if let error = err as NSError?, error.code == -1009 {
+                                        completion(.networkFail)
+                                    } else {
+                                        let resCode = res.response?.statusCode ?? 0
+                                        completion(.networkError((resCode, err.localizedDescription)))
+                                    }
+                                }
+            }
+            
+        }
+        
 }

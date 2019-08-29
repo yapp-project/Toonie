@@ -12,7 +12,7 @@ import Foundation
  Base URL과 JSONDecoder의 디코딩 전략 설정
  */
 class API {
-    static let baseURL = "http://101.101.167.91:8080"
+    static let baseURL = "http://106.10.51.191"
     
     static let jsonDecoder: JSONDecoder = {
         let jsonDecoder = JSONDecoder()
