@@ -19,7 +19,7 @@ final class KeywordSelectViewController: GestureViewController {
     private var layoutMode: Bool = false
     var keywordSelectArray = [String]()
     
-    var keywords = [String]()
+    var categorys = [Categorys]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,9 +82,9 @@ final class KeywordSelectViewController: GestureViewController {
     
     ///keywords 값들 가져옴
     func setKeywordValue() {
-        KeywordsService.shared.getKeywords { [weak self] (result) in
+        CategorysService.shared.getCategorys { [weak self] (result) in
             guard let self = self else { return }
-            self.keywords = result ?? [String]()
+            self.categorys = result 
             self.reloadKeywordCollectionView()
         }
     }
@@ -118,7 +118,7 @@ final class KeywordSelectViewController: GestureViewController {
 
 extension KeywordSelectViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return keywords.count
+        return categorys.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -130,13 +130,13 @@ extension KeywordSelectViewController: UICollectionViewDelegate, UICollectionVie
                 return UICollectionViewCell()
         }
         
-        cell.titleLabel.text = keywords[indexPath.row]
+        cell.titleLabel.text = categorys[indexPath.row].name
         
         cell.cellStatus = false
         
         //사용자가 선택한 키워드는 활성화처리
         for keywordSelect in keywordSelectArray
-            where keywords[indexPath.row] == keywordSelect {
+            where categorys[indexPath.row].name == keywordSelect {
                 cell.cellStatus = true
         }
         
@@ -147,16 +147,20 @@ extension KeywordSelectViewController: UICollectionViewDelegate, UICollectionVie
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let keyword = keywords[indexPath.row]
-        let width = Int(keyword.widthWithConstrainedHeight(height: 49, font: UIFont.systemFont(ofSize: 20)))
+        if let category = categorys[indexPath.row].name{
+            let width = Int(category.widthWithConstrainedHeight(height: 49,
+                                                                font: UIFont.systemFont(ofSize: 20)))
+            return CGSize(width: width + 20, height: 50)
+        }
         
-        return CGSize(width: width + 20, height: 50)
+           return CGSize(width: 20, height: 50)
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? KeywordCell {
             let body = [
-                "keywords": [self.keywords[indexPath.row]]
+                "keywords": [self.categorys[indexPath.row].name]
             ]
             
             MyKeywordsService.shared.postMyKeywords(params: body,
@@ -165,7 +169,7 @@ extension KeywordSelectViewController: UICollectionViewDelegate, UICollectionVie
                     
                     //선택한 키워드 추가 및 삭제
                     if cell.cellStatus == true {
-                        self.keywordSelectArray.append(self.keywords[indexPath.row])
+                        self.keywordSelectArray.append(self.categorys[indexPath.row].name ?? "")
                     } else {
                         let findIndex = self.keywordSelectArray.firstIndex(of: cell.titleLabel.text ?? "")
                         
@@ -187,9 +191,12 @@ extension KeywordSelectViewController: UICollectionViewDelegateFlowLayout {
     private func collectionView(collectionView: UICollectionView,
                                 layout collectionViewLayout: UICollectionViewLayout,
                                 sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
-        let keyword = keywords[indexPath.row]
-        let width = Int(keyword.widthWithConstrainedHeight(height: 49, font: UIFont.systemFont(ofSize: 20)))
+        if let category = categorys[indexPath.row].name{
+            let width = Int(category.widthWithConstrainedHeight(height: 49,
+                                                                font: UIFont.systemFont(ofSize: 20)))
+            return CGSize(width: width + 20, height: 50)
+        }
         
-        return CGSize(width: width + 20, height: 50)
+        return CGSize(width: 20, height: 50)
     }
 }

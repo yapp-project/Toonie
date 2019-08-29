@@ -12,6 +12,11 @@ struct Keywords: Codable {
     let keywords: [String]?
 }
 
+struct Categorys: Codable {
+    let index: Int?
+    let name: String?
+}
+
 struct MyKeywords: Codable {
     let success: Bool?
     let myKeywords: [String]?

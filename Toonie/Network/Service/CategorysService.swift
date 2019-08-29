@@ -8,19 +8,16 @@
 
 import UIKit
 
-class KeywordsService: Requestable {
-    typealias NetworkData = Keywords
-    static let shared = KeywordsService()
+class CategorysService: Requestable {
+    typealias NetworkData = [Categorys]
+    static let shared = CategorysService()
     
     //전체 키워드 리스트를 조회
-    func getKeywords(completion: @escaping ([String]?) -> Void) {
-        get(API.keywords) { result in
+    func getCategorys(completion: @escaping ([Categorys]) -> Void) {
+        get(API.categorys) { result in
             switch result {
             case .networkSuccess(let data):
-                if data.resResult.success == false {
-                    return
-                }
-                completion(data.resResult.keywords)
+                completion(data.resResult)
             case .networkError(let error):
                 print(error)
             case .networkFail:

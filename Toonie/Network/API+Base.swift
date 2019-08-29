@@ -28,8 +28,8 @@ class API {
         return baseURL + "/token"
     }()
     
-    static let keywords = {
-        return baseURL + "/keywords"
+    static let categorys = {
+        return baseURL + "/category"
     }()
     
     //    static let myKeywords = {
@@ -59,7 +59,7 @@ class API {
     
     //kewords/:keyword
     static let keywordInfo = { (keyword) in
-        return keywords + "/" + keyword
+        return categorys + "/" + keyword
     }
     
     static let worklist = {
