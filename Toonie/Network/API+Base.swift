@@ -53,8 +53,8 @@ class API {
     }()
     
     //mykeywords/:token
-    static let myKeywordsToken = { (token) in
-        return myKeywords + "/" + token
+    static let myCategorysToken = { (token) in
+        return categorys + "/token/" + token
     }
     
     //kewords/:keyword

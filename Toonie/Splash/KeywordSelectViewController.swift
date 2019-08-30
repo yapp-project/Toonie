@@ -17,7 +17,7 @@ final class KeywordSelectViewController: GestureViewController {
     @IBOutlet weak var mainMoveButton: UIButton!
     
     private var layoutMode: Bool = false
-    var keywordSelectArray = [String]()
+    var selectingCategoryArray = [String]() // 선택할 카테고리가 들어갈 배열
     
     var categorys = [Categorys]()
     
@@ -38,7 +38,6 @@ final class KeywordSelectViewController: GestureViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setKeywordValue()
-        setSelectedKeywordValue()
         
         CommonUtility.analytics(eventName: "KeywordViewController",
                                 param: ["token": CommonUtility.getUserToken() ?? "toonie"])
@@ -46,11 +45,20 @@ final class KeywordSelectViewController: GestureViewController {
     
     ///시작하기 버튼-메인으로 이동
     @IBAction func startButtonDidTap(_ sender: UIButton) {
-        //        print("선택한 키워드 \(keywordSelectArray)")
-        // 누르면
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "RootViewController")
-        UIApplication.shared.keyWindow?.rootViewController = viewController
+        print("선택한 카테고리 \(selectingCategoryArray)")
+        
+//        // 누르면
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let viewController = storyboard.instantiateViewController(withIdentifier: "RootViewController")
+//        UIApplication.shared.keyWindow?.rootViewController = viewController
+        
+//        CategorysService.shared.anyTypeParamsPost(<#T##URL: String##String#>, params: <#T##[T]#>, completion: <#T##(NetworkResult<Data>) -> Void#>) { (json) in
+//            print("뭥미.......")
+//        }
+//        postMyCategorys
+        MyCategorysService.shared.postMyCategorys(params: selectingCategoryArray) {
+            print("되나?")
+        }
     }
     
     ///keywordFlowLayout 프로퍼티 설정
@@ -63,9 +71,9 @@ final class KeywordSelectViewController: GestureViewController {
     
     ///키워드 선택할때마다 카운트레이블, 버튼 리로드
     func reloadKeywordView() {
-        keywordCountLabel.text = "\(keywordSelectArray.count)개"
+        keywordCountLabel.text = "\(selectingCategoryArray.count)개"
         
-        if 3 <= keywordSelectArray.count {
+        if 3 <= selectingCategoryArray.count {
             //버튼상태 바꿈
             mainMoveButton.isEnabled = true
             mainMoveButton.backgroundColor = UIColor.clear // 그라디언트 소스코드로 적용해야함.
@@ -86,16 +94,6 @@ final class KeywordSelectViewController: GestureViewController {
             guard let self = self else { return }
             self.categorys = result 
             self.reloadKeywordCollectionView()
-        }
-    }
-    
-    ///사용자가 선택한 keywords를 가져옴
-    func setSelectedKeywordValue() {
-        MyKeywordsService.shared.getMyKeywords { [weak self] (myKeywords) in
-            guard let self = self else { return }
-            self.keywordSelectArray = myKeywords ?? [String]()
-            self.reloadKeywordCollectionView()
-            self.reloadKeywordView()
         }
     }
     
@@ -133,12 +131,12 @@ extension KeywordSelectViewController: UICollectionViewDelegate, UICollectionVie
         cell.titleLabel.text = categorys[indexPath.row].name
         
         cell.cellStatus = false
-        
-        //사용자가 선택한 키워드는 활성화처리
-        for keywordSelect in keywordSelectArray
-            where categorys[indexPath.row].name == keywordSelect {
-                cell.cellStatus = true
-        }
+//
+//        //사용자가 선택한 키워드는 활성화처리
+//        for categorySelect in categorySelectArray
+//            where categorys[indexPath.row] == categorySelect {
+//                cell.cellStatus = true
+//        }
         
         return cell
     }
@@ -159,29 +157,21 @@ extension KeywordSelectViewController: UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? KeywordCell {
-            let body = [
-                "keywords": [self.categorys[indexPath.row].name]
-            ]
+            cell.cellStatus = !cell.cellStatus
             
-            MyKeywordsService.shared.postMyKeywords(params: body,
-                                                    completion: {
-                    cell.cellStatus = !cell.cellStatus
-                    
-                    //선택한 키워드 추가 및 삭제
-                    if cell.cellStatus == true {
-                        self.keywordSelectArray.append(self.categorys[indexPath.row].name ?? "")
-                    } else {
-                        let findIndex = self.keywordSelectArray.firstIndex(of: cell.titleLabel.text ?? "")
-                        
-                        if let index = findIndex {
-                            self.keywordSelectArray.remove(at: index)
-                        }
-                    }
-                    
-                    //카운트레이블, 버튼 리로드
-                    self.reloadKeywordView()
-            })
+            //선택한 키워드 추가 및 삭제
+            if cell.cellStatus == true {
+                self.selectingCategoryArray.append(self.categorys[indexPath.row].name ?? "")
+            } else {
+                let findIndex = self.selectingCategoryArray.firstIndex(of: cell.titleLabel.text ?? "")
+                
+                if let index = findIndex {
+                    self.selectingCategoryArray.remove(at: index)
+                }
+            }
             
+            //카운트레이블, 버튼 리로드
+            self.reloadKeywordView()
         }
     }
     
