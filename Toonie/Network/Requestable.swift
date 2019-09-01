@@ -150,20 +150,24 @@ extension Requestable {
     }
     
     func anyTypeParamsPost<T>(_ URL: String,
-                         params: [T] ,
-                         completion: @escaping (NetworkResult<Data>) -> Void) {
+                              params: T,
+                              completion: @escaping (NetworkResult<Data>) -> Void) {
         guard let encodedUrl = URL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
             print("networking - invalid url")
             return
         }
         
+        let headers: HTTPHeaders = [
+            "Content-Type":"application/json", 
+        ]
         //리턴값이 읎음.. 걍 이것만 호출
         SessionManager
             .default
             .paramArrayRequest(encodedUrl,
                                method: .post,
                                parameters: params,
-                               encoding: JSONEncoding.default)?.responseData { (res) in
+                               encoding: JSONEncoding.default,
+                               headers: headers)?.responseData { (res) in
                                 switch res.result {
                                 case .success:
                                     if let value = res.result.value {
@@ -179,7 +183,10 @@ extension Requestable {
                                 }
         }
         
+        
     }
+    
+    
     
 }
 
@@ -187,13 +194,12 @@ extension Requestable {
 extension SessionManager {
     func paramArrayRequest<T>(_ url: URLConvertible,
                               method: HTTPMethod = .post,
-                              parameters: [T], //제네릭타입, paramArrayRequest가 호출될때 타입이 결정된다.
+                              parameters: T, //제네릭타입, paramArrayRequest가 호출될때 타입이 결정된다.
                               encoding: ParameterEncoding = URLEncoding.default,
                               headers: HTTPHeaders? = nil) -> DataRequest? {
         do {
             var originalRequest = try URLRequest(url: url, method: method, headers: headers)
-            
-            
+    
             let data = try JSONSerialization.data(withJSONObject: parameters, options: [])
             originalRequest.httpBody = data
      
@@ -202,5 +208,4 @@ extension SessionManager {
             return nil
         }
     }
-    
 }
