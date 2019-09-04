@@ -158,7 +158,7 @@ extension Requestable {
         }
         
         let headers: HTTPHeaders = [
-            "Content-Type":"application/json", 
+            "Content-Type":"application/json",
         ]
         //리턴값이 읎음.. 걍 이것만 호출
         SessionManager

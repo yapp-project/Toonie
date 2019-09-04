@@ -46,18 +46,12 @@ final class KeywordSelectViewController: GestureViewController {
     ///시작하기 버튼-메인으로 이동
     @IBAction func startButtonDidTap(_ sender: UIButton) {
         print("선택한 카테고리 \(selectingCategoryArray)")
-        
 //        // 누르면
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let viewController = storyboard.instantiateViewController(withIdentifier: "RootViewController")
-//        UIApplication.shared.keyWindow?.rootViewController = viewController
-        
-//        CategorysService.shared.anyTypeParamsPost(<#T##URL: String##String#>, params: <#T##[T]#>, completion: <#T##(NetworkResult<Data>) -> Void#>) { (json) in
-//            print("뭥미.......")
-//        }
 //        postMyCategorys
         MyCategorysService.shared.postMyCategorys(params: selectingCategoryArray) {
-            print("되나?")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "RootViewController")
+            UIApplication.shared.keyWindow?.rootViewController = viewController
         }
     }
     
