@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,7 @@
 		BB57D379599E229DE86C9F3A93FCBB0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80C2C41933AFF35CEA1787DF94DFAF18 /* Assets.xcassets */; };
 		CE58BDE4B385906F80FB4510F44E5C7B /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A77C9F89A069C22EF59EBA5C5E17A8 /* CALayer+.swift */; };
 		55E04A449897A03673CFACEFF9585ABD /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0E6BEFD2DD52D34B933FC22432B52D /* Card.swift */; };
+		5C4CC7622F85E773A9DB08628AB6EFBC /* CategorysService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D04A7533C1661E80FB9A30F042B67E2 /* CategorysService.swift */; };
 		BCDEA1EC37D4D5343EE8EB89C50EC320 /* ChkToonieUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8675F866B2CC5FC1DDB18021BE67EABF /* ChkToonieUpdate.swift */; };
 		C51E480B0D1262D5020AF02E2B26CF37 /* ChkToonieUpdateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383FC02752E41DED4201FA814927EC4C /* ChkToonieUpdateService.swift */; };
 		434A751FC6257879A9477C336CD3CBBA /* CommonFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9323F2A30BC1D6B5A75290A78E5EFF /* CommonFunction.swift */; };
@@ -43,7 +44,6 @@
 		B8CD77E704B84AC69F36C250FB3FA1EC /* KeywordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EDEEDFB2A92FFAA9328EB4B2086305 /* KeywordCell.swift */; };
 		841F43351B84CE479CB40DF8E83FA09B /* KeywordSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7369E794AEA4E0B7187CBD9AE26AFB2E /* KeywordSelectViewController.swift */; };
 		1197A557CB1AF1158F94DFB7BD22F4DA /* Keywords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9222FD8324DC3A507BC365062CF19A15 /* Keywords.swift */; };
-		4330D46CD038C3C3085241498B27CE8D /* KeywordsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF827ADC08C996D3C51D60BE675C7641 /* KeywordsService.swift */; };
 		10F42A8391AB9847A4363C722F33055F /* LatestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF3B3437C5C4EE63DDBF69594FC82C8 /* LatestService.swift */; };
 		F6181CB59A1A2DF3317424DA3BADFE9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B0C78D03E5A43CAFBDBB7ED8BE48B16 /* LaunchScreen.storyboard */; };
 		A1EEA867D16DF76FCAA9521EE5DEA370 /* Look.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 917CB174956FF8ACDAD03E1840E2F0EF /* Look.storyboard */; };
@@ -172,6 +172,7 @@
 		D96ADF5E22F9048B9EE1FA43C04A076F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		02A77C9F89A069C22EF59EBA5C5E17A8 /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
 		5A0E6BEFD2DD52D34B933FC22432B52D /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		1D04A7533C1661E80FB9A30F042B67E2 /* CategorysService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorysService.swift; sourceTree = "<group>"; };
 		8675F866B2CC5FC1DDB18021BE67EABF /* ChkToonieUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChkToonieUpdate.swift; sourceTree = "<group>"; };
 		383FC02752E41DED4201FA814927EC4C /* ChkToonieUpdateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChkToonieUpdateService.swift; sourceTree = "<group>"; };
 		7F9323F2A30BC1D6B5A75290A78E5EFF /* CommonFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunction.swift; sourceTree = "<group>"; };
@@ -203,7 +204,6 @@
 		20EDEEDFB2A92FFAA9328EB4B2086305 /* KeywordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordCell.swift; sourceTree = "<group>"; };
 		7369E794AEA4E0B7187CBD9AE26AFB2E /* KeywordSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordSelectViewController.swift; sourceTree = "<group>"; };
 		9222FD8324DC3A507BC365062CF19A15 /* Keywords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keywords.swift; sourceTree = "<group>"; };
-		BF827ADC08C996D3C51D60BE675C7641 /* KeywordsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordsService.swift; sourceTree = "<group>"; };
 		7CF3B3437C5C4EE63DDBF69594FC82C8 /* LatestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestService.swift; sourceTree = "<group>"; };
 		917CB174956FF8ACDAD03E1840E2F0EF /* Look.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Look.storyboard; sourceTree = "<group>"; };
 		4744A64E19261259A0F1C0E591CA994C /* LookCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookCell.swift; sourceTree = "<group>"; };
@@ -223,12 +223,12 @@
 		B1D790C9FD3F0F7400B468DFA34CFE7D /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		7B66BD4B5F2CF9118F0AF5150B582842 /* PanState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanState.swift; sourceTree = "<group>"; };
 		3A16A9AC9B5DBDDDC19B352AB26423E2 /* PileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PileView.swift; sourceTree = "<group>"; };
-		46461D78EB2754C9A17D4352D5F97AC7 /* Pods-Toonie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toonie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Toonie/Pods-Toonie.debug.xcconfig"; sourceTree = "<group>"; };
-		300FB960FFEE2976C603D16E5DC4B10B /* Pods-Toonie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toonie.release.xcconfig"; path = "Pods/Target Support Files/Pods-Toonie/Pods-Toonie.release.xcconfig"; sourceTree = "<group>"; };
-		F9FED2BB74D689EF6B88421CC1B8579D /* Pods-ToonieTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToonieTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToonieTests/Pods-ToonieTests.debug.xcconfig"; sourceTree = "<group>"; };
-		630481886041EA402305CF71D731B02B /* Pods-ToonieTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToonieTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToonieTests/Pods-ToonieTests.release.xcconfig"; sourceTree = "<group>"; };
-		8AFEFE4CBE574CB4EC9D40CB2C33B674 /* Pods-ToonieWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToonieWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToonieWidget/Pods-ToonieWidget.debug.xcconfig"; sourceTree = "<group>"; };
-		647D3371521DDB35BF9F6896BA9AB234 /* Pods-ToonieWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToonieWidget.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToonieWidget/Pods-ToonieWidget.release.xcconfig"; sourceTree = "<group>"; };
+		46461D78EB2754C9A17D4352D5F97AC7 /* Pods-Toonie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toonie.debug.xcconfig"; path = "Target Support Files/Pods-Toonie/Pods-Toonie.debug.xcconfig"; sourceTree = "<group>"; };
+		300FB960FFEE2976C603D16E5DC4B10B /* Pods-Toonie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toonie.release.xcconfig"; path = "Target Support Files/Pods-Toonie/Pods-Toonie.release.xcconfig"; sourceTree = "<group>"; };
+		F9FED2BB74D689EF6B88421CC1B8579D /* Pods-ToonieTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToonieTests.debug.xcconfig"; path = "Target Support Files/Pods-ToonieTests/Pods-ToonieTests.debug.xcconfig"; sourceTree = "<group>"; };
+		630481886041EA402305CF71D731B02B /* Pods-ToonieTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToonieTests.release.xcconfig"; path = "Target Support Files/Pods-ToonieTests/Pods-ToonieTests.release.xcconfig"; sourceTree = "<group>"; };
+		8AFEFE4CBE574CB4EC9D40CB2C33B674 /* Pods-ToonieWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToonieWidget.debug.xcconfig"; path = "Target Support Files/Pods-ToonieWidget/Pods-ToonieWidget.debug.xcconfig"; sourceTree = "<group>"; };
+		647D3371521DDB35BF9F6896BA9AB234 /* Pods-ToonieWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToonieWidget.release.xcconfig"; path = "Target Support Files/Pods-ToonieWidget/Pods-ToonieWidget.release.xcconfig"; sourceTree = "<group>"; };
 		117585FB9F8E77DCB04082EAF82AE342 /* Pods_Toonie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Toonie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82AF128897992796FF6ED25B199B0530 /* Pods_ToonieTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToonieTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD555FC9ECBE84C48C3CE837BB6A9F53 /* Pods_ToonieWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToonieWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -345,17 +345,6 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		915E232BFC12E703E87D872ABB12FEA1 /* ToonieUse */ = {
-			isa = PBXGroup;
-			children = (
-				A0FFF1864F4BCB35182041F27A98E55B /* ToonieUseCell.swift */,
-				A4B6923B97237E8BCB12A5940A6C2563 /* ToonieUseCell.xib */,
-				A12C5ACE36CD99482A8350536144DA67 /* ToonieUseView.swift */,
-				81F1B5C95C1985047E3A8185A899839D /* ToonieUseView.xib */,
-			);
-			path = ToonieUse;
-			sourceTree = "<group>";
-		};
 		1E5EEACC73F0B2067BEA386D942B1580 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -454,19 +443,6 @@
 			path = Toonie;
 			sourceTree = "<group>";
 		};
-		51483B2FA5A46C3D0289677EDBBA0457 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				46461D78EB2754C9A17D4352D5F97AC7 /* Pods-Toonie.debug.xcconfig */,
-				300FB960FFEE2976C603D16E5DC4B10B /* Pods-Toonie.release.xcconfig */,
-				F9FED2BB74D689EF6B88421CC1B8579D /* Pods-ToonieTests.debug.xcconfig */,
-				630481886041EA402305CF71D731B02B /* Pods-ToonieTests.release.xcconfig */,
-				8AFEFE4CBE574CB4EC9D40CB2C33B674 /* Pods-ToonieWidget.debug.xcconfig */,
-				647D3371521DDB35BF9F6896BA9AB234 /* Pods-ToonieWidget.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		57EE88FD2A2AE25905F1BBA9889DD2BC /* Community */ = {
 			isa = PBXGroup;
 			children = (
@@ -526,6 +502,19 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		51483B2FA5A46C3D0289677EDBBA0457 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				46461D78EB2754C9A17D4352D5F97AC7 /* Pods-Toonie.debug.xcconfig */,
+				300FB960FFEE2976C603D16E5DC4B10B /* Pods-Toonie.release.xcconfig */,
+				F9FED2BB74D689EF6B88421CC1B8579D /* Pods-ToonieTests.debug.xcconfig */,
+				630481886041EA402305CF71D731B02B /* Pods-ToonieTests.release.xcconfig */,
+				8AFEFE4CBE574CB4EC9D40CB2C33B674 /* Pods-ToonieWidget.debug.xcconfig */,
+				647D3371521DDB35BF9F6896BA9AB234 /* Pods-ToonieWidget.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		7836618FE7A43F2F101ED61B0304A6AB /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -572,11 +561,11 @@
 		877FCA25BE64FC5825B741ED98AE22E1 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				1D04A7533C1661E80FB9A30F042B67E2 /* CategorysService.swift */,
 				383FC02752E41DED4201FA814927EC4C /* ChkToonieUpdateService.swift */,
 				F0DFADE2E74674626C62C5847756D7C3 /* CurationTagService.swift */,
 				2E371E0D955FBC2867AD25C4BD72ABF4 /* DetailToonService.swift */,
 				384EC31B5698BBD32C8427B4D3D3FA9E /* FavoriteService.swift */,
-				BF827ADC08C996D3C51D60BE675C7641 /* KeywordsService.swift */,
 				7CF3B3437C5C4EE63DDBF69594FC82C8 /* LatestService.swift */,
 				037E6B4E432C7D955CAB4DE2ED92D11C /* LookToonOfTagService.swift */,
 				FBB7847F6E2C082500A180183EDA27D6 /* RecommendService.swift */,
@@ -585,6 +574,17 @@
 				BED42905ADAEABD1D80B0CA4894DECCE /* ToonOfTagService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		915E232BFC12E703E87D872ABB12FEA1 /* ToonieUse */ = {
+			isa = PBXGroup;
+			children = (
+				A0FFF1864F4BCB35182041F27A98E55B /* ToonieUseCell.swift */,
+				A4B6923B97237E8BCB12A5940A6C2563 /* ToonieUseCell.xib */,
+				A12C5ACE36CD99482A8350536144DA67 /* ToonieUseView.swift */,
+				81F1B5C95C1985047E3A8185A899839D /* ToonieUseView.xib */,
+			);
+			path = ToonieUse;
 			sourceTree = "<group>";
 		};
 		9A660BF0B161BD3FED30F6BE9A419D40 /* Feed */ = {
@@ -782,10 +782,10 @@
 				0A03A8E701D8806A7558B618CCC2B0D5 /* [CP] Check Pods Manifest.lock */,
 				7B171198A32EB3EFBC3D890069B09B16 /* Sources */,
 				CE5F455DCBC4B8425D238EF8FF886C7F /* Frameworks */,
-				F6B7743005D9067ED5559530A50CE69C /* [CP] Embed Pods Frameworks */,
 				177D19B0706A07426A4F6DC7872AF528 /* Resources */,
 				3AD66BFD83011719AD41735D9EBCBFF0 /* Embed App Extensions */,
 				E3FD9A369F6F2BDED02CF8C41034A4E5 /* ShellScript */,
+				F6B7743005D9067ED5559530A50CE69C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -921,6 +921,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4039ED9FF2DB05B090E76221D04E96A3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ToonieTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		0A03A8E701D8806A7558B618CCC2B0D5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -965,28 +987,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4039ED9FF2DB05B090E76221D04E96A3 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ToonieTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		E3FD9A369F6F2BDED02CF8C41034A4E5 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1010,11 +1010,32 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Toonie/Pods-Toonie-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Toonie/Pods-Toonie-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/KTCenterFlowLayout/KTCenterFlowLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Toonie/Pods-Toonie-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KTCenterFlowLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1032,6 +1053,7 @@
 				2356B514E09193A5CBF1127EB3E77AB0 /* AppDelegate.swift in Sources */,
 				CE58BDE4B385906F80FB4510F44E5C7B /* CALayer+.swift in Sources */,
 				55E04A449897A03673CFACEFF9585ABD /* Card.swift in Sources */,
+				5C4CC7622F85E773A9DB08628AB6EFBC /* CategorysService.swift in Sources */,
 				BCDEA1EC37D4D5343EE8EB89C50EC320 /* ChkToonieUpdate.swift in Sources */,
 				C51E480B0D1262D5020AF02E2B26CF37 /* ChkToonieUpdateService.swift in Sources */,
 				7492E1465D238893178431F29181DE22 /* CommonFunction.swift in Sources */,
@@ -1054,7 +1076,6 @@
 				B8CD77E704B84AC69F36C250FB3FA1EC /* KeywordCell.swift in Sources */,
 				841F43351B84CE479CB40DF8E83FA09B /* KeywordSelectViewController.swift in Sources */,
 				1197A557CB1AF1158F94DFB7BD22F4DA /* Keywords.swift in Sources */,
-				4330D46CD038C3C3085241498B27CE8D /* KeywordsService.swift in Sources */,
 				10F42A8391AB9847A4363C722F33055F /* LatestService.swift in Sources */,
 				6C2DEB00B715BF373C5B50D8B880EFF5 /* LookCell.swift in Sources */,
 				8DE81B3464EE25EA61E3520654B563F5 /* LookDetailCell.swift in Sources */,

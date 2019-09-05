@@ -13,17 +13,20 @@ struct TokenService: Requestable {
     static let shared = TokenService()
     
     ///토큰 발급
-    func getToken(completion : @escaping (String) -> Void) {
-        get(API.token) { result in
-            switch result {
-            case .networkSuccess(let data):
-                guard let token = data.resResult.token else { return }
-                completion(token)
-            case .networkError(let error):
-                print(error)
-            case .networkFail:
-                print("Token Network Fail")
-            }
+    func getToken(completion : @escaping (String) -> Void) { 
+        unprocessedPost(API.token,
+                        params: nil) { (result) in
+                            switch result {
+                            case .networkSuccess(let data):
+                                if let token = String(data: data, encoding: String.Encoding.utf8) {
+                                    print("token \(token)")
+                                    completion(token)
+                                }
+                            case .networkError(let error):
+                                print(error)
+                            case .networkFail:
+                                print("Token Network Fail")
+                            }
         }
     }
 }

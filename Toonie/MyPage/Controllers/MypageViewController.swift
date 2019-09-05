@@ -43,7 +43,7 @@ final class MypageViewController: GestureViewController {
     
     private var status = ""
     private var dataList: [ToonList] = []
-    private var tagList: [String] = []
+    private var tagList: [Categorys] = []
     
     // MARK: - Life Cycle
     
@@ -133,7 +133,7 @@ final class MypageViewController: GestureViewController {
     
     /// Tag리스트를 불러오는 통신 함수
     private func getTagList() {
-        MyKeywordsService.shared.getMyKeywords { [weak self] (res) in
+        MyCategorysService.shared.getMyCategorys { [weak self] (res) in
             guard let self = self else { return }
             self.dataList.removeAll()
             self.tagList.removeAll()
@@ -254,8 +254,9 @@ extension MypageViewController: UICollectionViewDataSource {
         }
         
         if status == "tag" {
-            let tagName = tagList[indexPath.row]
-            cell.setMypageCollectionViewTagCellProperties(tagName: tagName)
+            if let tagName = tagList[indexPath.row].name {
+                cell.setMypageCollectionViewTagCellProperties(tagName: tagName)
+            }
         } else {
             let list = dataList[indexPath.row]
             if let label = list.toonName,
@@ -276,7 +277,9 @@ extension MypageViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
         if status == "tag" {
-            pushTagDetailViewController(keyword: tagList[indexPath.row])
+            if let tag = tagList[indexPath.row].name {
+                pushTagDetailViewController(keyword: tag)
+            }
         } else {
             if let toonId = dataList[indexPath.row].toonID {
                 pushDetailToonViewController(toonID: toonId)

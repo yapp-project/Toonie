@@ -69,11 +69,13 @@ final class SplashViewController: GestureViewController {
         
         //userToken이 없거나 키워드 선택을 하지 않은 유저인 경우 - true
         //나머지의 경우 - false
-        if CommonUtility.getUserToken() == ""{
+        if CommonUtility.getUserToken() == ""
+            || CommonUtility.getUserToken() == nil {
             mode(true)
         } else {
-            MyKeywordsService.shared.getMyKeywords { (myKeywords) in
-                if myKeywords?.count == 0 || myKeywords == nil {
+            MyCategorysService.shared.getMyCategorys { (myCategorys) in
+                if myCategorys?.count == 0
+                    || myCategorys == nil {
                     mode(true)
                 } else {
                     mode(false)

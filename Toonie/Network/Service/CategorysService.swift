@@ -8,19 +8,16 @@
 
 import UIKit
 
-class KeywordsService: Requestable {
-    typealias NetworkData = Keywords
-    static let shared = KeywordsService()
+class CategorysService: Requestable {
+    typealias NetworkData = [Categorys]
+    static let shared = CategorysService()
     
     //전체 키워드 리스트를 조회
-    func getKeywords(completion: @escaping ([String]?) -> Void) {
-        get(API.keywords) { result in
+    func getCategorys(completion: @escaping ([Categorys]) -> Void) {
+        get(API.categorys) { result in
             switch result {
             case .networkSuccess(let data):
-                if data.resResult.success == false {
-                    return
-                }
-                completion(data.resResult.keywords)
+                completion(data.resResult)
             case .networkError(let error):
                 print(error)
             case .networkFail:
@@ -31,19 +28,16 @@ class KeywordsService: Requestable {
     
 }
 
-class MyKeywordsService: Requestable {
-    typealias NetworkData = MyKeywords
-    static let shared = MyKeywordsService()
+class MyCategorysService: Requestable {
+    typealias NetworkData = [Categorys]
+    static let shared = MyCategorysService()
     
     ///전체 키워드 리스트를 조회
-    func getMyKeywords(completion: @escaping ([String]?) -> Void) {
-        get(API.myKeywordsToken(CommonUtility.getUserToken() ?? "")) { result in
+    func getMyCategorys(completion: @escaping ([Categorys]?) -> Void) {
+        get(API.myCategorysToken(CommonUtility.getUserToken() ?? "")) { result in
             switch result {
             case .networkSuccess(let data):
-                if data.resResult.success == false {
-                    return
-                }
-                completion(data.resResult.myKeywords)
+                completion(data.resResult)
             case .networkError(let error):
                 print(error)
             case .networkFail:
@@ -53,21 +47,20 @@ class MyKeywordsService: Requestable {
     }
     
     ///선택한 키워드 post 통신
-    func postMyKeywords(params: [String: Any],
-                        completion: @escaping () -> Void) {
-        post((API.myKeywordsToken(CommonUtility.getUserToken() ?? "")),
-             params: params) { result in
-                switch result {
-                case .networkSuccess(let data):
-                    if data.resResult.success == false {
-                        return
-                    }
-                    completion()
-                case .networkError(let error):
-                    print(error)
-                case .networkFail:
-                    print("fail")
-                }
+    func postMyCategorys(params: [String],
+                         completion: @escaping () -> Void) {
+        
+        print("asdf \(API.myCategorysToken(CommonUtility.getUserToken() ?? ""))")
+        anyTypeParamsPost(API.myCategorysToken(CommonUtility.getUserToken() ?? ""),
+                          params: params) { (result) in
+                            switch result {
+                            case .networkSuccess(let data):
+                                completion()
+                            case .networkError(let error):
+                                print(error)
+                            case .networkFail:
+                                print("fail")
+                            }
         }
     }
 }

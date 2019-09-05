@@ -12,7 +12,7 @@ import Foundation
  Base URL과 JSONDecoder의 디코딩 전략 설정
  */
 class API {
-    static let baseURL = "http://101.101.167.91:8080"
+    static let baseURL = "http://106.10.51.191"
     
     static let jsonDecoder: JSONDecoder = {
         let jsonDecoder = JSONDecoder()
@@ -28,8 +28,8 @@ class API {
         return baseURL + "/token"
     }()
     
-    static let keywords = {
-        return baseURL + "/keywords"
+    static let categorys = {
+        return baseURL + "/category"
     }()
     
     //    static let myKeywords = {
@@ -53,13 +53,13 @@ class API {
     }()
     
     //mykeywords/:token
-    static let myKeywordsToken = { (token) in
-        return myKeywords + "/" + token
+    static let myCategorysToken = { (token) in
+        return categorys + "/token/" + token
     }
     
     //kewords/:keyword
     static let keywordInfo = { (keyword) in
-        return keywords + "/" + keyword
+        return categorys + "/" + keyword
     }
     
     static let worklist = {

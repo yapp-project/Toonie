@@ -61,9 +61,9 @@ final class LookViewController: GestureViewController {
     
     ///keywrods 값들 가져옴
     func setKeywordValue() {
-        KeywordsService.shared.getKeywords { [weak self] (result) in
+        CategorysService.shared.getCategorys { [weak self] (result) in
             guard let self = self else { return }
-            self.keywords = result ?? [String]()
+//            self.keywords = result ?? [String]()
             self.reloadKeywordCollectionView()
         }
     }
