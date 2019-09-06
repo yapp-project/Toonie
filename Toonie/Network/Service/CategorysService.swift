@@ -73,8 +73,7 @@ class KeywordToonListService: Requestable {
                      completion: @escaping ([String]?) -> Void) {
         get(API.keywordInfo(keyword)) { result in
             switch result {
-            case .networkSuccess(let data):
-                print("여기\(API.keywordInfo(keyword))")
+            case .networkSuccess(let data): 
                 completion(data.resResult.toonTags)
             case .networkError(let error):
                 print(error)
