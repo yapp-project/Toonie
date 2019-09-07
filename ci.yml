@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+  pull_request:
+      - develop
+      - master
+
+jobs:
+  test:
+    runs-on: macOS-latest
+    strategy:
+      matrix:
+        env:
+          - sdk: iphonesimulator12.2
+            destination: platform=iOS Simulator,name=iPhone XS,OS=12.2
+
+    steps:
+    - uses: actions/checkout@develop
+
+    - name: Generate Xcode Project
+      run: swift package generate-xcodeproj --enable-code-coverage
+
+    - name: Build
+      run: |
+        set -o pipefail && xcodebuild clean build test \
+          -project "$PROJECT" \
+          -scheme "$SCHEME" \
+          -sdk "$SDK" \
+          -destination "$DESTINATION" \
+          -configuration Debug \
+          -enableCodeCoverage YES \
+          CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcpretty -c;
+      env:
+        PROJECT: Toonie.xcodeproj
+        SCHEME: Toonie-Package
+        SDK: ${{ matrix.env.sdk }}
+        DESTINATION: ${{ matrix.env.destination }}
