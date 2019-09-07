@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '10.1'
+# platform :ios, '11'
 
 target 'Toonie' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
@@ -8,7 +8,7 @@ target 'Toonie' do
   # Pods for Toonie
   pod 'KTCenterFlowLayout'
   pod 'Kingfisher', '~> 4.2'
-  pod 'lottie-ios', '~> 3.1.0'
+  pod 'lottie-ios', '~> 3.1.2'
   pod 'SwiftLint'
   pod 'SnapKit', '~> 4.2'
   pod 'Alamofire'
