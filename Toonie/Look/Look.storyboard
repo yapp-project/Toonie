@@ -62,10 +62,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ccs-Rs-aOQ" userLabel="TitleView">
-                                                    <rect key="frame" x="0.0" y="0.0" width="337.66666666666669" height="104"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="333.66666666666669" height="104"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="둘러보기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t4b-tB-0B4">
-                                                            <rect key="frame" x="120.33333333333331" y="21.666666666666671" width="97" height="34"/>
+                                                            <rect key="frame" x="118.33333333333331" y="21.666666666666671" width="97" height="34"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="28"/>
                                                             <color key="textColor" name="defaultText"/>
                                                             <nil key="highlightedColor"/>

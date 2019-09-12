@@ -25,7 +25,7 @@ final class LookViewController: GestureViewController {
     
     // MARK: - Properties
     
-    var keywords = [Categorys]()
+    var keywords = [Categorys?]()
     
     // MARK: - IBOutlets
     
@@ -88,8 +88,9 @@ extension LookViewController: UICollectionViewDelegate {
             else { return UICollectionViewCell() }
         
         
-        if let keywordName = keywords[indexPath.row].name {
-            let image: UIImage? = UIImage.init(named: tagImage(name: keywordName , storyboardName: "Look"))
+        if let keywordName = keywords[indexPath.row]?.name {
+            let image: UIImage? = UIImage.init(named: tagImage(name: keywordName,
+                                                               storyboardName: "Look"))
             cell.setBackgroundImageView(image: image)
         }
         
@@ -106,8 +107,8 @@ extension LookViewController: UICollectionViewDelegate {
                 return
         }
         
-        if let keywordName = keywords[indexPath.row].name {
-            viewController.selectedKeyword = keywordName
+        if let keywordName = keywords[indexPath.row] {
+            viewController.selectedCategory = keywordName
             self.navigationController?.pushViewController(viewController, animated: true)
         }
     }

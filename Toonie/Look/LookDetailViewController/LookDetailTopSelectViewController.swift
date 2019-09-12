@@ -27,13 +27,15 @@ final class LookDetailTopSelectViewController: UIViewController {
     
     //state로 on off 진행
     var tags = [TagStructure]()
-    private var toonAllList = [ToonList]()
+    private var toonAllList = [Tags]()
     
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //맨처음 전체보기 기본세팅
+        
+        print("tag Chk \(toonAllList)")
         setTags()
     }
     
@@ -42,16 +44,13 @@ final class LookDetailTopSelectViewController: UIViewController {
                                                            state: true)
         tags.append(tagStructure)
         
-        KeywordToonListService
-            .shared
-            .getKeywords(keyword: selectedKeyword) { [weak self] (tags) in
-                guard let self = self else { return }
-                for tag in tags ?? [String]() {
-                    self.tags.append(TagStructure.init(tagName: "#"+tag,
-                                                       state: false))
-                }
-                self.lookDetailTopSelectCollectionView.reloadData()
+        for tag in toonAllList {
+            if let tagName = tag.name {
+                self.tags.append(TagStructure.init(tagName: "#"+tagName,
+                                                   state: false))
+            }
         }
+        self.lookDetailTopSelectCollectionView.reloadData()
     }
 }
 

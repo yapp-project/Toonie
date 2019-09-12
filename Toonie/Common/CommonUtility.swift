@@ -46,10 +46,10 @@ final class CommonUtility: NSObject {
     }
     
     static func analytics(eventName: String, param: [String: Any]?) {
-        var replaceEventName = eventName.replacingOccurrences(of: "Toonie.", with: "")
-        replaceEventName = devSwitch ? "dev"+replaceEventName : replaceEventName
-        Analytics.logEvent(replaceEventName,
-                           parameters: param)
+//        var replaceEventName = eventName.replacingOccurrences(of: "Toonie.", with: "")
+//        replaceEventName = devSwitch ? "dev"+replaceEventName : replaceEventName
+//        Analytics.logEvent(replaceEventName,
+//                           parameters: param)
     }
     
     func compareToVersion(newVersion: String) -> Int {

@@ -32,3 +32,21 @@ struct ToonList: Codable {
         case instaPostCount = "instaPostCnt"
     }
 }
+
+
+// ebpark : 신규, 둘러보기 상세, 전체보기
+// 둘러보기 상세, 전체보기 : http://106.10.51.191/toon/category/1
+struct NewToonLists: Codable {
+    let tags: [Tags]?
+    let toons: [Toons]?
+}
+
+struct Tags: Codable {
+    let name: String?
+}
+
+struct Toons: Codable {
+    let idx: Int?
+    let imagePath: String?
+}
+c

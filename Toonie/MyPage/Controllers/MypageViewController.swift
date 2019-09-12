@@ -109,7 +109,10 @@ final class MypageViewController: GestureViewController {
             else {
                 return
         }
-        viewController.selectedKeyword = keyword
+        
+        // ebpark : Categorys 형으로 바꿔줘야함. 우선 강제로 넣어줬음
+        let imsiCategory = Categorys.init(idx: 0, name: "임시")
+        viewController.selectedCategory = imsiCategory
         self.navigationController?.pushViewController(viewController,
                                                       animated: true)
     }
