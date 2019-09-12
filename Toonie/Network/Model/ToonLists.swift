@@ -49,4 +49,3 @@ struct Toons: Codable {
     let idx: Int?
     let imagePath: String?
 }
-c
