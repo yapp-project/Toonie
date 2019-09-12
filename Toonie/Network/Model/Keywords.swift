@@ -13,7 +13,7 @@ struct Keywords: Codable {
 }
 
 struct Categorys: Codable {
-    let index: Int?
+    let idx: Int?
     let name: String?
 }
 

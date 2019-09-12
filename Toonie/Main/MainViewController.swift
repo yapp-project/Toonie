@@ -115,7 +115,7 @@ final class MainViewController: GestureViewController {
                 let tagArray = ["가족", "반려동물", "사랑 연애", "심리 감정", "여행", "음식", "자기계발", "자취생활", "직업", "페미니즘", "학교생활", "해외"]
                 let index = Int(arc4random_uniform(UInt32((tagArray.count - 1))))
                 
-                KeywordToonAllListService
+                CategoryToonAllListService
                     .shared
                     .getKeywordToonAllList(keyword: tagArray[index],
                                            completion: { [weak self]  (res) in

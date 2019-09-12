@@ -73,6 +73,7 @@ final class SplashViewController: GestureViewController {
             || CommonUtility.getUserToken() == nil {
             mode(true)
         } else {
+            print("### token \(String(describing: CommonUtility.getUserToken()))")
             MyCategorysService.shared.getMyCategorys { (myCategorys) in
                 if myCategorys?.count == 0
                     || myCategorys == nil {

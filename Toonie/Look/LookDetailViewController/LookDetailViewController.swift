@@ -18,21 +18,47 @@ final class LookDetailViewController: GestureViewController {
     @IBOutlet private weak var lookDetailCollectionViewFlowLayout: UICollectionViewFlowLayout!
     
     // MARK: - Properties
-    var selectedKeyword: String = ""
+    var selectedCategory: Categorys? = nil
+    var selectedKeywordName: String {
+        get{
+            if let name = selectedCategory?.name {
+                return name
+            }
+            return ""
+        }
+    }
+    var selectedKeywordIdx: Int {
+        get{
+            if let index = selectedCategory?.idx {
+                return index
+            }
+            return 0
+        }
+    }
+    
     private var tag = "전체보기"
     private var toonDataList = [ToonInfoList]()
     private var toonList = [ToonOfTag]()
-    private var toonAllList = [ToonList]()
     private var selectedToonID: String?
     private var favoriteToon: [ToonList]?
+    
+    private var toonsAllList = [Toons]()
+    private var tagsAllList = [Tags]()
+    
     private var isFavorite = false
     
     // MARK: - Life Cycle
     
+    //최초? : http://106.10.51.191/toon/category/1
+    //태그? : http://106.10.51.191/toon/tag?tag=%EA%B0%95%EC%95%84%EC%A7%80
     override func viewDidLoad() {
         super.viewDidLoad()
-        lookDetailTitleLabel.text = selectedKeyword
-        setCollectionViewData(keyword: selectedKeyword)
+        print("LookDetailViewController  \(selectedKeywordName)")
+        lookDetailTitleLabel.text = selectedCategory?.name
+        if let selectedCategory = selectedCategory {
+            setCollectionViewData(category: selectedCategory)
+        }
+        
         setCollectionViewLayout()
         registerForPreviewing(with: self, sourceView: lookDetailCollectionView)
         
@@ -42,19 +68,18 @@ final class LookDetailViewController: GestureViewController {
         loadFavoriteToon()
         
         CommonUtility.analytics(eventName: "LookDetailViewController",
-                                param: ["token": (CommonUtility.getUserToken() ?? "toonie") + selectedKeyword ])
+                                param: ["token": (CommonUtility.getUserToken() ?? "toonie") + selectedKeywordName])
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "topSetting" {
             if let viewController = segue.destination as? LookDetailTopSelectViewController {
-                viewController.selectedKeyword = self.selectedKeyword
+                viewController.selectedKeyword = self.selectedKeywordName
                 viewController.tagDidTapClosure = { [weak self]
                     (tagString) -> Void in
                     guard let self = self else { return }
                     self.tag = tagString
-                    print("self.selectedKeyword : \(self.selectedKeyword)")
-                    self.setCollectionViewData(keyword: self.selectedKeyword)
+                    print("self.selectedKeyword : \(self.selectedKeywordName)")
                 }
             }
         }
@@ -69,17 +94,25 @@ final class LookDetailViewController: GestureViewController {
     // MARK: - Function
     
     /// 컬렉션뷰 데이터 설정
-    private func setCollectionViewData(keyword: String) {
+    private func setCollectionViewData(category: Categorys) {
+        //최초? : http://106.10.51.191/toon/category/1
         if tag == "전체보기" {
-            KeywordToonAllListService
+            CategoryToonAllListService
                 .shared
-                .getKeywordToonAllList(keyword: self.selectedKeyword,
-                                       completion: { [weak self] (res) in
-                                        guard let self = self else { return }
-                                        guard let toonData = res else { return }
-                                        self.toonAllList = toonData
-                                        self.lookDetailCollectionView.reloadData()
-                })
+                .getCategoryToonAllList(index: selectedKeywordIdx) { [weak self] (res) in
+                    guard let self = self else { return }
+                    guard let toonData = res else { return }
+                    
+                    if let tags = toonData.tags {
+                        self.tagsAllList = tags
+                    }
+                    
+                    if let toons = toonData.toons {
+                        self.toonsAllList = toons
+                    }
+                    
+                    self.lookDetailCollectionView.reloadData()
+            }
             
         } else {
             LookToonOfTagService.shared
@@ -160,7 +193,7 @@ extension LookDetailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
         if tag == "전체보기" {
-            return toonAllList.count
+            return toonsAllList.count
         } else {
             return toonDataList.count
         }
@@ -174,7 +207,7 @@ extension LookDetailViewController: UICollectionViewDataSource {
             else { return UICollectionViewCell() }
         
         if tag == "전체보기" {
-            if let thumnailURL = toonAllList[indexPath.item].instaThumnailUrl {
+            if let thumnailURL = toonsAllList[indexPath.item].imagePath {
                 cell.setImageView(imageURL: thumnailURL)
             }
         } else {
@@ -192,15 +225,16 @@ extension LookDetailViewController: UICollectionViewDataSource {
 extension LookDetailViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
-        if tag == "전체보기" {
-            if let toonId = toonAllList[indexPath.item].toonID {
-                pushDetailToonViewController(toonID: toonId)
-            }
-        } else {
-            if let toonId = toonDataList[indexPath.item].toonID {
-                pushDetailToonViewController(toonID: toonId)
-            }
-        }
+        // ebpark : 툰상세 이동시... toonID 필요함... 현재 미개발(?) 상태인듯
+//        if tag == "전체보기" {
+//            if let toonId = toonAllList[indexPath.item].toonID {
+//                pushDetailToonViewController(toonID: toonId)
+//            }
+//        } else {
+//            if let toonId = toonDataList[indexPath.item].toonID {
+//                pushDetailToonViewController(toonID: toonId)
+//            }
+//        }
     }
 }
 
@@ -223,9 +257,10 @@ extension LookDetailViewController: UIViewControllerPreviewingDelegate {
             previewVC.preferredContentSize = CGSize
                 .init(width: UIScreen.main.bounds.width,
                       height: UIScreen.main.bounds.width)
-            selectedToonID = toonAllList[selectedIndexPath.item].toonID
+            // ebpark : 툰상세 이동시... toonID 필요함... 현재 미개발(?) 상태인듯
+//            selectedToonID = toonAllList[selectedIndexPath.item].toonID
             previewVC.toonID = selectedToonID
-            previewVC.imageUrl = toonAllList[selectedIndexPath.item].instaThumnailUrl
+            previewVC.imageUrl = toonsAllList[selectedIndexPath.item].imagePath
             previewVC.isFavorite = checkFavoriteStatus(toonId: selectedToonID ?? "")
         }
         

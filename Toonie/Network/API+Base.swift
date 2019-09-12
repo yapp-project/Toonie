@@ -57,6 +57,14 @@ class API {
         return categorys + "/token/" + token
     }
     
+    // ebpark : 신규, 둘러보기 상세, 전체보기
+    // +++ 기존에 기존 값 최대한 활용해서(예 : retrun categorys + "/token/" + token) 쓰는 방식은 너무 헷갈린것 같습니다. 하기처럼 hostURL + "나머지" 방식으로 맞추는게 나을것 같은데 다들 어떠세여?
+    // 둘러보기 상세, 전체보기 : http://106.10.51.191/toon/category/1
+    static let categoryToonAllList = { (index) in
+        return baseURL + "/toon/category/" + index
+    }
+    
+    
     //kewords/:keyword
     static let keywordInfo = { (keyword) in
         return categorys + "/" + keyword
