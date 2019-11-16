@@ -4,6 +4,8 @@
 
 ## 팀원 정보
 
+**기획** : [박준영](https://github.com/jystory1009)
+
 **iOS 클라이언트** :  [박은비](https://github.com/ebPark9511) [양어진](https://github.com/eojine) [이재은](https://github.com/Jae-eun)
 
 **서버** :  [조경현](https://github.com/EddyJo)
