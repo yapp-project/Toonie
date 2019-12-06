@@ -11,7 +11,7 @@ target 'Toonie' do
   pod 'lottie-ios', '~> 3.1.0'
   pod 'SwiftLint'
   pod 'SnapKit', '~> 4.2'
-  pod 'Alamofire'
+  pod 'Alamofire', '~> 4.2'
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
   pod 'Fabric'
