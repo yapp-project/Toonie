@@ -70,10 +70,7 @@ class SwipeCardViewController: UIViewController  {
                       width: width,
                       height: height)
     }
-    
-    override func viewDidAppear(_ animated: Bool)  {
-    }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -90,7 +87,6 @@ class SwipeCardViewController: UIViewController  {
                     closure()
                 }
             })
-        
-        
+
     }
 }

@@ -23,7 +23,6 @@ struct ToonList: Codable {
     let curationTagList: [String]?
     
     enum CodingKeys: String, CodingKey {
-        
         case toonID, toonName, instaID, instaUrl, instaThumnailUrl,
         instaInfo, toonTagList, curationTagList
         case instaFollowerCount = "instafollowerCnt"

@@ -91,10 +91,6 @@ final class MainViewController: GestureViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
     func swipeCardPresent(completion: @escaping () -> Void) {
         let lastCloseTime = UserDefaults.standard.object(forKey: "SwipeCloseTime") as? Date
         
@@ -378,8 +374,8 @@ final class MainViewController: GestureViewController {
         let request = UNNotificationRequest(identifier: "DailyNoti",
                                             content: content,
                                             trigger: trigger)
-        let center = UNUserNotificationCenter.current()
-        center.add(request) { (error) in
+
+        UNUserNotificationCenter.current().add(request) { (error) in
             print(error?.localizedDescription ?? "")
         }
     }
