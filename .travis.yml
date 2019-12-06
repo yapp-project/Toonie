@@ -1,8 +1,8 @@
 language: swift
-osx_image: xcode10.1
+osx_image: xcode11
 xcode_workspace: Toonie.xcworkspace
 xcode_scheme: Toonie
-xcode_destination: platform=iOS Simulator,OS=12.1,name=iPhone X
+xcode_destination: platform=iOS Simulator, OS=12.4, name=iPhone 11
 notifications:
   slack: yappyappios:rqxifZg6UGwXgcp0BaO8GgTa 
 before_install:
