@@ -94,7 +94,6 @@ extension PopupViewController: UICollectionViewDataSource {
                                                            font: font))
         width += 28
         
-        
         return CGSize(width: width, height: 30)
     }
     
