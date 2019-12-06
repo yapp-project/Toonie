@@ -62,7 +62,7 @@ final class ForYouCollectionViewCell: UICollectionViewCell {
                                                   defaultImgPath: "dum2")
             self.forYouToonImageView.setCorner(cornerRadius: 4)
             self.forYouToonImageView.image = self.forYouToonImageView.image?
-                .resize(newWidth: UIScreen.main.bounds.width)
+                .resizeToFit(newWidth: UIScreen.main.bounds.width)
             self.forYouToonTitleLabel.text = toonList.toonName
             self.toonIdLabel.text = toonList.toonID
         }

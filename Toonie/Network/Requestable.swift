@@ -6,7 +6,6 @@
 //  Copyright © 2019 Yapp. All rights reserved.
 //
 
-import Foundation
 import Alamofire
 
 protocol Requestable {
@@ -189,7 +188,6 @@ extension Requestable {
     
     
 }
-
 
 extension SessionManager {
     func paramArrayRequest<T>(_ url: URLConvertible,

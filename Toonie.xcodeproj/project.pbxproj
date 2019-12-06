@@ -91,7 +91,6 @@
 		B631B8F7968327C48928F96FC6378209 /* SwipeOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6DFA61908EBFE82D1698D239891682 /* SwipeOptions.swift */; };
 		D23CBF74B49019C4D424B8BBD0EECA96 /* SwipeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5414960D1B6665D0EC9E38C91978EFB /* SwipeResult.swift */; };
 		00B844A8E54481E4FA25E50FD8DCAAD1 /* SwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BC01D7FE19730BC7ED7E301350E372 /* SwipeView.swift */; };
-		5F1E70F63A95A1FF272CCB653A4C2601 /* SwipeViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36354638E53497878C5439AC5660B77A /* SwipeViewDelegate.swift */; };
 		9E6CBE75E90DB0F0A7FCD8CD72CF4A77 /* SwipeViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB7E8074D6C978182E7669BB6001E8A /* SwipeViewState.swift */; };
 		4AE025D2C380F51BB508CE678B09CB78 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3671FD5527EB6A77347C274B14DB174B /* TagCollectionViewCell.swift */; };
 		5B5A91FF17C85623166C3C785AA24108 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05FF2AD238FECB950A261C5B8CA41D6 /* TodayViewController.swift */; };
@@ -255,7 +254,6 @@
 		4E6DFA61908EBFE82D1698D239891682 /* SwipeOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeOptions.swift; sourceTree = "<group>"; };
 		B5414960D1B6665D0EC9E38C91978EFB /* SwipeResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeResult.swift; sourceTree = "<group>"; };
 		94BC01D7FE19730BC7ED7E301350E372 /* SwipeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeView.swift; sourceTree = "<group>"; };
-		36354638E53497878C5439AC5660B77A /* SwipeViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeViewDelegate.swift; sourceTree = "<group>"; };
 		5AB7E8074D6C978182E7669BB6001E8A /* SwipeViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeViewState.swift; sourceTree = "<group>"; };
 		3671FD5527EB6A77347C274B14DB174B /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
 		D05FF2AD238FECB950A261C5B8CA41D6 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -443,6 +441,19 @@
 			path = Toonie;
 			sourceTree = "<group>";
 		};
+		51483B2FA5A46C3D0289677EDBBA0457 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				46461D78EB2754C9A17D4352D5F97AC7 /* Pods-Toonie.debug.xcconfig */,
+				300FB960FFEE2976C603D16E5DC4B10B /* Pods-Toonie.release.xcconfig */,
+				F9FED2BB74D689EF6B88421CC1B8579D /* Pods-ToonieTests.debug.xcconfig */,
+				630481886041EA402305CF71D731B02B /* Pods-ToonieTests.release.xcconfig */,
+				8AFEFE4CBE574CB4EC9D40CB2C33B674 /* Pods-ToonieWidget.debug.xcconfig */,
+				647D3371521DDB35BF9F6896BA9AB234 /* Pods-ToonieWidget.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		57EE88FD2A2AE25905F1BBA9889DD2BC /* Community */ = {
 			isa = PBXGroup;
 			children = (
@@ -500,19 +511,6 @@
 				D5347DA29C97A840A7ACA03D8A5719C2 /* MypageViewController.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		51483B2FA5A46C3D0289677EDBBA0457 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				46461D78EB2754C9A17D4352D5F97AC7 /* Pods-Toonie.debug.xcconfig */,
-				300FB960FFEE2976C603D16E5DC4B10B /* Pods-Toonie.release.xcconfig */,
-				F9FED2BB74D689EF6B88421CC1B8579D /* Pods-ToonieTests.debug.xcconfig */,
-				630481886041EA402305CF71D731B02B /* Pods-ToonieTests.release.xcconfig */,
-				8AFEFE4CBE574CB4EC9D40CB2C33B674 /* Pods-ToonieWidget.debug.xcconfig */,
-				647D3371521DDB35BF9F6896BA9AB234 /* Pods-ToonieWidget.release.xcconfig */,
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 		7836618FE7A43F2F101ED61B0304A6AB /* Extension */ = {
@@ -725,7 +723,6 @@
 				4E6DFA61908EBFE82D1698D239891682 /* SwipeOptions.swift */,
 				B5414960D1B6665D0EC9E38C91978EFB /* SwipeResult.swift */,
 				94BC01D7FE19730BC7ED7E301350E372 /* SwipeView.swift */,
-				36354638E53497878C5439AC5660B77A /* SwipeViewDelegate.swift */,
 				5AB7E8074D6C978182E7669BB6001E8A /* SwipeViewState.swift */,
 			);
 			path = SwipeCard;
@@ -921,28 +918,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4039ED9FF2DB05B090E76221D04E96A3 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ToonieTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		0A03A8E701D8806A7558B618CCC2B0D5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -987,6 +962,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		4039ED9FF2DB05B090E76221D04E96A3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ToonieTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E3FD9A369F6F2BDED02CF8C41034A4E5 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1010,32 +1007,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Toonie/Pods-Toonie-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/KTCenterFlowLayout/KTCenterFlowLayout.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Toonie/Pods-Toonie-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KTCenterFlowLayout.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Toonie/Pods-Toonie-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1111,7 +1087,6 @@
 				B631B8F7968327C48928F96FC6378209 /* SwipeOptions.swift in Sources */,
 				D23CBF74B49019C4D424B8BBD0EECA96 /* SwipeResult.swift in Sources */,
 				00B844A8E54481E4FA25E50FD8DCAAD1 /* SwipeView.swift in Sources */,
-				5F1E70F63A95A1FF272CCB653A4C2601 /* SwipeViewDelegate.swift in Sources */,
 				9E6CBE75E90DB0F0A7FCD8CD72CF4A77 /* SwipeViewState.swift in Sources */,
 				4AE025D2C380F51BB508CE678B09CB78 /* TagCollectionViewCell.swift in Sources */,
 				F57EDB00538821C89A0497742A6F2B14 /* TodayViewController.swift in Sources */,

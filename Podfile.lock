@@ -1,8 +1,5 @@
 PODS:
   - Alamofire (4.8.2)
-  - Charts (3.2.2):
-    - Charts/Core (= 3.2.2)
-  - Charts/Core (3.2.2)
   - Crashlytics (3.13.1):
     - Fabric (~> 1.10.1)
   - Fabric (1.10.1)
@@ -77,8 +74,7 @@ PODS:
   - SwiftLint (0.32.0)
 
 DEPENDENCIES:
-  - Alamofire
-  - Charts (~> 3.2.0)
+  - Alamofire (~> 4.2)
   - Crashlytics
   - Fabric
   - Firebase/Core
@@ -90,9 +86,8 @@ DEPENDENCIES:
   - SwiftLint
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Alamofire
-    - Charts
     - Crashlytics
     - Fabric
     - Firebase
@@ -113,7 +108,6 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  Charts: f69cf0518b6d1d62608ca504248f1bbe0b6ae77e
   Crashlytics: 5aa8e90dcbf2f34898b4f5a0037787531246cca0
   Fabric: f6f21452846788bb44595d73e9909d79d328e617
   Firebase: 8d77bb33624ae9b62d745d82ec023de5f70f7e4f
@@ -132,6 +126,6 @@ SPEC CHECKSUMS:
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SwiftLint: 009a898ef2a1c851f45e1b59349bf6ff2ddc990d
 
-PODFILE CHECKSUM: c388aaf1062b83710ab8d3b2aecea92ff8d3dd97
+PODFILE CHECKSUM: 1c4262268c6002aed5cd12af7b7793c9df5a6206
 
-COCOAPODS: 1.7.0
+COCOAPODS: 1.8.4

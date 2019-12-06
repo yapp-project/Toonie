@@ -64,7 +64,6 @@ class API {
         return baseURL + "/toon/category/" + index
     }
     
-    
     //kewords/:keyword
     static let keywordInfo = { (keyword) in
         return categorys + "/" + keyword

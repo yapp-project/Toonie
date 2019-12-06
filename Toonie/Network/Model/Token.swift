@@ -6,7 +6,6 @@
 //  Copyright © 2019 Yapp. All rights reserved.
 //
 
-import Foundation
 struct Token: Codable {
     let success: Bool?
     let token: String?

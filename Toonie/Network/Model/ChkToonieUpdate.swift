@@ -6,8 +6,6 @@
 //  Copyright © 2019 Yapp. All rights reserved.
 //
 
-import UIKit
-
 struct ChkToonieUpdate: Codable {
     let forcedUpdate: Bool?
     let forceInfo: ForceInfo?

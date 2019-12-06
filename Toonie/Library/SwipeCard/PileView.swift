@@ -53,10 +53,10 @@ class PileView : UIView {
                     self.swipeViews.remove(at: 0)
                     
                     if self.swipeViews.count == 0 {
-                        CommonUtility.sharedInstance
+                        CommonUtility.shared
                             .mainNavigationViewController?
                             .dismiss(animated: false, completion: {
-                                if let mainViewController = CommonUtility.sharedInstance
+                                if let mainViewController = CommonUtility.shared
                                                             .mainNavigationViewController?
                                                             .rootViewController as? MainViewController {
                                     mainViewController.swipeCardComplete()

@@ -6,8 +6,6 @@
 //  Copyright © 2019 Yapp. All rights reserved.
 //
 
-import UIKit
-
 struct ChkToonieUpdateService: Requestable {
     typealias NetworkData = ChkToonieUpdate
     static let shared = ChkToonieUpdateService()

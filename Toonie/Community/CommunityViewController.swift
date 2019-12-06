@@ -10,15 +10,21 @@ import UIKit
 
 final class CommunityViewController: UIViewController {
 
+    // MARK: - IBOutlet
+
     @IBOutlet private weak var communityTableView: UITableView!
     @IBOutlet private weak var topButton: UIButton!
     @IBOutlet private weak var writeButton: UIButton!
-    
+
+    // MARK: - Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
     
     }
+
+    // MARK: - IBAction
 
     @IBAction func topButtonDidTap(_ sender: UIButton) {
         print("topbutton")
@@ -30,7 +36,10 @@ final class CommunityViewController: UIViewController {
     
 }
 
+// MARK: - UITableViewDataSource
+
 extension CommunityViewController: UITableViewDataSource {
+
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
         return 10
@@ -66,6 +75,8 @@ extension CommunityViewController: UITableViewDataSource {
     }
     
 }
+
+// MARK: - UITableViewDelegate
 
 extension CommunityViewController: UITableViewDelegate {
     

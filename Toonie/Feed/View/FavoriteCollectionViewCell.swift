@@ -61,7 +61,7 @@ final class FavoriteCollectionViewCell: UICollectionViewCell {
                                                     defaultImgPath: "dum2")
             self.favoriteToonImageView.setCorner(cornerRadius: 4)
             self.favoriteToonImageView.image = self.favoriteToonImageView.image?
-                .resize(newWidth: UIScreen.main.bounds.width)
+                .resizeToFit(newWidth: UIScreen.main.bounds.width)
             self.favoriteToonTitleLabel.text = toonList.toonName
             self.toonIdLabel.text = toonList.toonID
         }

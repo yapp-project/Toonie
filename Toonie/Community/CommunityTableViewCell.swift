@@ -10,6 +10,8 @@ import UIKit
 
 final class CommunityTableViewCell: UITableViewCell {
 
+    // MARK: - IBOutlet
+
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var modifyButton: UIButton!
     @IBOutlet private weak var dayAndTimeButton: UILabel!
@@ -17,13 +19,11 @@ final class CommunityTableViewCell: UITableViewCell {
     @IBOutlet weak var recommendView: UIView!
     @IBOutlet weak var recommendCollectionView: UICollectionView!
     @IBOutlet weak var recommendButton: UIButton!
-    
     @IBOutlet weak var recommendViewHeightConstraint: NSLayoutConstraint!
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
         recommendCollectionView.dataSource = self
         recommendCollectionView.delegate = self
     }
@@ -31,7 +31,6 @@ final class CommunityTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
     
     override func layoutSubviews() {
@@ -44,7 +43,10 @@ final class CommunityTableViewCell: UITableViewCell {
 
 }
 
+// MARK: - UICollectionViewDataSource
+
 extension CommunityTableViewCell: UICollectionViewDataSource {
+
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
         return 10
@@ -52,8 +54,9 @@ extension CommunityTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CommunityCollectionViewCell",
-                                                            for: indexPath) as? CommunityCollectionViewCell
+        guard let cell = collectionView
+            .dequeueReusableCell(withReuseIdentifier: "CommunityCollectionViewCell",
+                                 for: indexPath) as? CommunityCollectionViewCell
             else {
                 return UICollectionViewCell()
         }
@@ -66,6 +69,8 @@ extension CommunityTableViewCell: UICollectionViewDataSource {
     
     
 }
+
+// MARK: - UICollectionViewDelegate
 
 extension CommunityTableViewCell: UICollectionViewDelegate {
     

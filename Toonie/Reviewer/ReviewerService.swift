@@ -6,8 +6,6 @@
 //  Copyright © 2019 Yapp. All rights reserved.
 //
 
-import Foundation
-
 struct ReviewerService: Requestable {
     typealias NetworkData = Reviewer
     static let shared = ReviewerService()

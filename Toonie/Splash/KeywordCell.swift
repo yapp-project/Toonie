@@ -9,15 +9,22 @@
 import UIKit
 
 final class KeywordCell: UICollectionViewCell {
+
+    // MARK: - IBOutlet
+
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
-    
+
+    // MARK: - Property
+
     var cellStatus: Bool = false {
         didSet {
             setBorderViewLayout(status: cellStatus)
         }
     }
 
+    // MARK: - Function
+    
     ///didTap 일어날때마다 cellBackgroundView 레이아웃 바꿔주는 함수
     func setBorderViewLayout(status: Bool) {
         if status == false { //선택안함

@@ -6,8 +6,6 @@
 //  Copyright © 2019 Yapp. All rights reserved.
 //
 
-import Foundation
-
 struct FavoriteService: Requestable {
     typealias NetworkData = WorkList
     static let shared = FavoriteService()

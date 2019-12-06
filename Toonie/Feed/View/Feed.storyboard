@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PQr-Ap-73h">
-    <device id="retina5_9" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PQr-Ap-73h">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -659,13 +657,13 @@
                                                 <rect key="frame" x="7" y="142.66666666666666" width="361" height="394.33333333333337"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconLeftQuote" translatesAutoresizingMaskIntoConstraints="NO" id="oAo-dz-flV">
-                                                        <rect key="frame" x="35.333333333333336" y="32.666666666666686" width="25" height="21.666666666666671"/>
+                                                        <rect key="frame" x="10.333333333333329" y="-11.333333333333314" width="50" height="44"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="oAo-dz-flV" secondAttribute="height" multiplier="24:21" id="rUv-hZ-GYH"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="XdB-3x-FzX">
-                                                        <rect key="frame" x="72.333333333333329" y="32.666666666666686" width="216.33333333333337" height="43.666666666666657"/>
+                                                        <rect key="frame" x="72.333333333333329" y="-11.333333333333314" width="216.33333333333337" height="87.666666666666671"/>
                                                         <attributedString key="attributedText">
                                                             <fragment content="해외 생활에 대한 깊이 있는 이야기가 듣고 싶은 당신에게 추천해요!">
                                                                 <attributes>
@@ -678,7 +676,7 @@
                                                         <size key="shadowOffset" width="0.0" height="0.0"/>
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconRightQuote" translatesAutoresizingMaskIntoConstraints="NO" id="Fn5-TO-d3x">
-                                                        <rect key="frame" x="301.66666666666669" y="32.666666666666686" width="25" height="21.666666666666671"/>
+                                                        <rect key="frame" x="301.66666666666669" y="-11.333333333333314" width="50" height="44"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="Fn5-TO-d3x" secondAttribute="height" multiplier="24:21" id="CIL-Iz-iW0"/>
                                                         </constraints>

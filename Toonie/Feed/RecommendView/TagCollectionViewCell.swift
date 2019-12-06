@@ -13,7 +13,7 @@ final class TagCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var backView: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
     
-    private var titleString: String?
+    private var title: String?
     
     private var cellStatus: Bool = false {
         didSet {
@@ -42,19 +42,19 @@ final class TagCollectionViewCell: UICollectionViewCell {
     func setCellStatus(bool: Bool) {
         cellStatus = bool
     }
+
     func getCellStatus() -> Bool {
         return cellStatus
     }
     
-    func setTitleLabel(titleString: String?) {
-        if let titleString = titleString {
-            titleLabel.text = "#\(titleString)"
-            self.titleString = titleString
-        }
+    func setTitleLabel(_ title: String) {
+        titleLabel.text = "#\(title)"
+        self.title = title
     }
+
     func getTitleString() -> String {
-        if let titleString = self.titleString {
-            return titleString
+        if let title = self.title {
+            return title
         }
         return ""
     }

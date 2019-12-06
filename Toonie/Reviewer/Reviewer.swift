@@ -6,8 +6,6 @@
 //  Copyright © 2019 Yapp. All rights reserved.
 //
 
-import Foundation
-
 struct Reviewer: Codable {
     let inReview: Bool?
     let inReviewVersion: String?

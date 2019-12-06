@@ -87,7 +87,9 @@ final class RecommendTableViewCell: UITableViewCell {
 }
 
 // MARK: - UICollectionViewDataSource
+
 extension RecommendTableViewCell: UICollectionViewDataSource {
+
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
         return curationTagArray?.count ?? 0
@@ -95,6 +97,7 @@ extension RecommendTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
         guard let cell = collectionView
             .dequeueReusableCell(withReuseIdentifier: "RecommendCollectionViewCell",
                                  for: indexPath) as? RecommendCollectionViewCell
@@ -109,7 +112,9 @@ extension RecommendTableViewCell: UICollectionViewDataSource {
 }
 
 // MARK: - UICollectionViewDelegate
+
 extension RecommendTableViewCell: UICollectionViewDelegate {
+
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
         
@@ -118,10 +123,9 @@ extension RecommendTableViewCell: UICollectionViewDelegate {
             .instantiateViewController(withIdentifier: "DetailToonView")
             as? DetailToonViewController {
             viewController.detailToonID = curationTagArray?[indexPath.row].toonID
-            CommonUtility.sharedInstance
+            CommonUtility.shared
                 .mainNavigationViewController?
-                .pushViewController(viewController,
-                                    animated: true)
+                .pushViewController(viewController, animated: true)
         }
         
     }

@@ -10,12 +10,18 @@ import UIKit
 import Lottie
 
 final class SplashViewController: GestureViewController {
-    
+
+    // MARK: - IBOutlet
+
     @IBOutlet weak var logoFrameView: UIView!
+
+    // MARK: - Property
+
     private var logoAnimationView: AnimationView?
-    
     var moveMode: Bool = false
-    
+
+    // MARK: - Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,7 +30,7 @@ final class SplashViewController: GestureViewController {
         //사용자 상태 체크 후 애니메이션 실행.
         self.getUserSelectedKeyword { [weak self] (mode) in
             guard let self = self else { return }
-            self.logoAnimationView?.play { [weak self](finished) in
+            self.logoAnimationView?.play { [weak self] (finished) in
                 guard let self = self else { return }
                 if finished {
                     if mode == true {
@@ -36,7 +42,9 @@ final class SplashViewController: GestureViewController {
             }
         }
     }
-    
+
+    // MARK: - Function
+
     ///애니메이션 후 메인화면으로 이동
     func moveMainView() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

@@ -9,7 +9,6 @@
 import UIKit
 import Lottie
 import SnapKit
-import Charts
 
 // Feed의 NavigationController
 final class FeedNavigationController: UINavigationController {
@@ -22,7 +21,7 @@ final class FeedNavigationController: UINavigationController {
     }
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        CommonUtility.sharedInstance
+        CommonUtility.shared
             .feedNavigationViewController = self
     }
 }
@@ -64,14 +63,14 @@ final class FeedViewController: GestureViewController {
     private var latestToonLists: [ToonList]?
     private var favoriteToonLists: [ToonList]?
     private var favoriteToon: [ToonList]?
-    private var detailToonId = ""
-    private var isFavorite = false
+    private var detailToonId: String = ""
+    private var isFavorite: Bool = false
     
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        setTagAnimationView()
+        //        setTagAnimationView()
         setRecmdCardLayout()
         setEditorPickLayout()
         setToonieUseLayout()
@@ -85,7 +84,7 @@ final class FeedViewController: GestureViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        playTagAnimationView()
+        //        playTagAnimationView()
         loadFavoriteToon()
         
         CommonUtility.analytics(eventName: "FeedViewController",
@@ -97,7 +96,8 @@ final class FeedViewController: GestureViewController {
     /// 피드>피드상세 이동
     @IBAction func moveFeedDetailDidTap(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Feed", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "RecommendViewController")
+        let viewController = storyboard
+            .instantiateViewController(withIdentifier: "RecommendViewController")
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
@@ -108,14 +108,14 @@ final class FeedViewController: GestureViewController {
             as? RecommendPopupViewConroller {
             viewController.modalPresentationStyle = .overCurrentContext
             
-            CommonUtility.sharedInstance
+            CommonUtility.shared
                 .mainNavigationViewController?
-                .present(viewController,
-                         animated: false,
-                         completion:nil)
+                .present(viewController, animated: false, completion: nil)
         }
     }
+
     // MARK: - Function
+
     private func setEditorPickLayout() {
         if let view = Bundle.main
             .loadNibNamed("EditorPickView",
@@ -141,7 +141,7 @@ final class FeedViewController: GestureViewController {
     }
 
     private func setRecmdCardLayout() {
-        self.recmdCardView.setCorner(cornerRadius:10)
+        self.recmdCardView.setCorner(cornerRadius: 10)
         self.recmdCardImageView.setCorner(cornerRadius: self.recmdCardImageView.frame.width / 1.8)
     }
     
@@ -161,7 +161,6 @@ final class FeedViewController: GestureViewController {
                 } else {
                     self.forYouToonLists = makeRandomList(result,
                                                           number: 10)
-                    
                 }
                 self.forYouCollectionView.reloadData()
             }
@@ -232,7 +231,7 @@ final class FeedViewController: GestureViewController {
             .instantiateViewController(withIdentifier: "DetailToonView")
             as? DetailToonViewController {
             viewController.detailToonID = toonID
-            CommonUtility.sharedInstance
+            CommonUtility.shared
                 .mainNavigationViewController?
                 .pushViewController(viewController,
                                     animated: true)
@@ -323,15 +322,23 @@ extension FeedViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 
 extension FeedViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
+
         collectionView.deselectItem(at: indexPath, animated: true)
-        if let currentCell = collectionView.cellForItem(at: indexPath) as? ForYouCollectionViewCell {
+
+        if let currentCell = collectionView
+            .cellForItem(at: indexPath) as? ForYouCollectionViewCell {
             detailToonId = currentCell.toonIdLabel.text ?? ""
         }
-        if let currentCell = collectionView.cellForItem(at: indexPath) as? RecentCollectionViewCell {
+
+        if let currentCell = collectionView
+            .cellForItem(at: indexPath) as? RecentCollectionViewCell {
             detailToonId = currentCell.toonIdLabel.text ?? ""
         }
-        if let currentCell = collectionView.cellForItem(at: indexPath) as? FavoriteCollectionViewCell {
+
+        if let currentCell = collectionView
+            .cellForItem(at: indexPath) as? FavoriteCollectionViewCell {
             detailToonId = currentCell.toonIdLabel.text ?? ""
         }
         pushDetailToonViewController(toonID: detailToonId, isFavorite: isFavorite)

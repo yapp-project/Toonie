@@ -9,7 +9,7 @@
 import UIKit
 
 final class EditorPickView: UIView {
- 
+
     // MARK: - Properties
     
     // MARK: - IBOutlets
@@ -23,12 +23,13 @@ final class EditorPickView: UIView {
         let nibName = UINib(nibName: "EditorPickCollectionViewCell",
                             bundle: nil)
         editorCollectionView.register(nibName,
-                                         forCellWithReuseIdentifier: "EditorPickCollectionViewCell")
+                                      forCellWithReuseIdentifier: "EditorPickCollectionViewCell")
     }
 
 }
 
-// MARK: - UICollectionViewDataSource, UICollectionViewDelegate
+// MARK: - UICollectionViewDataSource
+
 extension EditorPickView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
@@ -37,8 +38,9 @@ extension EditorPickView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EditorPickCollectionViewCell",
-                                                            for: indexPath) as? EditorPickCollectionViewCell
+        guard let cell = collectionView
+            .dequeueReusableCell(withReuseIdentifier: "EditorPickCollectionViewCell",
+                                 for: indexPath) as? EditorPickCollectionViewCell
             else {
                 return UICollectionViewCell()
         }
@@ -46,8 +48,9 @@ extension EditorPickView: UICollectionViewDataSource {
         return cell
     }
     
-    
 }
+
+// MARK: - UICollectionViewDelegate
 
 extension EditorPickView: UICollectionViewDelegate {
     

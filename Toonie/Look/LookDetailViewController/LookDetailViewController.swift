@@ -149,7 +149,7 @@ final class LookDetailViewController: GestureViewController {
             .instantiateViewController(withIdentifier: "DetailToonView")
             as? DetailToonViewController {
             viewController.detailToonID = toonID
-            CommonUtility.sharedInstance
+            CommonUtility.shared
                 .mainNavigationViewController?
                 .pushViewController(viewController,
                                     animated: true)
@@ -241,6 +241,7 @@ extension LookDetailViewController: UICollectionViewDelegate {
 // MARK: - UIViewControllerPreviewingDelegate
 
 extension LookDetailViewController: UIViewControllerPreviewingDelegate {
+
     func previewingContext(_ previewingContext: UIViewControllerPreviewing,
                            viewControllerForLocation location: CGPoint) -> UIViewController? {
         

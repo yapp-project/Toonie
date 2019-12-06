@@ -27,7 +27,7 @@ final class CommonUtility: NSObject {
     var myTagDic = [String: String]()
     
     //싱글톤
-    static let sharedInstance = CommonUtility()
+    static let shared = CommonUtility()
     
     ///userToken 가져옴
     static func getUserToken() -> String? {
@@ -46,10 +46,10 @@ final class CommonUtility: NSObject {
     }
     
     static func analytics(eventName: String, param: [String: Any]?) {
-//        var replaceEventName = eventName.replacingOccurrences(of: "Toonie.", with: "")
-//        replaceEventName = devSwitch ? "dev"+replaceEventName : replaceEventName
-//        Analytics.logEvent(replaceEventName,
-//                           parameters: param)
+        //        var replaceEventName = eventName.replacingOccurrences(of: "Toonie.", with: "")
+        //        replaceEventName = devSwitch ? "dev"+replaceEventName : replaceEventName
+        //        Analytics.logEvent(replaceEventName,
+        //                           parameters: param)
     }
     
     func compareToVersion(newVersion: String) -> Int {
@@ -94,40 +94,38 @@ final class CommonUtility: NSObject {
         }
         return 0 
     }
-  
+
     ///앱 3번 실행마다 앱리뷰 요청
     func showStoreReview() {
         let detailEnterCnt = UserDefaults.standard.integer(forKey: "appStartCount")
         
-            if 3 <= detailEnterCnt {
-                SKStoreReviewController.requestReview()
-                UserDefaults.standard.set(0, forKey: "appStartCount")
-            }
+        if detailEnterCnt <= 3 {
+            SKStoreReviewController.requestReview()
+            UserDefaults.standard.set(0, forKey: "appStartCount")
+        }
     }
     
     ///오늘나는 인스타툰을 읽고 싶어요: 하루에 한번인데 오늘 하루 지났는지 체크함
-    func isDateCompare(lastCloseTime: Date?,
-                       hideDay: Int) -> Bool{
+    func checkPassOneDay(by lastCloseTime: Date?,
+                         hideDay: Int) -> Bool {
         //true: 안지남 -> 팝업뜨면안됨, false: 지남 -> 팝업떠야함
 
-        guard lastCloseTime != nil else {
+        guard let lastCloseTime = lastCloseTime else {
             return false
         }
-        
-        if let lastCloseTime = lastCloseTime {
-            do {
-                let formatter = DateComponentsFormatter()
-                formatter.allowedUnits = [.hour]
-                formatter.unitsStyle = .full
-                if let hourString = formatter.string(from: lastCloseTime.addingTimeInterval(TimeInterval(86400 * hideDay))
-                    , to: Date.init()) {
-                    print("\(hourString)만큼 차이납니다.")
-                    
-                    let hour = hourString.replacingOccurrences(of: " hours", with: "")
-                    
-                    if 0 <= Int(hour) ?? 0 {
-                        return false
-                    }
+
+        do {
+            let formatter = DateComponentsFormatter()
+            formatter.allowedUnits = [.hour]
+            formatter.unitsStyle = .full
+            if let hourString = formatter.string(from: lastCloseTime.addingTimeInterval(TimeInterval(86400 * hideDay))
+                , to: Date.init()) {
+                print("\(hourString)만큼 차이납니다.")
+
+                let hour = Int(hourString.replacingOccurrences(of: " hours", with: "")) ?? 0
+
+                if hour <= 0 {
+                    return false
                 }
             }
         }

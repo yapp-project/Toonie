@@ -18,9 +18,10 @@ final class MyPageNavigationController: UINavigationController {
     override init(rootViewController: UIViewController) {
         super.init(rootViewController: rootViewController)
     }
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        CommonUtility.sharedInstance
+        CommonUtility.shared
             .myPageNavigationViewController = self
     }
 }
@@ -93,7 +94,7 @@ final class MypageViewController: GestureViewController {
             .instantiateViewController(withIdentifier: "DetailToonView")
             as? DetailToonViewController {
             viewController.detailToonID = toonID
-            CommonUtility.sharedInstance
+            CommonUtility.shared
                 .mainNavigationViewController?
                 .pushViewController(viewController,
                                     animated: true)

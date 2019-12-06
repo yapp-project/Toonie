@@ -71,8 +71,8 @@ extension LookDetailTopSelectViewController: UICollectionViewDataSource {
                                  for: indexPath) as? LookDetailTopSelectCell
             else { return UICollectionViewCell() }
         
-        cell.setTitleLabel(text: tags[indexPath.row].tagName)
-        cell.setCellStatus(bool: tags[indexPath.row].state)
+        cell.setTitleLabel(text: tags[indexPath.item].tagName)
+        cell.setCellStatus(bool: tags[indexPath.item].state)
         
         return cell
     }
@@ -81,7 +81,7 @@ extension LookDetailTopSelectViewController: UICollectionViewDataSource {
                         didSelectItemAt indexPath: IndexPath) {
         
         if let closure = self.tagDidTapClosure {
-            closure(tags[indexPath.row]
+            closure(tags[indexPath.item]
                 .tagName
                 .replacingOccurrences(of: "#",
                                       with: ""))
@@ -102,7 +102,7 @@ extension LookDetailTopSelectViewController: UICollectionViewDataSource {
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let keyword = tags[indexPath.row].tagName
+        let keyword = tags[indexPath.item].tagName
         let font = UIFont.getAppleSDGothicNeo(option: .medium,
                                               size: 14)
         var width = Int(keyword.widthWithConstrainedHeight(height: 17,
@@ -123,11 +123,12 @@ extension LookDetailTopSelectViewController: UICollectionViewDelegate {
 // MARK: - CollectionView : TagView - UICollectionViewDelegateFlowLayout
 
 extension LookDetailTopSelectViewController: UICollectionViewDelegateFlowLayout {
+
     private func collectionView(collectionView: UICollectionView,
                                 layout collectionViewLayout: UICollectionViewLayout,
                                 sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
         
-        let keyword = tags[indexPath.row].tagName
+        let keyword = tags[indexPath.item].tagName
         let font = UIFont.getAppleSDGothicNeo(option: .medium,
                                               size: 14)
         var width = Int(keyword.widthWithConstrainedHeight(height: 17,

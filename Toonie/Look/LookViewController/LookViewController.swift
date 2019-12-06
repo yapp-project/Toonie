@@ -15,7 +15,7 @@ final class LookNavigationController: UINavigationController {
     }
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        CommonUtility.sharedInstance
+        CommonUtility.shared
             .lookNavigationViewController = self
     }
 }

@@ -6,8 +6,6 @@
 //  Copyright © 2019 Yapp. All rights reserved.
 //
 
-import Foundation
-
 struct DetailToon: Codable {
     let toonID: String?
     let toonName: String?

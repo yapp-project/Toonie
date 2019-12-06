@@ -70,17 +70,14 @@ class SwipeCardViewController: UIViewController  {
                       width: width,
                       height: height)
     }
-    
-    override func viewDidAppear(_ animated: Bool)  {
-    }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
     
     @IBAction private func closeButtonDidTap(_ sender: Any) {
-        CommonUtility.sharedInstance
+        CommonUtility.shared
             .mainNavigationViewController?
             .dismiss(animated: false, completion: { [weak self] in
                 guard let self = self else { return }
@@ -90,7 +87,6 @@ class SwipeCardViewController: UIViewController  {
                     closure()
                 }
             })
-        
-        
+
     }
 }
