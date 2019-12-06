@@ -6,8 +6,6 @@
 //  Copyright © 2019 Yapp. All rights reserved.
 //
 
-import Foundation
-
 struct ToonOfTag: Codable {
     let toonTag: String?
     let toonInfoList: [ToonInfoList]?

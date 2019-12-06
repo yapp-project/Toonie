@@ -97,10 +97,18 @@ final class DetailToonViewController: GestureViewController, UITextFieldDelegate
         tagTextField.returnKeyType = .done
         hideKeyboard()
         guard let detailToonID = detailToonID else { return }
-        myTagLabel.text = CommonUtility.sharedInstance.myTagDic[detailToonID] ?? ""
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        myTagLabel.text = CommonUtility.shared.myTagDic[detailToonID] ?? ""
+        NotificationCenter.default
+            .addObserver(self,
+                         selector: #selector(keyboardWillShow(_:)),
+                         name: UIResponder.keyboardWillShowNotification,
+                         object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default
+            .addObserver(self,
+                         selector: #selector(keyboardWillHide(_:)),
+                         name: UIResponder.keyboardWillHideNotification,
+                         object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -117,7 +125,6 @@ final class DetailToonViewController: GestureViewController, UITextFieldDelegate
         
         CommonUtility.analytics(eventName: "DetailViewController",
                                 param: ["toonId": detailToonID ?? "toonId"])
-        
     }
     
     // MARK: - Functions
@@ -143,14 +150,15 @@ final class DetailToonViewController: GestureViewController, UITextFieldDelegate
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         myTagLabel.text = tagTextField.text
-        CommonUtility.sharedInstance.myTagDic.updateValue(myTagLabel.text ?? "", forKey: detailToonID ?? "")
+        CommonUtility.shared.myTagDic.updateValue(myTagLabel.text ?? "", forKey: detailToonID ?? "")
         tagTextField.resignFirstResponder()
         return true
     }
     
     /// 상세화면 툰 정보 네트워크 요청
     private func loadDetailToon(_ toonID: String) {
-        DetailToonService.shared.getDetailToon(toonId: toonID) { [weak self] result in
+        DetailToonService.shared
+            .getDetailToon(toonId: toonID) { [weak self] result in
             guard let self = self else { return }
             self.detailToon = result
             if let detailToon = self.detailToon {
@@ -187,7 +195,7 @@ final class DetailToonViewController: GestureViewController, UITextFieldDelegate
             self.detailToonImageView.imageFromUrl(detailToon.instaThumnailUrl, defaultImgPath: "dum2")
             self.detailToonImageView.setCorner(cornerRadius: self.detailToonImageView.frame.width / 2)
             self.detailToonImageView.image = self.detailToonImageView.image?
-                .resize(newWidth: UIScreen.main.bounds.width)
+                .resizeToFit(newWidth: UIScreen.main.bounds.width)
             self.authorIDLabel.text = detailToon.instaID
             self.authorNameLabel.text = detailToon.toonName
             self.descriptionLabel.text = " " //detailToon.instaInfo

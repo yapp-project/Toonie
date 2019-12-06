@@ -6,8 +6,6 @@
 //  Copyright © 2019 Yapp. All rights reserved.
 //
 
-import Foundation
-
 struct DetailToonService: Requestable {
     typealias NetworkData = DetailToon
     static let shared = DetailToonService()

@@ -15,7 +15,7 @@ final class RecommendPopupViewConroller: UIViewController {
     
     // MARK: - IBOutlets
     @IBOutlet private weak var buttonHeight: NSLayoutConstraint!
- 
+
     // MARK: - Life Cycle 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,7 @@ final class RecommendPopupViewConroller: UIViewController {
         }
 
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UIView.animate(withDuration: 0.3) {
@@ -39,13 +39,14 @@ final class RecommendPopupViewConroller: UIViewController {
     
     // MARK: - IBAction
     @IBAction private func closeButtonDidTap(_ sender: Any) {
-        UIView.animate(withDuration: 0.3, animations: {
-            self.buttonHeight.constant = self.initalHeight / 5
-            self.view.alpha = 0
-            self.view.layoutIfNeeded()
+        UIView.animate(withDuration: 0.3,
+                       animations: {
+                        self.buttonHeight.constant = self.initalHeight / 5
+                        self.view.alpha = 0
+                        self.view.layoutIfNeeded()
         }) { (_) in
             self.dismiss(animated: true, completion: nil)
         }
     }
- 
+
 }

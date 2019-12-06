@@ -67,6 +67,6 @@ final class PreviewViewController: UIViewController {
     private func setImage() {
         self.previewImageView.imageFromUrl(imageUrl, defaultImgPath: "dum2")
         self.previewImageView.image = self.previewImageView.image?
-            .resize(newWidth: UIScreen.main.bounds.width)
+            .resizeToFit(newWidth: UIScreen.main.bounds.width)
     }
 }

@@ -16,7 +16,7 @@ extension UIView {
         self.layer.cornerRadius = cornerRadius
     }
     
-    ///border corner 설정하는 메서드
+    ///border corner 설정
     func setBorder(color: CGColor = UIColor.black.cgColor,
                    borderWidth: CGFloat = 1.0) {
         self.layer.borderWidth = borderWidth

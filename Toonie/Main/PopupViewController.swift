@@ -25,7 +25,7 @@ final class PopupViewController: UIViewController {
     @IBAction private func closeButtonDidTap(_ sender: Any) {
         self.navigationController?.dismiss(animated: true,
                                            completion: nil)
-        CommonUtility.sharedInstance
+        CommonUtility.shared
         .mainNavigationViewController?
             .dismiss(animated: false, completion: nil)
         
@@ -34,7 +34,7 @@ final class PopupViewController: UIViewController {
     }
 
     @IBAction private func recommendMoveDidTap(_ sender: Any) {
-        CommonUtility.sharedInstance
+        CommonUtility.shared
             .mainNavigationViewController?.dismiss(animated: false, completion: {
                 self.moveRecommend()
             })
@@ -47,7 +47,7 @@ final class PopupViewController: UIViewController {
             .instantiateViewController(withIdentifier: "RecommendViewController")
             as? RecommendViewController {
             viewController.setTagSelectArray(selectArr: self.tagList)
-            CommonUtility.sharedInstance
+            CommonUtility.shared
                 .mainNavigationViewController?
                 .pushViewController(viewController, animated: true)
         }
@@ -76,7 +76,7 @@ extension PopupViewController: UICollectionViewDataSource {
                                  for: indexPath) as? TagCollectionViewCell
             else { return UICollectionViewCell() }
         let titleName = tagList[indexPath.row]
-        cell.setTitleLabel(titleString: titleName)
+        cell.setTitleLabel(titleName)
         
         cell.setCellStatus(bool: true)
         

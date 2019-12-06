@@ -42,6 +42,7 @@ final class LookDetailTopSelectCell: UICollectionViewCell {
     func setCellStatus(bool: Bool) {
         cellStatus = bool
     }
+    
     func getCellStatus() -> Bool {
         return cellStatus
     }

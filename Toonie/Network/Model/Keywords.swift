@@ -6,7 +6,6 @@
 //  Copyright © 2019 Yapp. All rights reserved.
 //
 
-import Foundation
 struct Keywords: Codable {
     let success: Bool?
     let keywords: [String]?

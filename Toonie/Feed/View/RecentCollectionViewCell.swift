@@ -59,7 +59,7 @@ final class RecentCollectionViewCell: UICollectionViewCell {
                                                   defaultImgPath: "dum2")
             self.recentToonImageView.setCorner(cornerRadius: 4)
             self.recentToonImageView.image = self.recentToonImageView.image?
-                .resize(newWidth: UIScreen.main.bounds.width)
+                .resizeToFit(newWidth: UIScreen.main.bounds.width)
             self.recentToonTitleLabel.text = toonList.toonName
             self.toonIdLabel.text = toonList.toonID
         }

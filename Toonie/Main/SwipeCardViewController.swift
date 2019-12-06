@@ -80,7 +80,7 @@ class SwipeCardViewController: UIViewController  {
     
     
     @IBAction private func closeButtonDidTap(_ sender: Any) {
-        CommonUtility.sharedInstance
+        CommonUtility.shared
             .mainNavigationViewController?
             .dismiss(animated: false, completion: { [weak self] in
                 guard let self = self else { return }

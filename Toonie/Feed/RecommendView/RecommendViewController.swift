@@ -96,7 +96,10 @@ final class RecommendViewController: GestureViewController {
     func setTagFlowLayout() {
         tagCollectionViewFlowLayout.minimumInteritemSpacing = 10
         tagCollectionViewFlowLayout.minimumLineSpacing = 9 //라인 사이의 최소간격
-        tagCollectionViewFlowLayout.sectionInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
+        tagCollectionViewFlowLayout.sectionInset = UIEdgeInsets.init(top: 0,
+                                                                     left: 0,
+                                                                     bottom: 0,
+                                                                     right: 0)
         tagCollectionViewFlowLayout.estimatedItemSize = CGSize.init(width: 20, height: 30)
     }
     
@@ -125,8 +128,10 @@ final class RecommendViewController: GestureViewController {
     
 }
 
-// MARK: - TableView : 전체를 이루는 뷰
+// MARK: - UITableViewDataSource : 전체를 이루는 뷰
+
 extension RecommendViewController: UITableViewDataSource {
+
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
         if tagSelectArray.count == 0 {
@@ -163,6 +168,7 @@ extension RecommendViewController: UITableViewDataSource {
 }
 
 // MARK: - CollectionView : TagView - UICollectionViewDataSource
+
 extension RecommendViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
@@ -179,7 +185,7 @@ extension RecommendViewController: UICollectionViewDataSource {
                                  for: indexPath) as? TagCollectionViewCell
             else { return UICollectionViewCell() }
         let titleName = tagList[indexPath.row]
-        cell.setTitleLabel(titleString: titleName)
+        cell.setTitleLabel(titleName)
         
         cell.setCellStatus(bool: false)
         
@@ -188,7 +194,6 @@ extension RecommendViewController: UICollectionViewDataSource {
                 cell.setCellStatus(bool: true)
             }
         }
-        
         
         return cell
     }
@@ -232,9 +237,12 @@ extension RecommendViewController: UICollectionViewDataSource {
 }
 
 // MARK: - CollectionView : TagView - UICollectionViewDelegate
+
 extension RecommendViewController: UICollectionViewDelegate {
+
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
+        
         if let cell = collectionView.cellForItem(at: indexPath) as? TagCollectionViewCell {
             cell.setCellStatus(bool: !cell.getCellStatus())
             
@@ -257,10 +265,13 @@ extension RecommendViewController: UICollectionViewDelegate {
 }
 
 // MARK: - CollectionView : TagView - UICollectionViewDelegateFlowLayout
+
 extension RecommendViewController: UICollectionViewDelegateFlowLayout {
+
     private func collectionView(collectionView: UICollectionView,
                                 layout collectionViewLayout: UICollectionViewLayout,
                                 sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
+
         let keyword = tagList[indexPath.row]
         let font = UIFont.getAppleSDGothicNeo(option: .regular,
                                               size: 14)

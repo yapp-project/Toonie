@@ -8,7 +8,7 @@
 
 import UIKit
 
-// '지금나는
+// '지금나는'
 final class RecommendCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Properties
@@ -68,7 +68,7 @@ final class RecommendCollectionViewCell: UICollectionViewCell {
         if let info = curationInfoList { 
             DispatchQueue.main.async {
                 self.recentToonImageView.image = self.recentToonImageView.image?
-                    .resize(newWidth: UIScreen.main.bounds.width / 2)
+                    .resizeToFit(newWidth: UIScreen.main.bounds.width / 2)
                 self.recentToonImageView.imageFromUrl(info.instaThumnailUrl,
                                                       defaultImgPath: "dum2")
             }

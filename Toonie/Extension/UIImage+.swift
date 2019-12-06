@@ -9,8 +9,8 @@
 import UIKit
 
 extension UIImage {
-    // 이미지 크기 변경.
-    func resize(newWidth: CGFloat) -> UIImage? {
+    /// 이미지 비율에 맞춰 넓이 조건으로 크기 변경
+    func resizeToFit(newWidth: CGFloat) -> UIImage? {
         let scale = newWidth / size.width
         let newHeight = size.height * scale
         UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))

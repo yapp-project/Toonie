@@ -10,14 +10,19 @@ import UIKit
 import NotificationCenter
 
 final class TodayViewController: UIViewController, NCWidgetProviding {
-    
+
+    // MARK: - IBOutlet
     @IBOutlet private weak var widgetCollecionView: UICollectionView!
     @IBOutlet private weak var curtionButton: UIButton!
     
-    
-    private let tagArray = ["가족", "반려동물", "사랑 연애", "심리 감정", "여행", "음식", "자기계발", "자취생활", "직업", "페미니즘", "학교생활", "해외"]
+    // MARK: - Property
+
+    private let tagArray = ["가족", "반려동물", "사랑 연애", "심리 감정", "여행",
+                            "음식", "자기계발", "자취생활", "직업", "페미니즘", "학교생활", "해외"]
     private var tagList: [String] = []
-    
+
+    // MARK: - IBAction
+
     @IBAction func curationButton(_ sender: Any) {
         
         let url = URL(string: "Toonie://")!
@@ -28,6 +33,8 @@ final class TodayViewController: UIViewController, NCWidgetProviding {
         })
         
     }
+
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +46,9 @@ final class TodayViewController: UIViewController, NCWidgetProviding {
         tagList = makeRandomList(tagArray, number: 4)
         widgetCollecionView.reloadData()
     }
-    
+
+    // MARK: - Function
+
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         
         completionHandler(NCUpdateResult.newData)
@@ -47,8 +56,12 @@ final class TodayViewController: UIViewController, NCWidgetProviding {
     
 }
 
+// MARK: - UICollectionViewDataSource
+
 extension TodayViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
         
         return tagList.count
     }
@@ -68,6 +81,8 @@ extension TodayViewController: UICollectionViewDataSource {
         return cell
     }
 }
+
+// MARK: - UICollectionViewDelegate
 
 extension TodayViewController: UICollectionViewDelegate {
     

@@ -10,17 +10,24 @@ import UIKit
 import KTCenterFlowLayout
 
 final class KeywordSelectViewController: GestureViewController {
+
+    // MARK: - IBOutlet
+
     @IBOutlet weak var bigTitleLabel: UILabel!
     @IBOutlet weak var keywordCollecionView: UICollectionView!
     @IBOutlet weak var keywordFlowLayout: KTCenterFlowLayout!
     @IBOutlet weak var keywordCountLabel: UILabel!
     @IBOutlet weak var mainMoveButton: UIButton!
-    
+
+    // MARK: - Properties
+
     private var layoutMode: Bool = false
     var selectingCategoryArray = [String]() // 선택할 카테고리가 들어갈 배열
     
     var categorys = [Categorys]()
-    
+
+    // MARK: - Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setUserToken()
@@ -35,26 +42,30 @@ final class KeywordSelectViewController: GestureViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         setKeywordValue()
         
         CommonUtility.analytics(eventName: "KeywordViewController",
                                 param: ["token": CommonUtility.getUserToken() ?? "toonie"])
     }
-    
+
+    // MARK: - IBAction
+
     ///시작하기 버튼-메인으로 이동
     @IBAction func startButtonDidTap(_ sender: UIButton) {
         print("선택한 카테고리 \(selectingCategoryArray)")
-//        // 누르면
-//        postMyCategorys
+        //        // 누르면
+        //        postMyCategorys
         MyCategorysService.shared.postMyCategorys(params: selectingCategoryArray) {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let viewController = storyboard.instantiateViewController(withIdentifier: "RootViewController")
             UIApplication.shared.keyWindow?.rootViewController = viewController
         }
     }
-    
+
+    // MARK: - Function
+
     ///keywordFlowLayout 프로퍼티 설정
     func setKeywordFlowLayout() {
         keywordFlowLayout.minimumInteritemSpacing = 10
@@ -108,7 +119,8 @@ final class KeywordSelectViewController: GestureViewController {
     
 }
 
-extension KeywordSelectViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+// MARK: - UICollectionViewDataSource
+extension KeywordSelectViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categorys.count
     }
@@ -125,57 +137,64 @@ extension KeywordSelectViewController: UICollectionViewDelegate, UICollectionVie
         cell.titleLabel.text = categorys[indexPath.row].name
         
         cell.cellStatus = false
-//
-//        //사용자가 선택한 키워드는 활성화처리
-//        for categorySelect in categorySelectArray
-//            where categorys[indexPath.row] == categorySelect {
-//                cell.cellStatus = true
-//        }
+        //
+        //        //사용자가 선택한 키워드는 활성화처리
+        //        for categorySelect in categorySelectArray
+        //            where categorys[indexPath.item] == categorySelect {
+        //                cell.cellStatus = true
+        //        }
         
         return cell
     }
     
+}
+
+// MARK: - UICollectionViewDelegate
+
+extension KeywordSelectViewController: UICollectionViewDelegate {
+
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        if let category = categorys[indexPath.row].name{
+
+        if let category = categorys[indexPath.item].name{
             let width = Int(category.widthWithConstrainedHeight(height: 49,
                                                                 font: UIFont.systemFont(ofSize: 20)))
             return CGSize(width: width + 20, height: 50)
         }
-        
-           return CGSize(width: 20, height: 50)
-        
+
+        return CGSize(width: 20, height: 50)
+
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? KeywordCell {
             cell.cellStatus = !cell.cellStatus
-            
+
             //선택한 키워드 추가 및 삭제
             if cell.cellStatus == true {
-                self.selectingCategoryArray.append(self.categorys[indexPath.row].name ?? "")
+                self.selectingCategoryArray.append(self.categorys[indexPath.item].name ?? "")
             } else {
                 let findIndex = self.selectingCategoryArray.firstIndex(of: cell.titleLabel.text ?? "")
-                
+
                 if let index = findIndex {
                     self.selectingCategoryArray.remove(at: index)
                 }
             }
-            
+
             //카운트레이블, 버튼 리로드
             self.reloadKeywordView()
         }
     }
-    
 }
+
+// MARK: - UICollectionViewDelegateFlowLayout
 
 extension KeywordSelectViewController: UICollectionViewDelegateFlowLayout {
     private func collectionView(collectionView: UICollectionView,
                                 layout collectionViewLayout: UICollectionViewLayout,
                                 sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
-        if let category = categorys[indexPath.row].name{
+        if let category = categorys[indexPath.item].name{
             let width = Int(category.widthWithConstrainedHeight(height: 49,
                                                                 font: UIFont.systemFont(ofSize: 20)))
             return CGSize(width: width + 20, height: 50)

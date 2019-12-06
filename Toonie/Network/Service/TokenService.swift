@@ -6,8 +6,6 @@
 //  Copyright © 2019 Yapp. All rights reserved.
 //
 
-import Foundation
-
 struct TokenService: Requestable {
     typealias NetworkData = Token
     static let shared = TokenService()

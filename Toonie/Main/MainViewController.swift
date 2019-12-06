@@ -14,14 +14,14 @@ final class MainNavigationController: UINavigationController {
     var rootViewController: UIViewController? {
         return viewControllers.first
     }
-    
-    
+
     override init(rootViewController: UIViewController) {
         super.init(rootViewController: rootViewController)
     }
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        CommonUtility.sharedInstance
+        CommonUtility.shared
             .mainNavigationViewController = self
     }
 }
@@ -80,19 +80,15 @@ final class MainViewController: GestureViewController {
         chkToonieUpdate()
         
         //앱리뷰요청
-        CommonUtility.sharedInstance.showStoreReview()
+        CommonUtility.shared.showStoreReview()
         
         setLocalNotification()
-        inputNotification()
+        addLocalNotification()
         
         //심사용
         swipeCardPresent { [weak self] in
-            guard let self = self else { return }
-            self.popupPresent()
+            self?.popupPresent()
         }
-        
-        //일반용
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -102,9 +98,9 @@ final class MainViewController: GestureViewController {
     func swipeCardPresent(completion: @escaping () -> Void) {
         let lastCloseTime = UserDefaults.standard.object(forKey: "SwipeCloseTime") as? Date
         
-        if CommonUtility.sharedInstance
-            .isDateCompare(lastCloseTime: lastCloseTime,
-                           hideDay: 7) == false {
+        if CommonUtility.shared
+            .checkPassOneDay(by: lastCloseTime,
+                             hideDay: 7) == false {
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             if let viewController = storyboard
@@ -112,7 +108,8 @@ final class MainViewController: GestureViewController {
                 as? SwipeCardViewController {
                 viewController.modalPresentationStyle = .overCurrentContext
                 
-                let tagArray = ["가족", "반려동물", "사랑 연애", "심리 감정", "여행", "음식", "자기계발", "자취생활", "직업", "페미니즘", "학교생활", "해외"]
+                let tagArray = ["가족", "반려동물", "사랑 연애", "심리 감정", "여행", "음식",
+                                "자기계발", "자취생활", "직업", "페미니즘", "학교생활", "해외"]
                 let index = Int(arc4random_uniform(UInt32((tagArray.count - 1))))
                 
                 CategoryToonAllListService
@@ -146,7 +143,7 @@ final class MainViewController: GestureViewController {
                                                 self.popupPresent()
                                             }
                                             
-                                            CommonUtility.sharedInstance
+                                            CommonUtility.shared
                                                 .mainNavigationViewController?
                                                 .present(viewController,
                                                          animated: false,
@@ -164,9 +161,9 @@ final class MainViewController: GestureViewController {
         //오늘하루 체크
         let lastCloseTime = UserDefaults.standard.object(forKey: "PopupCloseTime") as? Date
         
-        if CommonUtility.sharedInstance
-            .isDateCompare(lastCloseTime: lastCloseTime,
-                           hideDay: 1) == false {
+        if CommonUtility.shared
+            .checkPassOneDay(by: lastCloseTime,
+                             hideDay: 1) == false {
             
             getCurationTagList { (tagList) in
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -176,7 +173,7 @@ final class MainViewController: GestureViewController {
                     viewController.modalPresentationStyle = .overCurrentContext
                     viewController.setTagList(tagList: tagList)
                     
-                    CommonUtility.sharedInstance
+                    CommonUtility.shared
                         .mainNavigationViewController?
                         .present(viewController,
                                  animated: false,
@@ -186,8 +183,7 @@ final class MainViewController: GestureViewController {
         }
         
     }
-    
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "MyPage" {
             if let myPageNavigationController = segue.destination as? MyPageNavigationController {
@@ -236,7 +232,6 @@ final class MainViewController: GestureViewController {
         }
         
         statusButton = sender
-        
     }
     
     // MARK: - Function
@@ -244,19 +239,19 @@ final class MainViewController: GestureViewController {
     func didTapDoubleButton() {
         switch statusButton {
         case feedButton:
-            CommonUtility.sharedInstance
+            CommonUtility.shared
                 .feedNavigationViewController?
                 .popToRootViewController(animated: true)
         case lookButton:
-            CommonUtility.sharedInstance
+            CommonUtility.shared
                 .lookNavigationViewController?
                 .popToRootViewController(animated: true)
         case myPageButton:
-            CommonUtility.sharedInstance
+            CommonUtility.shared
                 .myPageNavigationViewController?
                 .popToRootViewController(animated: true)
         default:
-            CommonUtility.sharedInstance
+            CommonUtility.shared
                 .feedNavigationViewController?
                 .popToRootViewController(animated: true)
         }
@@ -297,7 +292,7 @@ final class MainViewController: GestureViewController {
             guard let self = self else { return }
             if result.forcedUpdate == true {
                 if let forcedVersion = result.forceInfo?.forcedVersion {
-                    if CommonUtility.sharedInstance
+                    if CommonUtility.shared
                         .compareToVersion(newVersion: forcedVersion) < 0 {
                         
                         self.chkToonieUpdateAlertShow(message: result
@@ -314,7 +309,7 @@ final class MainViewController: GestureViewController {
             }
             if result.targetUpdate == true {
                 if let targetVersion = result.targetInfo?.targetVersion {
-                    if CommonUtility.sharedInstance
+                    if CommonUtility.shared
                         .compareToVersion(newVersion: targetVersion) == 0 {
                         
                         self.chkToonieUpdateAlertShow(message: result
@@ -342,8 +337,8 @@ final class MainViewController: GestureViewController {
                     if let url = URL(string: urlString) {
                         UIApplication.shared.open(url, options: [:])
                     }
-                }
-                .present(to: self)
+            }
+            .present(to: self)
         } else {
             UIAlertController
                 .alert(title: nil,
@@ -353,37 +348,39 @@ final class MainViewController: GestureViewController {
                     if let url = URL(string: urlString) {
                         UIApplication.shared.open(url, options: [:])
                     }
-                }
-                .action(title: "취소", style: .default) { _ in
-                }
-                .present(to: self)
+            }
+            .action(title: "취소", style: .default) { _ in
+            }
+            .present(to: self)
         }
     }
     
     /// 로컬 노티피케이션 설정
     private func setLocalNotification() {
-        // MARK: - 여기 options에 원하는 option넣기.
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert], completionHandler: { (_, _) in
-            
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert],
+                                                                completionHandler: { (_, _) in
+
         })
         UNUserNotificationCenter.current().delegate = self
     }
-    
-    private func inputNotification() {
-        
+
+    /// 로컬 노티피케이션 추가
+    private func addLocalNotification() {
         let content = UNMutableNotificationContent()
         content.body = "오늘은 어떤 툰을 볼까요? 투니가 추천해줄게요!"
         
         var dateComponents = DateComponents()
-        dateComponents.hour = 21
-        dateComponents.minute = 07
+        dateComponents.hour = 22
+        dateComponents.minute = 00
         
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-        let request = UNNotificationRequest(identifier: "DailyNoti", content: content, trigger: trigger)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents,
+                                                    repeats: true)
+        let request = UNNotificationRequest(identifier: "DailyNoti",
+                                            content: content,
+                                            trigger: trigger)
         let center = UNUserNotificationCenter.current()
         center.add(request) { (error) in
             print(error?.localizedDescription ?? "")
-            
         }
     }
     
@@ -401,7 +398,8 @@ final class MainViewController: GestureViewController {
             completion(randArray)
         }
     }
-    
+
+    /// 카드 스와이프 완료 후 알림창
     func swipeCardComplete() {
         UIAlertController
             .alert(title: nil,
@@ -410,8 +408,8 @@ final class MainViewController: GestureViewController {
             .action(title: "확인", style: .default) { _ in
                 UserDefaults.standard.set(Date.init(), forKey: "SwipeCloseTime")
                 self.popupPresent()
-            }
-            .present(to: self)
+        }
+        .present(to: self)
     }
 }
 

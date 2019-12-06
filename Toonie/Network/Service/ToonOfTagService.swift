@@ -6,8 +6,6 @@
 //  Copyright © 2019 Yapp. All rights reserved.
 //
 
-import Foundation
-
 struct ToonOfTagService: Requestable {
     typealias NetworkData = ToonOfTag
     static let shared = ToonOfTagService()

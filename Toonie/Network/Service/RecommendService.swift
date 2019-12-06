@@ -6,8 +6,6 @@
 //  Copyright © 2019 Yapp. All rights reserved.
 //
 
-import Foundation
-
 struct RecommendService: Requestable {
     typealias NetworkData = Recommends
     static let shared = RecommendService()

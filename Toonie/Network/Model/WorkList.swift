@@ -6,8 +6,6 @@
 //  Copyright © 2019 Yapp. All rights reserved.
 //
 
-import Foundation
-
 struct WorkList: Codable {
     let success: Bool?
     let workListName: String?
